@@ -16,8 +16,16 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from RRRApp import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('RRRApp.urls')),
+    #----------------Pages----------------
+    path('',views.index, name='home'),
+    path('home/',views.index, name='home'),
+    path('team/',views.team, name='team'),
+    path('cars/',views.cars, name='cars'),
+    path('sponsorships/',views.sponsor, name='sponsor'),
+    path('car-show/',views.carshow, name='carshow'),
 ]
