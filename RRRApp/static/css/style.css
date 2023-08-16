@@ -1,3 +1,35 @@
 * {
-    font-family: 'Times New Roman', Times, serif;
+    font-family:'Courier New', Courier, monospace;
+}
+
+.top {
+    background-color: #f0f0f0; /* Add your preferred background color */
+    overflow: hidden; /* Clear the float */
+}
+
+.logo {
+    float: left;
+    padding: 10px;
+}
+
+.logo-image {
+    width: 100px; /* Adjust the width of your logo */
+    height: 100px; /* Adjust the height of your logo */
+    background-color: #ccc; /* Add your preferred background color */
+}
+
+nav {
+    float: right;
+    padding: 10px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #333; /* Add your preferred text color */
+}
+
+button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
 }

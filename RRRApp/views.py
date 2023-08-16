@@ -21,3 +21,6 @@ def sponsor(request):
 
 def carshow(request):
     return render(request, "carshow.html",)
+
+def faq(request):
+    return render(request, "faq.html",)

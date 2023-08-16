@@ -6,18 +6,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <script src="{% static 'js/script.js' %}"></script>  
-    <title>{% block title %}{% endblock %} - Red Raider Racing</title>
+    <title>{% block title %}{% endblock %}Red Raider Racing</title>
 </head>
 <body>
-    <header>
-        <nav>
-            <a href="/home"><button>Home</button></a>
-            <a href="/team"><button>Our Team</button></a>
-            <a href="/cars"><button>Our Cars</button></a>
-            <a href="/sponsorships"><button>Sponsorships</button></a>
-            <a href="/car-show"><button>Car Show</button></a>
-        </nav>
-    </header>
+    <div class="top">
+        <header>
+            <div class="logo">
+                <a href=""><div class="logo-image"></div></a>
+            </div>
+            <nav>
+                <a href="/home"><button>Home</button></a>
+                <a href="/team"><button>Team</button></a>
+                <a href="/cars"><button>Cars</button></a>
+                <a href="/sponsors"><button>Sponsors</button></a>
+                <a href="/car-show"><button>Car Show</button></a>
+                <a href="/faq"><button>FAQ</button></a>
+            </nav>
+        </header>
+    </div>    
+    
     <main>
         {% block content %}{% endblock %}
     </main>

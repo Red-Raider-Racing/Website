@@ -26,6 +26,7 @@ urlpatterns = [
     path('home/',views.index, name='home'),
     path('team/',views.team, name='team'),
     path('cars/',views.cars, name='cars'),
-    path('sponsorships/',views.sponsor, name='sponsor'),
+    path('sponsors/',views.sponsor, name='sponsor'),
     path('car-show/',views.carshow, name='carshow'),
+    path('faq/',views.faq, name='faq'),
 ]
