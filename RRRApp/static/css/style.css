@@ -5,7 +5,7 @@
 header {
     background-color: #f0f0f0; /* Add your preferred background color */
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
 }
 
 .logo {
