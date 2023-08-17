@@ -2,13 +2,13 @@
     font-family:'Courier New', Courier, monospace;
 }
 
-.top {
+header {
     background-color: #f0f0f0; /* Add your preferred background color */
-    overflow: hidden; /* Clear the float */
+    display: flex;
+    justify-content: space-between;
 }
 
 .logo {
-    float: left;
     padding: 10px;
 }
 
@@ -19,7 +19,6 @@
 }
 
 nav {
-    float: right;
     padding: 10px;
 }
 
