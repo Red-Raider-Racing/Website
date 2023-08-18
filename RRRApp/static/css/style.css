@@ -16,6 +16,9 @@ header {
     background-color: #f0f0f0; /* Add your preferred background color */
     display: flex;
     justify-content: space-around;
+    position: fixed;
+    top: 0;
+    width: 100%;
 }
 
 .logo {
@@ -29,7 +32,10 @@ header {
 }
 
 nav {
+    display: flex;
+    justify-content: space-around;
     padding: 10px;
+    align-items: center;
 }
 
 nav a {
@@ -53,8 +59,31 @@ button {
 .welcomeContainer{
     margin: 0;
     padding: 10px;
+    text-align: right;
 }
 
 .welcomeTitle{
+    margin: 0;
+    text-align: left;
+}
+
+.join{
+    margin: 5px auto 0px auto
+}
+
+.subtext{
+    margin: 0 auto;
+}
+
+.rights{
+    width: 100%;
+    background-color: #f0f0f0;
+    padding: 10px;
+    text-align: center;
+    font-size: small;
+    margin: 0;
+}
+
+.footerText{
     margin: 0;
 }
