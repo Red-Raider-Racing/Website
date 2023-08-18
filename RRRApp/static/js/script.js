@@ -32,7 +32,26 @@ document.addEventListener("DOMContentLoaded", function() {
 
 // Function to update the padding of the "main" element based on the height of the "nav" element
 function updateMainPadding() {
-    const navElement = document.querySelector("nav");
+    const logo = document.querySelector(".logo-image")
+    const logoCon = document.querySelector(".logo")
+
+    const viewportWidth = window.innerWidth;
+    if (viewportWidth <= 435 && viewportWidth > 365){
+        console.log("Small");
+        logo.style.width = '30px';
+        logoCon.style.display = 'block';
+    }
+    else if(viewportWidth <= 365 ){
+        console.log("Smaller");
+        logoCon.style.display = 'none';
+    }
+    else{
+        console.log("large");
+        logo.style.width = '100px';
+        logoCon.style.display = 'block';
+    }
+
+    const navElement = document.getElementById("mainHeader");
     const mainElement = document.querySelector(".main");
     mainElement.style.paddingTop = `${navElement.clientHeight}px`;
 }

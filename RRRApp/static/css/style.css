@@ -15,6 +15,7 @@ main{
 header {
     background-color: #f0f0f0; /* Add your preferred background color */
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-around;
     position: fixed;
     top: 0;
@@ -27,15 +28,17 @@ header {
 
 .logo-image {
     width: 100px; /* Adjust the width of your logo */
-    height: 100px; /* Adjust the height of your logo */
+    aspect-ratio: 1;
     background-color: #ccc; /* Add your preferred background color */
 }
 
 nav {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-around;
     padding: 10px;
     align-items: center;
+    flex-grow: .5;
 }
 
 nav a {
