@@ -2,6 +2,16 @@
     font-family:'Courier New', Courier, monospace;
 }
 
+body{
+    margin: 0;
+}
+
+main{
+    margin: auto;
+    width: 100%;
+    max-width: 1200px;
+}
+
 header {
     background-color: #f0f0f0; /* Add your preferred background color */
     display: flex;
@@ -31,4 +41,20 @@ button {
     background-color: transparent;
     border: none;
     cursor: pointer;
+}
+
+.coverIMG {
+    width:100%;
+    --Wid: 1000px;
+    height: calc(.5*var(--Wid)); /* Adjust the height of your logo */
+    background-color: #797979; /* Add your preferred background color */
+}
+
+.welcomeContainer{
+    margin: 0;
+    padding: 10px;
+}
+
+.welcomeTitle{
+    margin: 0;
 }
