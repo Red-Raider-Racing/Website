@@ -23,16 +23,20 @@ header {
 }
 
 .logo {
-    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 5px;
 }
 
 .logo-image {
+    padding: 10px;
     width: 100px; /* Adjust the width of your logo */
     aspect-ratio: 1;
     background-color: #ccc; /* Add your preferred background color */
 }
 
-nav {
+.navMain{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
@@ -44,7 +48,56 @@ nav {
 nav a {
     text-decoration: none;
     color: #333; /* Add your preferred text color */
+    margin: 10px;
 }
+
+nav button{
+    font-size: 20px;
+}
+
+.altNav{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: end;
+    padding: 10px;
+    align-items: center;
+    flex-grow: .5;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    border-radius: 5px;
+    display: none;
+    position: absolute;
+    background-color: white;
+    /* background-color: var(--primary-color); */
+    min-width: 100px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    border-radius: 5px;
+    /* color: var(--font-color); */
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: center;
+}
+
+/* .dropdown-content a:hover {
+    background-color: var(--secondary-color);
+    color: #477463;
+} */
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
 
 button {
     background-color: transparent;

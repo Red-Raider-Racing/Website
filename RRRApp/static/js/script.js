@@ -34,21 +34,30 @@ document.addEventListener("DOMContentLoaded", function() {
 function updateMainPadding() {
     const logo = document.querySelector(".logo-image")
     const logoCon = document.querySelector(".logo")
+    const navMain = document.querySelector(".navMain")
+    const altNav = document.querySelector(".altNav")
 
     const viewportWidth = window.innerWidth;
-    if (viewportWidth <= 435 && viewportWidth > 365){
+    if (viewportWidth <= 758 && viewportWidth > 676){
         console.log("Small");
-        logo.style.width = '30px';
-        logoCon.style.display = 'block';
+        logo.style.width = '40px';
+        navMain.style.display = 'flex';
+        altNav.style.display = 'none';
+        logoCon.style.padding = '0px'
     }
-    else if(viewportWidth <= 365 ){
+    else if(viewportWidth <= 676 ){
         console.log("Smaller");
-        logoCon.style.display = 'none';
+        logo.style.width = '40px';
+        logoCon.style.padding = '0px'
+        navMain.style.display = 'none';
+        altNav.style.display = 'flex';
     }
     else{
         console.log("large");
         logo.style.width = '100px';
-        logoCon.style.display = 'block';
+        navMain.style.display = 'flex';
+        altNav.style.display = 'none';
+        logoCon.style.padding = '10px'
     }
 
     const navElement = document.getElementById("mainHeader");
