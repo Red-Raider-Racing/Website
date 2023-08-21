@@ -39,21 +39,18 @@ function updateMainPadding() {
 
     const viewportWidth = window.innerWidth;
     if (viewportWidth <= 758 && viewportWidth > 676){
-        console.log("Small");
         logo.style.width = '40px';
         navMain.style.display = 'flex';
         altNav.style.display = 'none';
         logoCon.style.padding = '0px'
     }
     else if(viewportWidth <= 676 ){
-        console.log("Smaller");
         logo.style.width = '40px';
         logoCon.style.padding = '0px'
         navMain.style.display = 'none';
         altNav.style.display = 'flex';
     }
     else{
-        console.log("large");
         logo.style.width = '100px';
         navMain.style.display = 'flex';
         altNav.style.display = 'none';
@@ -70,3 +67,24 @@ document.addEventListener("DOMContentLoaded", updateMainPadding);
 
 // Update padding on window resize
 window.addEventListener("resize", updateMainPadding);
+
+// Add an event listener to the document that listens for clicks
+document.addEventListener("click", function(event) {
+    const menuButton = document.querySelector(".dropdown");
+    const menu = document.querySelector(".dropdown-content");
+    if (!menuButton.contains(event.target)) {
+        menu.style.display = "none";
+    }
+});
+
+// Function to toggle the display of the dropdown content
+function toggleMenu() {
+    const menu = document.querySelector(".dropdown-content");
+    if(menu.style.display == "block"){
+        menu.style.display = "none";
+    }
+    else{
+        menu.style.display = "block";
+    }
+}
+
