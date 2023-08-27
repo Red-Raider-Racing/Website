@@ -215,6 +215,7 @@ button {
     position: relative;
     perspective: 1000px; /* Set the perspective for 3D effect */
     cursor: pointer;
+    padding: 20px;
 }
 
 .menuButton{
