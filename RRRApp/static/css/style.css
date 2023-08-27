@@ -21,6 +21,7 @@ body{
 main{
     margin: auto;
     width: 100%;
+    overflow-x: visible;
 }
 
 header {
@@ -204,10 +205,17 @@ button {
     margin: 0;
 }
 
+footer{
+    margin-top: 50px;
+    position: relative;
+    z-index: 100;
+}
+
 .about{
     max-width: 1200px;
     margin: 0 auto;
     text-align: center;
+    overflow-x: visible;
 }
 
 .benefits{
@@ -216,6 +224,7 @@ button {
     align-items: center;
     flex-wrap: wrap;
     z-index: 50;
+    overflow-x: visible;
 }
 
 .benefit{
@@ -229,7 +238,7 @@ button {
     perspective: 1000px; /* Set the perspective for 3D effect */
     cursor: pointer;
     padding: 20px;
-    overflow-x: unset;
+    overflow-x: visible;
 }
 
 .menuButton{
