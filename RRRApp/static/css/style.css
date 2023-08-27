@@ -1,25 +1,36 @@
+:root {
+    --primary-color: #414141;
+    --primary-faded-color: #414141f5;
+    --primary-more-faded-color: #414141da;
+    --secondary-color: #521f1fda;
+    --background-color: #252525;
+    --font-color: #d3d3d3;
+}
+
 * {
     font-family: 'Poppins';
 }
 
 body{
     margin: 0;
+    background-color: var(--background-color);
+    color: var(--font-color);
 }
 
 main{
     margin: auto;
     width: 100%;
-    max-width: 1200px;
 }
 
 header {
-    background-color: #f0f0f0; /* Add your preferred background color */
+    background-color: var(--primary-faded-color); /* Add your preferred background color */
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
     position: fixed;
     top: 0;
     width: 100%;
+    z-index: 100;
 }
 
 .logo {
@@ -33,7 +44,7 @@ header {
     padding: 10px;
     width: 100px; /* Adjust the width of your logo */
     aspect-ratio: 1;
-    background-color: #ccc; /* Add your preferred background color */
+    background-color: #222222; /* Add your preferred background color */
 }
 
 .navMain{
@@ -45,14 +56,47 @@ header {
     flex-grow: .5;
 }
 
-nav a {
+a button{
     text-decoration: none;
-    color: #333; /* Add your preferred text color */
+    color: var(--font-color); /* Add your preferred text color */
     margin: 10px;
+    text-align: center;
 }
 
 nav button{
-    font-size: 20px;
+    font-size: 19px;
+}
+
+nav a{
+    height: 80px;
+    width: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: blink;
+}
+
+.navMain a:hover {
+    color: var(--font-color);
+    text-decoration: none;
+    position: relative; /* Add relative positioning for pseudo-element */
+}
+
+.navMain a:hover::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 20px; /* Adjust the distance below the link */
+    width: 100%;
+    height: 2px; /* Adjust the thickness of the underline */
+    background-color: var(--font-color); /* Change the color of the underline */
+    transform: scaleX(0);
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Reveal the underline on hover */
+.navMain a:hover::after {
+    transform: scaleX(.7);
 }
 
 .altNav{
@@ -66,21 +110,20 @@ nav button{
 
 .dropdown {
     position: relative;
-    display: block;
+    left: 50px;
+    display: flex; /* Use flex display for vertical alignment */
+    flex-direction: column; /* Stack the content vertically */
+    align-items: flex-end; /* Align content to the right */
+    justify-content: start;
 }
 
 .dropdown-content {
     border-radius: 5px;
     display: none;
-    position: absolute;
-    right: -45px;
-
-    background-color: white;
-    /* background-color: var(--primary-color); */
     min-width: 100px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
+    z-index: 100;
     margin: auto;
+    flex-grow: 1;
 }
 
 .dropdown-content a {
@@ -88,15 +131,14 @@ nav button{
     /* color: var(--font-color); */
     padding: 12px 16px;
     text-decoration: none;
-    display: block;
-    text-align: center;
-    margin: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-/* .dropdown-content a:hover {
+.dropdown-content a:hover {
     background-color: var(--secondary-color);
-    color: #477463;
-} */
+}
 
 .dropdown:hover .dropdown-content {
     display: block;
@@ -117,9 +159,10 @@ button {
 }
 
 .welcomeContainer{
-    margin: 0;
+    margin: 0 auto;
     padding: 10px;
     text-align: right;
+    max-width: 1200px;
 }
 
 .welcomeTitle{
@@ -137,7 +180,7 @@ button {
 
 .rights{
     width: 100%;
-    background-color: #f0f0f0;
+    background-color: var(--primary-faded-color);
     padding: 10px;
     text-align: center;
     font-size: small;
@@ -146,4 +189,71 @@ button {
 
 .footerText{
     margin: 0;
+}
+
+.about{
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.benefits{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    z-index: 50;
+}
+
+.benefit{
+    width: 300px;
+    height: 350px;
+    margin: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    perspective: 1000px; /* Set the perspective for 3D effect */
+    cursor: pointer;
+}
+
+.menuButton{
+    color: var(--font-color);
+}
+
+.benefitTitle,
+.benefitDes {
+    background-color: var(--secondary-color);
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden; /* Hide the backface of the card */
+    transform-origin: center; /* Set the rotation axis to the center of the card */
+    border-radius: 20px;
+    transition: transform 0.4s ease-out; /* Add a smooth transition */
+    text-align: center;
+}
+
+.benefitTitle {
+    transform: rotateY(0deg); /* Initially visible side */
+}
+
+.benefit:hover,.benefit:active .benefitTitle {
+    transform: rotateY(180deg); /* Rotate to hide title */
+}
+
+.benefitDes {
+    transform: rotateY(-180deg); /* Initially hidden side */
+}
+
+.benefit:hover,.benefit:active .benefitDes {
+    transform: rotateY(0deg); /* Rotate to reveal description */
+}
+
+.benefit.flipped .benefitTitle {
+    transform: rotateY(180deg);
+}
+
+.benefit.flipped .benefitDes {
+    transform: rotateY(0deg);
 }

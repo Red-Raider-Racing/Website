@@ -38,13 +38,13 @@ function updateMainPadding() {
     const altNav = document.querySelector(".altNav")
 
     const viewportWidth = window.innerWidth;
-    if (viewportWidth <= 758 && viewportWidth > 676){
+    if (viewportWidth <= 890 && viewportWidth > 810){
         logo.style.width = '40px';
         navMain.style.display = 'flex';
         altNav.style.display = 'none';
         logoCon.style.padding = '0px'
     }
-    else if(viewportWidth <= 676 ){
+    else if(viewportWidth <= 810 ){
         logo.style.width = '40px';
         logoCon.style.padding = '0px'
         navMain.style.display = 'none';
@@ -70,9 +70,9 @@ window.addEventListener("resize", updateMainPadding);
 
 // Add an event listener to the document that listens for clicks
 document.addEventListener("click", function(event) {
-    const menuButton = document.querySelector(".dropdown");
+    const header = document.getElementById("mainHeader");
     const menu = document.querySelector(".dropdown-content");
-    if (!menuButton.contains(event.target)) {
+    if (!header.contains(event.target)) {
         menu.style.display = "none";
     }
 });
@@ -80,11 +80,53 @@ document.addEventListener("click", function(event) {
 // Function to toggle the display of the dropdown content
 function toggleMenu() {
     const menu = document.querySelector(".dropdown-content");
-    if(menu.style.display == "block"){
+    const menuButton = document.querySelector(".menuButton");
+    const header = document.getElementById("mainHeader");
+    const logo = document.querySelector(".logo-image");
+
+    if (menu.style.display === "block") {
+        // Close the menu
         menu.style.display = "none";
-    }
-    else{
+        menuButton.innerHTML = "Menu";
+        menuButton.style.marginLeft = "0px";
+        menuButton.style.marginRight = "0px";
+        menuButton.style.marginTop = "0px";
+        header.style.height = "";
+        logo.style.width = '40px';
+
+        // Enable scrolling
+        enableScrolling();
+    } else {
+        // Open the menu
         menu.style.display = "block";
+        menuButton.innerHTML = "&#x2715";
+        menuButton.style.marginLeft = "-10px";
+        menuButton.style.marginRight = "50px";
+        menuButton.style.marginTop = "-120px";
+        header.style.height = "100%";
+        logo.style.width = '100px';
+
+        // Disable scrolling
+        disableScrolling();
     }
+}
+
+// Function to disable scrolling
+function disableScrolling() {
+    const scrollY = window.scrollY;
+    document.body.style.position = "fixed";
+    document.body.style.top = `-${scrollY}px`;
+}
+
+// Function to enable scrolling
+function enableScrolling() {
+    const scrollY = parseInt(document.body.style.top);
+    document.body.style.position = "";
+    document.body.style.top = "";
+    window.scrollTo(0, scrollY);
+}
+
+function toggleFlip(card) {
+    card.classList.toggle('flipped');
 }
 
