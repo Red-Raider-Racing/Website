@@ -2,15 +2,19 @@
 {% block title %}Home - {% endblock %}
 {% block content %}
 <head>
-
+    <style>
+        .pageTitle{
+            text-align: right;
+        }
+    </style>
 </head>
 <body>
     <div class="coverIMG">
-        <div class="welcomeContainer">
+        <div class="pageTitle">
             <h1 class="welcomeTitle">Welcome!</h1>
             <h3 class="join">Looking to Join Red Raider Racing?</h3>
             <p class="subtext">We welcome all majors.</p>
-            <a href="/faq"><button><strong>LEARN MORE</strong></button></a>            
+            <a href="/faq"><button><strong class="learnMore">LEARN MORE</strong></button></a>            
         </div>
     </div>
     <div class="about">
@@ -26,16 +30,16 @@
         </p>
         <div class="benefits">
             <div class="benefit flip-card" onclick="toggleFlip(this)">
-                <h3 class="benefitTitle">Innovate</h3>
-                <p class="benefitDes">This is the description for Innovate</p>
+                <h3 class="benefitTitle">Benefit #1</h3>
+                <p class="benefitDes">This is the description for Benefit #1</p>
             </div>
             <div class="benefit flip-card" onclick="toggleFlip(this)">
-                <h3 class="benefitTitle">Fabricate</h3>
-                <p class="benefitDes">This is the description for Fabricate</p>
+                <h3 class="benefitTitle">Benefit #2</h3>
+                <p class="benefitDes">This is the description for Benefit #2</p>
             </div>
             <div class="benefit flip-card" onclick="toggleFlip(this)">
-                <h3 class="benefitTitle">Accelerate</h3>
-                <p class="benefitDes">This is the description for Accelerate</p>
+                <h3 class="benefitTitle">Benefit #3</h3>
+                <p class="benefitDes">This is the description for Benefit #3</p>
             </div>            
         </div>
 

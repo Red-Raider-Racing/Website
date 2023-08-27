@@ -36,8 +36,27 @@ function updateMainPadding() {
     const logoCon = document.querySelector(".logo")
     const navMain = document.querySelector(".navMain")
     const altNav = document.querySelector(".altNav")
+    const menuButton = document.querySelector(".menuButton");
+    const header = document.getElementById("mainHeader");
+    const menu = document.querySelector(".dropdown-content");
 
     const viewportWidth = window.innerWidth;
+
+    if (menu.style.display === "block") {
+        // Close the menu
+        menu.style.display = "none";
+        menuButton.style.position = "relative";
+        menuButton.style.top = "";
+        menuButton.innerHTML = "Menu";
+        menuButton.style.marginLeft = "0px";
+        menuButton.style.marginTop = "0px";
+        header.style.height = "";
+        logoCon.style.display = 'block';
+
+        // Enable scrolling
+        enableScrolling();
+    } 
+
     if (viewportWidth <= 890 && viewportWidth > 810){
         logo.style.width = '40px';
         navMain.style.display = 'flex';
@@ -58,7 +77,7 @@ function updateMainPadding() {
     }
 
     const navElement = document.getElementById("mainHeader");
-    const mainElement = document.querySelector(".main");
+    const mainElement = document.querySelector(".pageTitle");
     mainElement.style.paddingTop = `${navElement.clientHeight}px`;
 }
 
@@ -80,31 +99,40 @@ document.addEventListener("click", function(event) {
 // Function to toggle the display of the dropdown content
 function toggleMenu() {
     const menu = document.querySelector(".dropdown-content");
+    const menuCon = document.querySelector(".dropdown");
     const menuButton = document.querySelector(".menuButton");
     const header = document.getElementById("mainHeader");
-    const logo = document.querySelector(".logo-image");
+    const logo = document.querySelector(".logo");
 
     if (menu.style.display === "block") {
         // Close the menu
         menu.style.display = "none";
-        menuButton.innerHTML = "Menu";
+        menuButton.style.position = "relative";
+        menuButton.style.top = "";
+        menuButton.innerHTML = "&#9776;";
         menuButton.style.marginLeft = "0px";
-        menuButton.style.marginRight = "0px";
         menuButton.style.marginTop = "0px";
         header.style.height = "";
-        logo.style.width = '40px';
+        logo.style.display = 'block';
+        menuCon.style.top = "";
+        menuCon.style.left = "";
+        menuCon.style.right = "";
 
         // Enable scrolling
         enableScrolling();
     } else {
         // Open the menu
+        menuButton.style.position = "absolute";
+        menuButton.style.top = "45px";
         menu.style.display = "block";
         menuButton.innerHTML = "&#x2715";
-        menuButton.style.marginLeft = "-10px";
-        menuButton.style.marginRight = "50px";
+        menuButton.style.marginLeft = "200px";
         menuButton.style.marginTop = "-120px";
         header.style.height = "100%";
-        logo.style.width = '100px';
+        logo.style.display = 'none';
+        menuCon.style.top = "100px";
+        menuCon.style.left = "0";
+        menuCon.style.right = "0";
 
         // Disable scrolling
         disableScrolling();
@@ -115,7 +143,7 @@ function toggleMenu() {
 function disableScrolling() {
     const scrollY = window.scrollY;
     document.body.style.position = "fixed";
-    document.body.style.top = `-${scrollY}px`;
+    document.body.style.top = `${scrollY}px`;
 }
 
 // Function to enable scrolling
@@ -130,3 +158,17 @@ function toggleFlip(card) {
     card.classList.toggle('flipped');
 }
 
+let prevScrollPos = window.pageYOffset;
+
+window.onscroll = function() {
+    const currentScrollPos = window.pageYOffset;    
+    const navElement = document.getElementById("mainHeader");
+
+    if (prevScrollPos > currentScrollPos) {
+        document.getElementById("mainHeader").style.top = "0";
+    } else {
+        document.getElementById("mainHeader").style.top = `-${navElement.clientHeight}px`; // Hide header
+    }
+
+    prevScrollPos = currentScrollPos;
+};
