@@ -125,7 +125,7 @@ function toggleMenu() {
         menuButton.style.position = "absolute";
         menuButton.style.top = "45px";
         menu.style.display = "block";
-        menuButton.innerHTML = "&#x2715";
+        menuButton.innerHTML = "&#10006;";
         menuButton.style.marginLeft = "330px";
         menuButton.style.marginTop = "-120px";
         header.style.height = "100%";
