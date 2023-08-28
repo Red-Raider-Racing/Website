@@ -2,9 +2,10 @@
     --primary-color: #414141;
     --primary-faded-color: #414141f5;
     --primary-more-faded-color: #414141da;
-    --secondary-color: #521f1fda;
+    --secondary-color: #960a0ada;
     --background-color: #252525;
     --font-color: #d3d3d3;
+    --shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
 * {
@@ -50,10 +51,14 @@ header {
     background-color: #222222; /* Add your preferred background color */
 }
 
+#mainHeader{
+    box-shadow: var(--shadow);
+}
+
 .navMain{
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
+    justify-content: end;
     padding: 10px;
     align-items: center;
     flex-grow: .5;
@@ -66,43 +71,34 @@ a button{
     text-align: center;
 }
 
-nav button{
-    font-size: 19px;
+.altNav button{
+    font-size: 32px;
+}
+
+.altNav button:hover{
+    color: var(--secondary-color);
 }
 
 nav a{
-    height: 80px;
-    width: 120px;
     display: flex;
     justify-content: center;
     align-items: center;
     text-decoration: blink;
+    transition: transform 0.2s ease-out;
 }
 
 .navMain a:hover {
     text-decoration: none;
+    transform: translateY(-10px);
     position: relative; /* Add relative positioning for pseudo-element */
+}
+
+.navMain a button{
+    font-size: 25px;
 }
 
 .navMain a:hover button{
     color: var(--secondary-color);
-}
-
-.navMain a:hover::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    bottom: 20px; /* Adjust the distance below the link */
-    width: 100%;
-    height: 2px; /* Adjust the thickness of the underline */
-    background-color: var(--secondary-color); /* Change the color of the underline */
-    transform: scaleX(0);
-    transition: transform 0.3s ease-in-out;
-}
-
-/* Reveal the underline on hover */
-.navMain a:hover::after {
-    transform: scaleX(.7);
 }
 
 .altNav{
@@ -143,8 +139,13 @@ nav a{
     align-items: center;
 }
 
-.dropdown-content a:hover {
-    background-color: var(--secondary-color);
+.dropdown-content a button{
+    font-size: 40px;
+}
+
+.dropdown-content a:hover button{
+    font-size: 40px;
+    color: var(--secondary-color);
 }
 /* 
 .dropdown:hover .dropdown-content {
@@ -160,8 +161,7 @@ button {
 
 .coverIMG {
     width:100%;
-    --Wid: 1000px;
-    height: calc(.5*var(--Wid)); /* Adjust the height of your logo */
+    height: 600px; /* Adjust the height of your logo */
     background-color: #797979; /* Add your preferred background color */
 }
 
@@ -176,6 +176,14 @@ button {
 }
 
 .learnMore:hover{
+    color: var(--secondary-color);
+}
+
+.learnMoreAbout{
+    color: var(--font-color);
+}
+
+.learnMoreAbout:hover{
     color: var(--secondary-color);
 }
 
@@ -208,7 +216,8 @@ button {
 footer{
     margin-top: 50px;
     position: relative;
-    z-index: 100;
+    z-index: 90;
+    box-shadow: var(--shadow);
 }
 
 .about{
@@ -274,5 +283,14 @@ footer{
 }
 
 .benefit.flipped .benefitDes {
+    transform: rotateY(0deg);
+}
+
+/* Add this to handle the hover effect on desktop */
+.benefit:not(.flipped):hover .benefitTitle {
+    transform: rotateY(180deg);
+}
+
+.benefit:not(.flipped):hover .benefitDes {
     transform: rotateY(0deg);
 }

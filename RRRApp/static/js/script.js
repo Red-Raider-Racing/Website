@@ -47,7 +47,7 @@ function updateMainPadding() {
         menu.style.display = "none";
         menuButton.style.position = "relative";
         menuButton.style.top = "";
-        menuButton.innerHTML = "Menu";
+        menuButton.innerHTML = "&#9776;";
         menuButton.style.marginLeft = "0px";
         menuButton.style.marginTop = "0px";
         header.style.height = "";
@@ -57,13 +57,13 @@ function updateMainPadding() {
         enableScrolling();
     } 
 
-    if (viewportWidth <= 890 && viewportWidth > 810){
+    if (viewportWidth <= 890 && viewportWidth > 745){
         logo.style.width = '40px';
         navMain.style.display = 'flex';
         altNav.style.display = 'none';
         logoCon.style.padding = '0px'
     }
-    else if(viewportWidth <= 810 ){
+    else if(viewportWidth <= 745 ){
         logo.style.width = '40px';
         logoCon.style.padding = '0px'
         navMain.style.display = 'none';
@@ -78,7 +78,7 @@ function updateMainPadding() {
 
     const navElement = document.getElementById("mainHeader");
     const mainElement = document.querySelector(".pageTitle");
-    mainElement.style.paddingTop = `${navElement.clientHeight}px`;
+    mainElement.style.paddingTop = `${navElement.clientHeight+80}px`;
 }
 
 // Initial update when the DOM is ready
@@ -126,7 +126,7 @@ function toggleMenu() {
         menuButton.style.top = "45px";
         menu.style.display = "block";
         menuButton.innerHTML = "&#x2715";
-        menuButton.style.marginLeft = "200px";
+        menuButton.style.marginLeft = "330px";
         menuButton.style.marginTop = "-120px";
         header.style.height = "100%";
         logo.style.display = 'none';
@@ -157,6 +157,16 @@ function enableScrolling() {
 function toggleFlip(card) {
     card.classList.toggle('flipped');
 }
+
+const benefitCards = document.querySelectorAll('.benefit');
+benefitCards.forEach(card => {
+    card.addEventListener('mouseenter', () => {
+            toggleFlip(card);
+    });
+    card.addEventListener('mouseleave', () => {
+            toggleFlip(card);
+    });
+});
 
 let prevScrollPos = window.pageYOffset;
 
