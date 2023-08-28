@@ -286,7 +286,6 @@ footer{
     transform: rotateY(0deg);
 }
 
-/* Add this to handle the hover effect on desktop */
 .benefit:not(.flipped):hover .benefitTitle {
     transform: rotateY(180deg);
 }
