@@ -467,3 +467,31 @@ p{
     max-width: 40%;
     margin: 0px;
 }
+
+.FAQCover {
+    width:100%;
+    height: 400px; /* Adjust the height of your logo */
+    background-color: var(--secondary-color); /* Add your preferred background color */
+}
+
+.FAQSection{
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.faq {
+    padding: 10px;
+    cursor: pointer;
+    margin: 0px;
+}
+
+.answer {
+    display: none;
+    padding: 0px 40px;
+    opacity: 0;
+    transition: opacity 0.5s;
+}
+
+.FAQSection p{
+    margin: 5px;
+}

@@ -1,4 +1,36 @@
 document.addEventListener("DOMContentLoaded", function() {
+    const questions = document.querySelectorAll(".faq");
+    
+    questions.forEach(question => {
+      question.addEventListener("click", function() {
+        const answer = this.nextElementSibling;
+        
+        if (answer.style.display === "block") {
+          answer.style.opacity = 0;
+          setTimeout(() => {
+            answer.style.display = "none";
+          }, 20);
+        } else {
+          questions.forEach(q => {
+            if (q !== this) {
+              q.classList.remove("active");
+              const otherAnswer = q.nextElementSibling;
+              otherAnswer.style.opacity = 0;
+              setTimeout(() => {
+                otherAnswer.style.display = "none";
+              }, 20);
+            }
+          });
+          
+          this.classList.add("active");
+          
+          answer.style.display = "block";
+          setTimeout(() => {
+            answer.style.opacity = 1;
+          }, 10);
+        }
+      });
+    });
     // Function to check if an element is intersecting the viewport
     function isElementIntersecting(entry) {
     return entry.isIntersecting || entry.intersectionRatio > 0;
@@ -36,6 +68,7 @@ document.addEventListener("DOMContentLoaded", function() {
     cars.forEach(function(car) {
     observer.observe(car);
     });
+
 });
 
 

@@ -4,13 +4,80 @@
 <head>
 
 </head>
+<script>
+    const faqQuestions = document.querySelectorAll('.faq-question');
+    faqQuestions.forEach(question => {
+        question.addEventListener('click', () => {
+            const answer = question.querySelector('.faq-answer');
+            answer.classList.toggle('visible');
+        });
+    });
+</script>
 <body>
-    <main>
+    <div class="FAQCover">
         <div class="pageTitle">
-            <h1>Red Raider Racing</h1>
-            <p>This is the FAQ page.</p>
+            <h1 class="teamTitle">FAQ</h1>
+            <p>Frequently Asked Questions</p>
         </div>
-    </main>
+    </div>
+    <div class="FAQSection">
+        <div class="question">
+            <h3 class="faq">How do I join the team?</h3>
+            <div class="answer" id="join">
+                <p>First, apply to join on our <a href="https://techconnect.dsa.ttu.edu/organization/redraiderracing">Tech Connect</a> profile. You would also need to attend one of our general meetings. If you are unable to do so, please reach out to us on our contact page to start getting involved!</p>
+            </div>
+        </div>
+        <hr>
+        <div class="question">
+            <h3 class="faq">Where can I attend meetings?</h3>
+            <div class="answer">
+                <p>Our general meetings are hosted in person in the Mechanical Engineering North Building in room 132 (or else specified) and members will have opportunity to interact with admin and design annoucements.<br><br>Apply and become a perspective member on our Tech Connect profile to receive access to these meetings and weekly updates.</p>
+            </div>
+        </div>
+        <hr>
+        <div class="question">
+            <h3 class="faq">I have no experience, can I still join?</h3>
+            <div class="answer">
+                <p>Absolutely! Red Raider Racing welcomes all levels of experience. Our team takes pride in its ability to develop professionals across all fields, and will take you through the process of learning new skills and becoming an experienced team member.<br><br>The only requirements are commitment and passion!</p>
+            </div>
+        </div>
+        <hr>
+        <div class="question">
+            <h3 class="faq">Do I have to be a S.T.E.M. major?</h3>
+            <div class="answer">
+                <p>No, all majors are welcome to join this organization. There are multiple branches of student academics that we equip for necessary project execution! Reach out to us and learn how you can apply your education and material to the real world applications.</p>
+            </div>
+        </div>
+        <hr>
+        <div class="question">
+            <h3 class="faq">Is team merchandise included with membership fee?</h3>
+            <div class="answer">
+                <p>No, we do not supply any team apparel or merchandise along with membership fees. These are separate purchases.</p>
+            </div>
+        </div>
+        <hr>
+        <div class="question">
+            <h3 class="faq">What is Formula SAE?</h3>
+            <div class="answer">
+                <p>The SAE International Formula program is an engineering design competition for undergraduate and graduate students. The competition provides praticipants with the opportunity to enhance their engineering design and project management skills by applying learned classroom theories in a challenging competition. The engineering design goal for teams is to develop and construct a singe-seat race car for the non-profession weekend autocross racer with the best overall package of design, construction, performance, and cost.  learn more about FSAE, visit the <a href="https://www.fsaeonline.com/page.aspx?pageid=c4c5195a-60c0-46aa-acbf-2958ef545b72">SAE International website</a>.</p>
+            </div>
+        </div>
+        <hr>
+        <div class="question">
+            <h3 class="faq">What is Red Raider Racing's sight at Formula SAE 2023-2024?</h3>
+            <div class="answer">
+                <p>After the difficult COVID-19 pandemic, the team came back to the 2022 Formula SAE competition and received beneficial feedback on some of our design decisions, business and team structure to apply to future year. This season we will strive to apply as many pointers that the judges gave us for a more performant car and better ranking at the Competition. We will continually work with sponsors this year to receive the most support possible. We have many projects in sight for this year, so if you are interested in joining the team and want to help us improve, please join on Tech Connect or reach out to us.</p>
+            </div>
+        </div>
+        <hr>
+        <div class="question">
+            <h3 class="faq">What is the Michigan trip worth?</h3>
+            <div class="answer">
+                <p>Reveal potential career paths to explore, like meeting recruiters from Tesla, SpaceX, General Motors, and more!<br><br>A chance to build and increase your resumé and portfolio. This organization can power jump your career possibilities, but only through what amount of effort you decide to give.
+                </p>
+            </div>
+        </div>
+    </div>
 </body>
 
 {% endblock %}
