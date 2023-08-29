@@ -41,10 +41,27 @@
             {% block content %}{% endblock %}
         </main>
 
-        <footer>
+        <footer>          
             <div class="rights">
                 <p class="footerText">Copyright © 2023 by Red Raider Racing Formula SAE Team. All rights reserved.</p>
             </div>
+            <div class="socials">
+                <a href="https://twitter.com/RedRaiderRacing">
+                    <button class="social-button">
+                        <img src="{% static 'icons/twitter.png' %}" alt="Twitter Icon">
+                    </button>
+                </a>
+                <a href="https://www.facebook.com/RedRaiderRacing">
+                    <button class="social-button">
+                        <img src="{% static 'icons/facebook.png' %}" alt="Facebook Icon">
+                    </button>
+                </a>
+                <a href="https://www.instagram.com/redraiderracing/">
+                    <button class="social-button">
+                        <img src="{% static 'icons/instagram.png' %}" alt="Instagram Icon">
+                    </button>
+                </a>
+            </div>  
         </footer>
     </body>
 </html>

@@ -66,7 +66,7 @@ function updateMainPadding() {
         logo.style.width = '40px';
         navMain.style.display = 'flex';
         altNav.style.display = 'none';
-        logoCon.style.padding = '0px'
+        logoCon.style.padding = '0px';
     }
     else if(viewportWidth <= 745 ){
         logo.style.width = '40px';
@@ -78,7 +78,7 @@ function updateMainPadding() {
         logo.style.width = '100px';
         navMain.style.display = 'flex';
         altNav.style.display = 'none';
-        logoCon.style.padding = '10px'
+        logoCon.style.padding = '10px';
     }
 
     if (viewportHeight <= 735) {
