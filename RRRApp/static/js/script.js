@@ -31,6 +31,11 @@ document.addEventListener("DOMContentLoaded", function() {
     benefits.forEach(function(benefit) {
     observer.observe(benefit);
     });
+
+    const cars = document.querySelectorAll(".car");
+    cars.forEach(function(car) {
+    observer.observe(car);
+    });
 });
 
 
