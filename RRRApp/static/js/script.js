@@ -22,10 +22,14 @@ document.addEventListener("DOMContentLoaded", function() {
     threshold: 0.1, // The percentage of the element that must be visible to trigger the intersection
     });
 
-    // Observe all elements with the class "box"
-    const boxes = document.querySelectorAll(".box");
-    boxes.forEach(function(box) {
-    observer.observe(box);
+    const members = document.querySelectorAll(".member");
+    members.forEach(function(member) {
+    observer.observe(member);
+    });
+
+    const benefits = document.querySelectorAll(".benefit");
+    benefits.forEach(function(benefit) {
+    observer.observe(benefit);
     });
 });
 
@@ -41,6 +45,7 @@ function updateMainPadding() {
     const menu = document.querySelector(".dropdown-content");
 
     const viewportWidth = window.innerWidth;
+    const viewportHeight = window.innerHeight;
 
     if (menu.style.display === "block") {
         // Close the menu
@@ -74,6 +79,14 @@ function updateMainPadding() {
         navMain.style.display = 'flex';
         altNav.style.display = 'none';
         logoCon.style.padding = '10px'
+    }
+
+    if (viewportHeight <= 735) {
+        menu.classList.add('small-screen');
+    } 
+    else {
+        menu.classList.remove('small-screen');
+        menuButton.style.marginLeft = "";
     }
 
     const navElement = document.getElementById("mainHeader");
@@ -126,7 +139,7 @@ function toggleMenu() {
         menuButton.style.top = "45px";
         menu.style.display = "block";
         menuButton.innerHTML = "&#10006;";
-        menuButton.style.marginLeft = "330px";
+        menuButton.style.marginLeft = "200px";
         menuButton.style.marginTop = "-120px";
         header.style.height = "100%";
         logo.style.display = 'none';

@@ -6,10 +6,11 @@
     --background-color: #252525;
     --font-color: #d3d3d3;
     --shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    --imagePlaceholder: #222222;
 }
 
 * {
-    font-family: 'Poppins';
+    font-family: 'Tahoma';
     overflow-x: hidden;
 }
 
@@ -48,7 +49,7 @@ header {
     padding: 10px;
     width: 100px; /* Adjust the width of your logo */
     aspect-ratio: 1;
-    background-color: #222222; /* Add your preferred background color */
+    background-color: var(--imagePlaceholder); /* Add your preferred background color */
 }
 
 #mainHeader{
@@ -139,6 +140,14 @@ nav a{
     align-items: center;
 }
 
+.dropdown-content.small-screen a {
+    padding: 0px;
+}
+
+.dropdown-content.small-screen a button {
+    margin: 0px;
+}
+
 .dropdown-content a button{
     font-size: 40px;
 }
@@ -175,6 +184,11 @@ button {
     color: var(--background-color);
 }
 
+.learnMore,.learnMoreAbout{
+    font-weight: 900;
+    font-size: 15px;
+}
+
 .learnMore:hover{
     color: var(--secondary-color);
 }
@@ -190,18 +204,21 @@ button {
 .welcomeTitle{
     margin: 0;
     text-align: left;
+    font-size: 58px;
+    margin-bottom: 40px;
 }
 
 .join{
-    margin: 5px auto 0px auto
+    margin: 5px auto 0px auto;
+    font-size: 30px;
 }
 
 .subtext{
     margin: 0 auto;
+    font-size: 20px;
 }
 
 .rights{
-    width: 100%;
     background-color: var(--primary-faded-color);
     padding: 10px;
     text-align: center;
@@ -248,6 +265,12 @@ footer{
     cursor: pointer;
     padding: 20px;
     overflow-x: visible;
+    opacity: 0; /* Start with opacity 0 */
+    transition: opacity 0.5s ease; /* Smooth transition for opacity */
+}
+
+.benefit.visible{
+    opacity: 1;
 }
 
 .menuButton{
@@ -292,4 +315,73 @@ footer{
 
 .benefit:not(.flipped):hover .benefitDes {
     transform: rotateY(0deg);
+}
+
+.teamTitle{
+    margin: 0 auto;
+    text-align: center;
+    font-size: 58px;
+}
+
+.sectionTitle{
+    font-family:'Lucida Sans';
+    margin: 10px auto;
+    text-align: center;
+}
+
+.underline{
+    max-width: 600px;
+    width: 80%;
+}
+
+.members{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.member{
+    text-align: center;
+    width: 300px;
+    height: 375px;
+    opacity: 0; /* Start with opacity 0 */
+    transition: opacity 0.5s ease; /* Smooth transition for opacity */
+}
+
+.member.visible{
+    opacity: 1;
+}
+
+.memberIMG{
+    margin: 10px auto;
+    padding: 10px;
+    width: 200px;
+    aspect-ratio: 1;
+    background-color: var(--imagePlaceholder);
+    border-radius: 150px;
+}
+
+.memberName{
+    margin: 0px;
+    font-size: 22px;
+    font-weight: 900;
+}
+
+.memberTitle{
+    margin: 0px;
+    font-size: 16px;
+    font-style: italic;
+    font-weight: 200;
+    margin-bottom: 50px;
+}
+
+.admin{
+    margin-bottom: 75px;
+}
+
+p{
+    font-size: 18px;
 }
