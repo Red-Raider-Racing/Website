@@ -412,6 +412,13 @@ p{
     width: 100%;
     text-align: center;
     padding: 10px;
+    margin-bottom: 50px;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.car.visible{
+    opacity: 1;
 }
 
 .carIMG{
@@ -452,13 +459,11 @@ p{
 .specTitle{
     text-align: left;
     max-width: 60%;
+    margin: 0px;
 }
 
 .spec p{
     text-align: right;
     max-width: 40%;
-}
-
-.car{
-    margin-bottom: 50px;
+    margin: 0px;
 }
