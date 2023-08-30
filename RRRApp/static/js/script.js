@@ -71,7 +71,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
 });
 
-
 // Function to update the padding of the "main" element based on the height of the "nav" element
 function updateMainPadding() {
     const logo = document.querySelector(".logo-image")
