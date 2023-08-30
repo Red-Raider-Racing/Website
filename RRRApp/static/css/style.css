@@ -391,7 +391,6 @@ p{
     aspect-ratio: 1;
     border: none; /* Remove the default button border */
     cursor: pointer; /* Change cursor to pointer on hover */
-    /* Additional styling */
     padding: 0; /* Remove default padding */
 }
 
