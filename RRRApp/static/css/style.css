@@ -496,3 +496,39 @@ p{
 .FAQSection p{
     margin: 5px;
 }
+
+.sponsors{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+}
+
+.sponsor{
+    text-align: center;
+    margin: 20px;
+}
+
+.sponsorLogo{
+    margin: 10px auto;
+    padding: 10px;
+    width: 300px;
+    aspect-ratio: 16/9;
+    background-color: var(--imagePlaceholder);
+    border-radius: 70px;
+}
+
+.sponsorLogo a{
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.thankyou,.howSponsor{
+    margin: auto;
+    text-align: center;
+    padding: 20px;
+}
