@@ -205,6 +205,7 @@ button {
     text-align: left;
     font-size: 58px;
     margin-bottom: 40px;
+    padding: 10px;
 }
 
 .join{
@@ -242,6 +243,7 @@ footer a{
     margin: 0 auto;
     text-align: center;
     overflow-x: visible;
+    padding: 10px;
 }
 
 .benefits{
