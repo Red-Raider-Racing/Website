@@ -27,7 +27,7 @@ main{
 }
 
 header {
-    background-color: var(--primary-faded-color); /* Add your preferred background color */
+    background-color: var(--primary-faded-color);
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
