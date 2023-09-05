@@ -49,7 +49,7 @@ header {
     padding: 10px;
     width: 100px; /* Adjust the width of your logo */
     aspect-ratio: 1;
-    background-color: var(--imagePlaceholder); /* Add your preferred background color */
+    background-color: var(--imagePlaceholder);
 }
 
 #mainHeader{
