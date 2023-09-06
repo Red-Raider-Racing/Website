@@ -99,20 +99,23 @@ function updateMainPadding() {
         enableScrolling();
     } 
 
-    if (viewportWidth <= 890 && viewportWidth > 745){
-        logo.style.width = '40px';
+    if (viewportWidth <= 1070 && viewportWidth > 820){
+        logo.style.width = '250px';
+        logo.style.margin = '-100px -65px';
         navMain.style.display = 'flex';
         altNav.style.display = 'none';
         logoCon.style.padding = '0px';
     }
-    else if(viewportWidth <= 745 ){
-        logo.style.width = '40px';
+    else if(viewportWidth <= 820 ){
+        logo.style.width = '250px';
+        logo.style.margin = '-100px -65px';
         logoCon.style.padding = '0px'
         navMain.style.display = 'none';
         altNav.style.display = 'flex';
     }
     else{
-        logo.style.width = '100px';
+        logo.style.width = '700px';
+        logo.style.margin = '';
         navMain.style.display = 'flex';
         altNav.style.display = 'none';
         logoCon.style.padding = '10px';
