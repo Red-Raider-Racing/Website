@@ -80,6 +80,7 @@ function updateMainPadding() {
     const menuButton = document.querySelector(".menuButton");
     const header = document.getElementById("mainHeader");
     const menu = document.querySelector(".dropdown-content");
+    const menuCon = document.querySelector(".dropdown");
 
     const viewportWidth = window.innerWidth;
     const viewportHeight = window.innerHeight;
@@ -99,14 +100,14 @@ function updateMainPadding() {
         enableScrolling();
     } 
 
-    if (viewportWidth <= 1070 && viewportWidth > 820){
-        logo.style.width = '250px';
-        logo.style.margin = '-100px -65px';
-        navMain.style.display = 'flex';
-        altNav.style.display = 'none';
-        logoCon.style.padding = '0px';
-    }
-    else if(viewportWidth <= 820 ){
+    // if (viewportWidth <= 920 && viewportWidth > 820){
+    //     logo.style.width = '250px';
+    //     logo.style.margin = '-100px -65px';
+    //     navMain.style.display = 'flex';
+    //     altNav.style.display = 'none';
+    //     logoCon.style.padding = '0px';
+    // }
+    if(viewportWidth <= 920 ){
         logo.style.width = '250px';
         logo.style.margin = '-100px -65px';
         logoCon.style.padding = '0px'
@@ -114,17 +115,19 @@ function updateMainPadding() {
         altNav.style.display = 'flex';
     }
     else{
-        logo.style.width = '700px';
+        logo.style.width = '400px';
         logo.style.margin = '';
         navMain.style.display = 'flex';
         altNav.style.display = 'none';
         logoCon.style.padding = '10px';
     }
 
-    if (viewportHeight <= 735) {
+    if (viewportHeight <= 1100) {
+        menuCon.classList.add('small-screen');
         menu.classList.add('small-screen');
     } 
     else {
+        menuCon.classList.remove('small-screen');
         menu.classList.remove('small-screen');
         menuButton.style.marginLeft = "";
     }
@@ -157,7 +160,7 @@ function toggleMenu() {
     const header = document.getElementById("mainHeader");
     const logo = document.querySelector(".logo");
 
-    if (menu.style.display === "block") {
+    if (menu.style.display === "flex") {
         // Close the menu
         menu.style.display = "none";
         menuButton.style.position = "relative";
@@ -177,7 +180,7 @@ function toggleMenu() {
         // Open the menu
         menuButton.style.position = "absolute";
         menuButton.style.top = "45px";
-        menu.style.display = "block";
+        menu.style.display = "flex";
         menuButton.innerHTML = "&#10006;";
         menuButton.style.marginLeft = "200px";
         menuButton.style.marginTop = "-120px";

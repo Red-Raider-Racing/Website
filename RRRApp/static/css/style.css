@@ -52,13 +52,13 @@ header {
 
 .logo-image {
     padding: 10px;
-    width: 700px; /* Adjust the width of your logo */
+    width: 400px; /* Adjust the width of your logo */
     aspect-ratio: 1;
     /* background-color: var(--imagePlaceholder); */
     background-image: url('../logos/RRR_Logo_RED.png'); /* Set the path to your image */
     background-size: cover; /* You can use 'cover' to maintain aspect ratio and cover the div */
     background-repeat: no-repeat; /* Prevent the background image from repeating */
-    margin: -275px -175px;
+    margin: -170px -100px;
     overflow-x: visible;
 }
 
@@ -131,6 +131,7 @@ nav a{
     justify-content: center;
     margin: auto;
     overflow-x: unset;
+    height: 95%;
 }
 
 .dropdown-content {
@@ -139,7 +140,10 @@ nav a{
     min-width: 100px;
     z-index: 100;
     margin: auto;
+    margin-top: -50px;
     flex-grow: 1;
+    flex-direction: column;
+    justify-content: space-around;
 }
 
 .dropdown-content a {
@@ -150,6 +154,7 @@ nav a{
     display: flex;
     justify-content: center;
     align-items: center;
+    overflow-x: visible;
 }
 
 .dropdown-content.small-screen a {
@@ -158,6 +163,10 @@ nav a{
 
 .dropdown-content.small-screen a button {
     margin: 0px;
+}
+
+.dropdown.small-screen{
+    height: 80%;
 }
 
 .dropdown-content a button{
