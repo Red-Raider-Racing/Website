@@ -396,7 +396,11 @@ footer a{
 
 .benefitTitle h1{
     color: var(--font-color);
-    font-size: min(10vw, 30px);
+    font-size: min(7vw, 30px);
+}
+
+.benefitDes p{
+    font-size: min(5vw, 18px);
 }
 
 .benefitDes {
