@@ -194,12 +194,32 @@ button {
     width:100%;
     height: 600px; /* Adjust the height of your logo */
     background-color: #797979;
+    /* background-color: var(--imagePlaceholder); */
+    background-size: cover; /* You can use 'cover' to maintain aspect ratio and cover the div */
+    background-repeat: no-repeat; /* Prevent the background image from repeating */
+    background-position: center center; /*calc(50% + 30px)*/
+}
+
+.welcomeIMG{
+    background-image: url('../images/temp.jpg');
+}
+
+.coverIMG::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 600px;
+    background-color: rgba(0, 0, 0, 0.5); /* Adjust the opacity (0.6 for 40% brightness) */
 }
 
 .pageTitle{
     margin: 0 auto;
     padding: 10px;
     max-width: 1200px;
+    z-index: 80;
+    position: relative;
 }
 
 .learnMore,.learnMoreAbout{
@@ -264,6 +284,8 @@ footer a{
     text-align: center;
     overflow-x: visible;
     padding: 10px;
+    z-index: 80;
+    position: relative;
 }
 
 .benefits{
@@ -451,6 +473,13 @@ p{
     background-color: var(--imagePlaceholder);
     border-radius: 20px;
     min-width: 270px;
+    background-size: cover; /* You can use 'cover' to maintain aspect ratio and cover the div */
+    background-repeat: no-repeat; /* Prevent the background image from repeating */
+    background-position: center center;
+}
+
+.car2023{
+    background-image: url('../images/RRR-2023.webp');
 }
 
 .specs{
@@ -553,4 +582,10 @@ p{
     text-align: center;
     padding: 20px;
     max-width: 1200px;
+}
+
+.contactUs{
+    margin: auto;
+    max-width: 1200px;
+    text-align: center;
 }
