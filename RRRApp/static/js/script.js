@@ -107,16 +107,14 @@ function updateMainPadding() {
     //     altNav.style.display = 'none';
     //     logoCon.style.padding = '0px';
     // }
-    if(viewportWidth <= 1220 ){
-        logo.style.width = '250px';
-        logo.style.margin = '-100px -65px';
-        logoCon.style.padding = '0px'
+    if(viewportWidth <= 1190 ){
+        logo.style.height = '40px';
+        logoCon.style.padding = '0px';
         navMain.style.display = 'none';
         altNav.style.display = 'flex';
     }
     else{
-        logo.style.width = '400px';
-        logo.style.margin = '';
+        logo.style.height = '';
         navMain.style.display = 'flex';
         altNav.style.display = 'none';
         logoCon.style.padding = '10px';
