@@ -9,8 +9,18 @@
     --imagePlaceholder: #222222;
 }
 
+@font-face {
+    font-family: ethnocentric;
+    src: url("../fonts/ethnocentric.otf") format("opentype");
+}
+
+@font-face {
+    font-family: ethnocentric_it;
+    src: url("../fonts/ethnocentric_it.otf") format("opentype");
+}
+
 * {
-    font-family: 'Tahoma';
+    font-family: 'ethnocentric';
     overflow-x: hidden;
 }
 
@@ -36,6 +46,10 @@ header {
     width: 100%;
     z-index: 100;
     transition: top 0.3s ease;
+}
+
+header button{
+    font-family: ethnocentric;
 }
 
 .logo {
@@ -170,12 +184,11 @@ nav a{
 }
 
 .dropdown-content a button{
-    font-size: 40px;
+    font-size: min(10vw, 36px);
     font-weight: 900;
 }
 
 .dropdown-content a:hover button{
-    font-size: 40px;
     color: var(--secondary-color);
 }
 /* 
@@ -192,7 +205,8 @@ button {
 
 .coverIMG {
     width:100%;
-    height: 600px; /* Adjust the height of your logo */
+    --height: min(100vw, 600px);
+    height: var(--height);
     background-color: #797979;
     /* background-color: var(--imagePlaceholder); */
     background-size: cover; /* You can use 'cover' to maintain aspect ratio and cover the div */
@@ -202,6 +216,7 @@ button {
 
 .welcomeIMG{
     background-image: url('../images/temp.jpg');
+    --height: min(200vw, 600px);
 }
 
 .coverIMG::before {
@@ -210,7 +225,7 @@ button {
     top: 0;
     left: 0;
     width: 100%;
-    height: 600px;
+    height: var(--height);
     background-color: rgba(0, 0, 0, 0.5); /* Adjust the opacity (0.6 for 40% brightness) */
 }
 
@@ -223,12 +238,21 @@ button {
     color: var(--secondary-color);
 }
 
+.FAQCover .pageTitle p{
+    text-align: center;
+}
+
 .welcome{
     color: var(--font-color);
 }
 
 h1{
     color: var(--secondary-color);
+    font-size: min(10vw, 58px);
+}
+
+h2{
+    font-size: min(10vw, 36px);
 }
 
 .learnMore,.learnMoreAbout{
@@ -252,14 +276,14 @@ h1{
 .welcomeTitle{
     margin: 0;
     text-align: left;
-    font-size: 58px;
     margin-bottom: 40px;
     padding: 10px;
+    font-family: ethnocentric_it;
 }
 
 .join{
     margin: 5px auto 0px auto;
-    font-size: 30px;
+    font-size: min(10vw, 30px);
 }
 
 .subtext{
@@ -269,6 +293,7 @@ h1{
 
 .footerText{
     margin: 0;
+    font-family: 'Tahoma';
 }
 
 footer{
@@ -297,6 +322,10 @@ footer a{
     position: relative;
 }
 
+.about p{
+    font-family: 'Tahoma';
+}
+
 .benefits{
     display: flex;
     justify-content: center;
@@ -308,7 +337,7 @@ footer a{
 
 .benefit{
     width: 300px;
-    height: 350px;
+    height: min(50vw, 350px);
     margin: 20px;
     display: flex;
     justify-content: center;
@@ -352,6 +381,7 @@ footer a{
 
 .benefitTitle h1{
     color: var(--font-color);
+    font-size: min(10vw, 30px);
 }
 
 .benefitDes {
@@ -377,13 +407,12 @@ footer a{
 .teamTitle{
     margin: 0 auto;
     text-align: center;
-    font-size: 58px;
 }
 
 .sectionTitle{
-    font-family:'Lucida Sans';
     margin: 10px auto;
     text-align: center;
+    font-size: min(7vw, 36px);
 }
 
 .underline{
@@ -398,14 +427,16 @@ footer a{
     align-items: center;
     max-width: 1200px;
     margin: auto;
+    overflow-x: visible;
 }
 
 .member{
     text-align: center;
     width: 300px;
-    height: 375px;
+    height: min(100vw,375px);
     opacity: 0;
     transition: opacity 0.5s ease; /* Smooth transition for opacity */
+    overflow-x: visible;
 }
 
 .member.visible{
@@ -415,7 +446,7 @@ footer a{
 .memberIMG{
     margin: 10px auto;
     padding: 10px;
-    width: 200px;
+    width: min(50vw, 200px);
     aspect-ratio: 1;
     background-color: var(--imagePlaceholder);
     border-radius: 150px;
@@ -423,20 +454,28 @@ footer a{
 
 .memberName{
     margin: 0px;
-    font-size: 22px;
+    font-size: min(8vw, 22px);
     font-weight: 900;
 }
 
 .memberTitle{
     margin: 0px;
-    font-size: 16px;
+    font-size: min(7vw, 16px);
     font-style: italic;
     font-weight: 200;
     margin-bottom: 50px;
 }
 
+.memberName,.memberTitle{
+    font-family: 'Tahoma';
+}
+
 .admin{
     margin-bottom: 75px;
+}
+
+.admin,.officers{
+    overflow-x: visible;
 }
 
 p{
@@ -485,7 +524,7 @@ p{
     aspect-ratio: 16/9;
     background-color: var(--imagePlaceholder);
     border-radius: 5px;
-    min-width: 270px;
+    /* min-width: 270px; */
     background-size: cover; /* You can use 'cover' to maintain aspect ratio and cover the div */
     background-repeat: no-repeat; /* Prevent the background image from repeating */
     background-position: center center;
@@ -520,10 +559,16 @@ p{
     padding: 10px;
 }
 
+.spec p{
+    font-family: 'Tahoma';
+    font-size: min(4vw, 20px);
+}
+
 .specTitle{
     text-align: left;
     max-width: 60%;
     margin: 0px;
+    font-size: min(4vw, 20px);
 }
 
 .spec p{
@@ -552,6 +597,7 @@ p{
     padding: 10px;
     cursor: pointer;
     margin: 0px;
+    font-size: min(7vw, 18px);
 }
 
 .answer {
@@ -559,6 +605,10 @@ p{
     padding: 0px 40px;
     opacity: 0;
     transition: opacity 0.5s;
+}
+
+.answer p{
+    font-family:'Tahoma';
 }
 
 .FAQSection p{
@@ -582,7 +632,7 @@ p{
 
 .sponsorLogo{
     margin: 10px auto;
-    width: 300px;
+    width: min(70vw, 300px);
     aspect-ratio: 16/9;
     background-color: var(--imagePlaceholder);
     border-radius: 40px;
@@ -599,6 +649,18 @@ p{
     text-align: center;
     padding: 20px;
     max-width: 1200px;
+}
+
+.thankyou h1{
+    font-size: min(7vw, 36px);
+}
+
+.thankyou p{
+    font-family: 'Tahoma';
+}
+
+.howSponsor p{
+    font-family: 'Tahoma';
 }
 
 .thankyou strong{

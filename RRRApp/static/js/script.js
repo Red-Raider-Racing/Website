@@ -94,7 +94,7 @@ function updateMainPadding() {
         menuButton.style.marginLeft = "0px";
         menuButton.style.marginTop = "0px";
         header.style.height = "";
-        logoCon.style.display = 'block';
+        logoCon.style.display = 'flex';
 
         // Enable scrolling
         enableScrolling();
@@ -107,7 +107,7 @@ function updateMainPadding() {
     //     altNav.style.display = 'none';
     //     logoCon.style.padding = '0px';
     // }
-    if(viewportWidth <= 920 ){
+    if(viewportWidth <= 1220 ){
         logo.style.width = '250px';
         logo.style.margin = '-100px -65px';
         logoCon.style.padding = '0px'
@@ -169,7 +169,7 @@ function toggleMenu() {
         menuButton.style.marginLeft = "0px";
         menuButton.style.marginTop = "0px";
         header.style.height = "";
-        logo.style.display = 'block';
+        logo.style.display = 'flex';
         menuCon.style.top = "";
         menuCon.style.left = "";
         menuCon.style.right = "";
