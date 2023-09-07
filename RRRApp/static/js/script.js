@@ -177,7 +177,7 @@ function toggleMenu() {
     } else {
         // Open the menu
         menuButton.style.position = "absolute";
-        menuButton.style.top = "45px";
+        menuButton.style.top = "30px";
         menu.style.display = "flex";
         menuButton.innerHTML = "&#10006;";
         menuButton.style.marginLeft = "200px";
@@ -197,7 +197,7 @@ function toggleMenu() {
 function disableScrolling() {
     const scrollY = window.scrollY;
     document.body.style.position = "fixed";
-    document.body.style.top = `${scrollY}px`;
+    document.body.style.top = `${-scrollY}px`;
 }
 
 // Function to enable scrolling
@@ -205,7 +205,7 @@ function enableScrolling() {
     const scrollY = parseInt(document.body.style.top);
     document.body.style.position = "";
     document.body.style.top = "";
-    window.scrollTo(0, scrollY);
+    window.scrollTo(0, -scrollY);
 }
 
 function toggleFlip(card) {
