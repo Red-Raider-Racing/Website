@@ -107,7 +107,7 @@ function updateMainPadding() {
     //     altNav.style.display = 'none';
     //     logoCon.style.padding = '0px';
     // }
-    if(viewportWidth <= 1190 ){
+    if(viewportWidth <= 968 ){
         logo.style.height = '40px';
         logoCon.style.padding = '0px';
         navMain.style.display = 'none';
