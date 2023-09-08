@@ -81,6 +81,7 @@ function updateMainPadding() {
     const header = document.getElementById("mainHeader");
     const menu = document.querySelector(".dropdown-content");
     const menuCon = document.querySelector(".dropdown");
+    const headerBackground = document.querySelector(".headerBackground");
 
     const viewportWidth = window.innerWidth;
     const viewportHeight = window.innerHeight;
@@ -100,24 +101,23 @@ function updateMainPadding() {
         enableScrolling();
     } 
 
-    // if (viewportWidth <= 920 && viewportWidth > 820){
-    //     logo.style.width = '250px';
-    //     logo.style.margin = '-100px -65px';
-    //     navMain.style.display = 'flex';
-    //     altNav.style.display = 'none';
-    //     logoCon.style.padding = '0px';
-    // }
     if(viewportWidth <= 968 ){
         logo.style.height = '40px';
         logoCon.style.padding = '0px';
         navMain.style.display = 'none';
         altNav.style.display = 'flex';
+        if (headerBackground != null){
+            headerBackground.style.display = 'none';
+        }
     }
     else{
         logo.style.height = '';
         navMain.style.display = 'flex';
         altNav.style.display = 'none';
         logoCon.style.padding = '10px';
+        if (headerBackground != null){
+            headerBackground.style.display = 'block';
+        }
     }
 
     if (viewportHeight <= 1100) {
@@ -157,9 +157,12 @@ function toggleMenu() {
     const menuButton = document.querySelector(".menuButton");
     const header = document.getElementById("mainHeader");
     const logo = document.querySelector(".logo");
+    const navElement = document.getElementById("mainHeader");
 
     if (menu.style.display === "flex") {
         // Close the menu
+        navElement.style.backgroundColor = "";
+        navElement.style.boxShadow = "";
         menu.style.display = "none";
         menuButton.style.position = "relative";
         menuButton.style.top = "";
@@ -176,6 +179,8 @@ function toggleMenu() {
         enableScrolling();
     } else {
         // Open the menu
+        navElement.style.backgroundColor = "var(--primary-faded-color)";
+        navElement.style.boxShadow = "var(--shadow)";
         menuButton.style.position = "absolute";
         menuButton.style.top = "30px";
         menu.style.display = "flex";
@@ -225,14 +230,48 @@ benefitCards.forEach(card => {
 let prevScrollPos = window.pageYOffset;
 
 window.onscroll = function() {
-    const currentScrollPos = window.pageYOffset;    
+    const currentScrollPos = window.pageYOffset;
     const navElement = document.getElementById("mainHeader");
 
-    if (prevScrollPos > currentScrollPos) {
-        document.getElementById("mainHeader").style.top = "0";
+    if (currentScrollPos > 300) { // Check if scrolled more than 100 pixels
+        if (prevScrollPos > currentScrollPos) {
+            document.getElementById("mainHeader").style.top = "0";
+        } else {
+            document.getElementById("mainHeader").style.top = `-${navElement.clientHeight}px`; // Hide header
+        }
     } else {
-        document.getElementById("mainHeader").style.top = `-${navElement.clientHeight}px`; // Hide header
+        document.getElementById("mainHeader").style.top = "0"; // Keep header visible for the first 100 pixels
     }
 
     prevScrollPos = currentScrollPos;
 };
+
+window.addEventListener('scroll', function () {
+    const scrollY = window.scrollY;
+    const parallaxBackground = document.querySelector('.coverIMG');
+    const pageTitle = document.querySelector('.pageTitle');
+
+    if (parallaxBackground != null){
+        parallaxBackground.style.transform = `translateY(${scrollY * 0.5}px)`;
+    }
+    
+    pageTitle.style.transform = `translateY(-${scrollY * .2}px)`;
+});
+
+window.addEventListener('scroll', function () {
+    const scrollY = window.scrollY;
+    const navElement = document.getElementById("mainHeader");
+
+    // Check if scroll position is at the top of the page (scrollY is zero)
+    if (scrollY === 0 && document.body.style.top >= 0) {
+        // Scroll is at the top, make the header clear and remove box shadow
+        navElement.style.backgroundColor = "transparent";
+        navElement.style.boxShadow = "none";
+    } else {
+        // Scroll is not at the top, set background color and box shadow as needed
+        navElement.style.backgroundColor = "var(--primary-faded-color)"; // Replace with your desired color
+        navElement.style.boxShadow = "var(--shadow)"; // Replace with your desired shadow
+    }
+
+    // Rest of your scroll event handling code...
+});

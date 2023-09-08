@@ -3,6 +3,7 @@
     --primary-faded-color: #1c1c1cf5;
     --primary-more-faded-color: #414141da;
     --secondary-color: #b70102;
+    --secondary-faded-color: #b70102da;
     --background-color: #111;
     --font-color: #d3d3d3;
     --shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
@@ -37,7 +38,7 @@ main{
 }
 
 header {
-    background-color: var(--primary-faded-color);
+    background-color: transparent;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
@@ -45,11 +46,15 @@ header {
     top: 0;
     width: 100%;
     z-index: 100;
-    transition: top 0.3s ease;
+    transition: top 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 header button{
     font-family: ethnocentric;
+}
+
+.active {
+    color: var(--secondary-color); /* Set text color to contrast with background */
 }
 
 .logo {
@@ -76,7 +81,7 @@ header button{
 }
 
 #mainHeader{
-    box-shadow: var(--shadow);
+    box-shadow: none;
     overflow-x: visible;
 }
 
@@ -490,6 +495,7 @@ footer a{
 }
 
 .admin{
+    padding: 10px;
     margin-bottom: 75px;
 }
 
@@ -596,10 +602,16 @@ p{
     margin: 0px;
 }
 
+.headerBackground {
+    width:100%;
+    height: 120px;
+    background-color: var(--primary-faded-color);
+}
+
 .FAQCover,.sponsorCover {
     width:100%;
-    height:  max(280px,min(100vw, 400px));
-    background-color: var(--secondary-color);
+    height: max(280px,min(100vw, 400px));
+    background-color: var(--secondary-faded-color);
 }
 
 .FAQCover .pageTitle, .FAQCover h1,.sponsorCover h1{
@@ -690,4 +702,12 @@ p{
     margin: auto;
     max-width: 1200px;
     text-align: center;
+}
+
+.body{
+    background-color: var(--background-color);
+    width: 100%;
+    z-index: 90;
+    position: relative;
+    overflow-x: visible;
 }

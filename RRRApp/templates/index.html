@@ -8,6 +8,10 @@
         }
     </style>
 </head>
+<script>
+    const active = document.getElementById('homeBtn');
+    active.classList.add("active");
+</script>
 <body>
     <div class="coverIMG welcomeIMG">
         <div class="pageTitle welcome">
@@ -17,52 +21,54 @@
             <a href="/faq"><button class="learnMore">LEARN MORE</button></a>            
         </div>
     </div>
-    <div class="about">
-        <h1 class="sectionTitle">About Us</h1>
-        <p>
-            Red Raider Racing is a student-led organization that gives Texas Tech 
-            University students the opportunity to get hands-on experience by 
-            designing, fabricating, and marketing a Formula SAE car. Each year, 
-            our team designs and manufactures a brand-new FSAE vehicle to compete 
-            in the International Collegiate Design Competition. Our student 
-            organization is composed of 14 officers as well as over 100+ members 
-            that work together to develop a technically sound and competitive car. 
-        </p>
-        <a href="/faq"><button class="learnMoreAbout">LEARN MORE</button></a>            
-        <div class="benefits">
-            <div class="benefit flip-card" onclick="toggleFlip(this)">
-                <div class="benefitTitle">
-                    <h1>Experience</h1>
+    <div class="body">
+        <div class="about">
+            <h1 class="sectionTitle">About Us</h1>
+            <p>
+                Red Raider Racing is a student-led organization that gives Texas Tech 
+                University students the opportunity to get hands-on experience by 
+                designing, fabricating, and marketing a Formula SAE car. Each year, 
+                our team designs and manufactures a brand-new FSAE vehicle to compete 
+                in the International Collegiate Design Competition. Our student 
+                organization is composed of 14 officers as well as over 100+ members 
+                that work together to develop a technically sound and competitive car. 
+            </p>
+            <a href="/faq"><button class="learnMoreAbout">LEARN MORE</button></a>            
+            <div class="benefits">
+                <div class="benefit flip-card" onclick="toggleFlip(this)">
+                    <div class="benefitTitle">
+                        <h1>Experience</h1>
+                    </div>
+                    <div class="benefitDes">
+                        <p>FSAE gives you a head-start on your career by providing real-world engineering experiences that engineering companies look for.</p>
+                        <!-- <ol>
+                            <li>Design parts using CAD software</li>
+                            <li>Analyze your designs through simulations</li>
+                            <li>Defend your decisions to fellow engineers</li>
+                            <li>Fabricate & manufacture parts</li>
+                            <li>Market the vehicle & team</li>
+                        </ol>
+                        <p>Build your resume and prepare for your career in engineering.</p> -->
+                    </div>
                 </div>
-                <div class="benefitDes">
-                    <p>FSAE gives you a head-start on your career by providing real-world engineering experiences that engineering companies look for.</p>
-                    <!-- <ol>
-                        <li>Design parts using CAD software</li>
-                        <li>Analyze your designs through simulations</li>
-                        <li>Defend your decisions to fellow engineers</li>
-                        <li>Fabricate & manufacture parts</li>
-                        <li>Market the vehicle & team</li>
-                    </ol>
-                    <p>Build your resume and prepare for your career in engineering.</p> -->
+                <div class="benefit flip-card" onclick="toggleFlip(this)">
+                    <div class="benefitTitle">
+                        <h1>Networking</h1>
+                    </div>
+                    <div class="benefitDes">
+                        <p>A number of events, info sessions, and competitions provide members with opportunities to network with professionals in the automotive industry. These networking opportunites can learn to internships, job offers, and team sponsorships.</p>
+                    </div>
                 </div>
-            </div>
-            <div class="benefit flip-card" onclick="toggleFlip(this)">
-                <div class="benefitTitle">
-                    <h1>Networking</h1>
-                </div>
-                <div class="benefitDes">
-                    <p>A number of events, info sessions, and competitions provide members with opportunities to network with professionals in the automotive industry. These networking opportunites can learn to internships, job offers, and team sponsorships.</p>
-                </div>
-            </div>
-            <div class="benefit flip-card" onclick="toggleFlip(this)">
-                <div class="benefitTitle">
-                    <h1>Community</h1>
-                </div>
-                <div class="benefitDes">
-                    <p>FSAE members are united by a sense of camaraderie, passion, and dedication. You will meet many friends, and mentors throughout your time in Red Raider Racing and become part of a supportive, tight-knit community.</p>
-                </div>
-            </div>            
-        </div>        
+                <div class="benefit flip-card" onclick="toggleFlip(this)">
+                    <div class="benefitTitle">
+                        <h1>Community</h1>
+                    </div>
+                    <div class="benefitDes">
+                        <p>FSAE members are united by a sense of camaraderie, passion, and dedication. You will meet many friends, and mentors throughout your time in Red Raider Racing and become part of a supportive, tight-knit community.</p>
+                    </div>
+                </div>            
+            </div>        
+        </div>
     </div>
     <!-- <div class="contactUs">
         <h1>Contact Us</h1>
