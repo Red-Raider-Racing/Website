@@ -11,12 +11,12 @@
 }
 
 @font-face {
-    font-family: ethnocentric;
+    font-family: 'ethnocentric';
     src: url("../fonts/ethnocentric.otf") format("opentype");
 }
 
 @font-face {
-    font-family: ethnocentric_it;
+    font-family: 'ethnocentric_it';
     src: url("../fonts/ethnocentric_it.otf") format("opentype");
 }
 
@@ -50,11 +50,11 @@ header {
 }
 
 header button{
-    font-family: ethnocentric;
+    font-family: 'ethnocentric';
 }
 
 .active {
-    color: var(--secondary-color); /* Set text color to contrast with background */
+    color: var(--secondary-color);
 }
 
 .logo {
@@ -294,7 +294,7 @@ h2{
     text-align: left;
     margin-bottom: 40px;
     padding: 10px;
-    font-family: ethnocentric_it;
+    font-family: 'ethnocentric_it';
 }
 
 .join{
@@ -553,10 +553,6 @@ p{
     background-size: cover; /* You can use 'cover' to maintain aspect ratio and cover the div */
     background-repeat: no-repeat; /* Prevent the background image from repeating */
     background-position: center center;
-}
-
-.car2023{
-    background-image: url('../images/RRR-2023.webp');
 }
 
 .specs{
