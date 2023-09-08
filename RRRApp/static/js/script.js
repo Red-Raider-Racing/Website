@@ -232,8 +232,15 @@ let prevScrollPos = window.pageYOffset;
 window.onscroll = function() {
     const currentScrollPos = window.pageYOffset;
     const navElement = document.getElementById("mainHeader");
+    const viewportWidth = window.innerWidth;
+    if ((viewportWidth*.5)>300){
+        width = 300;
+    }
+    else{
+        width = viewportWidth*.5;
+    }
 
-    if (currentScrollPos > 300) { // Check if scrolled more than 100 pixels
+    if (currentScrollPos > width) { // Check if scrolled more than 100 pixels
         if (prevScrollPos > currentScrollPos) {
             document.getElementById("mainHeader").style.top = "0";
         } else {
