@@ -73,24 +73,25 @@
     <div class="contactUs">
         <h1 class="sectionTitle">Contact Us</h1>
 
-        <form action="submit_contact.php" method="post">
+        <form action="{% url 'submit_contact' %}" method="post">
+            {% csrf_token %}
             <div class="formCon">
                 <div class="nameEmail">
-                    <label for="name">Name:</label><br>
-                    <input type="text" id="name" name="name" required placeholder="Raider Red"><br><br>
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required placeholder="Raider Red" class="inputs">
             
-                    <label for="email">Email:</label><br>
-                    <input type="email" id="email" name="email" required placeholder="formula.sae@ttu.edu"><br><br>
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required placeholder="formula.sae@ttu.edu" class="inputs">
 
-                    <label for="subject">Subject:</label><br>
-                    <input type="text" id="subject" name="subject" required placeholder="I'm looking to join!"><br><br>
+                    <label for="subject">Subject:</label>
+                    <input type="text" id="subject" name="subject" required placeholder="I'm looking to join!" class="inputs">
                 </div>
                 <div class="emailMessage">          
-                    <label for="message">Message:</label><br>
-                    <textarea id="message" name="message" rows="8" required ></textarea><br><br>
+                    <label for="message">Message:</label>
+                    <textarea id="message" name="message" rows="8" required class="inputs"></textarea>
                 </div>
             </div>
-            <input type="submit" value="Submit">
+            <input type="submit" value="Submit" class="submit">
         </form>
     </div>
 </body>

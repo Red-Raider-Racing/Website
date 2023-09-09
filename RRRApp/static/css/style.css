@@ -395,6 +395,11 @@ footer a{
     align-items: center;
 }
 
+.benefitDes{
+    transform: rotateY(-180deg); /* Initially hidden side */
+    overflow-x: visible;
+}
+
 .benefitTitle {
     transform: rotateY(0deg); /* Initially visible side */
 }
@@ -405,11 +410,9 @@ footer a{
 }
 
 .benefitDes p{
-    font-size: min(5vw, 18px);
-}
-
-.benefitDes {
-    transform: rotateY(-180deg); /* Initially hidden side */
+    font-size: min(5vw, 25px);
+    padding: 10px;
+    margin: 0;
 }
 
 .benefit.flipped .benefitTitle {
@@ -728,4 +731,19 @@ p{
 
 .nameEmail label,.emailMessage label{
     margin: 14px;
+    font-size: max(12px, min(7vw, 20px));
+}
+
+.inputs{
+    font-family: 'Tahoma';
+    width: max(12px, min(80vw, 400px));
+    font-size: max(12px, min(7vw, 20px));
+}
+
+textarea.inputs {
+    resize: none;
+}
+
+.submit{
+    font-size: max(12px, min(7vw, 20px));
 }

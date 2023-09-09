@@ -196,6 +196,8 @@ function toggleMenu() {
         // Disable scrolling
         disableScrolling();
     }
+    document.body.style.left = '0px';
+    document.body.style.right = '0px';
 }
 
 // Function to disable scrolling
