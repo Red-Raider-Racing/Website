@@ -698,6 +698,7 @@ p{
     margin: auto;
     max-width: 1200px;
     text-align: center;
+    margin-top: 50px;
 }
 
 .body{
@@ -706,4 +707,25 @@ p{
     z-index: 90;
     position: relative;
     overflow-x: visible;
+}
+
+.formCon{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: start;
+    margin: 10px;
+}
+
+.nameEmail,.emailMessage{
+    margin: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+}
+
+.nameEmail label,.emailMessage label{
+    margin: 14px;
 }
