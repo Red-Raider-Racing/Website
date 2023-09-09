@@ -37,7 +37,7 @@ def submit_contact(request):
         message = request.POST.get('message')
 
         # Perform any backend processing (e.g., saving to the database)
-        '''call functions here'''
+        '''call formating functions here'''
         print(f"name: {name}\nemail: {email}\nsubject: {subject}\nmessage: {message}\n")
 
         # You can also return a response or redirect to another page
