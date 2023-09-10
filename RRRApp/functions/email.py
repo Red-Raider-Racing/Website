@@ -33,6 +33,8 @@ def formatMessage(name, message):
     '''
     Used to format the message.
     '''
-    message = f'This message is from {name}:\n\n"{message}"'
+    message = f'This message is from redraiderracing.com from {name}:\n\n{message}'
     print(message)
     return message 
+
+# formatMessage("Carson Spaniel","I would love to join the team. How can I start getting involved? \nThank you,\nCarson Spaniel")

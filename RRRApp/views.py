@@ -1,7 +1,6 @@
 from django.shortcuts import render
 from .functions.email import emailMessage
 from django.views.decorators.csrf import csrf_exempt
-from django.http import HttpResponse, HttpResponseServerError
 
 TEMPLATE_DIRS = (
     'os.path.join(BASE_DIR, "templates"),'
@@ -32,8 +31,8 @@ def custom_404(request, exception):
 def custom_500(request):
     return render(request, '500.html', status=500)
 
-#----------------Responses----------------
 
+#----------------Responses----------------
 @csrf_exempt
 def submit_contact(request):
     if request.method == 'POST':
