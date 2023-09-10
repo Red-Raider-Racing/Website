@@ -16,8 +16,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.conf.urls import handler404, handler500
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('RRRApp.urls')),
 ]
+
+# Define your custom error handling views
+handler404 = 'RRRWebsite.custom_404_view'
+handler500 = 'RRRWebsite.custom_500_view'

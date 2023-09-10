@@ -71,8 +71,8 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'RRRWebsite.wsgi.application'
-
+WSGI_APPLICATION = 'RRRWebsite.wsgi.application' # synchronous web requests
+ASGI_APPLICATION = 'RRRWebsite.asgi.application' # asynchronous web requests
 
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
@@ -128,3 +128,15 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Email stuff here
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp-relay.brevo.com'  # Replace with the actual SMTP server address
+EMAIL_PORT = 587  # Use the appropriate port number
+EMAIL_USE_TLS = True  # Use TLS encryption if supported
+EMAIL_HOST_USER = 'redraiderracingcode@outlook.com'  # Your email address
+
+if DEBUG:
+    from .secret import EMAIL_HOST_PASSWORD
+else:
+    EMAIL_HOST_PASSWORD = os.environ["EMAIL_HOST_PASSWORD"]

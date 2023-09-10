@@ -1,7 +1,7 @@
 from django.shortcuts import render
-from django.http import HttpResponse
-
+from .functions.email import emailMessage
 from django.views.decorators.csrf import csrf_exempt
+from django.http import HttpResponse, HttpResponseServerError
 
 TEMPLATE_DIRS = (
     'os.path.join(BASE_DIR, "templates"),'
@@ -26,9 +26,16 @@ def carshow(request):
 def faq(request):
     return render(request, "faq.html",)
 
+def custom_404(request, exception):
+    return render(request, '404.html', status=404)
+
+def custom_500(request):
+    return render(request, '500.html', status=500)
+
 #----------------Responses----------------
 
-def submit_contact(request):
+@csrf_exempt
+async def submit_contact(request):
     if request.method == 'POST':
         # Handle the form data here
         name = request.POST.get('name')
@@ -37,11 +44,18 @@ def submit_contact(request):
         message = request.POST.get('message')
 
         # Perform any backend processing (e.g., saving to the database)
-        '''call formating functions here'''
+        '''call formatting functions here'''
         print(f"name: {name}\nemail: {email}\nsubject: {subject}\nmessage: {message}\n")
+        
+        # Await asynchronous email sending and catch exceptions
+        try:
+            await emailMessage(name, email, subject, message)
+        except Exception as e:
+            # Render the 500.html error page with the exception information
+            return HttpResponseServerError(render(request, '500.html', context={'exception': str(e)}))
 
-        # You can also return a response or redirect to another page
-        return render(request, 'index.html')
+        # Return a success response
+        return HttpResponse('Email sent successfully')
 
     # Handle other HTTP methods or display a form initially
     return render(request, 'index.html')
