@@ -747,3 +747,25 @@ textarea.inputs {
 .submit{
     font-size: max(12px, min(7vw, 20px));
 }
+
+#message-container{
+    margin-top: 20px;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 200px;
+    bottom: 0;
+    z-index: 100;
+}
+
+#message-container .success-message{
+    background-color: var(--background-color);
+    padding: 20px;
+    border-radius: 20px;
+    font-size: max(12px, min(7vw, 30px));
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: max(12px, min(80vw, 1000px));
+    margin: auto;
+}

@@ -1,14 +1,19 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .functions.email import emailMessage
 from django.views.decorators.csrf import csrf_exempt
+from django.http import HttpResponse
 
 TEMPLATE_DIRS = (
     'os.path.join(BASE_DIR, "templates"),'
 )
 
 #----------------Pages----------------
+@csrf_exempt
 def index(request):
-    return render(request, "index.html",)
+    success = request.GET.get('success', None)
+
+    # Render the template with the success or error message
+    return render(request, "index.html", {'success': success})
 
 def team(request):
     return render(request, "team.html",)
@@ -31,9 +36,7 @@ def custom_404(request, exception):
 def custom_500(request):
     return render(request, '500.html', status=500)
 
-
 #----------------Responses----------------
-@csrf_exempt
 def submit_contact(request):
     if request.method == 'POST':
         # Handle the form data here
@@ -42,13 +45,23 @@ def submit_contact(request):
         subject = request.POST.get('subject')
         message = request.POST.get('message')
 
-        # Perform any backend processing (e.g., saving to the database)
-        '''call formating functions here'''
-        print(f"name: {name}\nemail: {email}\nsubject: {subject}\nmessage: {message}\n")
-        emailMessage(name, email, subject, message)
+        try:
+            # Perform any backend processing (e.g., saving to the database)
+            '''call formatting functions here'''
+            emailMessage(name, email, subject, message)
 
-        # You can also return a response or redirect to another page
-        return render(request, 'index.html')
+            # Set success message
+            success = True
+        except Exception as e:
+            # Handle the error case
+            # You can log the error for debugging
+            print(f"Error: {str(e)}")
+
+            # Set error message
+            success = False
+
+        # Render the template with the success or error message
+        return redirect(f"/home/?success={success}")
 
     # Handle other HTTP methods or display a form initially
     return render(request, 'index.html')

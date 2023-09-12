@@ -93,6 +93,13 @@
             </div>
             <input type="submit" value="Submit" class="submit">
         </form>
+        <div id="message-container">
+            {% if success %}
+                <div class="success-message">Your message was sent successfully.</div>
+            {% elif error %}
+                <div class="error-message">There was an issue processing your request.</div>
+            {% endif %}
+        </div>
     </div>
 </body>
 

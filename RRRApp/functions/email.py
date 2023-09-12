@@ -5,6 +5,7 @@ date: 9/9/23
 
 from django.core.mail import send_mail, BadHeaderError
 from django.http import HttpResponse
+from datetime import datetime
 
 def emailMessage(name, email, subject, message):
     '''
@@ -13,7 +14,6 @@ def emailMessage(name, email, subject, message):
     '''
 
     message = formatMessage(name,message)
-
     try:
         send_mail(
             subject,
@@ -22,6 +22,7 @@ def emailMessage(name, email, subject, message):
             ['redraiderracingcode@outlook.com'],
             fail_silently=False,
         )
+        return HttpResponse('Success.')
     except BadHeaderError:
         # Handle a BadHeaderError (e.g., invalid subject)
         return HttpResponse('Invalid header found.')
@@ -33,7 +34,7 @@ def formatMessage(name, message):
     '''
     Used to format the message.
     '''
-    message = f'This message is from redraiderracing.com from {name}:\n\n{message}'
+    message = f'This message is from redraiderracing.com from {name} at {datetime.now().strftime("%H:%M:%S")}:\n\n{message}'
     print(message)
     return message 
 
