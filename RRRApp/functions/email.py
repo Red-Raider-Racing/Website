@@ -12,7 +12,6 @@ def emailMessage(name, email, subject, message):
     Used to take the inputs and send an email to our email.
         - currently using 'redraiderracingcode@outlook.com' for testing.
     '''
-
     message = formatMessage(name,email,message)
     try:
         send_mail(

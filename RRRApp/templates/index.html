@@ -18,7 +18,7 @@
             <h1 class="welcomeTitle">Welcome!</h1>
             <h3 class="join">Looking to Join Red Raider Racing?</h3>
             <p class="subtext">We welcome all majors.</p>
-            <a href="/faq/?join=True#join"><button class="learnMore">LEARN MORE</button></a>            
+            <a href="/faq/?join=1#join"><button class="learnMore">LEARN MORE</button></a>            
         </div>
     </div>
     <div class="body">
@@ -93,13 +93,10 @@
             </div>
             <input type="submit" value="Submit" class="submit">
         </form>
-        <!-- <div id="message-container">
-            {% if success %}
-                <div class="success-message">Your message was sent successfully.</div>
-            {% elif error %}
-                <div class="error-message">There was an issue processing your request.</div>
-            {% endif %}
-        </div> -->
+        <div id="message">
+            <div class="message" id="sent">Your message was sent successfully.</div>
+            <div class="message" id="fail">There was a problem sending your message.</div>
+        </div>
     </div>
 </body>
 

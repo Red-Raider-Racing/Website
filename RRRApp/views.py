@@ -51,17 +51,17 @@ def submit_contact(request):
             emailMessage(name, email, subject, message)
 
             # Set success message
-            success = True
+            success = 1
         except Exception as e:
             # Handle the error case
             # You can log the error for debugging
             print(f"Error: {str(e)}")
 
             # Set error message
-            success = False
+            success = 0
 
         # Render the template with the success or error message
-        return redirect(f"/home/?success={success}")
+        return redirect(f"/home/?success={success}#message")
 
     # Handle other HTTP methods or display a form initially
     return render(request, 'index.html')

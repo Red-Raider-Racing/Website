@@ -74,6 +74,18 @@ document.addEventListener("DOMContentLoaded", function() {
         showJoin();
     }
 
+    var successParam = GetURLParameter('success');
+    if (successParam){
+        var message;
+        if (successParam == 1){
+            message = 'sent';
+        }
+        else{
+            message = 'fail';
+        }
+        showSent(message);
+    }
+
 });
 
 // Function to update the padding of the "main" element based on the height of the "nav" element
@@ -308,4 +320,10 @@ function showJoin(){
     const joinAnswer = document.getElementById("join");
     joinAnswer.style.display = 'block';
     joinAnswer.style.opacity = '1';
+}
+
+function showSent(message){
+    console.log(message);
+    const send = document.getElementById(message);
+    send.style.display = 'block';
 }
