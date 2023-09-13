@@ -69,6 +69,11 @@ document.addEventListener("DOMContentLoaded", function() {
     observer.observe(car);
     });
 
+    var joinParam = GetURLParameter('join');
+    if (joinParam){
+        showJoin();
+    }
+
 });
 
 // Function to update the padding of the "main" element based on the height of the "nav" element
@@ -284,3 +289,23 @@ window.addEventListener('scroll', function () {
 
     // Rest of your scroll event handling code...
 });
+
+function GetURLParameter(sParam)
+{
+    var sPageURL = window.location.search.substring(1);
+    var sURLVariables = sPageURL.split('&');
+    for (var i = 0; i < sURLVariables.length; i++) 
+    {
+        var sParameterName = sURLVariables[i].split('=');
+        if (sParameterName[0] == sParam) 
+        {
+            return sParameterName[1];
+        }
+    }
+}
+
+function showJoin(){
+    const joinAnswer = document.querySelector("div#join.answer");
+    joinAnswer.style.display = 'block';
+    joinAnswer.style.opacity = '1';
+}
