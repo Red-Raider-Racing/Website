@@ -13,12 +13,12 @@ def emailMessage(name, email, subject, message):
         - currently using 'redraiderracingcode@outlook.com' for testing.
     '''
 
-    message = formatMessage(name,message)
+    message = formatMessage(name,email,message)
     try:
         send_mail(
             subject,
             message,
-            email,
+            'redraiderracing@website.admin',
             ['redraiderracingcode@outlook.com'],
             fail_silently=False,
         )
@@ -30,7 +30,7 @@ def emailMessage(name, email, subject, message):
         # Handle other exceptions (e.g., SMTP errors, connection issues)
         return HttpResponse(f'An error occurred: {str(e)}')
 
-def formatMessage(name, message):
+def formatMessage(name, email, message):
     '''
     Used to format the message how ever you want.
     '''
@@ -42,7 +42,9 @@ def formatMessage(name, message):
     else:
         dayTime = 'AM'
 
-    message = f'This message is from redraiderracing.com from {name} at {hour}:{minute} {dayTime}:\n\n{message}'
+    email_link = f'<a href="mailto:{email}">{email}</a>'
+    
+    message = f'This message is from {email_link} from {name} at {hour}:{minute} {dayTime}:\n\n\n{message}'
     print(message)
     return message 
 
