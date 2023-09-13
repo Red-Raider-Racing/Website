@@ -305,7 +305,7 @@ function GetURLParameter(sParam)
 }
 
 function showJoin(){
-    const joinAnswer = document.querySelector("div#join.answer");
+    const joinAnswer = document.getElementById("join");
     joinAnswer.style.display = 'block';
     joinAnswer.style.opacity = '1';
 }
