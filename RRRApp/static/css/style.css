@@ -751,4 +751,5 @@ textarea.inputs {
 .message{
     margin: 20px;
     display: none;
+    font-size: max(12px, min(7vw, 20px));
 }
