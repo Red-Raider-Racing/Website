@@ -32,9 +32,17 @@ def emailMessage(name, email, subject, message):
 
 def formatMessage(name, message):
     '''
-    Used to format the message.
+    Used to format the message how ever you want.
     '''
-    message = f'This message is from redraiderracing.com from {name} at {datetime.now().strftime("%H:%M:%S")}:\n\n{message}'
+    hour = datetime.now().hour
+    minute = datetime.now().minute
+    if hour > 12:
+        hour -= 12
+        dayTime = 'PM'
+    else:
+        dayTime = 'AM'
+
+    message = f'This message is from redraiderracing.com from {name} at {hour}:{minute} {dayTime}:\n\n{message}'
     print(message)
     return message 
 
