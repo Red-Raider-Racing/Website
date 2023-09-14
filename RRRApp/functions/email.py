@@ -3,8 +3,8 @@ author: Carson Spaniel
 date: 9/9/23
 '''
 
-from django.core.mail import send_mail, BadHeaderError
-from django.http import HttpResponse
+# from django.core.mail import send_mail, BadHeaderError
+# from django.http import HttpResponse
 from datetime import datetime
 
 def emailMessage(name, email, subject, message):
@@ -33,10 +33,15 @@ def formatMessage(name, email, message):
     '''
     Used to format the message how ever you want.
     '''
+    day_of_week = datetime.now().strftime('%A')  # Full day name (e.g., "Monday")
+    date = datetime.now().strftime('%m/%d/%Y')
+
     hour = datetime.now().hour
     minute = datetime.now().minute
     if hour > 12:
         hour -= 12
+        dayTime = 'PM'
+    elif hour == 12:
         dayTime = 'PM'
     else:
         dayTime = 'AM'
@@ -46,8 +51,8 @@ def formatMessage(name, email, message):
 
     email_link = f'<a href="mailto:{email}">{email}</a>'
     
-    message = f'This message is from {email_link} from {name} at {hour}:{minute} {dayTime}:\n\n{message}'
+    message = f'This message is from {email_link} from {name} at {hour}:{minute} {dayTime} {day_of_week} {date}:\n\n{message}'
     print(message)
     return message 
 
-# formatMessage("Carson Spaniel","I would love to join the team. How can I start getting involved? \nThank you,\nCarson Spaniel")
+formatMessage("Carson Spaniel","carsonspaniel@gmail.com","I would love to join the team. How can I start getting involved? \nThank you,\nCarson Spaniel")
