@@ -11,10 +11,7 @@ TEMPLATE_DIRS = (
 @csrf_exempt
 def index(request):
     if request.method == 'GET':
-        success = request.GET.get('success', None)
-
-        # Render the template with the success or error message
-        return render(request, "index.html", {'success': success})
+        return render(request, "index.html")
     else:
         # Handle the form data here
         name = request.POST.get('name')
