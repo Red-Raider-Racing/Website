@@ -727,10 +727,11 @@ p{
     flex-direction: column;
     justify-content: center;
     align-items: start;
+    overflow-x: visible;
 }
 
 .nameEmail label,.emailMessage label{
-    margin: 14px;
+    margin: 13px;
     font-size: max(12px, min(7vw, 20px));
 }
 
@@ -738,6 +739,16 @@ p{
     font-family: 'Tahoma';
     width: max(12px, min(80vw, 400px));
     font-size: max(12px, min(7vw, 20px));
+    border: none;
+    padding: 5px;
+    border-radius: 5px;
+    transition: outline 0.1s ease-out, outline-offset 0.1s ease-out, border-radius 0.1s ease-out;
+}
+
+.inputs:focus{
+    outline: 3px solid var(--secondary-color);
+    outline-offset: 2px;
+    border-radius: 5px;
 }
 
 textarea.inputs {
@@ -746,6 +757,9 @@ textarea.inputs {
 
 .submit{
     font-size: max(12px, min(7vw, 20px));
+    border: none;
+    padding: 5px;
+    border-radius: 5px;
 }
 
 .message{

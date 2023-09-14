@@ -11,6 +11,10 @@ urlpatterns = [
     path('sponsors/',views.sponsor, name='sponsor'),
     path('car-show/',views.carshow, name='carshow'),
     path('faq/',views.faq, name='faq'),
+
+    #----------------Error Pages----------------
+    path('404/',views.custom_404, name='404'),
+    path('500/',views.custom_500, name='500'),
     
     #----------------requests----------------
 ]
