@@ -318,7 +318,7 @@ function GetURLParameter(sParam)
 
 function showJoin(){
     const joinAnswer = document.getElementById("join-answer");
-    const joinQuestion = document.getElementById('join');
+    const joinQuestion = document.getElementById('join-question');
     joinQuestion.classList.add("active");
     joinAnswer.style.display = 'block';
     joinAnswer.style.opacity = '1';
