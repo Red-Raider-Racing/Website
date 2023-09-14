@@ -72,7 +72,6 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'RRRWebsite.wsgi.application' # synchronous web requests
-ASGI_APPLICATION = 'RRRWebsite.asgi.application' # asynchronous web requests
 
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases

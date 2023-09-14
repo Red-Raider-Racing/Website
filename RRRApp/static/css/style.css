@@ -557,6 +557,10 @@ p{
     overflow: visible;
 }
 
+.carIMG img{
+    width: 100%;
+}
+
 .specs{
     max-width: 100%;
     display: flex;
