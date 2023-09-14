@@ -41,9 +41,12 @@ def formatMessage(name, email, message):
     else:
         dayTime = 'AM'
 
+    if minute < 10:
+        minute = f'0{minute}'
+
     email_link = f'<a href="mailto:{email}">{email}</a>'
     
-    message = f'This message is from {email_link} from {name} at {hour}:{minute} {dayTime}:\n\n\n{message}'
+    message = f'This message is from {email_link} from {name} at {hour}:{minute} {dayTime}:\n\n{message}'
     print(message)
     return message 
 

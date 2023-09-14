@@ -622,6 +622,10 @@ p{
     padding: 20px;
 }
 
+.FAQSection a{
+    color: var(--secondary-color)
+}
+
 .faq {
     padding: 10px;
     cursor: pointer;
