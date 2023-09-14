@@ -3,8 +3,8 @@ author: Carson Spaniel
 date: 9/9/23
 '''
 
-# from django.core.mail import send_mail, BadHeaderError
-# from django.http import HttpResponse
+from django.core.mail import send_mail, BadHeaderError
+from django.http import HttpResponse
 from datetime import datetime
 
 def emailMessage(name, email, subject, message):
@@ -51,7 +51,7 @@ def formatMessage(name, email, message):
 
     email_link = f'<a href="mailto:{email}">{email}</a>'
     
-    message = f'This message is from {email_link} from {name} at {hour}:{minute} {dayTime} {day_of_week} {date}:\n\n{message}'
+    message = f'This message is from {name} on {day_of_week} {date} at {hour}:{minute} {dayTime}:\n\n\n{message}\n\n\nTo respond to them, email them back at {email_link}.'
     print(message)
     return message 
 
