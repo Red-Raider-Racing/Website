@@ -317,7 +317,9 @@ function GetURLParameter(sParam)
 }
 
 function showJoin(){
-    const joinAnswer = document.getElementById("join");
+    const joinAnswer = document.getElementById("join-answer");
+    const joinQuestion = document.getElementById('join');
+    joinQuestion.classList.add("active");
     joinAnswer.style.display = 'block';
     joinAnswer.style.opacity = '1';
 }
@@ -326,4 +328,8 @@ function showSent(message){
     console.log(message);
     const send = document.getElementById(message);
     send.style.display = 'block';
+}
+
+function showLoading() {
+    document.getElementById('loading').style.display = 'block';
 }

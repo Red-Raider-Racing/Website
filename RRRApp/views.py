@@ -10,35 +10,12 @@ TEMPLATE_DIRS = (
 #----------------Pages----------------
 @csrf_exempt
 def index(request):
-    success = request.GET.get('success', None)
+    if request.method == 'GET':
+        success = request.GET.get('success', None)
 
-    # Render the template with the success or error message
-    return render(request, "index.html", {'success': success})
-
-def team(request):
-    return render(request, "team.html",)
-
-def cars(request):
-    return render(request, "cars.html",)
-
-def sponsor(request):
-    return render(request, "sponsor.html",)
-
-def carshow(request):
-    return render(request, "carshow.html",)
-
-def faq(request):
-    return render(request, "faq.html",)
-
-def custom_404(request, exception):
-    return render(request, '404.html', status=404)
-
-def custom_500(request):
-    return render(request, '500.html', status=500)
-
-#----------------Responses----------------
-def submit_contact(request):
-    if request.method == 'POST':
+        # Render the template with the success or error message
+        return render(request, "index.html", {'success': success})
+    else:
         # Handle the form data here
         name = request.POST.get('name')
         email = request.POST.get('email')
@@ -63,5 +40,25 @@ def submit_contact(request):
         # Render the template with the success or error message
         return redirect(f"/home/?success={success}#message")
 
-    # Handle other HTTP methods or display a form initially
-    return render(request, 'index.html')
+def team(request):
+    return render(request, "team.html",)
+
+def cars(request):
+    return render(request, "cars.html",)
+
+def sponsor(request):
+    return render(request, "sponsor.html",)
+
+def carshow(request):
+    return render(request, "carshow.html",)
+
+def faq(request):
+    return render(request, "faq.html",)
+
+def custom_404(request, exception):
+    return render(request, '404.html', status=404)
+
+def custom_500(request):
+    return render(request, '500.html', status=500)
+
+#----------------Responses----------------

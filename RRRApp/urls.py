@@ -13,5 +13,4 @@ urlpatterns = [
     path('faq/',views.faq, name='faq'),
     
     #----------------requests----------------
-    path('submit_contact/', views.submit_contact, name='submit_contact'),
 ]

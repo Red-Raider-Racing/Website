@@ -73,7 +73,7 @@
     <div class="contactUs">
         <h1 class="sectionTitle">Contact Us</h1>
 
-        <form action="{% url 'submit_contact' %}" method="post">
+        <form action="{% url 'home' %}" method="post" onsubmit="showLoading()" id="contact">
             {% csrf_token %}
             <div class="formCon">
                 <div class="nameEmail">
@@ -91,12 +91,17 @@
                     <textarea id="message" name="message" rows="8" required class="inputs"></textarea>
                 </div>
             </div>
-            <input type="submit" value="Submit" class="submit">
+            <div class="submitArea">
+                <input type="submit" value="Submit" class="submit">
+                <div id="message">
+                    <div class="message" id="sent">Your message was sent successfully.</div>
+                    <div class="message" id="fail">There was a problem sending your message.</div>
+                </div>
+                <div id="loading">
+                    <img src="../static/loaders/ZZ5H.gif" alt="Loading" height="80"/>
+                </div>   
+            </div>
         </form>
-        <div id="message">
-            <div class="message" id="sent">Your message was sent successfully.</div>
-            <div class="message" id="fail">There was a problem sending your message.</div>
-        </div>
     </div>
 </body>
 
