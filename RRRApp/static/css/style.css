@@ -548,14 +548,13 @@ p{
     margin: 10px auto;
     padding: 10px;
     width: 60%;
-    max-width: 800px;
-    aspect-ratio: 16/9;
+    max-width: 490px;
     background-color: var(--imagePlaceholder);
     border-radius: 5px;
-    /* min-width: 270px; */
     background-size: cover; /* You can use 'cover' to maintain aspect ratio and cover the div */
     background-repeat: no-repeat; /* Prevent the background image from repeating */
     background-position: center center;
+    overflow: visible;
 }
 
 .specs{

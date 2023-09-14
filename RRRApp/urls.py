@@ -4,7 +4,7 @@ import asyncio
 
 urlpatterns = [
     #----------------Pages----------------
-    path('',views.index, name='home'),
+    path('',views.load, name='home'),
     path('home/',views.index, name='home'),
     path('team/',views.team, name='team'),
     path('cars/',views.cars, name='cars'),

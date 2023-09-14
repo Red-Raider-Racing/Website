@@ -8,6 +8,9 @@ TEMPLATE_DIRS = (
 )
 
 #----------------Pages----------------
+def load(request):
+    return redirect(f"/home/")
+
 @csrf_exempt
 def index(request):
     if request.method == 'GET':
