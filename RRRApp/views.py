@@ -8,7 +8,7 @@ TEMPLATE_DIRS = (
 )
 
 #----------------Pages----------------
-def load(request):
+def load():
     return redirect(f"/home/")
 
 @csrf_exempt
