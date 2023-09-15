@@ -158,7 +158,6 @@ document.addEventListener("DOMContentLoaded", updateMainPadding);
 // Update padding on window resize
 window.addEventListener("resize", updateMainPadding);
 
-// Add an event listener to the document that listens for clicks
 document.addEventListener("click", function(event) {
     const header = document.getElementById("mainHeader");
     const menu = document.querySelector(".dropdown-content");
@@ -192,7 +191,6 @@ function toggleMenu() {
         menuCon.style.left = "";
         menuCon.style.right = "";
 
-        // Enable scrolling
         enableScrolling();
     } else {
         // Open the menu
@@ -210,26 +208,23 @@ function toggleMenu() {
         menuCon.style.left = "0";
         menuCon.style.right = "0";
 
-        // Disable scrolling
         disableScrolling();
     }
     document.body.style.left = '0px';
     document.body.style.right = '0px';
 }
 
-// Function to disable scrolling
 function disableScrolling() {
     const scrollY = window.scrollY;
     document.body.style.position = "fixed";
     document.body.style.top = `${-scrollY}px`;
 }
 
-// Function to enable scrolling
 function enableScrolling() {
     const scrollY = parseInt(document.body.style.top);
     document.body.style.position = "";
     document.body.style.top = "";
-    window.scrollTo(0, -scrollY);
+    window.scrollTo(0, -scrollY); // Scroll back down to where screen was at
 }
 
 function toggleFlip(card) {
@@ -259,44 +254,40 @@ window.onscroll = function() {
         width = viewportWidth*.5;
     }
 
-    if (currentScrollPos > width) { // Check if scrolled more than 100 pixels
+    if (currentScrollPos > width) { // Check if scrolled more than width amount of pixels
         if (prevScrollPos > currentScrollPos) {
             document.getElementById("mainHeader").style.top = "0";
         } else {
             document.getElementById("mainHeader").style.top = `-${navElement.clientHeight}px`; // Hide header
         }
     } else {
-        document.getElementById("mainHeader").style.top = "0"; // Keep header visible for the first 100 pixels
+        document.getElementById("mainHeader").style.top = "0"; // Keep header visible for the first few hundred pixels
     }
 
     prevScrollPos = currentScrollPos;
 };
 
 window.addEventListener('scroll', function () {
-    const scrollY = window.scrollY;
+    const scrollY = window.scrollY; // See where the scroll is at
+
+    // ------------ Parallax stuff------------
     const parallaxBackground = document.querySelector('.coverIMG');
     const pageTitle = document.querySelector('.pageTitle');
-
-    if (parallaxBackground != null){
-        parallaxBackground.style.transform = `translateY(${scrollY * 0.5}px)`;
+    if (parallaxBackground != null){ // Check to see if the parallax background is on this page
+        parallaxBackground.style.transform = `translateY(${scrollY * 0.5}px)`; // Perform the parallax effect
     }
-    
     pageTitle.style.transform = `translateY(-${scrollY * .2}px)`;
-});
 
-window.addEventListener('scroll', function () {
-    const scrollY = window.scrollY;
-    const navElement = document.getElementById("mainHeader");
-
-    // Check if scroll position is at the top of the page (scrollY is zero)
+    // ------------ transparent top stuff------------
+    const navElement = document.getElementById("mainHeader"); // Check if scroll position is at the top of the page (scrollY is zero)
     if (scrollY === 0 && document.body.style.top >= 0) {
         // Scroll is at the top, make the header clear and remove box shadow
         navElement.style.backgroundColor = "transparent";
         navElement.style.boxShadow = "none";
     } else {
         // Scroll is not at the top, set background color and box shadow as needed
-        navElement.style.backgroundColor = "var(--primary-faded-color)"; // Replace with your desired color
-        navElement.style.boxShadow = "var(--shadow)"; // Replace with your desired shadow
+        navElement.style.backgroundColor = "var(--primary-faded-color)";
+        navElement.style.boxShadow = "var(--shadow)";
     }
 
     // Rest of your scroll event handling code...
