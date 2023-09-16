@@ -229,7 +229,7 @@ function toggleMenu() {
         menu.style.display = "flex";
         menuButton.innerHTML = "&#x2715;";
         menuButton.style.marginLeft = "200px";
-        menuButton.style.marginTop = "-120px";
+        menuButton.style.marginTop = "-100px";
         header.style.height = "100%";
         logo.style.display = 'none';
         menuCon.style.top = "100px";
