@@ -1,79 +1,99 @@
+/** 
+ * Author: Carson Spaniel
+ * Date: 8/15/23
+*/
+
+// Function for when the page is loaded. Initialization stuff
 document.addEventListener("DOMContentLoaded", function() {
     const questions = document.querySelectorAll(".faq");
     
+    // Finds all the questions in the FAQ page and listens to see if it is clicked on
     questions.forEach(question => {
-      question.addEventListener("click", function() {
-        const answer = this.nextElementSibling;
-        
-        if (answer.style.display === "block") {
-          answer.style.opacity = 0;
-          setTimeout(() => {
-            answer.style.display = "none";
-          }, 20);
-        } else {
-          questions.forEach(q => {
-            if (q !== this) {
-              q.classList.remove("active");
-              const otherAnswer = q.nextElementSibling;
-              otherAnswer.style.opacity = 0;
-              setTimeout(() => {
-                otherAnswer.style.display = "none";
-              }, 20);
+        question.addEventListener("click", function() {
+            const answer = this.nextElementSibling;
+            
+            // Hide answer if it is selected
+            if (answer.style.display === "block") {
+                answer.style.opacity = 0;
+
+                // Fade out the answer
+                setTimeout(() => {
+                    answer.style.display = "none";
+                }, 20);
             }
-          });
-          
-          this.classList.add("active");
-          
-          answer.style.display = "block";
-          setTimeout(() => {
-            answer.style.opacity = 1;
-          }, 10);
-        }
-      });
+            else {
+                // Hide answer if another answer is selected
+                questions.forEach(q => {
+                    if (q !== this) {
+                        q.classList.remove("active");
+                        const otherAnswer = q.nextElementSibling;
+                        otherAnswer.style.opacity = 0;
+                        setTimeout(() => {
+                            otherAnswer.style.display = "none";
+                        }, 20);
+                    }
+                });
+                
+                this.classList.add("active"); // Highlight answer
+                answer.style.display = "block"; // Show answer
+
+                // Fade answer in
+                setTimeout(() => {
+                    answer.style.opacity = 1;
+                }, 10);
+            }
+        });
     });
-    // Function to check if an element is intersecting the viewport
+
+    // Function to check if an element is coming into view (intersection)
     function isElementIntersecting(entry) {
-    return entry.isIntersecting || entry.intersectionRatio > 0;
+        return entry.isIntersecting || entry.intersectionRatio > 0;
     }
 
     // Function to handle the intersection
     function handleIntersection(entries, observer) {
-    entries.forEach(function(entry) {
-        if (isElementIntersecting(entry)) {
-        entry.target.classList.add("visible");
-        // Stop observing the element after it becomes visible
-        observer.unobserve(entry.target);
-        }
-    });
+        entries.forEach(function(entry) {
+            if (isElementIntersecting(entry)) {
+                entry.target.classList.add("visible");
+                // Stop observing the element after it becomes visible
+                observer.unobserve(entry.target);
+            }
+        });
     }
 
     // Create the Intersection Observer
     const observer = new IntersectionObserver(handleIntersection, {
-    root: null,
-    rootMargin: "0px",
-    threshold: 0.1, // The percentage of the element that must be visible to trigger the intersection
+        root: null,
+        rootMargin: "0px",
+        threshold: 0.1, // The percentage of the element that must be visible to trigger the intersection
     });
 
+
+    // Looks for members
     const members = document.querySelectorAll(".member");
     members.forEach(function(member) {
-    observer.observe(member);
+        observer.observe(member);
     });
 
+    // Looks for benefits
     const benefits = document.querySelectorAll(".benefit");
     benefits.forEach(function(benefit) {
-    observer.observe(benefit);
+        observer.observe(benefit);
     });
 
+    // Looks for cars
     const cars = document.querySelectorAll(".car");
     cars.forEach(function(car) {
-    observer.observe(car);
+        observer.observe(car);
     });
 
+    // Grabs the join variable
     var joinParam = GetURLParameter('join');
     if (joinParam){
         showJoin();
     }
 
+    // Grabs the success variable
     var successParam = GetURLParameter('success');
     if (successParam){
         var message;
@@ -103,8 +123,8 @@ function updateMainPadding() {
     const viewportWidth = window.innerWidth;
     const viewportHeight = window.innerHeight;
 
+    // Close the menu
     if (menu.style.display === "block") {
-        // Close the menu
         menu.style.display = "none";
         menuButton.style.position = "relative";
         menuButton.style.top = "";
@@ -118,6 +138,7 @@ function updateMainPadding() {
         enableScrolling();
     } 
 
+    // Add responsiveness based on width of screen
     if(viewportWidth <= 1000 ){
         logo.style.height = '40px';
         logoCon.style.padding = '0px';
@@ -192,7 +213,8 @@ function toggleMenu() {
         menuCon.style.right = "";
 
         enableScrolling();
-    } else {
+    } 
+    else {
         // Open the menu
         navElement.style.backgroundColor = "var(--primary-faded-color)";
         navElement.style.boxShadow = "var(--shadow)";
@@ -214,12 +236,14 @@ function toggleMenu() {
     document.body.style.right = '0px';
 }
 
+// Function to disable the scrolling
 function disableScrolling() {
     const scrollY = window.scrollY;
     document.body.style.position = "fixed";
     document.body.style.top = `${-scrollY}px`;
 }
 
+// Function to enable the scrolling
 function enableScrolling() {
     const scrollY = parseInt(document.body.style.top);
     document.body.style.position = "";
@@ -227,6 +251,7 @@ function enableScrolling() {
     window.scrollTo(0, -scrollY); // Scroll back down to where screen was at
 }
 
+// Flip benefit based on mouse position
 function toggleFlip(card) {
     card.classList.toggle('flipped');
 }
@@ -241,8 +266,9 @@ benefitCards.forEach(card => {
     });
 });
 
-let prevScrollPos = window.pageYOffset;
+let prevScrollPos = window.pageYOffset; // Previous scroll position
 
+// Function to hide/show the header on scroll
 window.onscroll = function() {
     const currentScrollPos = window.pageYOffset;
     const navElement = document.getElementById("mainHeader");
@@ -254,14 +280,18 @@ window.onscroll = function() {
         width = viewportWidth*.5;
     }
 
-    if (currentScrollPos > width) { // Check if scrolled more than width amount of pixels
+    // Check if scrolled more than width amount of pixels
+    if (currentScrollPos > width) {
         if (prevScrollPos > currentScrollPos) {
             document.getElementById("mainHeader").style.top = "0";
         } else {
             document.getElementById("mainHeader").style.top = `-${navElement.clientHeight}px`; // Hide header
         }
-    } else {
-        document.getElementById("mainHeader").style.top = "0"; // Keep header visible for the first few hundred pixels
+    }
+
+    // Keep header visible for the first few hundred pixels
+    else {
+        document.getElementById("mainHeader").style.top = "0";
     }
 
     prevScrollPos = currentScrollPos;
@@ -293,8 +323,8 @@ window.addEventListener('scroll', function () {
     // Rest of your scroll event handling code...
 });
 
-function GetURLParameter(sParam)
-{
+// Function to grab all URL variables
+function GetURLParameter(sParam) {
     var sPageURL = window.location.search.substring(1);
     var sURLVariables = sPageURL.split('&');
     for (var i = 0; i < sURLVariables.length; i++) 
@@ -307,7 +337,8 @@ function GetURLParameter(sParam)
     }
 }
 
-function showJoin(){
+// Function to show "How to join" answer
+function showJoin() {
     const joinAnswer = document.getElementById("join-answer");
     const joinQuestion = document.getElementById('join-question');
     joinQuestion.classList.add("active");
@@ -315,12 +346,14 @@ function showJoin(){
     joinAnswer.style.opacity = '1';
 }
 
-function showSent(message){
+// Function to show that the message sent or failed
+function showSent(message) {
     console.log(message);
     const send = document.getElementById(message);
     send.style.display = 'block';
 }
 
+// Function to show the loading screen
 function showLoading() {
     document.getElementById('loading').style.display = 'block';
 }
