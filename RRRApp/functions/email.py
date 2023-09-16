@@ -33,8 +33,8 @@ def formatMessage(name, email, message):
     '''
     Used to format the message how ever you want.
     '''
-    day_of_week = datetime.now().strftime('%A')  # Full day name (e.g., "Monday")
-    date = datetime.now().strftime('%m/%d/%Y')
+    day_of_week = datetime.now().strftime('%A') # Full day name (e.g., "Monday")
+    date = datetime.now().strftime('%m/%d/%Y') # In the format MM/DD/YYYY
 
     hour = datetime.now().hour
     minute = datetime.now().minute
@@ -49,7 +49,7 @@ def formatMessage(name, email, message):
     if minute < 10:
         minute = f'0{minute}'
 
-    email_link = f'<a href="mailto:{email}">{email}</a>'
+    email_link = f'<a href="mailto:{email}">{email}</a>' # Makes a clickable link in the email
     
     message = f'This message is from {name} on {day_of_week} {date} at {hour}:{minute} {dayTime}:\n\n\n{message}\n\n\nTo respond to them, email them back at {email_link}.'
     print(message)
