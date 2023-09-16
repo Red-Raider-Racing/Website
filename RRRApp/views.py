@@ -1,7 +1,6 @@
 from django.shortcuts import render, redirect
 from .functions.email import emailMessage
 from django.views.decorators.csrf import csrf_exempt
-from django.http import HttpResponse
 
 TEMPLATE_DIRS = (
     'os.path.join(BASE_DIR, "templates"),'
