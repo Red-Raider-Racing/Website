@@ -87,6 +87,12 @@ document.addEventListener("DOMContentLoaded", function() {
         observer.observe(car);
     });
 
+    // Looks for sponsors
+    const sponsors = document.querySelectorAll(".sponsor");
+    sponsors.forEach(function(sponsor) {
+        observer.observe(sponsor);
+    });
+
     // Grabs the join variable
     var joinParam = GetURLParameter('join');
     if (joinParam){

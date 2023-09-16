@@ -670,11 +670,17 @@ p{
 .sponsor{
     text-align: center;
     margin: 20px;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.sponsor.visible{
+    opacity: 1;
 }
 
 .sponsorLogo{
     margin: 10px auto;
-    width: min(70vw, 300px);
+    width: min(60vw, 300px);
     aspect-ratio: 16/9;
     background-color: var(--imagePlaceholder);
     border-radius: 40px;
@@ -749,6 +755,7 @@ p{
 }
 
 .inputs{
+    margin: 0 auto;
     font-family: 'Tahoma';
     width: max(12px, min(80vw, 400px));
     font-size: max(12px, min(7vw, 20px));
