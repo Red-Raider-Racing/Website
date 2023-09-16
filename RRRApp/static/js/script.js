@@ -357,3 +357,22 @@ function showSent(message) {
 function showLoading() {
     document.getElementById('loading').style.display = 'block';
 }
+
+// Function to show character count for the email message
+function updateCharacterCount() {
+    const textarea = document.getElementById('message');
+    const characterCount = textarea.value.length;
+    const maxCharacters = parseInt(textarea.getAttribute('maxlength'));
+    const remainingCharacters = maxCharacters - characterCount;
+    const characterCountDisplay = document.getElementById('character-count');
+    characterCountDisplay.textContent = `Characters remaining: ${remainingCharacters}`;
+}
+
+// Function to clean the input to protect against code injection
+function sanitizeInput(inputField) {
+    const inputValue = inputField.value;
+    const sanitizedValue = DOMPurify.sanitize(inputValue, { ALLOWED_TAGS: ['p', 'br'] });
+
+    const displayValue = sanitizedValue.replace(/&lt;/g, '<').replace(/&gt;/g, '>');
+    inputField.value = displayValue;
+}

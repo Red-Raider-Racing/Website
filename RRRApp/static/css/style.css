@@ -1,3 +1,8 @@
+/** 
+ * Author: Carson Spaniel
+ * Date: 8/15/23
+*/
+
 :root {
     --primary-color: #414141;
     --primary-faded-color: #1c1c1cf5;
@@ -790,4 +795,8 @@ textarea.inputs {
 
 #contact{
     overflow: visible;
+}
+
+#character-count{
+    margin: 5px;
 }
