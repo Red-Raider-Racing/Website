@@ -10,6 +10,7 @@ document.addEventListener("DOMContentLoaded", function() {
     // Finds all the questions in the FAQ page and listens to see if it is clicked on
     questions.forEach(question => {
         question.addEventListener("click", function() {
+            this.classList.remove("active");
             const answer = this.nextElementSibling;
             
             // Hide answer if it is selected
@@ -186,7 +187,7 @@ document.addEventListener("DOMContentLoaded", updateMainPadding);
 window.addEventListener("resize", updateMainPadding);
 
 document.addEventListener("click", function(event) {
-    const header = document.getElementById("mainHeader");
+    const header = document.querySelector('header');
     const menu = document.querySelector(".dropdown-content");
     if (!header.contains(event.target)) {
         menu.style.display = "none";
@@ -198,14 +199,13 @@ function toggleMenu() {
     const menu = document.querySelector(".dropdown-content");
     const menuCon = document.querySelector(".dropdown");
     const menuButton = document.querySelector(".menuButton");
-    const header = document.getElementById("mainHeader");
+    const header = document.querySelector('header');
     const logo = document.querySelector(".logo");
-    const navElement = document.getElementById("mainHeader");
 
     if (menu.style.display === "flex") {
         // Close the menu
-        navElement.style.backgroundColor = "";
-        navElement.style.boxShadow = "";
+        header.style.backgroundColor = "";
+        header.style.boxShadow = "";
         menu.style.display = "none";
         menuButton.style.position = "relative";
         menuButton.style.top = "";
@@ -222,8 +222,8 @@ function toggleMenu() {
     } 
     else {
         // Open the menu
-        navElement.style.backgroundColor = "var(--primary-faded-color)";
-        navElement.style.boxShadow = "var(--shadow)";
+        header.style.backgroundColor = "var(--primary-faded-color)";
+        header.style.boxShadow = "var(--shadow)";
         menuButton.style.position = "absolute";
         menuButton.style.top = "30px";
         menu.style.display = "flex";
@@ -244,14 +244,20 @@ function toggleMenu() {
 
 // Function to disable the scrolling
 function disableScrolling() {
+    const header = document.querySelector('header');
     const scrollY = window.scrollY;
+
+    header.removeAttribute('id');
     document.body.style.position = "fixed";
     document.body.style.top = `${-scrollY}px`;
 }
 
 // Function to enable the scrolling
 function enableScrolling() {
+    const header = document.querySelector('header');
     const scrollY = parseInt(document.body.style.top);
+
+    header.setAttribute('id', 'mainHeader');
     document.body.style.position = "";
     document.body.style.top = "";
     window.scrollTo(0, -scrollY); // Scroll back down to where screen was at

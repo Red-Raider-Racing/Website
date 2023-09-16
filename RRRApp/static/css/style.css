@@ -165,6 +165,7 @@ nav a{
     padding: 10px;
     align-items: center;
     flex-grow: .5;
+    z-index: 100;
 }
 
 .dropdown {
@@ -198,6 +199,7 @@ nav a{
     justify-content: center;
     align-items: center;
     overflow-x: visible;
+    z-index: 100;
 }
 
 .dropdown-content.small-screen a {
@@ -215,6 +217,7 @@ nav a{
 .dropdown-content a button{
     font-size: min(10vw, 36px);
     font-weight: 900;
+    z-index: 100;
 }
 
 /* .dropdown-content a:hover button{
@@ -336,7 +339,7 @@ footer{
     margin: 0;
     margin-top: 50px;
     position: relative;
-    z-index: 90;
+    z-index: 70;
     box-shadow: var(--shadow);
     background-color: var(--primary-faded-color);
     padding: 40px 15px;
