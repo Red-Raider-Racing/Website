@@ -227,7 +227,7 @@ function toggleMenu() {
         menuButton.style.position = "absolute";
         menuButton.style.top = "30px";
         menu.style.display = "flex";
-        menuButton.innerHTML = "&#10006;";
+        menuButton.innerHTML = "&#x2715;";
         menuButton.style.marginLeft = "200px";
         menuButton.style.marginTop = "-120px";
         header.style.height = "100%";
@@ -257,19 +257,41 @@ function enableScrolling() {
     window.scrollTo(0, -scrollY); // Scroll back down to where screen was at
 }
 
-// Flip benefit based on mouse position
+// Function to flip the benefit card
 function toggleFlip(card) {
-    card.classList.toggle('flipped');
+    // Check if the card is flipped
+    const isFlipped = card.classList.contains('flipped');
+
+    // Remove 'flipped' class if the card is flipped
+    if (isFlipped) {
+        card.classList.remove('flipped');
+    } else {
+        // If not flipped, remove 'flipped' from all benefit cards and add to the current card
+        const benefitCards = document.querySelectorAll('.benefit');
+        benefitCards.forEach(benefitCard => {
+            benefitCard.classList.remove('flipped');
+        });
+        card.classList.add('flipped');
+    }
 }
 
+// Flip benefit based on mouse position
 const benefitCards = document.querySelectorAll('.benefit');
 benefitCards.forEach(card => {
-    card.addEventListener('mouseenter', () => {
+    const viewportWidth = window.innerWidth;
+    if (viewportWidth > 500){
+        card.addEventListener('mouseenter', () => {
             toggleFlip(card);
-    });
-    card.addEventListener('mouseleave', () => {
+        });
+        card.addEventListener('mouseleave', () => {
             toggleFlip(card);
-    });
+        });
+    }
+    else{
+        card.addEventListener('click', () => {
+            toggleFlip(card);
+        });
+    }
 });
 
 let prevScrollPos = window.pageYOffset; // Previous scroll position

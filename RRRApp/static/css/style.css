@@ -25,6 +25,29 @@
     src: url("../fonts/ethnocentric_it.otf") format("opentype");
 }
 
+@font-face {
+    font-family: 'Tahoma';
+    src: url("../fonts/Tahoma Regular font.ttf") format("opentype");
+}
+
+/* Styles for screens less than 500px wide */
+@media (max-width: 500px) {
+    .inputs {
+        width: max(12px, min(80vw, 400px));
+    }
+}
+
+/* Styles for screens greater than 500px wide */
+@media (min-width: 501px) {
+    .inputs {
+        width: max(300px, min(40vw, 400px));
+    }
+
+    .altNav button:hover{
+        color: var(--secondary-color);
+    }
+}
+
 * {
     font-family: 'ethnocentric';
     overflow-x: hidden;
@@ -52,6 +75,8 @@ header {
     width: 100%;
     z-index: 100;
     transition: top 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+    padding-top: 20px;
+    margin-top: -20px;
 }
 
 header button{
@@ -108,10 +133,6 @@ a button{
 
 .altNav button{
     font-size: 32px;
-}
-
-.altNav button:hover{
-    color: var(--secondary-color);
 }
 
 nav a{
@@ -197,14 +218,9 @@ nav a{
     font-weight: 900;
 }
 
-.dropdown-content a:hover button{
+/* .dropdown-content a:hover button{
     color: var(--secondary-color);
-}
-/* 
-.dropdown:hover .dropdown-content {
-    display: block;
 } */
-
 
 button {
     background-color: transparent;
@@ -780,6 +796,8 @@ textarea.inputs {
     border: none;
     padding: 5px;
     border-radius: 5px;
+    background-color: var(--font-color);
+    color: var(--background-color);
 }
 
 .message{
