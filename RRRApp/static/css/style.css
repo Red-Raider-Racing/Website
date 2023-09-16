@@ -796,3 +796,7 @@ textarea.inputs {
 #contact{
     overflow: visible;
 }
+
+#character-count{
+    margin: 5px;
+}
