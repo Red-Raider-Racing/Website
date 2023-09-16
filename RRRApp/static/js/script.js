@@ -305,7 +305,7 @@ let prevScrollPos = window.pageYOffset; // Previous scroll position
 // Function to hide/show the header on scroll
 window.onscroll = function() {
     const currentScrollPos = window.pageYOffset;
-    const navElement = document.getElementById("mainHeader");
+    const header = document.getElementById("mainHeader");
     const viewportWidth = window.innerWidth;
     if ((viewportWidth*.5)>300){
         width = 300;
@@ -314,21 +314,23 @@ window.onscroll = function() {
         width = viewportWidth*.5;
     }
 
-    // Check if scrolled more than width amount of pixels
-    if (currentScrollPos > width) {
-        if (prevScrollPos > currentScrollPos) {
-            document.getElementById("mainHeader").style.top = "0";
-        } else {
-            document.getElementById("mainHeader").style.top = `-${navElement.clientHeight}px`; // Hide header
+    if (header){
+        // Check if scrolled more than width amount of pixels
+        if (currentScrollPos > width) {
+            if (prevScrollPos > currentScrollPos) {
+                header.style.top = "0";
+            } else {
+                header.style.top = `-${header.clientHeight}px`; // Hide header
+            }
         }
-    }
 
-    // Keep header visible for the first few hundred pixels
-    else {
-        document.getElementById("mainHeader").style.top = "0";
-    }
+        // Keep header visible for the first few hundred pixels
+        else {
+            header.style.top = "0";
+        }
 
-    prevScrollPos = currentScrollPos;
+        prevScrollPos = currentScrollPos;
+    }
 };
 
 window.addEventListener('scroll', function () {
@@ -343,7 +345,7 @@ window.addEventListener('scroll', function () {
     pageTitle.style.transform = `translateY(-${scrollY * .2}px)`;
 
     // ------------ transparent top stuff------------
-    const navElement = document.getElementById("mainHeader"); // Check if scroll position is at the top of the page (scrollY is zero)
+    const navElement = document.querySelector('header'); // Check if scroll position is at the top of the page (scrollY is zero)
     if (scrollY === 0 && document.body.style.top >= 0) {
         // Scroll is at the top, make the header clear and remove box shadow
         navElement.style.backgroundColor = "transparent";
