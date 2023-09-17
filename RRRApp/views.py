@@ -1,6 +1,8 @@
 from django.shortcuts import render, redirect
 from .functions.email import emailMessage
 from django.views.decorators.csrf import csrf_exempt
+from django.views.decorators.cache import cache_page
+from RRRWebsite.settings import CACHE_TIMEOUT
 
 TEMPLATE_DIRS = (
     'os.path.join(BASE_DIR, "templates"),'
@@ -10,6 +12,7 @@ TEMPLATE_DIRS = (
 def load(request):
     return redirect(f"/home/")
 
+@cache_page(CACHE_TIMEOUT)
 @csrf_exempt
 def index(request):
     if request.method == 'GET':
@@ -39,24 +42,31 @@ def index(request):
         # Render the template with the success or error message
         return redirect(f"/home/?success={success}#message")
 
+@cache_page(CACHE_TIMEOUT)
 def team(request):
     return render(request, "team.html",)
 
+@cache_page(CACHE_TIMEOUT)
 def cars(request):
     return render(request, "cars.html",)
 
+@cache_page(CACHE_TIMEOUT)
 def sponsor(request):
     return render(request, "sponsor.html",)
 
+@cache_page(CACHE_TIMEOUT)
 def carshow(request):
     return render(request, "carshow.html",)
 
+@cache_page(CACHE_TIMEOUT)
 def faq(request):
     return render(request, "faq.html",)
 
+@cache_page(CACHE_TIMEOUT)
 def custom_404(request):
     return render(request, '404.html', status=404)
 
+@cache_page(CACHE_TIMEOUT)
 def custom_500(request):
     return render(request, '500.html', status=500)
 
