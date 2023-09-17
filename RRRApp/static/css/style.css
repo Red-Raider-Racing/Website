@@ -421,14 +421,6 @@ footer a{
     transform: rotateY(0deg);
 }
 
-.benefit:not(.flipped):hover .benefitTitle {
-    transform: rotateY(180deg);
-}
-
-.benefit:not(.flipped):hover .benefitDes {
-    transform: rotateY(0deg);
-}
-
 .teamTitle{
     margin: 0 auto;
     text-align: center;
@@ -860,5 +852,13 @@ textarea.inputs {
     
     .carsIMG{
         background-image: url('../images/RRR-2023-Cars.webp');
+    }
+
+    .benefit:not(.flipped):hover .benefitTitle {
+        transform: rotateY(180deg);
+    }
+    
+    .benefit:not(.flipped):hover .benefitDes {
+        transform: rotateY(0deg);
     }
 }

@@ -272,10 +272,10 @@ function toggleFlip(card) {
         card.classList.remove('flipped');
     } else {
         // If not flipped, remove 'flipped' from all benefit cards and add to the current card
-        const benefitCards = document.querySelectorAll('.benefit');
-        benefitCards.forEach(benefitCard => {
-            benefitCard.classList.remove('flipped');
-        });
+        // const benefitCards = document.querySelectorAll('.benefit');
+        // benefitCards.forEach(benefitCard => {
+        //     benefitCard.classList.remove('flipped');
+        // });
         card.classList.add('flipped');
     }
 }
@@ -283,20 +283,9 @@ function toggleFlip(card) {
 // Flip benefit based on mouse position
 const benefitCards = document.querySelectorAll('.benefit');
 benefitCards.forEach(card => {
-    const viewportWidth = window.innerWidth;
-    if (viewportWidth > 500){
-        card.addEventListener('mouseenter', () => {
-            toggleFlip(card);
-        });
-        card.addEventListener('mouseleave', () => {
-            toggleFlip(card);
-        });
-    }
-    else{
-        card.addEventListener('click', () => {
-            toggleFlip(card);
-        });
-    }
+    card.addEventListener('click', () => {
+        toggleFlip(card);
+    });
 });
 
 let prevScrollPos = window.pageYOffset; // Previous scroll position
