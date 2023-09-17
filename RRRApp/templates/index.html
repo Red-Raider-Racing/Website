@@ -11,10 +11,12 @@
 </head>
 <script>
     const active = document.getElementById('homeBtn');
+    const active1 = document.getElementById('homeBtn1');
     active.classList.add("active");
+    active1.classList.add("active");
 </script>
 <body>
-    <div class="coverIMG welcomeIMG" style="background-image: url('../static/images/RRR-2023-Cover.webp');">
+    <div class="coverIMG welcomeIMG">
         <div class="pageTitle welcome">
             <h1 class="welcomeTitle">Welcome!</h1>
             <h2 class="join">Looking to Join Red Raider Racing?</h2>
@@ -34,7 +36,7 @@
                 organization is composed of 14 officers as well as over 100+ members 
                 that work together to develop a technically sound and competitive car. 
             </p>
-            <a href="/faq/" title="Learn more about Red Raider Racing"><button class="learnMoreAbout">Learn More</button></a>            
+            <a href="/faq/" title="Learn more about Red Raider Racing"><button class="learnMoreAbout">Learn More About FSAE</button></a>            
             <div class="benefits">
                 <div class="benefit flip-card" onclick="toggleFlip(this)" tabindex="0" role="button" aria-label="Experience">
                     <div class="benefitTitle">
@@ -87,10 +89,10 @@
             </div>
             <div class="submitArea">
                 <input type="submit" value="Submit" class="submit">
-                <div id="message">
+                <div id="message-container">
                     <div class="message" id="sent">Your message was sent successfully.</div>
                     <div class="message" id="fail">There was a problem sending your message.</div>
-                </div>
+                </div>                
                 <div id="loading">
                     <img src="../static/loaders/ZZ5H.gif" alt="Loading" loading="lazy"/>
                 </div>   

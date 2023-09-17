@@ -29,7 +29,7 @@
 
 @font-face {
     font-family: 'Tahoma';
-    src: url("../fonts/Tahoma Regular font.ttf") format("opentype");
+    src: url("../fonts/tahomaregularfont-webfont.woff") format("opentype");
     font-display: swap;
 }
 
@@ -229,17 +229,8 @@ button {
 }
 
 .welcomeIMG{
-    /* background-image: url('../images/RRR-2023-Cover.webp'); */
     --height: min(200vw, 600px);
     --min-height: 490px;
-}
-
-.teamIMG{
-    background-image: url('../images/RRR-2023-Team.webp');
-}
-
-.carsIMG{
-    background-image: url('../images/RRR-2023-Cars.webp');
 }
 
 .coverIMG::before {
@@ -828,13 +819,25 @@ textarea.inputs {
     .inputs {
         width: max(12px, min(80vw, 400px));
     }
+
+    .welcomeIMG{
+        background-image: url('../images/mobile/RRR-2023-Cover-min.JPG');
+    }
+    
+    .teamIMG{
+        background-image: url('../images/mobile/RRR-2023-Team-min.JPG');
+    }
+    
+    .carsIMG{
+        background-image: url('../images/mobile/RRR-2023-Cars-min.JPG');
+    }
 }
 
 /* Styles for screens less than 1000px wide */
 @media (max-width: 1000px) {
     .logo-image{
         width: 108px;
-    }
+    }    
 }
 
 
@@ -846,5 +849,28 @@ textarea.inputs {
 
     .altNav button:hover{
         color: var(--secondary-color);
+    }
+
+    /* .welcomeIMG{
+        background-image: url('../images/RRR-2023-Cover.webp');
+    }
+    
+    .teamIMG{
+        background-image: url('../images/RRR-2023-Team.webp');
+    }
+    
+    .carsIMG{
+        background-image: url('../images/RRR-2023-Cars.webp');
+    } */
+    .welcomeIMG{
+        background-image: url('../images/mobile/RRR-2023-Cover-min.webp');
+    }
+    
+    .teamIMG{
+        background-image: url('../images/mobile/RRR-2023-Team-min.webp');
+    }
+    
+    .carsIMG{
+        background-image: url('../images/mobile/RRR-2023-Cars-min.webp');
     }
 }

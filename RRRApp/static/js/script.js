@@ -317,7 +317,7 @@ window.onscroll = function() {
         // Check if scrolled more than width amount of pixels
         if (currentScrollPos > width) {
             if (prevScrollPos > currentScrollPos) {
-                header.style.top = "0";
+                header.style.top = "-5px";
             } else {
                 header.style.top = `-${header.clientHeight}px`; // Hide header
             }

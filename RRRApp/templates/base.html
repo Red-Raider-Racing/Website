@@ -15,8 +15,6 @@
         <!-- <link rel="canonical" href="https://example.com"/> -->
 
         <link rel="icon" type="image/x-icon" href="{% static 'logos/favicon.png' %}">
-        <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
-        <script src="{% static 'js/script.js' %}"></script>
     </head>
     <body>
         <header id="mainHeader">
@@ -36,12 +34,12 @@
                 <div class="dropdown">
                     <button onclick="toggleMenu()" class="menuButton" aria-label="Menu">&#9776;</button>
                     <div class="dropdown-content">
-                        <a href="/home"><button id="homeBtn">Home</button></a>
-                        <a href="/team"><button id="teamBtn">Team</button></a>
-                        <a href="/cars"><button id="carsBtn">Cars</button></a>
-                        <a href="/sponsors"><button id="sponsorBtn">Sponsors</button></a>
+                        <a href="/home"><button id="homeBtn1">Home</button></a>
+                        <a href="/team"><button id="teamBtn1">Team</button></a>
+                        <a href="/cars"><button id="carsBtn1">Cars</button></a>
+                        <a href="/sponsors"><button id="sponsorBtn1">Sponsors</button></a>
                         <!-- <a href="/car-show"><button>Car Show</button></a> -->
-                        <a href="/faq"><button id="faqBtn">FAQ</button></a>
+                        <a href="/faq"><button id="faqBtn1">FAQ</button></a>
                     </div>
                 </div>
             </nav>
@@ -73,6 +71,11 @@
                 </a>
             </div>  
         </footer>
+        <!-- Putting this down here for faster load times -->
+            <!-- Load non-critical CSS asynchronously -->
+            <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}" media="print" onload="this.media='all'">
+            
+            <!-- Defer non-critical JavaScript -->
+            <script defer src="{% static 'js/script.js' %}"></script>
     </body>
-    <!-- Putting this down here for faster load times -->
 </html>
