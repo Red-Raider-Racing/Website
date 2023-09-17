@@ -2,12 +2,21 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <link rel="icon" type="image/x-icon" href="{% static 'logos/favicon.png' %}">
+        <title>{% block title %}{% endblock %}Red Raider Racing</title>
+
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
-        <script src="{% static 'js/script.js' %}"></script>
-        <title>{% block title %}{% endblock %}Red Raider Racing</title>
+        <meta name="keywords" content="FSAE, Racing, Formula, RedRaiderRacing">
+        <meta name="description" content="Red Raider Racing's Website">
+        <meta name="author" content="Carson Spaniel">
+        <meta http-equiv="Cache-Control" content="max-age=31536000">
+
+        <!-- Replace with actual link when deployed -->
+        <!-- <link rel="canonical" href="https://example.com"/> -->
+
+        <link rel="icon" type="image/x-icon" href="{% static 'logos/favicon.png' %}">
+        <!-- <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}"> -->
+        <script src="{% static 'js/script.js' %}" async></script>
     </head>
     <body>
         <header id="mainHeader">
@@ -65,4 +74,7 @@
             </div>  
         </footer>
     </body>
+    <!-- Putting this down here for faster load times -->
+    <link rel="preload" href="{% static 'css/style.css' %}" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="{% static 'css/style.css' %}"></noscript>
 </html>

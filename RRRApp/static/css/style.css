@@ -18,16 +18,19 @@
 @font-face {
     font-family: 'ethnocentric';
     src: url("../fonts/ethnocentric.otf") format("opentype");
+    font-display: swap;
 }
 
 @font-face {
     font-family: 'ethnocentric_it';
     src: url("../fonts/ethnocentric_it.otf") format("opentype");
+    font-display: swap;
 }
 
 @font-face {
     font-family: 'Tahoma';
     src: url("../fonts/Tahoma Regular font.ttf") format("opentype");
+    font-display: swap;
 }
 
 * {
@@ -226,17 +229,17 @@ button {
 }
 
 .welcomeIMG{
-    background-image: url('../images/RRR-2023-Cover.JPG');
+    background-image: url('../images/RRR-2023-Cover.webp');
     --height: min(200vw, 600px);
     --min-height: 490px;
 }
 
 .teamIMG{
-    background-image: url('../images/RRR-2023-Team.JPG');
+    background-image: url('../images/RRR-2023-Team.webp');
 }
 
 .carsIMG{
-    background-image: url('../images/RRR-2023-Cars.JPG');
+    background-image: url('../images/RRR-2023-Cars.webp');
 }
 
 .coverIMG::before {
@@ -278,7 +281,7 @@ h2{
 
 .learnMore,.learnMoreAbout{
     font-weight: 900;
-    font-size: max(10px, min(2vw, 16px));
+    font-size: max(12px, min(2vw, 16px));
     transition: background-color 0.3s ease, color 0.3s ease;
     background-color: var(--secondary-color);
     color: var(--font-color);
@@ -516,11 +519,14 @@ p{
 }
 
 .social-button {
-    width: 24px; /* Set the width of the button */
-    aspect-ratio: 1;
     border: none; /* Remove the default button border */
     cursor: pointer; /* Change cursor to pointer on hover */
     padding: 0; /* Remove default padding */
+}
+
+.social-button img{
+    width: 24px;
+    aspect-ratio: 1;
 }
 
 .socials{
@@ -798,6 +804,10 @@ textarea.inputs {
     margin: 0 20px;
     overflow: visible;
     margin-top: 20px;
+}
+
+#loading img{
+    height: 30px;
 }
 
 .submitArea{
