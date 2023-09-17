@@ -229,7 +229,7 @@ button {
 }
 
 .welcomeIMG{
-    background-image: url('../images/RRR-2023-Cover.webp');
+    /* background-image: url('../images/RRR-2023-Cover.webp'); */
     --height: min(200vw, 600px);
     --min-height: 490px;
 }

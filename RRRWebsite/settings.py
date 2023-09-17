@@ -125,6 +125,22 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'staticfiles'),
+]
+
+# Cache timeout for static files (in seconds)
+STATIC_CACHE_TTL = 2592000  # 30 days (30 * 24 * 60 * 60 seconds)
+
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
+    }
+}
+
+# Set the default cache timeout (in seconds)
+CACHE_TIMEOUT = 300  # Example: 5 minutes (300 seconds)
+CACHE_MIDDLEWARE_SECONDS = 2592000  # 30 days (30 * 24 * 60 * 60 seconds)
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
@@ -143,12 +159,3 @@ if DEBUG:
 else:
     # EMAIL_HOST_PASSWORD = os.environ["EMAIL_HOST_PASSWORD"]
     from .secret import EMAIL_HOST_PASSWORD
-
-CACHES = {
-    'default': {
-        'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
-    }
-}
-
-# Set the default cache timeout (in seconds)
-CACHE_TIMEOUT = 300  # Example: 5 minutes (300 seconds)
