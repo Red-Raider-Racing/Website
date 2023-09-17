@@ -2,12 +2,19 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <link rel="icon" type="image/x-icon" href="{% static 'logos/favicon.png' %}">
+        <title>{% block title %}{% endblock %}Red Raider Racing</title>
+
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
-        <script src="{% static 'js/script.js' %}"></script>
-        <title>{% block title %}{% endblock %}Red Raider Racing</title>
+        <meta name="keywords" content="FSAE, Racing, Formula, RedRaiderRacing">
+        <meta name="description" content="Red Raider Racing's Website">
+        <meta name="author" content="Carson Spaniel">
+        <meta http-equiv="Cache-Control" content="max-age=31536000">
+
+        <!-- Replace with actual link when deployed -->
+        <!-- <link rel="canonical" href="https://example.com"/> -->
+
+        <link rel="icon" type="image/x-icon" href="{% static 'logos/favicon.png' %}">
     </head>
     <body>
         <header id="mainHeader">
@@ -27,12 +34,12 @@
                 <div class="dropdown">
                     <button onclick="toggleMenu()" class="menuButton" aria-label="Menu">&#9776;</button>
                     <div class="dropdown-content">
-                        <a href="/home"><button id="homeBtn">Home</button></a>
-                        <a href="/team"><button id="teamBtn">Team</button></a>
-                        <a href="/cars"><button id="carsBtn">Cars</button></a>
-                        <a href="/sponsors"><button id="sponsorBtn">Sponsors</button></a>
+                        <a href="/home"><button id="homeBtn1">Home</button></a>
+                        <a href="/team"><button id="teamBtn1">Team</button></a>
+                        <a href="/cars"><button id="carsBtn1">Cars</button></a>
+                        <a href="/sponsors"><button id="sponsorBtn1">Sponsors</button></a>
                         <!-- <a href="/car-show"><button>Car Show</button></a> -->
-                        <a href="/faq"><button id="faqBtn">FAQ</button></a>
+                        <a href="/faq"><button id="faqBtn1">FAQ</button></a>
                     </div>
                 </div>
             </nav>
@@ -52,17 +59,23 @@
                         <img src="{% static 'icons/twitter.png' %}" alt="Twitter Icon">
                     </button>
                 </a> -->
-                <a href="https://www.facebook.com/RedRaiderRacing">
+                <a href="https://www.facebook.com/RedRaiderRacing" target="_blank">
                     <button class="social-button">
                         <img src="{% static 'icons/facebook.png' %}" alt="Facebook Icon">
                     </button>
                 </a>
-                <a href="https://www.instagram.com/redraiderracing/">
+                <a href="https://www.instagram.com/redraiderracing/" target="_blank">
                     <button class="social-button">
                         <img src="{% static 'icons/instagram.png' %}" alt="Instagram Icon">
                     </button>
                 </a>
             </div>  
         </footer>
+        <!-- Putting this down here for faster load times -->
+            <!-- Load non-critical CSS asynchronously -->
+            <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}" media="print" onload="this.media='all'">
+            
+            <!-- Defer non-critical JavaScript -->
+            <script defer src="{% static 'js/script.js' %}"></script>
     </body>
 </html>

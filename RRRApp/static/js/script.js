@@ -122,7 +122,7 @@ function updateMainPadding() {
     const navMain = document.querySelector(".navMain")
     const altNav = document.querySelector(".altNav")
     const menuButton = document.querySelector(".menuButton");
-    const header = document.getElementById("mainHeader");
+    const header = document.querySelector('header');
     const menu = document.querySelector(".dropdown-content");
     const menuCon = document.querySelector(".dropdown");
     const headerBackground = document.querySelector(".headerBackground");
@@ -175,9 +175,8 @@ function updateMainPadding() {
         menuButton.style.marginLeft = "";
     }
 
-    const navElement = document.getElementById("mainHeader");
     const mainElement = document.querySelector(".pageTitle");
-    mainElement.style.paddingTop = `${navElement.clientHeight+80}px`;
+    mainElement.style.paddingTop = `${header.clientHeight+80}px`;
 }
 
 // Initial update when the DOM is ready
@@ -318,7 +317,7 @@ window.onscroll = function() {
         // Check if scrolled more than width amount of pixels
         if (currentScrollPos > width) {
             if (prevScrollPos > currentScrollPos) {
-                header.style.top = "0";
+                header.style.top = "-5px";
             } else {
                 header.style.top = `-${header.clientHeight}px`; // Hide header
             }

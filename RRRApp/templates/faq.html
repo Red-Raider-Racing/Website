@@ -1,9 +1,6 @@
 {% extends "base.html" %}
 {% block title %}FAQ - {% endblock %}
 {% block content %}
-<head>
-
-</head>
 <script>
     const faqQuestions = document.querySelectorAll('.faq-question');
     faqQuestions.forEach(question => {
@@ -14,7 +11,9 @@
     });
 
     const active = document.getElementById('faqBtn');
+    const active1 = document.getElementById('faqBtn1');
     active.classList.add("active");
+    active1.classList.add("active");
 </script>
 <body>
     <div class="headerBackground"></div>
