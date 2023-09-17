@@ -5,11 +5,10 @@
 
 :root {
     --primary-color: #414141;
-    --primary-faded-color: #1c1c1cf5;
-    --primary-more-faded-color: #414141da;
+    --primary-faded-color: #131313f5;
     --secondary-color: #b70102;
     --secondary-faded-color: #b70102da;
-    --background-color: #111;
+    --background-color: #080808;
     --font-color: #d3d3d3;
     --shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     --imagePlaceholder: #222222;
@@ -851,7 +850,7 @@ textarea.inputs {
         color: var(--secondary-color);
     }
 
-    /* .welcomeIMG{
+    .welcomeIMG{
         background-image: url('../images/RRR-2023-Cover.webp');
     }
     
@@ -861,16 +860,5 @@ textarea.inputs {
     
     .carsIMG{
         background-image: url('../images/RRR-2023-Cars.webp');
-    } */
-    .welcomeIMG{
-        background-image: url('../images/mobile/RRR-2023-Cover-min.webp');
-    }
-    
-    .teamIMG{
-        background-image: url('../images/mobile/RRR-2023-Team-min.webp');
-    }
-    
-    .carsIMG{
-        background-image: url('../images/mobile/RRR-2023-Cars-min.webp');
     }
 }
