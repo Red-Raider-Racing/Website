@@ -800,6 +800,7 @@ textarea.inputs {
     border-radius: 5px;
     background-color: var(--font-color);
     color: var(--background-color);
+    cursor: pointer;
 }
 
 .message{
