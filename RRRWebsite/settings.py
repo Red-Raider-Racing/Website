@@ -42,7 +42,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'RRRApp.apps.RrrappConfig',
     'whitenoise.runserver_nostatic',
-    'compressor',
 ]
 
 MIDDLEWARE = [
