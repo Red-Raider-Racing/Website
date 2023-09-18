@@ -273,6 +273,8 @@ function toggleFlip(card) {
     if (isFlipped) {
         card.classList.remove('flipped');
     } else {
+        //Add this part if you want only one benefit description to show at a time
+        
         // If not flipped, remove 'flipped' from all benefit cards and add to the current card
         // const benefitCards = document.querySelectorAll('.benefit');
         // benefitCards.forEach(benefitCard => {
