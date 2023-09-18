@@ -176,7 +176,9 @@ function updateMainPadding() {
     }
 
     const mainElement = document.querySelector(".pageTitle");
-    mainElement.style.paddingTop = `${header.clientHeight+80}px`;
+    if (mainElement){
+        mainElement.style.paddingTop = `${header.clientHeight+80}px`;
+    }
 }
 
 // Initial update when the DOM is ready
