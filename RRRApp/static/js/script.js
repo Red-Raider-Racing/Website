@@ -88,6 +88,12 @@ document.addEventListener("DOMContentLoaded", function() {
         observer.observe(car);
     });
 
+    // Looks for cars
+    const carsIMG = document.querySelectorAll(".carIMG");
+    carsIMG.forEach(function(carIMG) {
+        observer.observe(carIMG);
+    });
+
     // Looks for sponsors
     const sponsors = document.querySelectorAll(".sponsor");
     sponsors.forEach(function(sponsor) {
@@ -273,6 +279,8 @@ function toggleFlip(card) {
     if (isFlipped) {
         card.classList.remove('flipped');
     } else {
+        //Add this part if you want only one benefit description to show at a time
+
         // If not flipped, remove 'flipped' from all benefit cards and add to the current card
         // const benefitCards = document.querySelectorAll('.benefit');
         // benefitCards.forEach(benefitCard => {
