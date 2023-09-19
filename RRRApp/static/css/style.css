@@ -548,10 +548,24 @@ p{
     background-repeat: no-repeat; /* Prevent the background image from repeating */
     background-position: center center;
     overflow: visible;
+    transition: transform .2s ease-out;
+}
+
+input[type=checkbox] {
+    display: none;
+}
+
+input[type=checkbox]:checked ~ label img{
+    cursor: zoom-out;
+}
+
+input[type=checkbox]:checked ~ .carIMG{
+    transform: scale(1.5);
 }
 
 .carIMG img{
     width: 100%;
+    cursor: zoom-in;
 }
 
 .specs{
