@@ -56,8 +56,13 @@ document.addEventListener("DOMContentLoaded", function() {
         entries.forEach(function(entry) {
             if (isElementIntersecting(entry)) {
                 entry.target.classList.add("visible");
+                entry.target.classList.remove("notVisible");
                 // Stop observing the element after it becomes visible
-                observer.unobserve(entry.target);
+            }
+            else if(!isElementIntersecting(entry)){
+                entry.target.classList.add("notVisible");
+                entry.target.classList.remove("visible");
+                // Stop observing the element after it becomes visible
             }
         });
     }
