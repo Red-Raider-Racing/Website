@@ -560,8 +560,8 @@ input[type=checkbox]:checked ~ label img{
 }
 
 input[type=checkbox]:checked ~ .carIMG{
-    transform: scale(1.5);
-}
+    transform: scale(80vw/490);
+}    
 
 .carIMG img{
     width: 100%;
@@ -878,5 +878,5 @@ textarea.inputs {
 
 /* Styles for screens greater than 1000px wide */
 @media (min-width: 1001px) {
-
+    
 }
