@@ -62,7 +62,6 @@ document.addEventListener("DOMContentLoaded", function() {
             else if(!isElementIntersecting(entry)){
                 entry.target.classList.add("notVisible");
                 entry.target.classList.remove("visible");
-                // Stop observing the element after it becomes visible
             }
         });
     }

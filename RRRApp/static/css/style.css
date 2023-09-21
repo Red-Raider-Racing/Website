@@ -838,14 +838,6 @@ textarea.inputs {
     }
 }
 
-/* Styles for screens less than 1000px wide */
-@media (max-width: 1000px) {
-    .logo-image{
-        width: 108px;
-    }    
-}
-
-
 /* Styles for screens greater than 500px wide */
 @media (min-width: 501px) {
     .inputs {
@@ -875,4 +867,16 @@ textarea.inputs {
     .benefit:not(.flipped):hover .benefitDes {
         transform: rotateY(0deg);
     }
+}
+
+/* Styles for screens less than 1000px wide */
+@media (max-width: 1000px) {
+    .logo-image{
+        width: 108px;
+    }
+}
+
+/* Styles for screens greater than 1000px wide */
+@media (min-width: 1001px) {
+
 }
