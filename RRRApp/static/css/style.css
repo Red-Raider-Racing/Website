@@ -551,7 +551,7 @@ p{
     transition: transform .2s ease-out;
 }
 
-input[type=checkbox] {
+input[type=checkbox] { /* Making sure the check box is gone */
     display: none;
 }
 
