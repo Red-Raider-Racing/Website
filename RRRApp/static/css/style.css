@@ -866,6 +866,9 @@ textarea.inputs {
     .logo-image{
         width: 108px;
     }
+    .teamIMG{
+        background-position: calc(50% + 30px) center;
+    }
 }
 
 /* Styles for screens greater than 1000px wide */
