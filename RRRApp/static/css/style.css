@@ -674,7 +674,7 @@ p{
 
 .sponsorLogo{
     margin: 10px auto;
-    width: min(60vw, 300px);
+    width: min(60vw, 250px);
     aspect-ratio: 16/9;
     background-color: var(--imagePlaceholder);
     border-radius: 40px;
