@@ -480,6 +480,13 @@ footer a{
     font-size: min(7vw, 16px);
     font-style: italic;
     font-weight: 200;
+}
+
+.memberSocials a{
+    text-decoration: none;
+}
+
+.memberTitle~.memberSocials{
     margin-bottom: 50px;
 }
 
@@ -809,6 +816,15 @@ textarea.inputs {
 
 #character-count{
     margin: 5px;
+}
+
+svg{
+    width: 24px;
+    height: 24px;
+}
+
+svg path{
+    fill: var(--font-color);
 }
 
 /* Styles for screens less than 500px wide */
