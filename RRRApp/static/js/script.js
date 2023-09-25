@@ -123,6 +123,21 @@ document.addEventListener("DOMContentLoaded", function() {
         showSent(message);
     }
 
+    // Zooms into car
+    const carsIMGS = document.querySelectorAll(".cars .carIMG");
+    if (carsIMGS) {
+        carsIMGS.forEach((car) => {
+          car.addEventListener('click', () => {
+            car.classList.toggle('zoom');
+      
+            carsIMGS.forEach((otherCar) => {
+              if (otherCar !== car) {
+                otherCar.classList.remove('zoom');
+              }
+            });
+          });
+        });
+    }
 });
 
 // Function to update the padding of the "main" element based on the height of the "nav" element
