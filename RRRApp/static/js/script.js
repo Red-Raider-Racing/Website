@@ -144,7 +144,13 @@ document.addEventListener("DOMContentLoaded", function() {
     // Grabs the join variable
     var joinParam = GetURLParameter('join');
     if (joinParam){
-        showJoin();
+        showAnswer('join');
+    }
+
+    // Grabs the fsae variable
+    var fsaeParam = GetURLParameter('fsae');
+    if (fsaeParam){
+        showAnswer('fsae');
     }
 
     // Grabs the success variable
@@ -400,12 +406,12 @@ function GetURLParameter(sParam) {
 }
 
 // Function to show "How to join" answer
-function showJoin() {
-    const joinAnswer = document.getElementById("join-answer");
-    const joinQuestion = document.getElementById('join-question');
-    joinQuestion.classList.add("active");
-    joinAnswer.style.display = 'block';
-    joinAnswer.style.opacity = '1';
+function showAnswer(section) {
+    const answer = document.getElementById(section+"-answer");
+    const question = document.getElementById(section+'-question');
+    question.classList.add("active");
+    answer.style.display = 'block';
+    answer.style.opacity = '1';
 }
 
 // Function to show that the message sent or failed
