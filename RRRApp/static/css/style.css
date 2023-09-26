@@ -402,6 +402,10 @@ footer a{
     transform: rotateY(0deg); /* Initially visible side */
 }
 
+.benefitTitle.benefitAnimate {
+    transform: rotateY(30deg);
+}
+
 .benefitTitle h1{
     color: var(--font-color);
     font-size: min(7vw, 30px);

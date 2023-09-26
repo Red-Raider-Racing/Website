@@ -82,6 +82,32 @@ document.addEventListener("DOMContentLoaded", function() {
         observer.observe(benefit);
     });
 
+    // If benefit has been visited stop flipping them
+    benefits.forEach(card => {
+        card.addEventListener('mouseenter', () => {
+            benefitTitles.forEach(benefitTitle=>{
+                benefitTitle.classList.add('viewed');
+            });
+        });
+        card.addEventListener('click', () => {
+            benefitTitles.forEach(benefitTitle=>{
+                benefitTitle.classList.add('viewed');
+            });
+            card.classList.toggle('flipped');
+        });
+    });
+
+    const benefitTitles = document.querySelectorAll(".benefitTitle");
+    setTimeout(()=>{
+        for (let i = 0; i < benefits.length; i++) {
+            setTimeout(() => {
+                if (!benefits[i].classList.contains('flipped')) {
+                    shakeBenefits(benefitTitles[i]);
+                }
+            }, 250 * i); // Delay each iteration by 200 milliseconds
+        }
+    },2500);
+
     // Looks for cars
     const cars = document.querySelectorAll(".car");
     cars.forEach(function(car) {
@@ -133,7 +159,6 @@ document.addEventListener("DOMContentLoaded", function() {
         }
         showSent(message);
     }
-
 });
 
 // Function to update the padding of the "main" element based on the height of the "nav" element
@@ -285,34 +310,6 @@ function enableScrolling() {
     window.scrollTo(0, -scrollY); // Scroll back down to where screen was at
 }
 
-// Function to flip the benefit card
-function toggleFlip(card) {
-    // Check if the card is flipped
-    const isFlipped = card.classList.contains('flipped');
-
-    // Remove 'flipped' class if the card is flipped
-    if (isFlipped) {
-        card.classList.remove('flipped');
-    } else {
-        //Add this part if you want only one benefit description to show at a time
-
-        // If not flipped, remove 'flipped' from all benefit cards and add to the current card
-        // const benefitCards = document.querySelectorAll('.benefit');
-        // benefitCards.forEach(benefitCard => {
-        //     benefitCard.classList.remove('flipped');
-        // });
-        card.classList.add('flipped');
-    }
-}
-
-// Flip benefit based on mouse position
-const benefitCards = document.querySelectorAll('.benefit');
-benefitCards.forEach(card => {
-    card.addEventListener('click', () => {
-        toggleFlip(card);
-    });
-});
-
 let prevScrollPos = window.pageYOffset; // Previous scroll position
 
 // Function to hide/show the header on scroll
@@ -424,4 +421,16 @@ function sanitizeInput(inputField) {
 
     const displayValue = sanitizedValue.replace(/&lt;/g, '<').replace(/&gt;/g, '>');
     inputField.value = displayValue;
+}
+
+function shakeBenefits(benefitTitle){
+    if (!benefitTitle.classList.contains('viewed')){
+        benefitTitle.classList.add('benefitAnimate');
+        setTimeout(() => {
+            benefitTitle.classList.remove('benefitAnimate');
+            setTimeout(() => {
+                shakeBenefits(benefitTitle);
+            }, 5000);
+        }, 200);
+    }
 }
