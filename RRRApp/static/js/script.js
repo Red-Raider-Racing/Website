@@ -159,7 +159,20 @@ document.addEventListener("DOMContentLoaded", function() {
         }
         showSent(message);
     }
+
+    updateLoaderTurns();
 });
+
+function updateLoaderTurns(){
+    // Get the screen width and update the CSS variable
+    const screenWidth = window.innerWidth;
+    document.documentElement.style.setProperty('--screen-width', `${screenWidth}px`);
+
+    // Calculate the number of turns based on the screen width
+    const numberOfTurns = screenWidth / 200; // You can adjust this ratio as needed
+    document.documentElement.style.setProperty('--number-of-turns', numberOfTurns);
+    
+}
 
 // Function to update the padding of the "main" element based on the height of the "nav" element
 function updateMainPadding() {
@@ -231,7 +244,10 @@ function updateMainPadding() {
 document.addEventListener("DOMContentLoaded", updateMainPadding);
 
 // Update padding on window resize
-window.addEventListener("resize", updateMainPadding);
+window.addEventListener("resize", ()=>{
+    updateMainPadding();
+    updateLoaderTurns();
+});
 
 document.addEventListener("click", function(event) {
     const header = document.querySelector('header');
@@ -401,7 +417,9 @@ function showSent(message) {
 
 // Function to show the loading screen
 function showLoading() {
-    document.getElementById('loading').style.display = 'block';
+    const loader = document.getElementById('loading');
+    loader.classList.add('load');
+    loader.style.display = 'block';
 }
 
 // Function to show character count for the email message

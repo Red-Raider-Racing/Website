@@ -12,6 +12,8 @@
     --font-color: #d3d3d3;
     --shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     --imagePlaceholder: #222222;
+    --screen-width: 100vw;
+    --number-of-turns: 6;
 }
 
 @font-face {
@@ -798,6 +800,15 @@ textarea.inputs {
     font-size: max(12px, min(7vw, 20px));
 }
 
+@keyframes traverse {
+    0% {
+      transform: translateX(-20vw);
+    }
+    100% {
+      transform: translateX(20vw);
+    }
+}
+
 #loading{
     display: none;
     margin: 0 20px;
@@ -805,8 +816,23 @@ textarea.inputs {
     margin-top: 20px;
 }
 
+.load{
+    animation: traverse 2s alternate infinite ease-in-out;
+}
+
+@keyframes roll {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(calc(var(--number-of-turns) * 360deg));
+    }
+}
+
 #loading img{
-    height: 30px;
+    height: 64px;
+    animation: roll 2s alternate infinite ease-in-out;
+    border-radius: 100%;
 }
 
 .submitArea{
