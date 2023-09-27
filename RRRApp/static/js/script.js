@@ -104,7 +104,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 if (!benefits[i].classList.contains('flipped')) {
                     shakeBenefits(benefitTitles[i]);
                 }
-            }, 250 * i);
+            }, 250 * (i+1));
         }
     },2500);
 
