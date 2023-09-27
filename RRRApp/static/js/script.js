@@ -104,7 +104,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 if (!benefits[i].classList.contains('flipped')) {
                     shakeBenefits(benefitTitles[i]);
                 }
-            }, 250 * i); // Delay each iteration by 200 milliseconds
+            }, 250 * i);
         }
     },2500);
 
@@ -447,6 +447,7 @@ function sanitizeInput(inputField) {
     inputField.value = displayValue;
 }
 
+// Function to shake the benefits in a wave pattern every 5 seconds until viewed
 function shakeBenefits(benefitTitle){
     if (!benefitTitle.classList.contains('viewed')){
         benefitTitle.classList.add('benefitAnimate');
