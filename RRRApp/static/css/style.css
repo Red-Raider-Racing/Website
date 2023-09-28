@@ -364,7 +364,7 @@ footer a{
     padding: 20px;
     overflow-x: visible;
     opacity: 0; /* Start with opacity 0 */
-    transition: opacity 0.5s ease; /* Smooth transition for opacity */
+    transition: opacity 1s ease; /* Smooth transition for opacity */
 }
 
 .benefit.visible{
@@ -458,7 +458,7 @@ footer a{
     width: 300px;
     height: min(100vw,375px);
     opacity: 0;
-    transition: opacity 0.5s ease;
+    transition: opacity 1s ease;
     overflow-x: visible;
 }
 
@@ -543,7 +543,8 @@ p{
     padding: 10px;
     margin-bottom: 50px;
     opacity: 0;
-    transition: opacity 0.5s ease;
+    transition: opacity 1s ease;
+    overflow: visible;
 }
 
 .car.visible{
@@ -653,7 +654,7 @@ p{
     display: none;
     padding: 0px 40px;
     opacity: 0;
-    transition: opacity 0.5s;
+    transition: opacity 1s ease;
 }
 
 .answer p{
@@ -678,7 +679,7 @@ p{
     text-align: center;
     margin: 20px;
     opacity: 0;
-    transition: opacity 0.5s ease;
+    transition: opacity 1s ease;
 }
 
 .sponsor.visible{
@@ -933,5 +934,7 @@ svg path{
 
 /* Styles for screens greater than 1000px wide */
 @media (min-width: 1001px) {
-    
+    .carIMG.zoom{
+        transform: scale(1.7);
+    }
 }
