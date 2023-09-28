@@ -16,11 +16,7 @@ document.addEventListener("DOMContentLoaded", function() {
             // Hide answer if it is selected
             if (answer.style.display === "block") {
                 answer.style.opacity = 0;
-
-                // Fade out the answer
-                setTimeout(() => {
-                    answer.style.display = "none";
-                }, 20);
+                answer.style.display = "none";
             }
             else {
                 // Hide answer if another answer is selected
@@ -29,9 +25,7 @@ document.addEventListener("DOMContentLoaded", function() {
                         q.classList.remove("active");
                         const otherAnswer = q.nextElementSibling;
                         otherAnswer.style.opacity = 0;
-                        setTimeout(() => {
-                            otherAnswer.style.display = "none";
-                        }, 20);
+                        otherAnswer.style.display = "none";
                     }
                 });
                 

@@ -644,9 +644,8 @@ p{
 }
 
 .faq {
-    padding: 10px;
     cursor: pointer;
-    margin: 0px;
+    margin: 10px;
     font-size: min(7vw, 18px);
 }
 
@@ -663,6 +662,7 @@ p{
 
 .FAQSection p{
     margin: 5px;
+    margin-bottom: 10px;
 }
 
 .sponsors{
