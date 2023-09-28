@@ -623,14 +623,20 @@ p{
     background-color: var(--primary-faded-color);
 }
 
-.FAQCover,.sponsorCover {
+.FAQCover,.sponsorCover,.errorCover {
     width:100%;
     height: max(280px,min(100vw, 400px));
     background-color: var(--secondary-faded-color);
 }
 
-.FAQCover .pageTitle, .FAQCover h1,.sponsorCover h1{
+.FAQCover .pageTitle, .FAQCover h1,.sponsorCover h1, .errorCover h1{
     color: var(--font-color);
+}
+
+.errorCover{
+    width: 90vw;
+    border-radius: 40px;
+    margin: 20px auto;
 }
 
 .FAQSection{
@@ -801,6 +807,10 @@ textarea.inputs {
     font-size: max(12px, min(7vw, 20px));
 }
 
+.message h4{
+    margin: 0;
+}
+
 @keyframes traverse {
     0% {
       transform: translateX(-20vw);
@@ -870,6 +880,22 @@ svg{
 
 svg path{
     fill: var(--font-color);
+}
+
+.errorPage{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 1200px;
+    flex-wrap: wrap;
+    text-align: center;
+    margin: 0 auto;
+}
+
+
+
+.errorPage a{
+    color: var(--secondary-color);
 }
 
 /* Styles for screens less than 500px wide */

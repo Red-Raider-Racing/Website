@@ -26,7 +26,8 @@ DEBUG = True
 if DEBUG:
     from .secret import SECRET_KEY
 else:
-    SECRET_KEY = os.environ["SECRET_KEY"]
+    from .secret import SECRET_KEY
+    # SECRET_KEY = os.environ["SECRET_KEY"]
 
 ALLOWED_HOSTS = ["127.0.0.1", "*"]
 
