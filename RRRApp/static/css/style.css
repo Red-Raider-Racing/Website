@@ -458,7 +458,7 @@ footer a{
     width: 300px;
     height: min(100vw,375px);
     opacity: 0;
-    transition: opacity 0.5s ease; /* Smooth transition for opacity */
+    transition: opacity 0.5s ease;
     overflow-x: visible;
 }
 
