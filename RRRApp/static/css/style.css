@@ -905,7 +905,7 @@ svg path{
     position: relative;
 }
 
-@keyframes traversea {
+@keyframes traverseError {
     0% {
       transform: translateX(100vw);
     }
@@ -915,12 +915,13 @@ svg path{
 }
 
 .errorWheel{
-    animation: traversea 10s alternate infinite ease-in-out;
-    z-index: -1;
+    animation: traverseError 10s infinite ease-in-out;
+    z-index: 80;
     position: relative;
     top: -37px;
     left: 50%;
     display: block;
+    margin: none;
 }
 
 /* Styles for screens less than 500px wide */
