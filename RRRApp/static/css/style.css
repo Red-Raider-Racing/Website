@@ -90,7 +90,7 @@ header button{
     width: 170px;
     height: 70px;
     /* background-color: var(--imagePlaceholder); */
-    background-image: url('../logos/RRR_Logo_RED_New.png'); /* Set the path to your image */
+    background-image: url('../logos/RRR_Logo_RED_New.webp'); /* Set the path to your image */
     background-size: contain;
     background-repeat: no-repeat; /* Prevent the background image from repeating */
     overflow-x: visible;
