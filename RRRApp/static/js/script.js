@@ -469,21 +469,28 @@ function updateSVG(){
     const svgTop = document.querySelector('svg.waveTop');
     const svgBottom = document.querySelector('svg.waveBottom');
     const next = document.querySelector('svg.waveBottom~div');
-    let height = svgTop.clientHeight;
 
-    if(height==200){
-        svgTop.style.transform = `translateX(-50%) scaleX(${window.innerWidth/svgTop.clientWidth})`;
-        svgTop.style.left = '50%';
-        svgBottom.style.transform = `translateX(-50%) scaleX(${window.innerWidth/svgTop.clientWidth})`;
-        svgBottom.style.left = '50%';
-    }
-    else{
-        svgTop.style.transform = `none`;
-        svgTop.style.left = '0';
-        svgBottom.style.transform = `none`;
-        svgBottom.style.left = '0';
-    }
+    let width = window.innerWidth;
+
+    svgTop.style.transform = `translateX(-50%) scaleX(${window.innerWidth/svgTop.clientWidth})`;
+    svgTop.style.left = '50%';
+    svgTop.style.marginTop = `unset`;
+    svgBottom.style.transform = `translateX(-50%) scaleX(${window.innerWidth/svgTop.clientWidth})`;
+    svgBottom.style.left = '50%';
     svgTop.style.top = `-${svgTop.clientHeight*.66}px`;
     svgBottom.style.top = `-${svgTop.clientHeight/.62}px`;
     next.style.marginTop = `-${svgTop.clientHeight/.5}px`;
+
+    if(width>=1485){
+        svgTop.style.transform = `translateX(-50%) scaleX(${window.innerWidth/svgTop.clientWidth})`;
+        svgTop.style.left = '50%';
+        svgTop.style.marginTop = `${svgTop.clientHeight}px`;
+
+        svgBottom.style.transform = `translateX(-50%) scaleX(${window.innerWidth/svgTop.clientWidth})`;
+        svgBottom.style.left = '50%';
+
+        svgTop.style.top = `-${svgTop.clientHeight/.62}px`;
+        svgBottom.style.top = `-${(svgTop.clientHeight/.64)+200}px`;
+        next.style.marginTop = `-${(svgTop.clientHeight/.55)+225}px`;
+    }
 }

@@ -939,6 +939,9 @@ svg.wave{
     max-height: 200px;
     pointer-events: none;
     z-index: 89;
+    display: flex;
+    justify-content: center;
+    align-content: start;
 }
 
 svg.waveBottom~div{
