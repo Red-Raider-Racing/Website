@@ -363,7 +363,7 @@ window.onscroll = function() {
 
 window.addEventListener('scroll', function () {
     const scrollY = window.scrollY; // See where the scroll is at
-    console.log(scrollY);
+
     // ------------ Parallax stuff------------
     const parallaxBackground = document.querySelector('.coverIMG');
     const pageTitle = document.querySelector('.pageTitle');
