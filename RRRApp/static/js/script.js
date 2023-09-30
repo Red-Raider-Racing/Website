@@ -363,7 +363,7 @@ window.onscroll = function() {
 
 window.addEventListener('scroll', function () {
     const scrollY = window.scrollY; // See where the scroll is at
-
+    console.log(scrollY);
     // ------------ Parallax stuff------------
     const parallaxBackground = document.querySelector('.coverIMG');
     const pageTitle = document.querySelector('.pageTitle');
@@ -375,6 +375,9 @@ window.addEventListener('scroll', function () {
     }
     else{
         pageTitle.style.transform = `translateY(${scrollY * .1}px)`;
+    }
+    if(scrollY<0){
+        parallaxBackground.style.transform = `none`;
     }
 
     // ------------ transparent top stuff------------
