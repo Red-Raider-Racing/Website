@@ -222,7 +222,6 @@ button {
     height: var(--height);
     --min-height: 230px;
     min-height: var(--min-height);
-    background-color: #797979;
     /* background-color: var(--imagePlaceholder); */
     background-size: cover; /* You can use 'cover' to maintain aspect ratio and cover the div */
     background-repeat: no-repeat; /* Prevent the background image from repeating */
@@ -551,6 +550,10 @@ p{
     opacity: 1;
 }
 
+.cars .car .carTitle{
+    margin-top: 10px;
+}
+
 .carIMG{
     margin: 10px auto;
     padding: 10px;
@@ -625,8 +628,10 @@ p{
 
 .FAQCover,.sponsorCover,.errorCover {
     width:100%;
-    height: max(280px,min(100vw, 400px));
+    height: max(280px,min(100vw, 500px));
     background-color: var(--secondary-faded-color);
+    position: relative;
+    z-index: 88;
 }
 
 .FAQCover .pageTitle, .FAQCover h1,.sponsorCover h1, .errorCover h1{
@@ -860,7 +865,7 @@ textarea.inputs {
     margin: 5px;
 }
 
-svg{
+.socials svg{
     width: 24px;
     height: 24px;
 }
@@ -903,6 +908,28 @@ svg path{
     background-color: black;
     top: -60px;
     position: relative;
+}
+
+svg.wave{
+    position: relative;
+    width: unset;
+    height: unset;
+    max-height: 200px;
+    pointer-events: none;
+    z-index: 89;
+}
+
+svg.waveBottom~div{
+    z-index: 90;
+    position: relative;
+}
+
+svg.wave path{
+    fill: var(--background-color);
+}
+
+svg.waveTop path{
+    fill: var(--secondary-color);
 }
 
 @keyframes traversea {
