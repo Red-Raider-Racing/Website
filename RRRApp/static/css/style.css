@@ -685,6 +685,8 @@ p{
     max-width: 1200px;
     margin: auto;
     padding: 20px;
+    background-color: white;
+    border-radius: 40px;
 }
 
 .sponsor{
@@ -701,15 +703,18 @@ p{
 .sponsorLogo{
     margin: 10px auto;
     width: min(60vw, 250px);
-    aspect-ratio: 16/9;
-    background-color: var(--imagePlaceholder);
-    border-radius: 40px;
+    height: 100px;
 }
 
 .sponsorLogo a{
-    display: block;
-    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     height: 100%;
+}
+
+.sponsor a img{
+    max-height: 100%;
 }
 
 .thankyou,.howSponsor{
@@ -1182,5 +1187,12 @@ svg.waveTop path{
 @media (min-width: 1001px) {
     .carIMG.zoom{
         transform: scale(1.7);
+    }
+}
+
+/* Styles for screens less than 1300px wide */
+@media (max-width: 1270px) {
+    .sponsors{
+        margin: 20px;
     }
 }
