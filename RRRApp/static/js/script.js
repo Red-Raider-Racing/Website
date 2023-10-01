@@ -483,13 +483,7 @@ function updateSVG(){
         next.style.marginTop = `-${svgTop.clientHeight/.5}px`;
     
         if(width>=1485){
-            svgTop.style.transform = `translateX(-50%) scaleX(${window.innerWidth/svgTop.clientWidth})`;
-            svgTop.style.left = '50%';
             svgTop.style.marginTop = `${svgTop.clientHeight}px`;
-    
-            svgBottom.style.transform = `translateX(-50%) scaleX(${window.innerWidth/svgTop.clientWidth})`;
-            svgBottom.style.left = '50%';
-    
             svgTop.style.top = `-${svgTop.clientHeight/.62}px`;
             svgBottom.style.top = `-${(svgTop.clientHeight/.64)+200}px`;
             next.style.marginTop = `-${(svgTop.clientHeight/.55)+225}px`;
