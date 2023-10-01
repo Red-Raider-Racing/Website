@@ -908,6 +908,7 @@ svg path{
     background-color: black;
     top: -60px;
     position: relative;
+    z-index: 70;
 }
 
 svg.wave{
@@ -967,13 +968,154 @@ svg.waveTop path{
 }
 
 .errorWheel{
-    animation: traverseError 10s infinite ease-in-out;
+    animation: traverseError 14s infinite ease-in-out;
     z-index: 80;
     position: relative;
-    top: -37px;
+    top: 380px;
     left: 50%;
     display: block;
     margin: none;
+}
+
+.errorCover .pageTitle h1{
+    font-size: 160px;
+    margin: 0;
+}
+
+.errorCover .pageTitle{
+    z-index: 82;
+}
+
+@keyframes rollCounter {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(-15120deg);
+    }
+}
+
+.errorCover #loading img{
+    animation: rollCounter 14s infinite;
+}
+
+.errorCover #loading{
+    display: block;
+    position: relative;
+    z-index: 81;
+}
+
+.smokeContainer{
+    position: relative;
+    z-index: 70;
+}
+
+.ground~div svg{
+    position: relative;
+    z-index: 70;
+}
+
+.ground~div svg path{
+    fill: unset;
+}
+
+@keyframes smoke1 {
+    0% {
+      transform: rotate(0deg) scale(0);
+    }
+    100% {
+      transform: rotate(-720deg) scale(.5);
+    }
+}
+
+@keyframes smokePath1 {
+    0% {
+      transform: translate(0,0);
+      opacity: .4;
+    }
+    50%{
+        opacity: .9;
+    }
+    100% {
+      transform: translate(-300px,-500px);
+      opacity: 0;
+    }
+}
+
+.smoke1{
+    animation: smokePath1 14s infinite ease-in;
+    top: -721px;
+    left: 1510px;
+}
+
+.smoke1 svg{
+    animation: smoke1 14s infinite ease-in;
+}
+
+@keyframes smoke2 {
+    0% {
+      transform: rotate(0deg) scale(0);
+    }
+    100% {
+      transform: rotate(1000deg) scale(.4);
+    }
+}
+
+@keyframes smokePath2 {
+    0% {
+      transform: translate(0,0);
+      opacity: .4;
+    }
+    50%{
+        opacity: .9;
+    }
+    100% {
+      transform: translate(-500px,-700px);
+      opacity: 0;
+    }
+}
+
+.smoke2{
+    animation: smokePath2 17s infinite ease-in;
+    top: -1046px;
+    left: 1600px;
+}
+
+.smoke2 svg{
+    animation: smoke2 17s infinite ease-in;
+}
+
+@keyframes smoke3 {
+    0% {
+      transform: rotate(0deg) scale(0);
+    }
+    100% {
+      transform: rotate(-360deg) scale(.6);
+    }
+}
+
+@keyframes smokePath3 {
+    0% {
+      transform: translate(0,0);
+      opacity: .4;
+    }
+    50%{
+        opacity: .9;
+    }
+    100% {
+      transform: translate(-400px,-600px);
+      opacity: 0;
+    }
+}
+
+.smoke3{
+    animation: smokePath3 10s infinite ease-in;
+    top: -1540px;
+    left: 1590px;
+}
+
+.smoke3 svg{
+    animation: smoke3 10s infinite ease-in;
 }
 
 /* Styles for screens less than 500px wide */
