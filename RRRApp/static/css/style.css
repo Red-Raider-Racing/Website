@@ -1144,6 +1144,36 @@ svg.waveTop path{
     color: var(--secondary-color);
 }
 
+.rights *{
+    font-family: 'Tahoma';
+}
+
+.rights{
+    margin: 10px auto;
+}
+
+.rights a{
+    text-decoration: none;
+    color: var(--font-color);
+}
+
+.rights p~a{
+    margin: 0 10px;
+}
+
+.rights a:hover{
+    color: var(--secondary-color);
+}
+
+.copyright{
+    margin-bottom: 10px;
+}
+
+.bottom{
+    font-size: small;
+    margin-bottom: 5px;
+}
+
 /* Styles for screens less than 500px wide */
 @media (max-width: 500px) {
     .inputs {
