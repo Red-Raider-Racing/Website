@@ -214,6 +214,12 @@ function updateMainPadding() {
         if (headerBackground != null){
             headerBackground.style.display = 'none';
         }
+        if(viewportHeight >= 500){
+            menu.style.flexGrow = '1';
+        }
+        else{
+            menu.style.flexGrow = '.2';
+        }
     }
     else{
         logo.style.height = '';

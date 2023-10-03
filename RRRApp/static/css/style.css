@@ -63,6 +63,7 @@ header {
     transition: top 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
     padding-top: 20px;
     margin-top: -10px;
+    overflow-y: hidden;
 }
 
 header button{
@@ -174,6 +175,7 @@ nav a{
     flex-grow: 1;
     flex-direction: column;
     justify-content: space-around;
+    margin-top: 0px;
 }
 
 .dropdown-content a {
