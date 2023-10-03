@@ -63,6 +63,14 @@ def faq(request):
     return render(request, "faq.html",)
 
 @cache_page(CACHE_TIMEOUT)
+def privacy(request):
+    return render(request, "privacy.html",)
+
+@cache_page(CACHE_TIMEOUT)
+def terms(request):
+    return render(request, "terms.html",)
+
+@cache_page(CACHE_TIMEOUT)
 def custom_404(request):
     return render(request, '404.html', status=404)
 

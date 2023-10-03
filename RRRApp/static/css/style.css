@@ -626,7 +626,7 @@ p{
     background-color: var(--primary-faded-color);
 }
 
-.FAQCover,.sponsorCover,.errorCover {
+.FAQCover,.sponsorCover,.errorCover, .generalCover {
     width:100%;
     height: max(280px,min(100vw, 500px));
     background-color: var(--secondary-faded-color);
@@ -634,7 +634,7 @@ p{
     z-index: 88;
 }
 
-.FAQCover .pageTitle, .FAQCover h1,.sponsorCover h1, .errorCover h1{
+.FAQCover .pageTitle, .FAQCover h1,.sponsorCover h1, .errorCover h1, .generalCover h1{
     color: var(--font-color);
 }
 
@@ -1120,6 +1120,28 @@ svg.waveTop path{
 
 .smoke3 svg{
     animation: smoke3 10s infinite ease-in;
+}
+
+.generalSection *{
+    font-family: 'Tahoma';
+}
+
+.generalSection li{
+    margin: 10px auto;
+}
+
+.generalSection{
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.generalSection li p{
+    padding: 0 20px;
+}
+
+.generalSection p a{
+    color: var(--secondary-color);
 }
 
 /* Styles for screens less than 500px wide */

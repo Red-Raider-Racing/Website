@@ -17,6 +17,8 @@ urlpatterns = [
     path('sponsors/',views.sponsor, name='sponsor'),
     path('car-show/',views.carshow, name='carshow'),
     path('faq/',views.faq, name='faq'),
+    path('privacy-policy/',views.privacy, name='privacy'),
+    path('terms-of-service/',views.terms, name='terms'),
 
     #----------------Error Pages----------------
     path('404/',views.custom_404, name='404'),
