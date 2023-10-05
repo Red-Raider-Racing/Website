@@ -22,7 +22,7 @@ urlpatterns = [
 
     #----------------Error Pages----------------
     path('404/',views.custom_404, name='404'),
-    path('500/',views.custom_500, name='500'),
+    path('500/',views.custom_404, name='500'),  # possibly change this back
     
     #----------------Cache----------------
     path('static/<path:path>', custom_serve),
