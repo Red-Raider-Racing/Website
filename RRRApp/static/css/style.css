@@ -820,28 +820,80 @@ textarea.inputs {
 }
 
 div#consent-popup {
+    z-index: 90;
     position: fixed;
-    bottom: 50px;
-    right: 20px;
+    left: 20px;
+    bottom: 20px;
     max-width: 345px;
-    width: 100%;
+    width: min(100%,80vw);
     background-color: var(--secondary-color);
     border-radius: 8px;
-    padding: 15px 25px 22px;
     opacity: 1;
-    transition: opacity .8s ease;
+    transition: transform .8s ease-in-out;
+    padding: 10px;
+    box-shadow: var(--shadow);
+    text-align: center;
     &.hidden {
         opacity: 0;
+        transform: translateX(-140vw);
     }
 }
-.consent-popup i {
-    color: black;
-    font-size: 23px;
-    padding-left: 4px;
+
+div#consent-popup svg{
+    width: 25px;
 }
-.consent-popup h2 {
-    color: black;
-    font-weight: 500;
+
+div#consent-popup path{
+    fill: var(--font-color);
+}
+
+div#consent-popup h2{
+    margin: 0;
+    font-size: min(8vw, 15px);
+    font-weight: normal;
+}
+
+div#consent-popup p{
+    font-size: min(6vw, 12px);
+    font-family: 'Tahoma';
+}
+
+div#consent-popup a,.acceptA#accept{
+    font-size: min(6vw, 12px);
+    font-family: 'Tahoma';
+    color: var(--font-color);
+    font-weight: 900;
+    text-decoration: none;
+}
+
+div#consent-popup a:hover, .acceptA#accept:hover{
+    text-decoration: underline;
+}
+
+.acceptA#accept{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px auto 0;
+    font-size: min(8vw, 18px);
+}
+
+.buttonA{
+    position: relative;
+    right: -47%;
+    top: 0px;
+    color: var(--font-color);
+}
+
+.cookieCon{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.cookieCon *{
+    margin: 0 10px;
 }
 
 /* Styles for screens less than 500px wide */
@@ -860,6 +912,11 @@ div#consent-popup {
     
     .carsIMG{
         background-image: url('../images/mobile/RRR-2023-Cars-min.JPG');
+    }
+
+    div#consent-popup {
+        left: 50%;
+        transform: translateX(-50%);
     }
 }
 
