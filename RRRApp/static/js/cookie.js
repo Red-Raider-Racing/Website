@@ -42,7 +42,7 @@ window.onload = () => {
         if(shouldShowPopup()) {
             setTimeout(() => {
                 consentPopup.classList.remove('hidden');
-            }, 2000);
+            }, 1000);
         }
     }
 }; 
