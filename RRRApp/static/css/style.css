@@ -724,22 +724,18 @@ p{
     max-height: 100%;
 }
 
-.thankyou,.howSponsor{
+.thankyou,.howSponsor, .competition{
     margin: auto;
     text-align: center;
     padding: 20px;
     max-width: 1200px;
 }
 
-.thankyou h1{
+.thankyou h1, .competition h1{
     font-size: max(12px, min(7vw, 36px));
 }
 
-.thankyou p{
-    font-family: 'Tahoma';
-}
-
-.howSponsor p{
+.thankyou p, .howSponsor p, .competition p{
     font-family: 'Tahoma';
 }
 
