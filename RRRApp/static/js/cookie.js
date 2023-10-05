@@ -25,7 +25,7 @@ const consentPropertyName = 'terms_accept';
 const shouldShowPopup = () => !storageType.getItem(consentPropertyName);
 const saveToStorage = () => storageType.setItem(consentPropertyName, true);
 
-window.onload = () => {
+document.addEventListener("DOMContentLoaded", function() {
     const consentPopup = document.getElementById('consent-popup');
     if(consentPopup){
         const acceptBtn = document.querySelector('.acceptA#accept');
@@ -45,4 +45,4 @@ window.onload = () => {
             }, 1000);
         }
     }
-}; 
+});

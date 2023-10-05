@@ -633,6 +633,7 @@ p{
     background-color: var(--secondary-faded-color);
     position: relative;
     z-index: 88;
+    overflow: visible;
 }
 
 .FAQCover .pageTitle, .FAQCover h1,.sponsorCover h1, .errorCover h1, .generalCover h1{
@@ -983,7 +984,7 @@ svg.waveTop path{
 }
 
 .errorCover .pageTitle h1{
-    font-size: 160px;
+    font-size: max(18px, min(18vw, 160px));
     margin: 0;
 }
 
@@ -1008,6 +1009,7 @@ svg.waveTop path{
     display: block;
     position: relative;
     z-index: 81;
+    top:75%;
 }
 
 .smokeContainer{
@@ -1050,7 +1052,7 @@ svg.waveTop path{
 .smoke1{
     animation: smokePath1 14s infinite ease-in;
     top: -721px;
-    left: 1510px;
+    left: 94%;
 }
 
 .smoke1 svg{
@@ -1083,7 +1085,7 @@ svg.waveTop path{
 .smoke2{
     animation: smokePath2 17s infinite ease-in;
     top: -1046px;
-    left: 1600px;
+    left: 101%;
 }
 
 .smoke2 svg{
@@ -1116,7 +1118,7 @@ svg.waveTop path{
 .smoke3{
     animation: smokePath3 10s infinite ease-in;
     top: -1540px;
-    left: 1590px;
+    left: 100%;
 }
 
 .smoke3 svg{
