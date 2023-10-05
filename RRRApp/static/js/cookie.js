@@ -11,7 +11,7 @@ const cookieStorage = {
         const date = new Date();
         date.setTime(date.getTime() + (daysToExpire * 24 * 60 * 60 * 1000));
         const expires = `expires=${date.toUTCString()}`;
-        const cookieOptions = `SameSite=None; Secure`;  // Include SameSite=None and Secure
+        const cookieOptions = `SameSite=Lax`;  // Include SameSite=None and Secure
         document.cookie = `${key}=${value}; ${expires}; ${cookieOptions}; path=/`;
     },
 };
@@ -31,7 +31,7 @@ window.onload = () => {
         const acceptBtn = document.querySelector('.acceptA#accept');
         const xBtn = document.querySelector('.buttonA#xaccept');
 
-        const acceptFn = event => {
+        const acceptFn = () => {
             saveToStorage(storageType);
             consentPopup.classList.add('hidden');
         };
