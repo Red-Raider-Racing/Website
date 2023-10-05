@@ -3,6 +3,7 @@
 {% block content %}
 <head>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/2.3.1/purify.min.js"></script>
+    <link href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css" rel="stylesheet">
     <style>
         .pageTitle{
             text-align: right;
@@ -99,6 +100,13 @@
             </div>
         </form>
     </div>
+    <div id="consent-popup" class="hidden" style="background-color: var(--secondary-color);">
+        <h2>Cookies Consent <i class="bx bx-cookie"></i></h2>
+        <p> We use cookies to enhance your browsing experience on our website. By continuing, you consent to our use of cookies. 
+            Learn more in our <a href="#"> Terms and Conditions</a>. Please <a id="accept" href="#">Accept</a> these before using our site.
+        </p>
+    </div>
+    <script type="text/javascript" src="script.js"></script>
 </body>
 
 {% endblock %}
