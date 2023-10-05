@@ -653,8 +653,11 @@ p{
     padding: 20px;
 }
 
-.FAQSection a{
-    color: var(--secondary-color)
+.FAQSection a, .FAQSection button{
+    color: var(--secondary-color);
+    font-size: min(8vw, 18px);
+    text-decoration: underline;
+    padding: 0;
 }
 
 .faq {
@@ -689,6 +692,8 @@ p{
     padding: 20px;
     background-color: white;
     border-radius: 40px;
+    outline: 10px var(--secondary-color) solid;
+    outline-offset: 10px;
 }
 
 .sponsor{
