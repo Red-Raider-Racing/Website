@@ -26,4 +26,7 @@ urlpatterns = [
     
     #----------------Cache----------------
     path('static/<path:path>', custom_serve),
+
+    #----------------Robots----------------
+    path('robots.txt/', views.robots, name='robots.txt'),
 ]
