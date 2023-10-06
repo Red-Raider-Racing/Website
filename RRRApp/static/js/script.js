@@ -426,7 +426,6 @@ function showAnswer(section) {
 
 // Function to show that the message sent or failed
 function showSent(message) {
-    console.log(message);
     const send = document.getElementById(message);
     send.style.display = 'block';
 }

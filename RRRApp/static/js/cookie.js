@@ -28,7 +28,6 @@ const saveToStorage = () => storageType.setItem(consentPropertyName, true);
 document.addEventListener("DOMContentLoaded", function() {
     const consentPopup = document.getElementById('consent-popup');
     if(consentPopup){
-        const acceptBtn = document.querySelector('.acceptA#accept');
         const xBtn = document.querySelector('.buttonA#xaccept');
 
         const acceptFn = () => {
@@ -36,7 +35,6 @@ document.addEventListener("DOMContentLoaded", function() {
             consentPopup.classList.add('hidden');
         };
 
-        acceptBtn.addEventListener('click', acceptFn);
         xBtn.addEventListener('click', acceptFn);
 
         if(shouldShowPopup()) {
