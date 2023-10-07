@@ -11,7 +11,7 @@ const cookieStorage = {
         const date = new Date();
         date.setTime(date.getTime() + (daysToExpire * 24 * 60 * 60 * 1000));
         const expires = `expires=${date.toUTCString()}`;
-        const cookieOptions = `SameSite=Lax`;  // Include SameSite=None and Secure
+        const cookieOptions = `SameSite=Lax`;
         document.cookie = `${key}=${value}; ${expires}; ${cookieOptions}; path=/`;
     },
 };
