@@ -28,5 +28,5 @@ urlpatterns = [
     path('static/<path:path>', custom_serve),
 
     #----------------Robots----------------
-    path('robots.txt/', views.robots, name='robots.txt'),
+    path('robots.txt/', views.robots, name='robots.txt'), # this makes is so crawlers can use our website (SEO)
 ]
