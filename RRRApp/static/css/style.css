@@ -534,6 +534,7 @@ p{
     align-items: center;
     max-width: 1200px;
     margin: auto;
+    overflow: visible;
 }
 
 .car{
