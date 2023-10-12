@@ -9,6 +9,7 @@ TEMPLATE_DIRS = (
 )
 
 #----------------Pages----------------
+
 # Just puts the user onto the homepage when initially visiting the website
 def load(request):
     return redirect(f"/home/")
@@ -32,6 +33,7 @@ def index(request):
 
             # Set success message
             success = 1
+            print('Success.')
         except Exception as e:
             # Handle the error case
             # You can log the error for debugging
@@ -78,6 +80,7 @@ def custom_404(request):
 @cache_page(CACHE_TIMEOUT)
 def custom_500(request):
     return render(request, '500.html', status=500)
+
 
 #----------------Robots----------------
 
