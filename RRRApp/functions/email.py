@@ -9,7 +9,8 @@ from datetime import datetime
 def emailMessage(name, email, subject, message):
     '''
     Used to take the inputs and send an email to our email.
-        - currently using 'redraiderracingcode@outlook.com' for testing.
+        - currently using 'redraiderracingcode@outlook.com' for testing.\n
+    Returns None.
     '''
     message = formatMessage(name,email,message)
     send_mail(
@@ -22,7 +23,7 @@ def emailMessage(name, email, subject, message):
 
 def formatMessage(name, email, message):
     '''
-    Used to format the message how ever you want.
+    Used to format the message how ever you want.\n
     Returns the full message to send in the email.
     '''
     day_of_week = datetime.now().strftime('%A') # Full day name (e.g., "Monday")
@@ -38,8 +39,8 @@ def formatMessage(name, email, message):
 
 def formatTime():
     '''
-    Used to format the time.
-    Returns hour in 12hr time, minutes, and time of day
+    Used to format the time.\n
+    Returns hour in 12hr time, minutes, and time of day.
     '''
     hour = datetime.now().hour
     minute = datetime.now().minute

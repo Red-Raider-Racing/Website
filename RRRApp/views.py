@@ -10,9 +10,11 @@ TEMPLATE_DIRS = (
 
 #----------------Pages----------------
 
-# Just puts the user onto the homepage when initially visiting the website
 def load(request):
-    return redirect(f"/home/")
+    '''
+    Puts the user onto the homepage when initially visiting the website.
+    '''
+    return redirect("/home/")
 
 @cache_page(CACHE_TIMEOUT)
 @csrf_exempt
