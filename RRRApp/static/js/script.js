@@ -162,7 +162,19 @@ document.addEventListener("DOMContentLoaded", function() {
 
     updateLoaderTurns();
     updateSVG();
+    checkDate();
 });
+
+function checkDate(){
+    const d = new Date()
+    let monthNow = d.getMonth() + 1;
+
+    const ad = document.querySelector(".ad");
+
+    if(monthNow >= 10 || monthNow <= 4){
+        ad.style.display = "flex";
+    }
+}
 
 // after everything loads
 window.onload = function () {
