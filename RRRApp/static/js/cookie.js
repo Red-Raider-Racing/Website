@@ -18,28 +18,40 @@ const cookieStorage = {
 
 //Can change into any storage needed session, local, etc.
 const storageType = cookieStorage;
-const consentPropertyName = 'terms_accept';
-
-//Helper Functions to determine whether popup will be shown or not
-//References to local storage
-const shouldShowPopup = () => !storageType.getItem(consentPropertyName);
-const saveToStorage = () => storageType.setItem(consentPropertyName, true);
 
 document.addEventListener("DOMContentLoaded", function() {
     const consentPopup = document.getElementById('consent-popup');
     if(consentPopup){
-        const xBtn = document.querySelector('.buttonA#xaccept');
+        const termsXbtn = document.querySelector('.buttonA#xaccept');
 
-        const acceptFn = () => {
-            saveToStorage(storageType);
+        const termsFn = () => {
+            storageType.setItem('terms_accept', true); // Set terms_accept cookie
             consentPopup.classList.add('hidden');
         };
 
-        xBtn.addEventListener('click', acceptFn);
+        termsXbtn.addEventListener('click', termsFn);
 
-        if(shouldShowPopup()) {
+        if(!storageType.getItem('terms_accept')) {
             setTimeout(() => {
                 consentPopup.classList.remove('hidden');
+            }, 1000);
+        }
+    }
+
+    const ad = document.querySelector('.ad');
+    if(ad){
+        const adXbtn = document.querySelector('.buttonA#xaccept');
+
+        const adFn = () => {
+            storageType.setItem('carshow_ad', true); // Set carshow cookie
+            ad.classList.add('hidden');
+        };
+
+        adXbtn.addEventListener('click', adFn);
+
+        if(!storageType.getItem('carshow_ad')) {
+            setTimeout(() => {
+                ad.classList.remove('hidden');
             }, 1000);
         }
     }
