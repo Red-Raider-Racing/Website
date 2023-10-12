@@ -164,6 +164,11 @@ document.addEventListener("DOMContentLoaded", function() {
     updateSVG();
 });
 
+// after everything loads
+window.onload = function () {
+    updateMainPadding();
+}
+
 function updateLoaderTurns(){
     // Get the screen width and update the CSS variable
     const screenWidth = window.innerWidth;
@@ -205,8 +210,10 @@ function updateMainPadding() {
         enableScrolling();
     } 
 
-    // Add responsiveness based on width of screen
-    if(viewportWidth <= 1000 ){
+    // Add responsiveness based on width of screen and elements in header
+    navMain.style.display = 'flex';
+    let headerWidth = logo.clientWidth + 20 + navMain.clientWidth;
+    if(headerWidth > viewportWidth || viewportWidth <= 1000) {
         logo.style.height = '40px';
         logoCon.style.padding = '0px';
         navMain.style.display = 'none';
@@ -243,12 +250,14 @@ function updateMainPadding() {
 
     const mainElement = document.querySelector(".pageTitle");
     if (mainElement){
-        mainElement.style.paddingTop = `${header.clientHeight+80}px`;
+        if(header.clientHeight < viewportHeight){
+            mainElement.style.paddingTop = `${header.clientHeight+80}px`;
+        }
     }
 }
 
-// Initial update when the DOM is ready
-document.addEventListener("DOMContentLoaded", updateMainPadding);
+// // Initial update when the DOM is ready
+// document.addEventListener("DOMContentLoaded", updateMainPadding);
 
 // Update padding on window resize
 window.addEventListener("resize", ()=>{
