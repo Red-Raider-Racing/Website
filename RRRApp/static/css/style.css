@@ -53,7 +53,7 @@ main{
 
 header {
     background-color: transparent;
-    display: flex;
+    display: none;
     flex-wrap: wrap;
     justify-content: space-around;
     position: fixed;
@@ -75,7 +75,7 @@ header button{
 }
 
 .logo {
-    display: flex;
+    display: none;
     justify-content: center;
     align-items: center;
     margin: 5px;
@@ -246,12 +246,14 @@ button {
 }
 
 .pageTitle{
+    display: none;
     margin: 0 auto;
     padding: 10px;
     max-width: 1200px;
     z-index: 80;
     position: relative;
     color: var(--secondary-color);
+    padding-top: 170px;
 }
 
 .FAQCover .pageTitle p{
@@ -894,15 +896,6 @@ svg path{
     fill: var(--font-color);
 }
 
-svg.wave{
-    position: relative;
-    width: unset;
-    height: unset;
-    max-height: 200px;
-    pointer-events: none;
-    z-index: 89;
-}
-
 svg.waveBottom~div{
     z-index: 90;
     position: relative;
@@ -923,7 +916,7 @@ svg.wave{
     max-height: 200px;
     pointer-events: none;
     z-index: 89;
-    display: flex;
+    display: none;
     justify-content: center;
     align-content: start;
 }
@@ -1090,18 +1083,6 @@ div#consent-popup a:hover, .acceptA#accept:hover{
         width: max(12px, min(80vw, 400px));
     }
 
-    .welcomeIMG{
-        background-image: url('../images/mobile/RRR-2023-Cover-min.JPG');
-    }
-    
-    .teamIMG{
-        background-image: url('../images/mobile/RRR-2023-Team-min.JPG');
-    }
-    
-    .carsIMG{
-        background-image: url('../images/mobile/RRR-2023-Cars-min.JPG');
-    }
-
     div#consent-popup {
         left: 50%;
         transform: translateX(-50%);
@@ -1116,18 +1097,6 @@ div#consent-popup a:hover, .acceptA#accept:hover{
 
     .altNav button:hover{
         color: var(--secondary-color);
-    }
-
-    .welcomeIMG{
-        background-image: url('../images/RRR-2023-Cover.webp');
-    }
-    
-    .teamIMG{
-        background-image: url('../images/RRR-2023-Team.webp');
-    }
-    
-    .carsIMG{
-        background-image: url('../images/RRR-2023-Cars.webp');
     }
 
     .benefit:not(.flipped):hover .benefitTitle {

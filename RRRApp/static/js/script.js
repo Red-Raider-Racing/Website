@@ -5,6 +5,10 @@
 
 // Function for when the page is loaded. Initialization stuff
 document.addEventListener("DOMContentLoaded", function() {
+    updateLoaderTurns();
+    updateSVG();
+    // checkDate();
+    
     const questions = document.querySelectorAll(".faq");
     
     // Finds all the questions in the FAQ page and listens to see if it is clicked on
@@ -159,22 +163,18 @@ document.addEventListener("DOMContentLoaded", function() {
         }
         showSent(message);
     }
-
-    updateLoaderTurns();
-    updateSVG();
-    checkDate();
 });
 
-function checkDate(){
-    const d = new Date()
-    let monthNow = d.getMonth() + 1;
+// function checkDate(){
+//     const d = new Date()
+//     let monthNow = d.getMonth() + 1;
 
-    const ad = document.querySelector(".ad");
+//     const ad = document.querySelector(".ad");
 
-    if(monthNow >= 10 || monthNow <= 4){
-        ad.style.display = "flex";
-    }
-}
+//     if(monthNow >= 10 || monthNow <= 4){
+//         ad.style.display = "flex";
+//     }
+// }
 
 // after everything loads
 window.onload = function () {
@@ -194,10 +194,11 @@ function updateLoaderTurns(){
 
 // Function to update the padding of the "main" element based on the height of the "nav" element
 function updateMainPadding() {
-    const logo = document.querySelector(".logo-image")
-    const logoCon = document.querySelector(".logo")
-    const navMain = document.querySelector(".navMain")
-    const altNav = document.querySelector(".altNav")
+    const pageTitle = document.querySelector('.pageTitle');
+    const logo = document.querySelector(".logo-image");
+    const logoCon = document.querySelector(".logo");
+    const navMain = document.querySelector(".navMain");
+    const altNav = document.querySelector(".altNav");
     const menuButton = document.querySelector(".menuButton");
     const header = document.querySelector('header');
     const menu = document.querySelector(".dropdown-content");
@@ -206,6 +207,10 @@ function updateMainPadding() {
 
     const viewportWidth = window.innerWidth;
     const viewportHeight = window.innerHeight;
+
+    pageTitle.style.display = "block";
+    logoCon.style.display = "flex";
+    header.style.display = "flex";
 
     // Close the menu
     if (menu.style.display === "block") {
@@ -499,6 +504,8 @@ function updateSVG(){
     let width = window.innerWidth;
 
     if(svgTop){
+        svgTop.style.display = "flex";
+        svgBottom.style.display = "flex";
         svgTop.style.transform = `translateX(-50%) scaleX(${window.innerWidth/svgTop.clientWidth})`;
         svgTop.style.left = '50%';
         svgTop.style.marginTop = `unset`;
