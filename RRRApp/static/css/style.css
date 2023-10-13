@@ -80,6 +80,7 @@ header button{
     align-items: center;
     margin: 5px;
     overflow-x: visible;
+    padding: 10px;
 }
 
 .logo a{
@@ -551,10 +552,6 @@ p{
     opacity: 1;
 }
 
-.cars .car .carTitle{
-    margin-top: 10px;
-}
-
 .carIMG{
     margin: 10px auto;
     padding: 10px;
@@ -732,7 +729,7 @@ p{
     margin-bottom: 75px;
 }
 
-.thankyou h1, .competition h1{
+.thankyou h1, .competition h1, .carTitle{
     font-size: max(12px, min(7vw, 36px));
     margin: 10px auto;
 }

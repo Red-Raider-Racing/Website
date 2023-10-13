@@ -1,16 +1,48 @@
 {% extends "base.html" %}
 {% block title %}Car Show - {% endblock %}
 {% block content %}
-<head>
-
-</head>
+<script>
+    const active = document.getElementById('carShwBtn');
+    const active1 = document.getElementById('carShwBtn1');
+    active.classList.add("active");
+    active1.classList.add("active");
+</script>
 <body>
-    <main>
+    <div class="coverIMG teamIMG">
         <div class="pageTitle">
-            <h1>Red Raider Racing</h1>
-            <p>This is the Car Show page.</p>
+            <h1 class="teamTitle">Red Raider Racing Annual Car Show</h1>
         </div>
-    </main>
+    </div>
+    <svg class="wave waveTop" id="wave" viewBox="0 0 1440 390" version="1.1" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="sw-gradient-0" x1="0" x2="0" y1="1" y2="0"><stop stop-color="rgba(8, 8, 8, 1)" offset="0%"></stop><stop stop-color="rgba(8, 8, 8, 1)" offset="100%"></stop></linearGradient></defs><path style="transform:translate(0, 0px); opacity:1" fill="url(#sw-gradient-0)" d="M0,117L720,234L1440,117L2160,351L2880,156L3600,234L4320,312L5040,78L5760,39L6480,234L7200,39L7920,351L8640,195L9360,78L10080,234L10800,156L11520,0L12240,0L12960,234L13680,117L14400,117L15120,0L15840,156L16560,351L17280,234L17280,390L16560,390L15840,390L15120,390L14400,390L13680,390L12960,390L12240,390L11520,390L10800,390L10080,390L9360,390L8640,390L7920,390L7200,390L6480,390L5760,390L5040,390L4320,390L3600,390L2880,390L2160,390L1440,390L720,390L0,390Z"></path></svg>
+    <svg class="wave waveBottom" id="wave" viewBox="0 0 1440 390" version="1.1" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="sw-gradient-0" x1="0" x2="0" y1="1" y2="0"><stop stop-color="rgba(8, 8, 8, 1)" offset="0%"></stop><stop stop-color="rgba(8, 8, 8, 1)" offset="100%"></stop></linearGradient></defs><path style="transform:translate(0, 0px); opacity:1" fill="url(#sw-gradient-0)" d="M0,117L720,234L1440,117L2160,351L2880,156L3600,234L4320,312L5040,78L5760,39L6480,234L7200,39L7920,351L8640,195L9360,78L10080,234L10800,156L11520,0L12240,0L12960,234L13680,117L14400,117L15120,0L15840,156L16560,351L17280,234L17280,390L16560,390L15840,390L15120,390L14400,390L13680,390L12960,390L12240,390L11520,390L10800,390L10080,390L9360,390L8640,390L7920,390L7200,390L6480,390L5760,390L5040,390L4320,390L3600,390L2880,390L2160,390L1440,390L720,390L0,390Z"></path></svg>
+    <div class="body">
+        <div class="thankyou">
+            <h1>Thank you to our sponsors!</h1>
+            <hr class="underline">
+            <p>Building a car every year is a challenge for us students, 
+                as we are always looking for ways to innovate our designs. 
+                With your help and support, we can purchase breakthrough 
+                components for the team, making our car more performant 
+                for the Competition in May.</p>
+        </div>
+        <div class="howSponsor">
+            <h1 class="sectionTitle">How to Sponsor Us</h1>
+            <hr class="underline">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+                Aliquam eu faucibus orci, vel semper ante. Suspendisse ut porttitor odio. 
+                Cras mauris urna, ullamcorper id dolor ac, elementum vulputate neque. 
+                Maecenas vestibulum sed ligula ac vehicula. Proin sit amet mi vitae ligula 
+                sagittis luctus at quis ex. Cras sit amet nulla iaculis, ornare orci sed, 
+                feugiat orci. Donec euismod tellus massa, at tempor tellus sollicitudin eu. 
+                Nullam tincidunt magna nec nunc suscipit venenatis. Curabitur sit amet nisi 
+                metus. Praesent ac arcu et lectus iaculis viverra. Vestibulum porttitor, 
+                sapien eu efficitur aliquet, dolor eros venenatis nunc, ac volutpat mi nisl a dolor. 
+                Maecenas dapibus vulputate gravida. Phasellus eu risus eget nulla consequat laoreet 
+                rutrum eget tellus. </p>
+            <hr class="underline">
+            <br>
+        </div>
+    </div>
 </body>
 
 {% endblock %}

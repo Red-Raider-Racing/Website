@@ -3,35 +3,27 @@ author: Carson Spaniel
 date: 9/9/23
 '''
 
-from django.core.mail import send_mail, BadHeaderError
-from django.http import HttpResponse
+from django.core.mail import send_mail
 from datetime import datetime
 
 def emailMessage(name, email, subject, message):
     '''
     Used to take the inputs and send an email to our email.
-        - currently using 'redraiderracingcode@outlook.com' for testing.
+        - currently using 'redraiderracingcode@outlook.com' for testing.\n
+    Returns None.
     '''
     message = formatMessage(name,email,message)
-    try:
-        send_mail(
-            subject,
-            message,
-            'redraiderracing@website.admin',
-            ['redraiderracingcode@outlook.com'],
-            fail_silently=False,
-        )
-        return HttpResponse('Success.')
-    except BadHeaderError:
-        # Handle a BadHeaderError (e.g., invalid subject)
-        return HttpResponse('Invalid header found.')
-    except Exception as e:
-        # Handle other exceptions (e.g., SMTP errors, connection issues)
-        return HttpResponse(f'An error occurred: {str(e)}')
+    send_mail(
+        subject,
+        message,
+        'redraiderracing@website.admin', # Send email from
+        ['redraiderracingcode@outlook.com'], # Send email to
+        fail_silently=False, # We don't want it to fail silently that way it raises an error
+    )
 
 def formatMessage(name, email, message):
     '''
-    Used to format the message how ever you want.
+    Used to format the message how ever you want.\n
     Returns the full message to send in the email.
     '''
     day_of_week = datetime.now().strftime('%A') # Full day name (e.g., "Monday")
@@ -47,15 +39,14 @@ def formatMessage(name, email, message):
 
 def formatTime():
     '''
-    Used to format the time.
-    Returns hour in 12hr time, minutes, and time of day
+    Used to format the time.\n
+    Returns hour in 12hr time, minutes, and time of day.
     '''
     hour = datetime.now().hour
     minute = datetime.now().minute
-    if hour > 12:
-        hour -= 12
-        dayTime = 'PM'
-    elif hour == 12:
+    if hour >= 12:
+        if hour != 12:
+            hour -= 12
         dayTime = 'PM'
     else:
         dayTime = 'AM'
@@ -65,4 +56,4 @@ def formatTime():
 
     return hour, minute, dayTime
 
-# formatMessage("Carson Spaniel","carsonspaniel@gmail.com","I would love to join the team. How can I start getting involved? \nThank you,\nCarson Spaniel")
+# formatMessage("Carson Spaniel","carsonspaniel@gmail.com","I would love to join the team. How can I start getting involved? \nThank you,\nCarson Spaniel") # testing formatting
