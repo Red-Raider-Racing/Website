@@ -30,7 +30,6 @@ def index(request):
 
         try:
             # Perform any backend processing (e.g., saving to the database)
-            '''call formatting functions here'''
             emailMessage(name, email, subject, message)
 
             # Set success message
