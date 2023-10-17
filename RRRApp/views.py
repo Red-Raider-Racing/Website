@@ -35,7 +35,7 @@ def index(request):
 
             # Set success message
             success = 1
-            print('Success.')
+            print('Successfully Sent Email.')
         except Exception as e:
             # Handle the error case
             # You can log the error for debugging
