@@ -31,8 +31,11 @@ def formatMessage(name, email, message):
 
     email_link = f'<a href="mailto:{email}">{email}</a>' # Makes a clickable link in the email
     
-    message = f'This message is from {name} on {day_of_week} {date} at {datetime.now().strftime("%I")}:{datetime.now().strftime("%M")} {datetime.now().strftime("%p")}:\n\n\n{message}\n\n\nTo respond to them, email them back at {email_link}.'
-    
-    return message 
+    message = (
+        f'This message is from {name} on {day_of_week} {date} at '  # Date and time information
+        f'{datetime.now().strftime("%I")}:{datetime.now().strftime("%M")} '  # Hour and minute
+        f'{datetime.now().strftime("%p")}:\n\n\n{message}\n\n\nTo respond to them, '  # AM or PM and message
+        f'email them back at {email_link}.'  # Email link
+    )
 
-# formatMessage("Carson Spaniel","carsonspaniel@gmail.com","I would love to join the team. How can I start getting involved? \nThank you,\nCarson Spaniel") # testing formatting
+    return message 
