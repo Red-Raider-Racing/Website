@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 
 from pathlib import Path
 import os
+import sys
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -146,6 +147,9 @@ CACHE_MIDDLEWARE_SECONDS = 2592000  # 30 days (30 * 24 * 60 * 60 seconds)
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Email stuff here
+if 'test' in sys.argv:
+    EMAIL_BACKEND = 'django.core.mail.backends.locmem.EmailBackend'
+
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp-relay.brevo.com'  # Replace with the actual SMTP server address
 EMAIL_PORT = 587  # Use the appropriate port number
