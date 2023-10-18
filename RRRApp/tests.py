@@ -82,7 +82,9 @@ class IndexViewTestCase(TestCase):
     @patch('RRRApp.views.emailMessage') # Mock the emailMessage function in RRRApp.views for testing
     def test_email_sending(self, mock_email_message):
         '''
-        Testing to see if a is sent correctly.
+        Testing to see if the email is sent correctly. 
+        Note, it does actually send the email it just tests if the function would run.
+        If the email sending were to fail, it would be on our SMTP server's end and there is nothing we can do about it.
         '''
 
         response = self.client.post(reverse('home'), {
