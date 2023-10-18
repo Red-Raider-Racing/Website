@@ -3,7 +3,7 @@ author: Carson Spaniel
 date: 10/17/23
 
 To run the tests:
-    py manage.py collectstatic
+    py manage.py collectstatic # making sure the static is up to date
     py manage.py test RRRApp.tests
 '''
 
