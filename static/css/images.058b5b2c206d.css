@@ -1,0 +1,29 @@
+/* Styles for screens less than 500px wide */
+@media (max-width: 500px) {
+    .welcomeIMG{
+        background-image: url("../images/mobile/RRR-2023-Cover-min.e216cf71d5ef.JPG");
+    }
+    
+    .teamIMG{
+        background-image: url("../images/mobile/RRR-2023-Team-min.04496af8c9fe.JPG");
+    }
+    
+    .carsIMG{
+        background-image: url("../images/mobile/RRR-2023-Cars-min.02fea836a3df.JPG");
+    }
+}
+
+/* Styles for screens greater than 500px wide */
+@media (min-width: 501px) {
+    .welcomeIMG{
+        background-image: url("../images/RRR-2023-Cover.5081528df7ec.webp");
+    }
+    
+    .teamIMG{
+        background-image: url("../images/RRR-2023-Team.1e80e1150a61.webp");
+    }
+    
+    .carsIMG{
+        background-image: url("../images/RRR-2023-Cars.6e6794792bd7.webp");
+    }
+}
