@@ -2,8 +2,9 @@
 author: Carson Spaniel
 date: 10/17/23
 
-To run the tests: 
-py manage.py test RRRApp.tests
+To run the tests:
+    py manage.py collectstatic
+    py manage.py test RRRApp.tests
 '''
 
 from django.test import TestCase
@@ -92,6 +93,9 @@ class IndexViewTestCase(TestCase):
         })
 
         self.assertEqual(response.status_code, 302)
+
+        # Now you can assert the redirect URL
+        self.assertEqual(response.url, '/home/?success=1#message')
 
         # Check that the emailMessage function was called
         checkCall = mock_email_message.assert_called_once()
