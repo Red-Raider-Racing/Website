@@ -7,7 +7,7 @@ const cookieStorage = {
             .reduce((acc, [key, value]) => ({ ...acc, [key.trim()]: value }), {});
         return cookies[key]
     },
-    setItem: (key, value, daysToExpire = 30) => {
+    setItem: (key, value, daysToExpire) => {
         const date = new Date();
         date.setTime(date.getTime() + (daysToExpire * 24 * 60 * 60 * 1000));
         const expires = `expires=${date.toUTCString()}`;
@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", function() {
         const termsXbtn = document.querySelector('.buttonA#xaccept');
 
         const termsFn = () => {
-            storageType.setItem('terms_accept', true); // Set terms_accept cookie
+            storageType.setItem('terms_accept', true, 30); // Set terms_accept cookie
             consentPopup.classList.add('hidden');
         };
 
@@ -40,10 +40,10 @@ document.addEventListener("DOMContentLoaded", function() {
 
     const ad = document.querySelector('.ad');
     if(ad){
-        const adXbtn = document.querySelector('.buttonA#xaccept');
+        const adXbtn = document.querySelector('.buttonA#xaccept'); // change some stuff
 
         const adFn = () => {
-            storageType.setItem('carshow_ad', true); // Set carshow cookie
+            storageType.setItem('carshow_ad', true, 14); // Set carshow cookie
             ad.classList.add('hidden');
         };
 
