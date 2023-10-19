@@ -1080,6 +1080,7 @@ div#consent-popup a:hover, .acceptA#accept:hover{
 .merch {
     max-width: 1200px;
     margin: 0 auto;
+    margin-top: 50px;
 }
 
 .items{
@@ -1103,7 +1104,7 @@ div#consent-popup a:hover, .acceptA#accept:hover{
     padding: 20px;
     background-color: white;
     border-radius: 40px;
-    outline: 10px var(--secondary-color) solid;
+    outline: 5px var(--secondary-color) solid;
     outline-offset: 10px;
 }
 
@@ -1113,11 +1114,12 @@ div#consent-popup a:hover, .acceptA#accept:hover{
     border-radius: 20px;
     background-color: rgb(196, 196, 196);
     box-shadow: var(--shadow) inset;
+    margin-top: 10px;
 }
 
 .merchText{
     display: block;
-    text-align: center;
+    text-align: left;
 }
 
 .merchText *{
@@ -1142,13 +1144,13 @@ div#consent-popup a:hover, .acceptA#accept:hover{
     color: white;
     border-radius: 5px;
     margin-top: min(20px, 20vw);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
 }
 
 .buyNow:hover{
-    background-color: var(--secondary-faded-color);
+    /* filter: brightness(150%); */
     box-shadow: var(--shadow);
-    transform: translateY(-5px);
+    transform: scale(1.1);
 }
 
 /* Styles for screens less than 500px wide */
