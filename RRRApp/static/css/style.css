@@ -1097,13 +1097,13 @@ div#consent-popup a:hover, .acceptA#accept:hover{
     align-items: center;
     justify-content: start;
     flex-wrap: wrap;
-    width: 300px;
+    width: 200px;
     background-color: var(--font-color);
     color: var(--background-color);
     margin: 30px;
     padding: 20px;
     background-color: white;
-    border-radius: 40px;
+    border-radius: 20px;
     outline: 5px var(--secondary-color) solid;
     outline-offset: 10px;
 }
