@@ -1154,6 +1154,10 @@ div#consent-popup a:hover, .acceptA#accept:hover{
     padding: 9px;
 }
 
+.ad{
+    display: none;
+}
+
 /* Styles for screens less than 500px wide */
 @media (max-width: 500px) {
     .inputs {
