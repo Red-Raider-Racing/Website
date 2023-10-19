@@ -1141,15 +1141,14 @@ div#consent-popup a:hover, .acceptA#accept:hover{
 .buyNow{
     padding: 10px;
     background-color: var(--secondary-color);
-    color: white;
+    color: var(--font-color);
     border-radius: 5px;
     margin-top: min(20px, 20vw);
-    transition: background-color 0.3s ease, color 0.3s ease;
     font-size: min(8vw, 18px);
+    transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .buyNow:hover{
-    background-color: white;
     color: var(--secondary-color);
     border: 1px solid var(--secondary-color);
     padding: 9px;

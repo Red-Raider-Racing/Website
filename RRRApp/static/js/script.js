@@ -171,7 +171,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 //     const ad = document.querySelector(".ad");
 
-//     if(monthNow >= 10 || monthNow <= 4){
+//     if(monthNow >= 12 || monthNow <= 4){
 //         ad.style.display = "flex";
 //     }
 // }

@@ -1077,6 +1077,82 @@ div#consent-popup a:hover, .acceptA#accept:hover{
     margin: 0 10px;
 }
 
+.merch {
+    max-width: 1200px;
+    margin: 0 auto;
+    margin-top: 50px;
+}
+
+.items{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 0 auto;
+}
+
+.item{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+    flex-wrap: wrap;
+    width: 300px;
+    background-color: var(--font-color);
+    color: var(--background-color);
+    margin: 30px;
+    padding: 20px;
+    border-radius: 40px;
+    outline: 5px var(--secondary-color) solid;
+    outline-offset: 10px;
+}
+
+.item .merchIMG{
+    width: 90%;
+    aspect-ratio: 1;
+    border-radius: 20px;
+    background-color: rgb(196, 196, 196);
+    box-shadow: var(--shadow) inset;
+    margin-top: 10px;
+}
+
+.merchText{
+    display: block;
+    text-align: left;
+}
+
+.merchText *{
+    font-family: 'Tahoma';
+}
+
+.merchPrice{
+    font-size: min(8vw, 22px);
+    margin: 0px;
+    color: rgba(0, 0, 0, 0.466);
+}
+
+.merchTitle{
+    font-size: min(8vw, 25px);
+    margin-bottom: 0px;
+    font-weight: 900;
+}
+
+.buyNow{
+    padding: 10px;
+    background-color: var(--secondary-color);
+    color: var(--font-color);
+    border-radius: 5px;
+    margin-top: min(20px, 20vw);
+    transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.buyNow:hover{
+    background-color: rgba(0, 0, 0, 0);
+    color: var(--secondary-color);
+    border: 1px solid var(--secondary-color);
+    padding: 9px;
+}
+
 /* Styles for screens less than 500px wide */
 @media (max-width: 500px) {
     .inputs {
