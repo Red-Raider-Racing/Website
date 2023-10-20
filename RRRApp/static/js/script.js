@@ -139,6 +139,35 @@ document.addEventListener("DOMContentLoaded", function() {
         observer.observe(sponsor);
     });
 
+    // Looks for merch items
+    const merchItems = document.querySelectorAll(".item");
+    merchItems.forEach(function(item) {
+        observer.observe(item);
+    });
+
+    // // Looks for merch images
+    // const merchIMGs = document.querySelectorAll(".merchIMG");
+    // merchIMGs.forEach(function(img) {
+    //     observer.observe(img);
+    // });
+
+    // Zooms into merch item
+    // if (merchItems) {
+    //     merchItems.forEach((item) => {
+    //         item.addEventListener('click', () => {
+    //         item.classList.toggle('zoom');
+    //         scrollToItems();
+      
+    //         merchItems.forEach((otherItem) => {
+    //           if (otherItem !== item) {
+    //             otherItem.classList.remove('zoom');
+    //             otherItem.classList.toggle('hideDisplay');
+    //           }
+    //         });
+    //       });
+    //     });
+    // }
+
     // Grabs the join variable
     var joinParam = GetURLParameter('join');
     if (joinParam){
@@ -165,6 +194,40 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 });
 
+function showItem(button) {
+    // Get the parent element of the button, which is the "item" div
+    const item = button.parentElement;
+
+    // Get all elements with the class "item"
+    const items = document.querySelectorAll('.item');
+
+    // Loop through all "item" elements
+    items.forEach((element) => {
+        if (element !== item) {
+            element.classList.toggle('hideDisplay');
+        }
+        else {
+            if (element.classList.contains('zoom')){
+                element.classList.remove('zoom');
+                button.innerHTML = 'View';
+            }
+            else{
+                button.innerHTML = '&#x2715;';
+                element.classList.add('zoom');
+                scrollToItems();
+            }
+        }
+    });
+}
+
+function scrollToItems() {
+    const items = document.querySelector('.items');
+  
+    if (items) {
+      items.scrollIntoView({ behavior: 'smooth' });
+    }
+  }
+
 function checkDate(){
     const d = new Date()
     let monthNow = d.getMonth() + 1;
@@ -190,7 +253,6 @@ function updateLoaderTurns(){
     // Calculate the number of turns based on the screen width
     const numberOfTurns = screenWidth / 200; // You can adjust this ratio as needed
     document.documentElement.style.setProperty('--number-of-turns', numberOfTurns);
-    
 }
 
 // Function to update the padding of the "main" element based on the height of the "nav" element

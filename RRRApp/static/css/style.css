@@ -574,7 +574,7 @@ p{
 
 .carIMG img{
     width: 100%;
-    cursor: zoom-in;
+    cursor: pointer;
 }
 
 .specs{
@@ -1081,6 +1081,7 @@ div#consent-popup a:hover, .acceptA#accept:hover{
     max-width: 1200px;
     margin: 0 auto;
     margin-top: 50px;
+    overflow: visible;
 }
 
 .items{
@@ -1089,6 +1090,7 @@ div#consent-popup a:hover, .acceptA#accept:hover{
     justify-content: center;
     flex-wrap: wrap;
     margin: 0 auto;
+    overflow: visible;
 }
 
 .item{
@@ -1106,6 +1108,22 @@ div#consent-popup a:hover, .acceptA#accept:hover{
     border-radius: 20px;
     outline: 5px var(--secondary-color) solid;
     outline-offset: 10px;
+    z-index: 50;
+    overflow: visible;
+}
+
+.item{
+    opacity: 0;
+    transition: all 1s ease;
+}
+
+.item.visible{
+    opacity: 1;
+}
+
+.item.zoom{
+    width: max(50vw, 200px);
+    z-index: 100;
 }
 
 .item .merchIMG{
@@ -1188,6 +1206,12 @@ div#consent-popup a:hover, .acceptA#accept:hover{
     
     .benefit:not(.flipped):hover .benefitDes {
         transform: rotateY(0deg);
+    }
+
+    .item.hideDisplay{
+        opacity: 0;
+        pointer-events: none;
+        position: absolute;
     }
 }
 
