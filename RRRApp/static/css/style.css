@@ -1110,7 +1110,6 @@ div#consent-popup a:hover, .acceptA#accept:hover{
 
 .item .merchIMG{
     width: 90%;
-    aspect-ratio: 1;
     border-radius: 20px;
     background-color: rgb(196, 196, 196);
     box-shadow: var(--shadow) inset;
@@ -1119,7 +1118,7 @@ div#consent-popup a:hover, .acceptA#accept:hover{
 
 .merchText{
     display: block;
-    text-align: left;
+    text-align: center;
 }
 
 .merchText *{
