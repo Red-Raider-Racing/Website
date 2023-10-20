@@ -102,7 +102,8 @@
         <h1 class="sectionTitle">Contact Us</h1>
 
         <form action="{% url 'home' %}" method="post" onsubmit="showLoading()" id="contact" autocomplete="on">
-            {% csrf_token %}
+            <!-- CSRF token needed to protect agained cross site attacks -->
+            {% csrf_token %} 
             <div class="formCon">
                 <div class="nameEmail">
                     <label for="name">Name:</label>
