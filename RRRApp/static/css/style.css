@@ -462,6 +462,7 @@ footer a{
     opacity: 0;
     transition: opacity 1s ease;
     overflow-x: visible;
+    padding: 10px;
 }
 
 .member.visible{
@@ -886,6 +887,7 @@ textarea.inputs {
 
 #character-count{
     margin: 5px;
+    font-size: max(12px, min(7vw, 20px));
 }
 
 .socials svg{
