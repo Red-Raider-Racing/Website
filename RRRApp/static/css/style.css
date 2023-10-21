@@ -469,12 +469,14 @@ footer a{
 }
 
 .memberIMG{
-    margin: 10px auto;
+    margin: 20px auto;
     padding: 10px;
     width: min(50vw, 200px);
     aspect-ratio: 1;
     background-color: var(--imagePlaceholder);
     border-radius: 150px;
+    outline: 5px var(--secondary-color) solid;
+    outline-offset: 10px;
 }
 
 .memberName{
@@ -559,17 +561,21 @@ p{
     padding: 10px;
     width: 60%;
     max-width: 490px;
-    background-color: var(--imagePlaceholder);
-    border-radius: 5px;
     background-size: cover; /* You can use 'cover' to maintain aspect ratio and cover the div */
     background-repeat: no-repeat; /* Prevent the background image from repeating */
     background-position: center center;
     overflow: visible;
-    transition: transform .2s ease-out;
+    transition: all .5s ease;
+}
+
+.carIMG img{
+    border-radius: 20px;
+    outline: 5px var(--secondary-color) solid;
+    outline-offset: 10px;
 }
 
 .carIMG.zoom{
-    transform: scale(1.5);
+    width: 90%;
 }
 
 .carIMG img{
@@ -809,11 +815,19 @@ textarea.inputs {
 .submit{
     font-size: max(12px, min(7vw, 20px));
     border: none;
-    padding: 5px;
+    padding: 10px;
     border-radius: 5px;
-    background-color: var(--font-color);
-    color: var(--background-color);
+    background-color: var(--secondary-color);
+    color: var(--font-color);
     cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.submit:hover{
+    background-color: transparent;
+    color: var(--secondary-color);
+    border: 1px solid var(--secondary-color);
+    padding: 9px;
 }
 
 .message{
@@ -1253,7 +1267,8 @@ div#consent-popup a:hover, .acceptA#accept:hover{
 /* Styles for screens greater than 1000px wide */
 @media (min-width: 1001px) {
     .carIMG.zoom{
-        transform: scale(1.7);
+        width: 80%;
+        max-width: 1000px;
     }
 }
 
