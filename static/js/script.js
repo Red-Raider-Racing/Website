@@ -7,7 +7,7 @@
 document.addEventListener("DOMContentLoaded", function() {
     updateLoaderTurns();
     updateSVG();
-    // checkDate();
+    checkDate();
     
     const questions = document.querySelectorAll(".faq");
     
@@ -139,6 +139,12 @@ document.addEventListener("DOMContentLoaded", function() {
         observer.observe(sponsor);
     });
 
+    // Looks for merch items
+    const merchItems = document.querySelectorAll(".item");
+    merchItems.forEach(function(item) {
+        observer.observe(item);
+    });
+
     // Grabs the join variable
     var joinParam = GetURLParameter('join');
     if (joinParam){
@@ -165,16 +171,53 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 });
 
-// function checkDate(){
-//     const d = new Date()
-//     let monthNow = d.getMonth() + 1;
+// Function used to show and hide merch items
+function showItem(button) {
+    // Get the parent element of the button, which is the "item" div
+    const item = button.parentElement;
+    const desc = item.querySelector('.merchHiddenText');
 
-//     const ad = document.querySelector(".ad");
+    // Get all elements with the class "item"
+    const items = document.querySelectorAll('.item');
 
-//     if(monthNow >= 10 || monthNow <= 4){
-//         ad.style.display = "flex";
-//     }
-// }
+    // Loop through all "item" elements
+    items.forEach((element) => {
+        if (element !== item) {
+            if(element.classList.contains('hideDisplay')){
+                setTimeout(() => {
+                    element.classList.remove('hideDisplay');
+                }, 500);
+            }
+            else{
+                element.classList.add('hideDisplay');
+            }
+        }
+        else {
+            if (element.classList.contains('zoom')){
+                element.classList.remove('zoom');
+                desc.classList.remove('show');
+                button.innerHTML = 'View';
+            }
+            else{
+                button.innerHTML = '&#x2715;';
+                element.classList.add('zoom');
+                desc.classList.add('show');
+            }
+        }
+    });
+}
+
+function checkDate(){
+    const d = new Date()
+    let monthNow = d.getMonth() + 1;
+
+    const ad = document.querySelector(".ad");
+
+    if(monthNow >= 12 || monthNow <= 4){
+        ad.style.display = "flex";
+        disableScrolling();
+    }
+}
 
 // after everything loads
 window.onload = function () {
@@ -189,7 +232,6 @@ function updateLoaderTurns(){
     // Calculate the number of turns based on the screen width
     const numberOfTurns = screenWidth / 200; // You can adjust this ratio as needed
     document.documentElement.style.setProperty('--number-of-turns', numberOfTurns);
-    
 }
 
 // Function to update the padding of the "main" element based on the height of the "nav" element
@@ -523,3 +565,63 @@ function updateSVG(){
         }
     }
 }
+
+//Cookies Popup Implementation for new users
+const cookieStorage = {
+    getItem: (key) => {
+        const cookies = document.cookie
+            .split(';')
+            .map(cookie => cookie.split('='))
+            .reduce((acc, [key, value]) => ({ ...acc, [key.trim()]: value }), {});
+        return cookies[key]
+    },
+    setItem: (key, value, daysToExpire) => {
+        const date = new Date();
+        date.setTime(date.getTime() + (daysToExpire * 24 * 60 * 60 * 1000));
+        const expires = `expires=${date.toUTCString()}`;
+        const cookieOptions = `SameSite=Lax`;
+        document.cookie = `${key}=${value}; ${expires}; ${cookieOptions}; path=/`;
+    },
+};
+
+//Can change into any storage needed session, local, etc.
+const storageType = cookieStorage;
+
+document.addEventListener("DOMContentLoaded", function() {
+    const consentPopup = document.getElementById('consent-popup');
+    if(consentPopup){
+        const termsXbtn = document.querySelector('.buttonA#xaccept');
+
+        const termsFn = () => {
+            storageType.setItem('terms_accept', true, 30); // Set terms_accept cookie
+            consentPopup.classList.add('hidden');
+        };
+
+        termsXbtn.addEventListener('click', termsFn);
+
+        if(!storageType.getItem('terms_accept')) {
+            setTimeout(() => {
+                consentPopup.classList.remove('hidden');
+            }, 1000);
+        }
+    }
+
+    const ad = document.querySelector('.ad');
+    if(ad){
+        const adXbtn = document.querySelector('.buttonA#xaccept'); // change some stuff
+
+        const adFn = () => {
+            storageType.setItem('carshow_ad', true, 14); // Set carshow cookie
+            ad.classList.add('hidden');
+            enableScrolling();
+        };
+
+        adXbtn.addEventListener('click', adFn);
+
+        if(!storageType.getItem('carshow_ad')) {
+            setTimeout(() => {
+                ad.classList.remove('hidden');
+            }, 1000);
+        }
+    }
+});

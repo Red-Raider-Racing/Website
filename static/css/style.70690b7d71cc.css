@@ -70,6 +70,10 @@ header button{
     font-family: 'ethnocentric';
 }
 
+a{
+    transition: all .2s ease;
+}
+
 .active {
     color: var(--secondary-color);
 }
@@ -462,6 +466,7 @@ footer a{
     opacity: 0;
     transition: opacity 1s ease;
     overflow-x: visible;
+    padding: 10px;
 }
 
 .member.visible{
@@ -469,12 +474,14 @@ footer a{
 }
 
 .memberIMG{
-    margin: 10px auto;
+    margin: 20px auto;
     padding: 10px;
     width: min(50vw, 200px);
     aspect-ratio: 1;
     background-color: var(--imagePlaceholder);
     border-radius: 150px;
+    outline: 5px var(--secondary-color) solid;
+    outline-offset: 10px;
 }
 
 .memberName{
@@ -530,6 +537,14 @@ p{
     margin-top: 20px;
 }
 
+a svg path{
+    transition: all .2s ease;
+}
+
+a:hover svg path{
+    fill: var(--secondary-color);
+}
+
 .cars{
     display: flex;
     flex-wrap: wrap;
@@ -559,22 +574,26 @@ p{
     padding: 10px;
     width: 60%;
     max-width: 490px;
-    background-color: var(--imagePlaceholder);
-    border-radius: 5px;
     background-size: cover; /* You can use 'cover' to maintain aspect ratio and cover the div */
     background-repeat: no-repeat; /* Prevent the background image from repeating */
     background-position: center center;
     overflow: visible;
-    transition: transform .2s ease-out;
+    transition: all .5s ease;
+}
+
+.carIMG img{
+    border-radius: 20px;
+    outline: 5px var(--secondary-color) solid;
+    outline-offset: 10px;
 }
 
 .carIMG.zoom{
-    transform: scale(1.5);
+    width: 90%;
 }
 
 .carIMG img{
     width: 100%;
-    cursor: zoom-in;
+    cursor: pointer;
 }
 
 .specs{
@@ -809,11 +828,19 @@ textarea.inputs {
 .submit{
     font-size: max(12px, min(7vw, 20px));
     border: none;
-    padding: 5px;
+    padding: 10px;
     border-radius: 5px;
-    background-color: var(--font-color);
-    color: var(--background-color);
+    background-color: var(--secondary-color);
+    color: var(--font-color);
     cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.submit:hover{
+    background-color: transparent;
+    color: var(--secondary-color);
+    border: 1px solid var(--secondary-color);
+    padding: 9px;
 }
 
 .message{
@@ -872,6 +899,7 @@ textarea.inputs {
 
 #character-count{
     margin: 5px;
+    font-size: max(12px, min(7vw, 20px));
 }
 
 .socials svg{
@@ -977,6 +1005,15 @@ svg.waveTop path{
     color: var(--secondary-color);
 }
 
+.footerText a{
+    text-decoration: none;
+    color: var(--secondary-color);
+}
+
+.footerText a:hover{
+    color: var(--font-color);
+}
+
 .copyright{
     margin-bottom: 10px;
 }
@@ -1077,6 +1114,152 @@ div#consent-popup a:hover, .acceptA#accept:hover{
     margin: 0 10px;
 }
 
+.merch {
+    max-width: 1200px;
+    margin: 0 auto;
+    margin-top: 50px;
+    overflow: visible;
+    padding: 10px;
+}
+
+.merch p{
+    font-family: 'Tahoma';
+    text-align: center;
+}
+
+.merch>p a{
+    color: var(--secondary-color);
+    font-family: 'Tahoma';
+    text-decoration: none;
+}
+
+.merch>p a:hover{
+    color: var(--font-color);
+}
+
+.items{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    overflow: visible;
+}
+
+.item{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+    background-color: var(--font-color);
+    color: var(--background-color);
+    margin: 30px;
+    padding: 20px;
+    background-color: var(--font-color);
+    border-radius: 20px;
+    outline: 5px var(--secondary-color) solid;
+    outline-offset: 10px;
+    z-index: 50;
+    overflow: visible;
+}
+
+.item{
+    opacity: 0;
+    transition: opacity .5s ease-out, width .5s ease-out, position .5s ease-out;
+}
+
+.item a{
+    color: var(--background-color);
+    font-family: 'Tahoma';
+}
+
+.item a:hover{
+    color: var(--secondary-color);
+}
+
+.item.visible{
+    opacity: 1;
+}
+
+.item.zoom{
+    z-index: 100;
+}
+
+.item .merchIMG{
+    width: 90%;
+    border-radius: 20px;
+    background-color: rgb(196, 196, 196);
+    margin-top: 10px;
+}
+
+.merchText{
+    display: block;
+    text-align: center;
+}
+
+.merchText *{
+    font-family: 'Tahoma';
+}
+
+.merchPrice{
+    font-size: min(8vw, 22px);
+    margin: 0px;
+    color: var(--background-color);
+    opacity: .5;
+}
+
+.merchTitle{
+    font-size: min(8vw, 25px);
+    margin-bottom: 0px;
+    font-weight: 900;
+    color: var(--background-color);
+}
+
+.buyNow{
+    padding: 10px;
+    background-color: var(--secondary-color);
+    color: var(--font-color);
+    border-radius: 5px;
+    margin-top: min(20px, 20vw);
+    font-size: min(8vw, 18px);
+    transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.buyNow:hover{
+    background-color: transparent;
+    color: var(--secondary-color);
+    border: 1px solid var(--secondary-color);
+    padding: 9px;
+}
+
+.merchHiddenText{
+    display: none;
+    opacity: 0;
+    transition: all .2s ease-out;
+    text-align: center;
+    font-family: 'Tahoma';
+    margin-top: min(20px, 20vw);
+    max-width: 800px;
+}
+
+.merchHiddenText a{
+    color: var(--secondary-color);
+    text-decoration: none;
+}
+
+.merchHiddenText a:hover{
+    font-weight: 900;
+}
+
+.merchHiddenText.show{
+    display: block;
+    opacity: 1;
+}
+
+.ad{
+    display: none;
+}
+
 /* Styles for screens less than 500px wide */
 @media (max-width: 500px) {
     .inputs {
@@ -1086,6 +1269,11 @@ div#consent-popup a:hover, .acceptA#accept:hover{
     div#consent-popup {
         left: 50%;
         transform: translateX(-50%);
+    }
+
+    .item{
+        flex-wrap: wrap;
+        width: 90vw;
     }
 }
 
@@ -1106,6 +1294,21 @@ div#consent-popup a:hover, .acceptA#accept:hover{
     .benefit:not(.flipped):hover .benefitDes {
         transform: rotateY(0deg);
     }
+
+    .item.hideDisplay{
+        opacity: 0;
+        pointer-events: none;
+        position: absolute;
+    }
+
+    .item{
+        flex-wrap: nowrap;
+        width: 200px;
+    }
+
+    .item.zoom{
+        width: max(30vw, 200px);
+    }
 }
 
 /* Styles for screens less than 1000px wide */
@@ -1121,13 +1324,14 @@ div#consent-popup a:hover, .acceptA#accept:hover{
 /* Styles for screens greater than 1000px wide */
 @media (min-width: 1001px) {
     .carIMG.zoom{
-        transform: scale(1.7);
+        width: 80%;
+        max-width: 1000px;
     }
 }
 
 /* Styles for screens less than 1300px wide */
-@media (max-width: 1270px) {
+@media (max-width: 1320px) {
     .sponsors{
-        margin: 20px;
+        margin: 30px;
     }
 }
