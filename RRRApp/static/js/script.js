@@ -145,29 +145,6 @@ document.addEventListener("DOMContentLoaded", function() {
         observer.observe(item);
     });
 
-    // // Looks for merch images
-    // const merchIMGs = document.querySelectorAll(".merchIMG");
-    // merchIMGs.forEach(function(img) {
-    //     observer.observe(img);
-    // });
-
-    // Zooms into merch item
-    // if (merchItems) {
-    //     merchItems.forEach((item) => {
-    //         item.addEventListener('click', () => {
-    //         item.classList.toggle('zoom');
-    //         scrollToItems();
-      
-    //         merchItems.forEach((otherItem) => {
-    //           if (otherItem !== item) {
-    //             otherItem.classList.remove('zoom');
-    //             otherItem.classList.toggle('hideDisplay');
-    //           }
-    //         });
-    //       });
-    //     });
-    // }
-
     // Grabs the join variable
     var joinParam = GetURLParameter('join');
     if (joinParam){
@@ -194,6 +171,7 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 });
 
+// Function used to show and hide merch items
 function showItem(button) {
     // Get the parent element of the button, which is the "item" div
     const item = button.parentElement;
@@ -228,14 +206,6 @@ function showItem(button) {
         }
     });
 }
-
-function scrollToItems() {
-    const items = document.querySelector('.items');
-  
-    if (items) {
-      items.scrollIntoView({ behavior: 'smooth' });
-    }
-  }
 
 function checkDate(){
     const d = new Date()
