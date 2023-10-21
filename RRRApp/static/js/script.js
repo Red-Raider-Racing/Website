@@ -197,6 +197,7 @@ document.addEventListener("DOMContentLoaded", function() {
 function showItem(button) {
     // Get the parent element of the button, which is the "item" div
     const item = button.parentElement;
+    const desc = item.querySelector('.merchHiddenText');
 
     // Get all elements with the class "item"
     const items = document.querySelectorAll('.item');
@@ -204,17 +205,25 @@ function showItem(button) {
     // Loop through all "item" elements
     items.forEach((element) => {
         if (element !== item) {
-            element.classList.toggle('hideDisplay');
+            if(element.classList.contains('hideDisplay')){
+                setTimeout(() => {
+                    element.classList.remove('hideDisplay');
+                }, 500);
+            }
+            else{
+                element.classList.add('hideDisplay');
+            }
         }
         else {
             if (element.classList.contains('zoom')){
                 element.classList.remove('zoom');
+                desc.classList.remove('show');
                 button.innerHTML = 'View';
             }
             else{
                 button.innerHTML = '&#x2715;';
                 element.classList.add('zoom');
-                scrollToItems();
+                desc.classList.add('show');
             }
         }
     });

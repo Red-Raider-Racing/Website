@@ -1098,8 +1098,6 @@ div#consent-popup a:hover, .acceptA#accept:hover{
     flex-direction: column;
     align-items: center;
     justify-content: start;
-    flex-wrap: wrap;
-    width: 200px;
     background-color: var(--font-color);
     color: var(--background-color);
     margin: 30px;
@@ -1114,7 +1112,7 @@ div#consent-popup a:hover, .acceptA#accept:hover{
 
 .item{
     opacity: 0;
-    transition: all 1s ease;
+    transition: opacity 1s ease-out, display .5s ease-out, width .5s ease-out;
 }
 
 .item.visible{
@@ -1122,7 +1120,6 @@ div#consent-popup a:hover, .acceptA#accept:hover{
 }
 
 .item.zoom{
-    width: max(50vw, 200px);
     z-index: 100;
 }
 
@@ -1130,7 +1127,6 @@ div#consent-popup a:hover, .acceptA#accept:hover{
     width: 90%;
     border-radius: 20px;
     background-color: rgb(196, 196, 196);
-    box-shadow: var(--shadow) inset;
     margin-top: 10px;
 }
 
@@ -1174,6 +1170,21 @@ div#consent-popup a:hover, .acceptA#accept:hover{
     padding: 9px;
 }
 
+.merchHiddenText{
+    display: none;
+    opacity: 0;
+    transition: all .2s ease-out;
+    text-align: center;
+    font-family: 'Tahoma';
+    margin-top: min(20px, 20vw);
+    max-width: 800px;
+}
+
+.merchHiddenText.show{
+    display: block;
+    opacity: 1;
+}
+
 .ad{
     display: none;
 }
@@ -1187,6 +1198,11 @@ div#consent-popup a:hover, .acceptA#accept:hover{
     div#consent-popup {
         left: 50%;
         transform: translateX(-50%);
+    }
+
+    .item{
+        flex-wrap: wrap;
+        width: 90vw;
     }
 }
 
@@ -1212,6 +1228,15 @@ div#consent-popup a:hover, .acceptA#accept:hover{
         opacity: 0;
         pointer-events: none;
         position: absolute;
+    }
+
+    .item{
+        flex-wrap: nowrap;
+        width: 200px;
+    }
+
+    .item.zoom{
+        width: max(30vw, 200px);
     }
 }
 
