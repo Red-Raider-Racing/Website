@@ -256,7 +256,7 @@ function updateMainPadding() {
     if(menu.style.display != 'none'){
         logoCon.style.display = "flex";
     }
-    
+
     header.style.display = "flex";
 
     // Close the menu
@@ -277,7 +277,7 @@ function updateMainPadding() {
     // Add responsiveness based on width of screen and elements in header
     navMain.style.display = 'flex';
     let headerWidth = logo.clientWidth + 20 + navMain.clientWidth;
-    if(headerWidth > viewportWidth || viewportWidth <= 1000) {
+    if(headerWidth > viewportWidth || viewportWidth <= 1000 || header.clientHeight > 140) {
         logo.style.height = '40px';
         logoCon.style.padding = '0px';
         navMain.style.display = 'none';
@@ -320,8 +320,14 @@ function updateMainPadding() {
     }
 }
 
-// // Initial update when the DOM is ready
-// document.addEventListener("DOMContentLoaded", updateMainPadding);
+function checkHeaderHeight() {
+    const header = document.querySelector('header');
+    if (header.clientHeight > 140) {
+        console.log("Resize");
+        updateMainPadding();
+    }
+}
+setInterval(checkHeaderHeight, 500); // Run function ever .5 seconds
 
 // Update padding on window resize
 window.addEventListener("resize", ()=>{
