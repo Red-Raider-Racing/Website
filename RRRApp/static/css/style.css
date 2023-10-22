@@ -1248,7 +1248,7 @@ div#consent-popup a:hover, .acceptA#accept:hover{
 }
 
 .merchHiddenText a:hover{
-    font-weight: 900;
+    text-decoration: underline;
 }
 
 .merchHiddenText.show{
