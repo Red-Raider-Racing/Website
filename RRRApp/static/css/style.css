@@ -475,15 +475,28 @@ footer a{
     opacity: 1;
 }
 
-.memberIMG{
+.memberIMG {
     margin: 20px auto;
     padding: 10px;
     width: min(50vw, 200px);
     aspect-ratio: 1;
     background-color: var(--imagePlaceholder);
-    border-radius: 150px;
-    outline: 5px var(--secondary-color) solid;
-    outline-offset: 10px;
+    border-radius: 50%;
+    position: relative; /* Add this line for positioning */
+    overflow: visible; /* Hide the overflow of the image */
+}
+
+.memberIMG::before {
+    content: "";
+    position: absolute;
+    top: -15px; /* Adjust the positioning as needed */
+    left: -15px; /* Adjust the positioning as needed */
+    right: -15px; /* Adjust the positioning as needed */
+    bottom: -15px; /* Adjust the positioning as needed */
+    border: 5px var(--secondary-color) solid; /* Set the desired border properties */
+    border-radius: 50%; /* Adjust the border-radius as needed (slightly larger than the item's border radius) */
+    pointer-events: none; /* Allows clicks to pass through */
+    z-index: -1; /* Place the pseudo-element behind the item's content */
 }
 
 .memberName{
@@ -581,13 +594,26 @@ a:hover svg path{
     background-position: center center;
     overflow: visible;
     transition: all .5s ease;
+    border-radius: 20px;
+    position: relative; /* Add this line for positioning */
 }
 
 .carIMG img{
     border-radius: 20px;
-    outline: 5px var(--secondary-color) solid;
-    outline-offset: 10px;
 }
+
+.carIMG::before {
+    content: "";
+    position: absolute;
+    top: -5px; /* Adjust the positioning as needed */
+    left: -5px; /* Adjust the positioning as needed */
+    right: -5px; /* Adjust the positioning as needed */
+    bottom: -5px; /* Adjust the positioning as needed */
+    border: 5px var(--secondary-color) solid; /* Set the desired border properties */
+    border-radius: 30px; /* Adjust the border-radius as needed (slightly larger than the item's border radius) */
+    pointer-events: none; /* Allows clicks to pass through */
+    z-index: -1; /* Place the pseudo-element behind the item's content */
+  }
 
 .carIMG.zoom{
     width: 90%;
@@ -712,8 +738,21 @@ a:hover svg path{
     padding: 20px;
     background-color: white;
     border-radius: 40px;
-    outline: 10px var(--secondary-color) solid;
-    outline-offset: 10px;
+    position: relative; /* Add this line for positioning */
+    overflow: visible;
+}
+
+.sponsors::before {
+    content: "";
+    position: absolute;
+    top: -15px; /* Adjust the positioning as needed */
+    left: -15px; /* Adjust the positioning as needed */
+    right: -15px; /* Adjust the positioning as needed */
+    bottom: -15px; /* Adjust the positioning as needed */
+    border: 5px var(--secondary-color) solid; /* Set the desired border properties */
+    border-radius: 50px; /* Adjust the border-radius as needed (slightly larger than the item's border radius) */
+    pointer-events: none; /* Allows clicks to pass through */
+    z-index: -1; /* Place the pseudo-element behind the item's content */
 }
 
 .sponsor{
@@ -1149,7 +1188,7 @@ div#consent-popup a:hover, .acceptA#accept:hover{
     overflow: visible;
 }
 
-.item{
+/* .item{
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -1164,6 +1203,34 @@ div#consent-popup a:hover, .acceptA#accept:hover{
     outline-offset: 10px;
     z-index: 50;
     overflow: visible;
+} */
+.item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+    background-color: var(--font-color);
+    color: var(--background-color);
+    margin: 30px;
+    padding: 20px;
+    background-color: var(--font-color);
+    border-radius: 20px;
+    position: relative; /* Add this line for positioning */
+    z-index: 50;
+    overflow: visible;
+}
+  
+.item::before {
+    content: "";
+    position: absolute;
+    top: -15px; /* Adjust the positioning as needed */
+    left: -15px; /* Adjust the positioning as needed */
+    right: -15px; /* Adjust the positioning as needed */
+    bottom: -15px; /* Adjust the positioning as needed */
+    border: 5px var(--secondary-color) solid; /* Set the desired border properties */
+    border-radius: 30px; /* Adjust the border-radius as needed (slightly larger than the item's border radius) */
+    pointer-events: none; /* Allows clicks to pass through */
+    z-index: -1; /* Place the pseudo-element behind the item's content */
 }
 
 .item{
@@ -1310,7 +1377,7 @@ div#consent-popup a:hover, .acceptA#accept:hover{
     }
 
     .item.zoom{
-        width: max(30vw, 200px);
+        width: max(50vw, 200px);
     }
 }
 

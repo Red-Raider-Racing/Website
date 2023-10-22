@@ -169,6 +169,9 @@ document.addEventListener("DOMContentLoaded", function() {
         }
         showSent(message);
     }
+
+    const logoCon = document.querySelector(".logo");
+    logoCon.style.display = "flex";
 });
 
 // Function used to show and hide merch items
@@ -251,12 +254,6 @@ function updateMainPadding() {
     const viewportHeight = window.innerHeight;
 
     pageTitle.style.display = "block";
-
-    // For some reason this fixes a bug associated with mobile scrolling
-    if(menu.style.display != 'none'){
-        logoCon.style.display = "flex";
-    }
-
     header.style.display = "flex";
 
     // Close the menu
@@ -309,7 +306,10 @@ function updateMainPadding() {
     else {
         menuCon.classList.remove('small-screen');
         menu.classList.remove('small-screen');
-        menuButton.style.marginLeft = "";
+        
+        // Not sure why this was here in the first place 
+        // but if something seems broke because of it put it back
+        // menuButton.style.marginLeft = "";
     }
 
     const mainElement = document.querySelector(".pageTitle");
@@ -323,7 +323,6 @@ function updateMainPadding() {
 function checkHeaderHeight() {
     const header = document.querySelector('header');
     if (header.clientHeight > 140) {
-        console.log("Resize");
         updateMainPadding();
     }
 }
