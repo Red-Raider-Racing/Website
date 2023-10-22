@@ -1083,11 +1083,13 @@ div#consent-popup {
     padding: 10px;
     box-shadow: rgba(0, 0, 0, 0.7) 0px 5px 15px;
     text-align: center;
-    &.hidden {
-        opacity: 0;
-        transform: translateX(-140vw);
-    }
 }
+
+div#consent-popup.hidden {
+    opacity: 0;
+    transform: translateX(-140vw);
+}
+
 .consent-popup i {
     color: black;
     font-size: 23px;
