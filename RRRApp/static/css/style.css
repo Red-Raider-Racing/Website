@@ -14,6 +14,8 @@
     --imagePlaceholder: #222222;
     --screen-width: 100vw;
     --number-of-turns: 6;
+    --font: 'Tahoma';
+    --secondary-font: 'ethnocentric';
 }
 
 @font-face {
@@ -35,7 +37,7 @@
 }
 
 * {
-    font-family: 'ethnocentric';
+    font-family: var(--secondary-font);
     overflow-x: hidden;
 }
 
@@ -67,7 +69,7 @@ header {
 }
 
 header button{
-    font-family: 'ethnocentric';
+    font-family: var(--secondary-font);
 }
 
 a{
@@ -137,7 +139,7 @@ nav a{
 .navMain a:hover {
     text-decoration: none;
     transform: translateY(-10px);
-    position: relative; /* Add relative positioning for pseudo-element */
+    position: relative;
 }
 
 .navMain a button{
@@ -227,7 +229,7 @@ button {
     height: var(--height);
     --min-height: 230px;
     min-height: var(--min-height);
-    /* background-color: var(--imagePlaceholder); */
+    background-color: var(--imagePlaceholder);
     background-size: cover; /* You can use 'cover' to maintain aspect ratio and cover the div */
     background-repeat: no-repeat; /* Prevent the background image from repeating */
     background-position: center center; /*calc(50% + 30px)*/
@@ -315,7 +317,7 @@ h2{
 
 .footerText{
     margin: 0;
-    font-family: 'Tahoma';
+    font-family: var(--font);
 }
 
 footer{
@@ -345,7 +347,7 @@ footer a{
 }
 
 .about p{
-    font-family: 'Tahoma';
+    font-family: var(--font);
 }
 
 .benefits{
@@ -461,7 +463,7 @@ footer a{
 
 .member{
     text-align: center;
-    width: 300px;
+    width: 280px;
     height: min(100vw,375px);
     opacity: 0;
     transition: opacity 1s ease;
@@ -506,7 +508,7 @@ footer a{
 }
 
 .memberName,.memberTitle{
-    font-family: 'Tahoma';
+    font-family: var(--font);
 }
 
 .admin{
@@ -622,7 +624,7 @@ a:hover svg path{
 }
 
 .spec p{
-    font-family: 'Tahoma';
+    font-family: var(--font);
     font-size: min(4vw, 20px);
 }
 
@@ -692,7 +694,7 @@ a:hover svg path{
 }
 
 .answer p{
-    font-family:'Tahoma';
+    font-family: var(--font);
 }
 
 .FAQSection p{
@@ -756,7 +758,7 @@ a:hover svg path{
 }
 
 .thankyou p, .howSponsor p, .competition p{
-    font-family: 'Tahoma';
+    font-family: var(--font);
 }
 
 .thankyou strong{
@@ -804,7 +806,7 @@ a:hover svg path{
 
 .inputs{
     margin: 0 auto;
-    font-family: 'Tahoma';
+    font-family: var(--font);
     width: max(12px, min(80vw, 400px));
     font-size: max(12px, min(7vw, 20px));
     border: none;
@@ -963,7 +965,7 @@ svg.waveTop path{
 }
 
 .generalSection *{
-    font-family: 'Tahoma';
+    font-family: var(--font);
 }
 
 .generalSection li{
@@ -985,7 +987,7 @@ svg.waveTop path{
 }
 
 .rights *{
-    font-family: 'Tahoma';
+    font-family: var(--font);
 }
 
 .rights{
@@ -1073,12 +1075,12 @@ div#consent-popup h2{
 
 div#consent-popup p{
     font-size: min(6vw, 12px);
-    font-family: 'Tahoma';
+    font-family: var(--font);
 }
 
 div#consent-popup a,.acceptA#accept{
     font-size: min(6vw, 12px);
-    font-family: 'Tahoma';
+    font-family: var(--font);
     color: var(--font-color);
     font-weight: 900;
     text-decoration: none;
@@ -1123,13 +1125,13 @@ div#consent-popup a:hover, .acceptA#accept:hover{
 }
 
 .merch p{
-    font-family: 'Tahoma';
+    font-family: var(--font);
     text-align: center;
 }
 
 .merch>p a{
     color: var(--secondary-color);
-    font-family: 'Tahoma';
+    font-family: var(--font);
     text-decoration: none;
 }
 
@@ -1171,7 +1173,7 @@ div#consent-popup a:hover, .acceptA#accept:hover{
 
 .item a{
     color: var(--background-color);
-    font-family: 'Tahoma';
+    font-family: var(--font);
 }
 
 .item a:hover{
@@ -1199,7 +1201,7 @@ div#consent-popup a:hover, .acceptA#accept:hover{
 }
 
 .merchText *{
-    font-family: 'Tahoma';
+    font-family: var(--font);
 }
 
 .merchPrice{
@@ -1238,7 +1240,7 @@ div#consent-popup a:hover, .acceptA#accept:hover{
     opacity: 0;
     transition: all .2s ease-out;
     text-align: center;
-    font-family: 'Tahoma';
+    font-family: var(--font);
     margin-top: min(20px, 20vw);
     max-width: 800px;
 }

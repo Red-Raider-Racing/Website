@@ -251,7 +251,12 @@ function updateMainPadding() {
     const viewportHeight = window.innerHeight;
 
     pageTitle.style.display = "block";
-    logoCon.style.display = "flex";
+
+    // For some reason this fixes a bug associated with mobile scrolling
+    if(menu.style.display != 'none'){
+        logoCon.style.display = "flex";
+    }
+    
     header.style.display = "flex";
 
     // Close the menu
