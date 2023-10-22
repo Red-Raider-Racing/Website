@@ -1135,6 +1135,7 @@ div#consent-popup a:hover, .acceptA#accept:hover{
 
 .merch>p a:hover{
     color: var(--font-color);
+    text-decoration: underline;
 }
 
 .items{
