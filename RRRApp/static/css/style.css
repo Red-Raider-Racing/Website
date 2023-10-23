@@ -125,7 +125,7 @@ a button{
 }
 
 .altNav button{
-    font-size: 32px;
+    font-size: 40px;
 }
 
 nav a{
@@ -212,10 +212,6 @@ nav a{
     font-weight: 900;
     z-index: 100;
 }
-
-/* .dropdown-content a:hover button{
-    color: var(--secondary-color);
-} */
 
 button {
     background-color: transparent;
@@ -382,6 +378,7 @@ footer a{
 .menuButton{
     color: var(--font-color);
     position: relative;
+    right: -40%;
 }
 
 .benefitTitle,
@@ -1386,6 +1383,10 @@ div#consent-popup a:hover, .acceptA#accept:hover{
     .item{
         flex-wrap: wrap;
         width: 90vw;
+    }
+
+    .pageTitle{
+        transition: padding-top 1s ease-in;
     }
 }
 
