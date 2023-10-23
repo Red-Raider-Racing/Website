@@ -322,6 +322,7 @@ function updateMainPadding() {
     }
 }
 
+// Function to constantly update the padding just incase the orientation changes
 function constantUpdate() {
     updateMainPadding();
     updateLoaderTurns();
