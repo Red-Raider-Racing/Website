@@ -8,6 +8,8 @@ document.addEventListener("DOMContentLoaded", function() {
     updateLoaderTurns();
     updateSVG();
     checkDate();
+    parallaxEvent(window.scrollY);
+    transparentHeader(window.scrollY);
     
     const questions = document.querySelectorAll(".faq");
     
@@ -320,13 +322,12 @@ function updateMainPadding() {
     }
 }
 
-function checkHeaderHeight() {
-    const header = document.querySelector('header');
-    if (header.clientHeight > 140) {
-        updateMainPadding();
-    }
+function constantUpdate() {
+    updateMainPadding();
+    updateLoaderTurns();
+    // updateSVG();
 }
-setInterval(checkHeaderHeight, 500); // Run function ever .5 seconds
+setInterval(constantUpdate, 50); // Run function ever .05 seconds
 
 // Update padding on window resize
 window.addEventListener("resize", ()=>{
@@ -359,7 +360,7 @@ function toggleMenu() {
         menuButton.style.position = "relative";
         menuButton.style.top = "";
         menuButton.innerHTML = "&#9776;";
-        menuButton.style.marginLeft = "0px";
+        menuButton.style.right = "";
         menuButton.style.marginTop = "0px";
         header.style.height = "";
         logo.style.display = 'flex';
@@ -373,11 +374,11 @@ function toggleMenu() {
         // Open the menu
         header.style.backgroundColor = "var(--primary-faded-color)";
         header.style.boxShadow = "var(--shadow)";
-        menuButton.style.position = "absolute";
+        menuButton.style.position = "relative";
         menuButton.style.top = "30px";
         menu.style.display = "flex";
         menuButton.innerHTML = "&#x2715;";
-        menuButton.style.marginLeft = "200px";
+        menuButton.style.right = "-40%";
         menuButton.style.marginTop = "-100px";
         header.style.height = "100%";
         logo.style.display = 'none';
@@ -445,9 +446,7 @@ window.onscroll = function() {
     }
 };
 
-window.addEventListener('scroll', function () {
-    const scrollY = window.scrollY; // See where the scroll is at
-
+function parallaxEvent(scrollY){
     // ------------ Parallax stuff------------
     const parallaxBackground = document.querySelector('.coverIMG');
     const pageTitle = document.querySelector('.pageTitle');
@@ -463,7 +462,9 @@ window.addEventListener('scroll', function () {
     if(scrollY<0){
         parallaxBackground.style.transform = `none`;
     }
+}
 
+function transparentHeader(scrollY){
     // ------------ transparent top stuff------------
     const navElement = document.querySelector('header'); // Check if scroll position is at the top of the page (scrollY is zero)
     if (scrollY === 0 && document.body.style.top >= 0) {
@@ -475,8 +476,11 @@ window.addEventListener('scroll', function () {
         navElement.style.backgroundColor = "var(--primary-faded-color)";
         navElement.style.boxShadow = "var(--shadow)";
     }
+}
 
-    // Rest of your scroll event handling code...
+window.addEventListener('scroll', function () {
+    parallaxEvent(window.scrollY);
+    transparentHeader(window.scrollY);
 });
 
 // Function to grab all URL variables
