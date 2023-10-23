@@ -608,7 +608,7 @@ a:hover svg path{
     top: -5px; /* Adjust the positioning as needed */
     left: -5px; /* Adjust the positioning as needed */
     right: -5px; /* Adjust the positioning as needed */
-    bottom: -5px; /* Adjust the positioning as needed */
+    bottom: -1px; /* Adjust the positioning as needed */
     border: 5px var(--secondary-color) solid; /* Set the desired border properties */
     border-radius: 30px; /* Adjust the border-radius as needed (slightly larger than the item's border radius) */
     pointer-events: none; /* Allows clicks to pass through */
@@ -1190,22 +1190,6 @@ div#consent-popup a:hover, .acceptA#accept:hover{
     overflow: visible;
 }
 
-/* .item{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: start;
-    background-color: var(--font-color);
-    color: var(--background-color);
-    margin: 30px;
-    padding: 20px;
-    background-color: var(--font-color);
-    border-radius: 20px;
-    outline: 5px var(--secondary-color) solid;
-    outline-offset: 10px;
-    z-index: 50;
-    overflow: visible;
-} */
 .item {
     display: flex;
     flex-direction: column;
@@ -1330,6 +1314,62 @@ div#consent-popup a:hover, .acceptA#accept:hover{
 
 .ad{
     display: none;
+}
+
+.heading{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    flex-direction: row-reverse;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    padding-top: 25px;
+}
+
+.aboutCarShow, .map{
+    margin: 10px;
+    max-width: 500px;
+}
+
+.aboutCarShow {
+    padding: 20px;
+    padding-top: 0px;
+    text-align: center;
+}
+
+.aboutCarShow h1{
+    margin: 0px;
+    font-size: max(12px, min(7vw, 36px));
+}
+
+.aboutCarShow p{
+    font-family: var(--font);
+}
+
+.map{
+    position: relative; /* Add this line for positioning */
+    overflow: visible;
+}
+
+.map iframe{
+    border-radius: 20px;
+    width: min(450px, 85vw);
+    height: min(450px, 85vw);
+}
+  
+.map::before {
+    content: "";
+    position: absolute;
+    top: -15px; /* Adjust the positioning as needed */
+    left: -15px; /* Adjust the positioning as needed */
+    right: -15px; /* Adjust the positioning as needed */
+    bottom: -11px; /* Adjust the positioning as needed */
+    border: 5px var(--secondary-color) solid; /* Set the desired border properties */
+    border-radius: 30px; /* Adjust the border-radius as needed (slightly larger than the item's border radius) */
+    pointer-events: none; /* Allows clicks to pass through */
+    z-index: -1; /* Place the pseudo-element behind the item's content */
 }
 
 /* Styles for screens less than 500px wide */
