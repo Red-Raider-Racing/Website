@@ -1198,7 +1198,7 @@ div#consent-popup a:hover, .acceptA#accept:hover{
     padding: 20px;
     background-color: var(--font-color);
     border-radius: 20px;
-    max-width: 800px;
+    max-width: 550px;
     position: relative; /* Add this line for positioning */
     z-index: 50;
     overflow: visible;
@@ -1244,10 +1244,6 @@ div#consent-popup a:hover, .acceptA#accept:hover{
     border-radius: 20px;
     background-color: rgb(196, 196, 196);
     margin-top: 10px;
-}
-
-.merchIMG{
-    max-width: 500px;
 }
 
 .merchText{

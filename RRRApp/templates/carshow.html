@@ -30,46 +30,63 @@
                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2377.8731890988743!2d-101.87766133208562!3d33.59062750612974!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x86fe12ba9c7769f5%3A0x5ef4d8ce186d24aa!2sLot%20C1%2C%20Lubbock%2C%20TX%2079409!5e0!3m2!1sen!2sus!4v1698073666725!5m2!1sen!2sus" width="450" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
         </div>
-        <div class="contactUs" id="contact-us">
+        <div class="carShowReg" id="Register">
             <h1 class="sectionTitle">Register</h1>
     
-            <form action="{% url 'home' %}" method="post" onsubmit="showLoading()" id="contact" autocomplete="on">
-                <!-- CSRF token needed to protect agained cross site attacks -->
+            <form action="{% url 'carshow' %}" method="post" onsubmit="showLoading()" autocomplete="on">
                 {% csrf_token %} 
-                <div class="formCon">
-                    <div class="nameEmail">
-                        <label for="name">Name:</label>
-                        <input type="text" id="name" name="name" required placeholder="Raider Red" class="inputs" maxlength="100" oninput="sanitizeInput(this);" autocomplete="name">
-                
-                        <label for="email">Email:</label>
-                        <input type="email" id="email" name="email" required placeholder="formula.sae@ttu.edu" class="inputs" maxlength="50" oninput="sanitizeInput(this);" autocomplete="email">
-    
-                        <label for="subject">Subject:</label>
-                        <input type="text" id="subject" name="subject" required placeholder="I'm looking to join!" class="inputs" maxlength="100" oninput="sanitizeInput(this);">
-                    </div>
-                    <div class="emailMessage">          
-                        <label for="message">Message:</label>
-                        <textarea id="message" name="message" rows="8" maxlength="1500" required class="inputs" oninput="sanitizeInput(this); updateCharacterCount();"></textarea>
-                        <div id="character-count">Characters remaining: 1500</div>
-                    </div>
+                <div class="nameEmail">
+                    <label for="first_name">First Name:</label>
+                    <input type="text" id="first_name" name="first_name" required placeholder="Raider" class="inputs" maxlength="100" oninput="sanitizeInput(this)" autocomplete="given-name">
+            
+                    <label for="last_name">Last Name:</label>
+                    <input type="text" id="last_name" name="last_name" required placeholder="Red" class="inputs" maxlength="100" oninput="sanitizeInput(this)" autocomplete="family-name">
+            
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required placeholder="formula.sae@ttu.edu" class="inputs" maxlength="50" oninput="sanitizeInput(this)" autocomplete="email">                    
                 </div>
+            
+                <div class="radioSection">
+                    <p>Select your car type:</p>
+                    <label>
+                        <input type="radio" name="car_type" value="classic" required>
+                        Classic
+                    </label>
+            
+                    <label>
+                        <input type="radio" name="car_type" value="exotic">
+                        Exotic
+                    </label>
+            
+                    <label>
+                        <input type="radio" name="car_type" value="muscle">
+                        Muscle
+                    </label>
+            
+                    <label>
+                        <input type="radio" name="car_type" value="jdm">
+                        JDM
+                    </label>
+                </div>
+            
                 <div class="submitArea">
-                    <input type="submit" value="Submit" class="submit">
+                    <button type="submit" class="submit">Submit</button>
                     <div id="message-container">
                         <div class="message" id="sent">
-                            <h4>Your message was sent successfully.</h4>
+                            <h4>Form was submitted. Check your email for the next step.</h4>
                         </div>
                         <div class="message" id="fail">
-                            <h4>There was a problem sending your message.</h4>
+                            <h4>There was a problem completing your form..</h4>
                         </div>
                     </div>                
                     <div id="loading">
                         <img src="../static/loaders/wheel.webp" alt="Loading" class="loader"/>
                     </div>   
                 </div>
-            </form>
+            </form>                     
         </div>
     </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/2.3.1/purify.min.js" defer></script>
 </body>
 
 {% endblock %}
