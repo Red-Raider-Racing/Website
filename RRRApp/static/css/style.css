@@ -1404,7 +1404,7 @@ div#consent-popup a:hover, .acceptA#accept:hover{
     justify-content: start;
     align-content: center;
     flex-wrap: wrap;
-    padding: 10px 0;
+    padding: 10px;
 }
 
 .regNameCon .regInputs{
@@ -1519,7 +1519,7 @@ div#consent-popup a:hover, .acceptA#accept:hover{
     }
 
     .emailReg{
-        margin: 0 30px;
+        margin: 0 20px;
     }
 
     .emailReg .regInputs{

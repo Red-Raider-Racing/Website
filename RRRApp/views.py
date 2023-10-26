@@ -65,6 +65,11 @@ def carshow(request):
         email = request.POST.get('email')
         section = request.POST.get('car_type')
 
+        print(f"{firstName =}")
+        print(f"{lastName =}")
+        print(f"{email =}")
+        print(f"{section =}")
+
         try:
             # Perform any backend processing (e.g., saving to the database)
             '''emailMessage(name, email, subject, message) I will come back to change up the processes'''
