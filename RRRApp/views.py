@@ -81,7 +81,7 @@ def carshow(request):
             success = 0
 
         # Render the template with the success or error message
-        return redirect(f"/car-show/?success={success}#message")
+        return redirect(f"/car-show/?success={success}#message-container")
 
 @cache_page(CACHE_TIMEOUT)
 def faq(request):

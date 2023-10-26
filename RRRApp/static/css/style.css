@@ -494,7 +494,17 @@ footer a{
     border: 5px var(--secondary-color) solid; /* Set the desired border properties */
     border-radius: 50%; /* Adjust the border-radius as needed (slightly larger than the item's border radius) */
     pointer-events: none; /* Allows clicks to pass through */
-    z-index: -1; /* Place the pseudo-element behind the item's content */
+    z-index: 10; /* Place the pseudo-element behind the item's content */
+}
+
+.memberIMG img{
+    width: 100%;
+    height: fit-content;
+    scale: 1.15;
+    z-index: 0;
+    position: relative;
+    border-radius: 50%;
+    top: 2px;
 }
 
 .memberName{
