@@ -54,6 +54,7 @@ def sponsor(request):
     return render(request, "sponsor.html",)
 
 @cache_page(CACHE_TIMEOUT)
+@csrf_exempt
 def carshow(request):
     return render(request, "carshow.html",)
 

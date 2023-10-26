@@ -1389,23 +1389,22 @@ div#consent-popup a:hover, .acceptA#accept:hover{
 
 .regNameCon{
     --nameConMarg: 10px;
-    padding: 10px;
     margin: 0 var(--nameConMarg);
     display: flex;
     justify-content: start;
     align-items: center;
     flex-wrap: wrap;
     width: calc(50% - (10px * 4));
+    padding: 10px;
 }
 
 .emailReg{
     width: 100%;
-    padding: 10px;
     display: flex;
     justify-content: start;
     align-content: center;
     flex-wrap: wrap;
-    margin: 0 10px;
+    padding: 10px 0;
 }
 
 .regNameCon .regInputs{
@@ -1423,6 +1422,7 @@ div#consent-popup a:hover, .acceptA#accept:hover{
     transition: outline 0.1s ease-out, outline-offset 0.1s ease-out, border-radius 0.1s ease-out;
     color: var(--background-color);
     background-color: var(--font-color);
+    margin: 0 10px;
 }
 
 .regInputs:focus{
@@ -1445,7 +1445,7 @@ div#consent-popup a:hover, .acceptA#accept:hover{
     align-items: start;
     flex-wrap: wrap;
     flex-direction: column;
-    text-align: left;
+    text-align: center;
 }
 
 .radioSection label{
@@ -1478,7 +1478,6 @@ div#consent-popup a:hover, .acceptA#accept:hover{
 
     .nameReg{
         flex-direction: column;
-        padding: 0 20px;
     }
 
     .regNameCon{
@@ -1517,6 +1516,10 @@ div#consent-popup a:hover, .acceptA#accept:hover{
 
     .item.zoom{
         width: max(50vw, 200px);
+    }
+
+    .emailReg{
+        margin: 0 30px;
     }
 }
 
