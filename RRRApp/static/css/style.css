@@ -1521,6 +1521,10 @@ div#consent-popup a:hover, .acceptA#accept:hover{
     .emailReg{
         margin: 0 30px;
     }
+
+    .emailReg .regInputs{
+        margin: 0;
+    }
 }
 
 /* Styles for screens less than 1000px wide */
