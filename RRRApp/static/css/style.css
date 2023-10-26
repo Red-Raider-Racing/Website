@@ -440,7 +440,7 @@ footer a{
 .sectionTitle{
     margin: 10px auto;
     text-align: center;
-    font-size: min(7vw, 36px);
+    font-size: max(12px, min(7vw, 36px));
 }
 
 .underline{
@@ -532,7 +532,7 @@ footer a{
 }
 
 p{
-    font-size: min(8vw, 18px);
+    font-size: max(10px, min(8vw, 18px));
 }
 
 .social-button {
