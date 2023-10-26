@@ -56,7 +56,27 @@ def sponsor(request):
 @cache_page(CACHE_TIMEOUT)
 @csrf_exempt
 def carshow(request):
-    return render(request, "carshow.html",)
+    if request.method == 'GET':
+        return render(request, "carshow.html",)
+    else:
+        # Handle the form data here
+        firstName = request.POST.get('first_name')
+        lastName = request.POST.get('last_name')
+        email = request.POST.get('email')
+        section = request.POST.get('car_type')
+
+        try:
+            # Perform any backend processing (e.g., saving to the database)
+            emailMessage(name, email, subject, message)
+
+            # Set success message
+            success = 1
+        except Exception as e:
+            # Set error message
+            success = 0
+
+        # Render the template with the success or error message
+        return redirect(f"/car-show/?success={success}#message")
 
 @cache_page(CACHE_TIMEOUT)
 def faq(request):
