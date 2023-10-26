@@ -67,7 +67,7 @@ def carshow(request):
 
         try:
             # Perform any backend processing (e.g., saving to the database)
-            emailMessage(name, email, subject, message)
+            '''emailMessage(name, email, subject, message) I will come back to change up the processes'''
 
             # Set success message
             success = 1
