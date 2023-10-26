@@ -32,56 +32,74 @@
         </div>
         <div class="carShowReg" id="Register">
             <h1 class="sectionTitle">Register</h1>
+            <hr class="underline">
     
             <form action="{% url 'carshow' %}" method="post" onsubmit="showLoading()" autocomplete="on">
                 {% csrf_token %} 
-                <div class="nameEmail">
-                    <label for="first_name">First Name:</label>
-                    <input type="text" id="first_name" name="first_name" required placeholder="Raider" class="inputs" maxlength="100" oninput="sanitizeInput(this)" autocomplete="given-name">
-            
-                    <label for="last_name">Last Name:</label>
-                    <input type="text" id="last_name" name="last_name" required placeholder="Red" class="inputs" maxlength="100" oninput="sanitizeInput(this)" autocomplete="family-name">
-            
-                    <label for="email">Email:</label>
-                    <input type="email" id="email" name="email" required placeholder="formula.sae@ttu.edu" class="inputs" maxlength="50" oninput="sanitizeInput(this)" autocomplete="email">                    
-                </div>
-            
-                <div class="radioSection">
-                    <p>Select your car type:</p>
-                    <label>
-                        <input type="radio" name="car_type" value="classic" required>
-                        Classic
-                    </label>
-            
-                    <label>
-                        <input type="radio" name="car_type" value="exotic">
-                        Exotic
-                    </label>
-            
-                    <label>
-                        <input type="radio" name="car_type" value="muscle">
-                        Muscle
-                    </label>
-            
-                    <label>
-                        <input type="radio" name="car_type" value="jdm">
-                        JDM
-                    </label>
-                </div>
-            
-                <div class="submitArea">
-                    <button type="submit" class="submit">Submit</button>
-                    <div id="message-container">
-                        <div class="message" id="sent">
-                            <h4>Form was submitted. Check your email for the next step.</h4>
+                <div class="formCon">
+                    <div class="nameReg">
+                        <div class="regNameCon">
+                            <label for="first_name">First Name:</label>
+                            <br>
+                            <input type="text" id="first_name" name="first_name" required placeholder="Raider" class="regInputs" maxlength="100" oninput="sanitizeInput(this)" autocomplete="given-name">
                         </div>
-                        <div class="message" id="fail">
-                            <h4>There was a problem completing your form..</h4>
+                        <div class="regNameCon">
+                            <label for="last_name">Last Name:</label>
+                            <br>
+                            <input type="text" id="last_name" name="last_name" required placeholder="Red" class="regInputs" maxlength="100" oninput="sanitizeInput(this)" autocomplete="family-name">
                         </div>
-                    </div>                
-                    <div id="loading">
-                        <img src="../static/loaders/wheel.webp" alt="Loading" class="loader"/>
-                    </div>   
+                    </div>
+
+                    <br>
+
+                    <div class="emailReg">
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" required placeholder="formula.sae@ttu.edu" class="regInputs" maxlength="50" oninput="sanitizeInput(this)" autocomplete="email">                    
+                    </div>
+                
+                    <br>
+
+                    <div class="radioSubmit">
+                        <div class="radioSection">
+                            <p>Select your car type:</p>
+                            <label>
+                                <input type="radio" name="car_type" value="classic" required>
+                                Classic
+                            </label>
+                    
+                            <label>
+                                <input type="radio" name="car_type" value="exotic">
+                                Exotic
+                            </label>
+                    
+                            <label>
+                                <input type="radio" name="car_type" value="muscle">
+                                Muscle
+                            </label>
+                    
+                            <label>
+                                <input type="radio" name="car_type" value="jdm">
+                                JDM
+                            </label>
+                        </div>
+    
+                        <br>
+                    
+                        <div class="submitArea">
+                            <button type="submit" class="submit">Submit</button>
+                            <div id="message-container">
+                                <div class="message" id="sent">
+                                    <h4>Form was submitted. Check your email for the next step.</h4>
+                                </div>
+                                <div class="message" id="fail">
+                                    <h4>There was a problem completing your form..</h4>
+                                </div>
+                            </div>                
+                            <div id="loading">
+                                <img src="../static/loaders/wheel.webp" alt="Loading" class="loader"/>
+                            </div>   
+                        </div>
+                    </div>
                 </div>
             </form>                     
         </div>
