@@ -287,7 +287,7 @@ h2{
 }
 
 .learnMore:hover,.learnMoreAbout:hover{
-    background-color: rgba(0, 0, 0, 0);
+    background-color: transparent;
     color: var(--secondary-color);
     border: 1px solid var(--secondary-color);
     margin: 10px;
@@ -1458,8 +1458,15 @@ div#consent-popup a:hover, .acceptA#accept:hover{
     text-align: center;
 }
 
+.radioSection p{
+    margin-bottom: 5px;
+}
+
 .radioSection label{
-    padding-left: 25%;
+    margin: 5px;
+    margin-left: calc(25% + 5px);
+    cursor: pointer;
+    border-radius: 5px;
 }
 
 .radioSubmit .submitArea{
