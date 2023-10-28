@@ -499,12 +499,13 @@ footer a{
 
 .memberIMG img{
     width: 100%;
-    height: fit-content;
     scale: 1.15;
     z-index: 0;
     position: relative;
     border-radius: 50%;
     top: 2px;
+    max-width: 100%;
+    height: auto;
 }
 
 .memberName{
@@ -833,11 +834,10 @@ a:hover svg path{
     flex-wrap: wrap;
     justify-content: center;
     align-items: start;
-    margin: 10px;
+    /* margin: 10px; */
 }
 
 .nameEmail,.emailMessage{
-    margin: 10px;
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
@@ -1231,7 +1231,7 @@ div#consent-popup a:hover, .acceptA#accept:hover{
 
 .item{
     opacity: 0;
-    transition: opacity .5s ease-out, width 1s ease, position .5s ease-out, padding .2s ease-out;
+    transition: opacity .5s ease-out, width 1s ease, position .5s ease-out;
 }
 
 .item a{
@@ -1250,7 +1250,6 @@ div#consent-popup a:hover, .acceptA#accept:hover{
 .item.zoom{
     z-index: 100;
     width: 90vw;
-    padding: 20px 0;
 }
 
 .item .merchIMG{
@@ -1333,7 +1332,8 @@ div#consent-popup a:hover, .acceptA#accept:hover{
 .merchHiddenText .formCon{
     width: 100%;
     align-items: center;
-    flex-direction: column;
+    flex-direction: row;
+    margin-bottom: 40px;
 }
 
 .merchHiddenText h4{
