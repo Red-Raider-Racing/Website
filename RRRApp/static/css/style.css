@@ -900,6 +900,7 @@ textarea.inputs {
 
 .message h4{
     margin: 0;
+    font-size: max(12px, min(4vw, 16px));
 }
 
 @keyframes traverse {

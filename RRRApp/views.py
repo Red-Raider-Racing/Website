@@ -47,11 +47,6 @@ def index(request):
             size = sizeItem.split('_')[0]
             item = int(sizeItem.split('_')[1])
 
-            print(f"{name =}")
-            print(f"{email =}")
-            print(f"{size =}")
-            print(f"{item =}")
-
             try:
                 # Perform any backend processing (e.g., saving to the database)
                 # emailMessage(name, email, subject, message)
