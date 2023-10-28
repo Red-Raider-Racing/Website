@@ -25,21 +25,45 @@ def index(request):
         # Handle the form data here
         name = request.POST.get('name')
         email = request.POST.get('email')
+
         subject = request.POST.get('subject')
-        message = request.POST.get('message')
+        if subject != None:
+            message = request.POST.get('message')
 
-        try:
-            # Perform any backend processing (e.g., saving to the database)
-            emailMessage(name, email, subject, message)
+            try:
+                # Perform any backend processing (e.g., saving to the database)
+                emailMessage(name, email, subject, message)
 
-            # Set success message
-            success = 1
-        except Exception as e:
-            # Set error message
-            success = 0
+                # Set success message
+                success = 1
+            except Exception as e:
+                # Set error message
+                success = 0
 
-        # Render the template with the success or error message
-        return redirect(f"/home/?success={success}#message")
+            # Render the template with the success or error message
+            return redirect(f"/home/?success={success}")
+        else:
+            sizeItem = request.POST.get('item')
+            size = sizeItem.split('_')[0]
+            item = int(sizeItem.split('_')[1])
+
+            print(f"{name =}")
+            print(f"{email =}")
+            print(f"{size =}")
+            print(f"{item =}")
+
+            try:
+                # Perform any backend processing (e.g., saving to the database)
+                # emailMessage(name, email, subject, message)
+
+                # Set success message
+                success = 1
+            except Exception as e:
+                # Set error message
+                success = 0
+
+            # Render the template with the success or error message
+            return redirect(f'/home/?success={success}&item={item}')
 
 @cache_page(CACHE_TIMEOUT)
 def team(request):

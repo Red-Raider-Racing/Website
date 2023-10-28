@@ -161,15 +161,26 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // Grabs the success variable
     var successParam = GetURLParameter('success');
+    var merchItemNum = GetURLParameter('item');
     if (successParam){
         var message;
         if (successParam == 1){
-            message = 'sent';
+            message = '#sent';
         }
         else{
-            message = 'fail';
+            message = '#fail';
         }
-        showSent(message);
+        if(!merchItemNum){
+            const area = document.querySelector('.contactUs')
+            showSent(area,message);
+        }
+        else{
+            const items = document.querySelectorAll('.item');
+            const item = items[merchItemNum];
+            const button = item.querySelector('.buyNow');
+            showItem(button);
+            showSent(item,message)
+        }
     }
 
     const logoCon = document.querySelector(".logo");
@@ -186,7 +197,7 @@ function showItem(button) {
     const items = document.querySelectorAll('.item');
 
     // Loop through all "item" elements
-    items.forEach((element) => {
+    items.forEach((element, index) => {
         if (element !== item) {
             if(element.classList.contains('hideDisplay')){
                 setTimeout(() => {
@@ -202,6 +213,7 @@ function showItem(button) {
                 element.classList.remove('zoom');
                 desc.classList.remove('show');
                 button.innerHTML = 'View';
+                element.scrollIntoView({ behavior: 'smooth' });
             }
             else{
                 button.innerHTML = '&#x2715;';
@@ -508,16 +520,40 @@ function showAnswer(section) {
 }
 
 // Function to show that the message sent or failed
-function showSent(message) {
-    const send = document.getElementById(message);
+function showSent(area,message) {
+    const send = area.querySelector(message);
     send.style.display = 'block';
+    if(window.innerWidth>500){
+        send.scrollIntoView({ behavior: 'smooth' });
+    }
+    else{
+        send.parentElement.parentElement.parentElement.scrollIntoView({ behavior: 'smooth' });
+    }
 }
 
 // Function to show the loading screen
-function showLoading() {
-    const loader = document.getElementById('loading');
+function showLoading(form) {
+    const submitArea = form.querySelector('.submitArea');
+    const loader = submitArea.querySelector('#loading');
+    
     loader.classList.add('load');
     loader.style.display = 'block';
+}
+
+function checkSize(form) {
+    // Create a hidden input element with name 'size' and value 'sticker_1'
+    var hiddenInput = document.createElement("input");
+    hiddenInput.type = "hidden";
+    hiddenInput.name = "item";
+    hiddenInput.value = "sticker_1";
+    
+    // Add the hidden input to the form
+    form.appendChild(hiddenInput);
+}
+
+function runOnSubmit(form) {
+    showLoading(form);
+    checkSize(form);
 }
 
 // Function to show character count for the email message

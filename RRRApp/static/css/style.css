@@ -419,7 +419,7 @@ footer a{
 }
 
 .benefitDes p{
-    font-size: min(3vw, 18px);
+    font-size: min(4vw, 20px);
     padding: 10px;
     margin: 0;
 }
@@ -1230,7 +1230,7 @@ div#consent-popup a:hover, .acceptA#accept:hover{
 
 .item{
     opacity: 0;
-    transition: opacity .5s ease-out, width 1s ease, position .5s ease-out;
+    transition: opacity .5s ease-out, width 1s ease, position .5s ease-out, padding .2s ease-out;
 }
 
 .item a{
@@ -1248,6 +1248,8 @@ div#consent-popup a:hover, .acceptA#accept:hover{
 
 .item.zoom{
     z-index: 100;
+    width: 90vw;
+    padding: 20px 0;
 }
 
 .item .merchIMG{
@@ -1305,6 +1307,7 @@ div#consent-popup a:hover, .acceptA#accept:hover{
     font-family: var(--font);
     margin-top: min(20px, 20vw);
     max-width: 800px;
+    width: 100%;
 }
 
 .merchHiddenText a{
@@ -1319,6 +1322,18 @@ div#consent-popup a:hover, .acceptA#accept:hover{
 .merchHiddenText.show{
     display: block;
     opacity: 1;
+}
+
+.merchHiddenText .inputs{
+    border: 2px solid var(--secondary-color);
+}
+
+.merchHiddenText .formCon{
+    width: 100%;
+}
+
+.merchHiddenText h4{
+    font-size: max(12px, min(6vw, 20px));
 }
 
 .ad{
@@ -1489,6 +1504,10 @@ div#consent-popup a:hover, .acceptA#accept:hover{
         width: 90vw;
     }
 
+    .merchHiddenText .formCon{
+        margin: 0;
+    }
+
     .pageTitle{
         transition: padding-top 1s ease-in;
     }
@@ -1529,10 +1548,6 @@ div#consent-popup a:hover, .acceptA#accept:hover{
     .item{
         flex-wrap: nowrap;
         width: 200px;
-    }
-
-    .item.zoom{
-        width: max(50vw, 200px);
     }
 
     .emailReg{

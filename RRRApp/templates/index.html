@@ -58,7 +58,7 @@
                         </div>
                     </div>
                     <div class="benefitDes">
-                        <p>Red Raider Racing has an extensive Alumni and Sponsorship Network. We have Alumni working at Peterbilt, SpaceX, Boeing, Bell Flight, Lockheed Martin, Texas Instruments, Ford, Tesla, Ferrari, and Cummins to name a few. Our generous and passionate Alumni Members aid Red Raider Racing by providing Information Session opportunities. This is where our members get exclusive QR Codes for job applications, narrowing your competition pool.</p>
+                        <p>Red Raider Racing's alumni network includes professionals at top companies like Peterbilt, SpaceX, Boeing, Bell Flight, Lockheed Martin, Texas Instruments, Ford, Tesla, Ferrari, and Cummins. Our alumni help by offering exclusive job application opportunities through Information Sessions, giving you an edge in the competitive job market.</p>
                     </div>
                 </div>
                 <div class="benefit flip-card" tabindex="0" role="button" aria-label="Community">
@@ -86,7 +86,68 @@
                     <p class="merchTitle">2023-24 Team T-shirt</p>
                     <p class="merchPrice">$20.00</p>
                 </div>
-                <p class="merchHiddenText">Unfortanatly, we do not ship. If you are interested in buying something, please feel free to <a href="#contact-us">Contact Us</a> to set up a time to come by our office to purchase it. You can always catch us at an event and purchase from us then.</p>
+                <div class="merchHiddenText">
+                    <p>Please complete the form, and we'll get in touch with you within 24-48 hours to inform you of the item's availability.</p>
+                    <form action="{% url 'home' %}" method="post" onsubmit="showLoading(this)" id="contact" autocomplete="on">
+                        <!-- CSRF token needed to protect agained cross site attacks -->
+                        {% csrf_token %} 
+                        <div class="formCon">
+                            <div class="nameEmail">
+                                <label for="name">Name:</label>
+                                <input type="text" id="name" name="name" required placeholder="Raider Red" class="inputs" maxlength="100" oninput="sanitizeInput(this);" autocomplete="name">
+                        
+                                <label for="email">Email:</label>
+                                <input type="email" id="email" name="email" required placeholder="formula.sae@ttu.edu" class="inputs" maxlength="50" oninput="sanitizeInput(this);" autocomplete="email">
+                            </div>
+                            <div class="radioSection">
+                                <p>Select your T-Shirt Size:</p>
+                                <label>
+                                    <input type="radio" name="item" value="xs_0" required>
+                                    XS
+                                </label>
+                            
+                                <label>
+                                    <input type="radio" name="item" value="s_0">
+                                    S
+                                </label>
+                            
+                                <label>
+                                    <input type="radio" name="item" value="m_0">
+                                    M
+                                </label>
+    
+                                <label>
+                                    <input type="radio" name="item" value="l_0">
+                                    L
+                                </label>
+
+                                <label>
+                                    <input type="radio" name="item" value="xl_0">
+                                    XL
+                                </label>
+
+                                <label>
+                                    <input type="radio" name="item" value="xxl_0">
+                                    XXL
+                                </label>
+                            </div>      
+                        </div>
+                        <div class="submitArea">
+                            <input type="submit" value="Submit" class="submit">
+                            <div id="message-container">
+                                <div class="message" id="sent">
+                                    <h4>We will be in touch with you within 24-48 hours.</h4>
+                                </div>
+                                <div class="message" id="fail">
+                                    <h4>Uh-oh! We hit a speed bump. Try again later.</h4>
+                                </div>
+                            </div>               
+                            <div id="loading">
+                                <img src="../static/loaders/wheel.webp" alt="Loading" class="loader"/>
+                            </div>   
+                        </div>
+                    </form>
+                </div>
                 <button class="buyNow" onclick="showItem(this)">View</button>
             </div>
             <div class="item" aria-label="2023 Team Shirt">
@@ -95,7 +156,36 @@
                     <p class="merchTitle">2023-24 RRR Sticker</p>
                     <p class="merchPrice">$7.00</p>
                 </div>
-                <p class="merchHiddenText">Unfortanatly, we do not ship. If you are interested in buying something, please feel free to <a href="#contact-us">Contact Us</a> to set up a time to come by our office to purchase it. You can always catch us at an event and purchase from us then.</p>
+                <div class="merchHiddenText">
+                    <p>Please complete the form, and we'll get in touch with you within 24-48 hours to inform you of the item's availability.</p>
+                    <form action="{% url 'home' %}" method="post" onsubmit="runOnSubmit(this)" id="contact" autocomplete="on">
+                        <!-- CSRF token needed to protect agained cross site attacks -->
+                        {% csrf_token %} 
+                        <div class="formCon">
+                            <div class="nameEmail">
+                                <label for="name">Name:</label>
+                                <input type="text" id="name" name="name" required placeholder="Raider Red" class="inputs" maxlength="100" oninput="sanitizeInput(this);" autocomplete="name">
+                        
+                                <label for="email">Email:</label>
+                                <input type="email" id="email" name="email" required placeholder="formula.sae@ttu.edu" class="inputs" maxlength="50" oninput="sanitizeInput(this);" autocomplete="email">
+                            </div>
+                        </div>
+                        <div class="submitArea">
+                            <input type="submit" value="Submit" class="submit">
+                            <div id="message-container">
+                                <div class="message" id="sent">
+                                    <h4>We will be in touch with you within 24-48 hours.</h4>
+                                </div>
+                                <div class="message" id="fail">
+                                    <h4>Uh-oh! We hit a speed bump. Try again later.</h4>
+                                </div>
+                            </div>                 
+                            <div id="loading">
+                                <img src="../static/loaders/wheel.webp" alt="Loading" class="loader"/>
+                            </div>   
+                        </div>
+                    </form>
+                </div>
                 <button class="buyNow" onclick="showItem(this)">View</button>
             </div>
             <div class="item" aria-label="2023 Team Shirt">
@@ -104,7 +194,68 @@
                     <p class="merchTitle">Retired Team T-shirts</p>
                     <p class="merchPrice">$10.00</p>
                 </div>
-                <p class="merchHiddenText">Unfortanatly, we do not ship. If you are interested in buying something, please feel free to <a href="#contact-us">Contact Us</a> to set up a time to come by our office to purchase it. You can always catch us at an event and purchase from us then.</p>
+                <div class="merchHiddenText">
+                    <p>Please complete the form and we'll inform you of the item's availability.</p>
+                    <form action="{% url 'home' %}" method="post" onsubmit="showLoading(this)" id="contact" autocomplete="on">
+                        <!-- CSRF token needed to protect agained cross site attacks -->
+                        {% csrf_token %} 
+                        <div class="formCon">
+                            <div class="nameEmail">
+                                <label for="name">Name:</label>
+                                <input type="text" id="name" name="name" required placeholder="Raider Red" class="inputs" maxlength="100" oninput="sanitizeInput(this);" autocomplete="name">
+                        
+                                <label for="email">Email:</label>
+                                <input type="email" id="email" name="email" required placeholder="formula.sae@ttu.edu" class="inputs" maxlength="50" oninput="sanitizeInput(this);" autocomplete="email">
+                            </div>
+                            <div class="radioSection">
+                                <p>Select your T-Shirt Size:</p>
+                                <label>
+                                    <input type="radio" name="item" value="xs_2" required>
+                                    XS
+                                </label>
+                            
+                                <label>
+                                    <input type="radio" name="item" value="s_2">
+                                    S
+                                </label>
+                            
+                                <label>
+                                    <input type="radio" name="item" value="m_2">
+                                    M
+                                </label>
+    
+                                <label>
+                                    <input type="radio" name="item" value="l_2">
+                                    L
+                                </label>
+
+                                <label>
+                                    <input type="radio" name="item" value="xl_2">
+                                    XL
+                                </label>
+
+                                <label>
+                                    <input type="radio" name="item" value="xxl_2">
+                                    XXL
+                                </label>
+                            </div>      
+                        </div>
+                        <div class="submitArea">
+                            <input type="submit" value="Submit" class="submit">
+                            <div id="message-container">
+                                <div class="message" id="sent">
+                                    <h4>We will be in touch with you within 24-48 hours.</h4>
+                                </div>
+                                <div class="message" id="fail">
+                                    <h4>Uh-oh! We hit a speed bump. Try again later.</h4>
+                                </div>
+                            </div>                
+                            <div id="loading">
+                                <img src="../static/loaders/wheel.webp" alt="Loading" class="loader"/>
+                            </div>   
+                        </div>
+                    </form>
+                </div>
                 <button class="buyNow" onclick="showItem(this)">View</button>
             </div>
         </div>
@@ -113,7 +264,7 @@
     <div class="contactUs" id="contact-us">
         <h1 class="sectionTitle">Contact Us</h1>
 
-        <form action="{% url 'home' %}" method="post" onsubmit="showLoading()" id="contact" autocomplete="on">
+        <form action="{% url 'home' %}" method="post" onsubmit="showLoading(this)" id="contact" autocomplete="on">
             <!-- CSRF token needed to protect agained cross site attacks -->
             {% csrf_token %} 
             <div class="formCon">
@@ -137,12 +288,12 @@
                 <input type="submit" value="Submit" class="submit">
                 <div id="message-container">
                     <div class="message" id="sent">
-                        <h4>Your message was sent successfully.</h4>
+                        <h4>We will be in touch with you within 24-48 hours.</h4>
                     </div>
                     <div class="message" id="fail">
-                        <h4>There was a problem sending your message.</h4>
+                        <h4>Uh-oh! We hit a speed bump. Try again later.</h4>
                     </div>
-                </div>                
+                </div>               
                 <div id="loading">
                     <img src="../static/loaders/wheel.webp" alt="Loading" class="loader"/>
                 </div>   
