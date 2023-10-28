@@ -20,19 +20,19 @@
 
 @font-face {
     font-family: 'ethnocentric';
-    src: url("../fonts/ethnocentric.otf") format("opentype");
+    src: url("../fonts/ethnocentric.7e69ca0c0858.otf") format("opentype");
     font-display: swap;
 }
 
 @font-face {
     font-family: 'ethnocentric_it';
-    src: url("../fonts/ethnocentric_it.otf") format("opentype");
+    src: url("../fonts/ethnocentric_it.b8a2c39a8694.otf") format("opentype");
     font-display: swap;
 }
 
 @font-face {
     font-family: 'Tahoma';
-    src: url("../fonts/tahomaregularfont-webfont.woff") format("opentype");
+    src: url("../fonts/tahomaregularfont-webfont.4cf17806788d.woff") format("opentype");
     font-display: swap;
 }
 
@@ -97,7 +97,7 @@ a{
     padding: 10px;
     width: 170px;
     height: 70px;
-    background-image: url('../logos/RRR_Logo_RED_New.webp'); /* Set the path to your image */
+    background-image: url("../logos/RRR_Logo_RED_New.af762d84d680.webp"); /* Set the path to your image */
     background-size: contain;
     background-repeat: no-repeat; /* Prevent the background image from repeating */
     overflow-x: visible;

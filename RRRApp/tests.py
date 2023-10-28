@@ -63,7 +63,7 @@ class IndexViewTestCase(TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'index.html')
 
-    def test_index_view_POST(self):
+    def test_index_view_POST_email(self):
         '''
         Testing to see if a POST request passes correctly.
         '''
@@ -75,7 +75,7 @@ class IndexViewTestCase(TestCase):
             'subject': 'Test Subject',
             'message': 'Test message content'
         })
-        
+
         # Check that the response is a redirect (status code 302)
         self.assertEqual(response.status_code, 302)
 
@@ -97,7 +97,7 @@ class IndexViewTestCase(TestCase):
         self.assertEqual(response.status_code, 302)
 
         # Now you can assert the redirect URL
-        self.assertEqual(response.url, '/home/?success=1#message')
+        self.assertEqual(response.url, '/home/?success=1')
 
         # Check that the emailMessage function was called
         checkCall = mock_email_message.assert_called_once()
@@ -123,4 +123,66 @@ class IndexViewTestCase(TestCase):
         self.assertEqual(response.status_code, 302)
 
         # Now you can assert the redirect URL
-        self.assertEqual(response.url, '/home/?success=0#message')
+        self.assertEqual(response.url, '/home/?success=0')
+
+    def test_index_view_POST_merch(self):
+        '''
+        Testing to see if a POST request passes correctly.
+        '''
+
+        # Make a POST request to trigger the view
+        response = self.client.post(reverse('home'), {
+            'name': 'John Doe',
+            'email': 'johndoe@example.com',
+            'item': 'sticker_1',
+        })
+        
+        # Check that the response is a redirect (status code 302)
+        self.assertEqual(response.status_code, 302)
+
+    '''
+    Add this section when an "order" email is made
+    '''
+    # @patch('RRRApp.views.emailMessage') # Mock the emailMessage function in RRRApp.views for testing
+    # def test_item_sending(self, mock_email_message):
+    #     '''
+    #     Testing to see if the email is sent correctly. 
+    #     Note, it does actually send the email it just tests if the function would run.
+    #     If the email sending were to fail, it would be on our SMTP server's end and there is nothing we can do about it.
+    #     '''
+
+    #     response = self.client.post(reverse('home'), {
+    #         'name': 'John Doe',
+    #         'email': 'johndoe@example.com',
+    #         'item': 'sticker_1',
+    #     })
+
+    #     self.assertEqual(response.status_code, 302)
+
+    #     # Now you can assert the redirect URL
+    #     self.assertEqual(response.url, '/home/?success=1&item=1')
+
+    #     # Check that the emailMessage function was called
+    #     checkCall = mock_email_message.assert_called_once()
+    #     self.assertEqual(checkCall, None)
+
+    # @patch('RRRApp.views.emailMessage')
+    # def test_backend_processing_error(self, mock_email_message):
+    #     '''
+    #     Simulating the item failing to send but make sure nothing breaks.
+    #     '''
+
+    #     # Set up the mock to raise an exception when called
+    #     mock_email_message.side_effect = ValidationError('Email sending failed')
+
+    #     response = self.client.post(reverse('home'), {
+    #         'name': 'John Doe',
+    #         'email': 'johndoe@example.com',
+    #         'item': 'sticker_1',
+    #     })
+
+    #     # Check that the response is a redirect (status code 302)
+    #     self.assertEqual(response.status_code, 302)
+
+    #     # Now you can assert the redirect URL
+    #     self.assertEqual(response.url, '/home/?success=0&item=1')
