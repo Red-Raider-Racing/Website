@@ -864,11 +864,11 @@ a:hover svg path{
     background-color: var(--font-color);
 }
 
-.inputs:focus{
+/* .inputs:focus{
     outline: 3px solid var(--secondary-color);
     outline-offset: 2px;
     border-radius: 5px;
-}
+} */
 
 textarea.inputs {
     resize: none;
@@ -1210,7 +1210,7 @@ div#consent-popup a:hover, .acceptA#accept:hover{
     padding: 20px;
     background-color: var(--font-color);
     border-radius: 20px;
-    max-width: 550px;
+    /* max-width: 550px; */
     position: relative; /* Add this line for positioning */
     z-index: 50;
     overflow: visible;
@@ -1258,6 +1258,7 @@ div#consent-popup a:hover, .acceptA#accept:hover{
     border-radius: 20px;
     background-color: rgb(196, 196, 196);
     margin-top: 10px;
+    max-width: 400px;
 }
 
 .merchText{
@@ -1331,6 +1332,8 @@ div#consent-popup a:hover, .acceptA#accept:hover{
 
 .merchHiddenText .formCon{
     width: 100%;
+    align-items: center;
+    flex-direction: column;
 }
 
 .merchHiddenText h4{
@@ -1451,10 +1454,26 @@ div#consent-popup a:hover, .acceptA#accept:hover{
     margin: 0 10px;
 }
 
-.regInputs:focus{
-    outline: 3px solid var(--secondary-color);
-    outline-offset: 2px;
+.regInputs:focus, .inputs:focus{
+    outline: none;
+    border: 4px solid var(--secondary-color);
     border-radius: 5px;
+}
+
+.regInputs:focus{
+    margin: -4px 6px;
+}
+
+.inputs:focus{
+    margin: -4px;
+}
+
+.merchHiddenText .regInputs:focus, .merchHiddenText .inputs:focus{
+    margin: -2px;
+}
+
+.emailMessage .inputs:focus{
+    margin: -4px auto;
 }
 
 .radioSubmit{
@@ -1487,6 +1506,10 @@ div#consent-popup a:hover, .acceptA#accept:hover{
 
 .radioSubmit .submitArea{
     margin-top: 20px;
+}
+
+.emailReg .regInputs{
+    margin: 0;
 }
 
 /* Styles for screens less than 500px wide */
@@ -1555,8 +1578,8 @@ div#consent-popup a:hover, .acceptA#accept:hover{
         margin: 0 20px;
     }
 
-    .emailReg .regInputs{
-        margin: 0;
+    .emailReg .regInputs:focus{
+        margin: -4px;
     }
 }
 
