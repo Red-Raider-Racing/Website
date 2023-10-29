@@ -941,6 +941,7 @@ textarea.inputs {
 .submitArea{
     display: block;
     overflow: visible;
+    margin-top: 40px;
 }
 
 #contact{
@@ -1334,7 +1335,6 @@ div#consent-popup a:hover, .acceptA#accept:hover{
     width: 100%;
     align-items: center;
     flex-direction: row;
-    margin-bottom: 40px;
 }
 
 .merchHiddenText h4{
