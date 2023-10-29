@@ -834,7 +834,7 @@ a:hover svg path{
     flex-wrap: wrap;
     justify-content: center;
     align-items: start;
-    /* margin: 10px; */
+    overflow: visible;
 }
 
 .nameEmail,.emailMessage{
