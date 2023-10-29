@@ -1309,6 +1309,7 @@ div#consent-popup a:hover, .acceptA#accept:hover{
     margin-top: min(20px, 20vw);
     max-width: 800px;
     width: 100%;
+    overflow: hidden;
 }
 
 .merchHiddenText a{

@@ -30,19 +30,23 @@ def formatMessage(name, email, message):
     Returns the full message to send in the email.
     '''
     if name and email and message:
-        day_of_week = datetime.now().strftime('%A') # Full day name (e.g., "Monday")
-        date = datetime.now().strftime('%m/%d/%Y') # In the format MM/DD/YYYY
-
-        email_link = f'<a href="mailto:{email}">{email}</a>' # Makes a clickable link in the email
+        day_of_week, date, email_link = emailDate(email)
         
-        message = (
+        fullMessage = (
             f'This message is from {name} on {day_of_week} {date} at '  # Date and time information
             f'{datetime.now().strftime("%I")}:{datetime.now().strftime("%M")} '  # Hour and minute
             f'{datetime.now().strftime("%p")}:\n\n\n{message}\n\n\nTo respond to them, '  # AM or PM and message
             f'email them back at {email_link}.'  # Email link
         )
 
-        return message
+        return fullMessage
     
     else:
         return False
+    
+def emailDate(email):
+    day_of_week = datetime.now().strftime('%A') # Full day name (e.g., "Monday")
+    date = datetime.now().strftime('%m/%d/%Y') # In the format MM/DD/YYYY
+
+    email_link = f'<a href="mailto:{email}">{email}</a>' # Makes a clickable link in the email
+    return day_of_week, date, email_link

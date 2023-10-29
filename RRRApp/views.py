@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from .functions.email import emailMessage
+from .functions.merch import merchMessageFormat
 from django.views.decorators.csrf import csrf_exempt
 from django.views.decorators.cache import cache_page
 from RRRWebsite.settings import CACHE_TIMEOUT
@@ -49,7 +50,8 @@ def index(request):
 
             try:
                 # Perform any backend processing (e.g., saving to the database)
-                # emailMessage(name, email, subject, message)
+                message, itemFull = merchMessageFormat(name, item, size)
+                emailMessage('Website Merch Manager', email, f'{itemFull} Availability', message)
 
                 # Set success message
                 success = 1

@@ -13,6 +13,7 @@ from django.core.exceptions import ValidationError
 from unittest.mock import patch
 
 from RRRApp.functions.email import *
+from RRRApp.functions.merch import merchMessageFormat
 
 class EmailTestCase(TestCase):
     '''
@@ -186,3 +187,41 @@ class IndexViewTestCase(TestCase):
 
     #     # Now you can assert the redirect URL
     #     self.assertEqual(response.url, '/home/?success=0&item=1')
+
+class MerchTestCase(TestCase):
+    '''
+    All tests associated with merch.py
+    '''
+
+    def test_merchMessageFormat_noSize(self):
+        '''
+        Tests merch with no size.
+        '''
+
+        name = "John Doe"
+        email = "john.doe@example.com"
+        size = 'sticker'
+        item = 1
+
+        # Call the function with the test input
+        formatted_message, itemFull = merchMessageFormat(name, item, size)
+
+        # Check the expected output
+        expected_message = f'John Doe is wondering if we have a 2023-24 RRR Sticker available for purchase.'
+        self.assertEqual(formatted_message, expected_message)
+
+    def test_merchMessageFormat_size(self):
+        '''
+        Tests merch with a size attatched.
+        '''
+
+        name = "John Doe"
+        size = 'xl'
+        item = 0
+
+        # Call the function with the test input
+        formatted_message, itemFull = merchMessageFormat(name, item, size)
+
+        # Check the expected output
+        expected_message = f'John Doe is wondering if we have a 2023-24 Team T-Shirt in a size XL available for purchase.'
+        self.assertEqual(formatted_message, expected_message)
