@@ -1529,9 +1529,6 @@ div#consent-popup a:hover, .acceptA#accept:hover{
         width: 90vw;
     }
 
-    .merchHiddenText .formCon{
-        margin: 0;
-    }
 
     .pageTitle{
         transition: padding-top 1s ease-in;

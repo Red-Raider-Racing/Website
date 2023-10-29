@@ -213,7 +213,9 @@ function showItem(button) {
                 element.classList.remove('zoom');
                 desc.classList.remove('show');
                 button.innerHTML = 'View';
-                element.scrollIntoView({ behavior: 'smooth' });
+                if(window.innerWidth<500){
+                    element.scrollIntoView({ behavior: 'smooth' });
+                }
             }
             else{
                 button.innerHTML = '&#x2715;';

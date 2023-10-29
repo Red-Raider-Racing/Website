@@ -87,7 +87,7 @@
                     <p class="merchPrice">$20.00</p>
                 </div>
                 <div class="merchHiddenText">
-                    <p>Please complete the form, and we'll get in touch with you within 24-48 hours to inform you of the item's availability.</p>
+                    <p>Please complete the form and we'll inform you of the item's availability.</p>
                     <form action="{% url 'home' %}" method="post" onsubmit="showLoading(this)" id="contact" autocomplete="on">
                         <!-- CSRF token needed to protect agained cross site attacks -->
                         {% csrf_token %} 
@@ -157,7 +157,7 @@
                     <p class="merchPrice">$7.00</p>
                 </div>
                 <div class="merchHiddenText">
-                    <p>Please complete the form, and we'll get in touch with you within 24-48 hours to inform you of the item's availability.</p>
+                    <p>Please complete the form and we'll inform you of the item's availability.</p>
                     <form action="{% url 'home' %}" method="post" onsubmit="runOnSubmit(this)" id="contact" autocomplete="on">
                         <!-- CSRF token needed to protect agained cross site attacks -->
                         {% csrf_token %} 
