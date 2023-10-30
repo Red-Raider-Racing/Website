@@ -766,7 +766,7 @@ a:hover svg path{
 
 .sponsor{
     text-align: center;
-    margin: 20px;
+    margin: 12px;
     opacity: 0;
     transition: opacity 1s ease;
 }
