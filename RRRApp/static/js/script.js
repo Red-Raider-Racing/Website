@@ -525,8 +525,8 @@ function showAnswer(section) {
 function showSent(area,message) {
     const send = area.querySelector(message);
     send.style.display = 'block';
-    if(window.innerWidth>500||area.classList.contains('contactUs')){
-        send.scrollIntoView({ behavior: 'smooth' });
+    if(window.innerWidth<500||area.classList.contains('contactUs')){
+        send.parentElement.scrollIntoView({ behavior: 'smooth' });
     }
     else{
         send.parentElement.parentElement.parentElement.scrollIntoView({ behavior: 'smooth' });

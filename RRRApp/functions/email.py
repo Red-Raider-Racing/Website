@@ -12,7 +12,7 @@ def emailMessage(name, email, subject, message):
         - currently using 'redraiderracingcode@outlook.com' for testing.\n
     Returns None.
     '''
-    message = formatMessage(name,email,message)
+    message = formatMessage(name,email,subject,message)
     if message:
         send_mail(
             subject,
@@ -24,13 +24,13 @@ def emailMessage(name, email, subject, message):
     else:
         raise Exception
 
-def formatMessage(name, email, message):
+def formatMessage(name, email, subject, message):
     '''
     Used to format the message how ever you want.\n
     Returns the full message to send in the email.
     '''
     if name and email and message:
-        day_of_week, date, email_link = emailDate(email)
+        day_of_week, date, email_link = emailDate(email, subject)
         
         fullMessage = (
             f'This message is from {name} on {day_of_week} {date} at '  # Date and time information
@@ -44,9 +44,9 @@ def formatMessage(name, email, message):
     else:
         return False
     
-def emailDate(email):
+def emailDate(email, subject):
     day_of_week = datetime.now().strftime('%A') # Full day name (e.g., "Monday")
     date = datetime.now().strftime('%m/%d/%Y') # In the format MM/DD/YYYY
 
-    email_link = f'<a href="mailto:{email}">{email}</a>' # Makes a clickable link in the email
+    email_link = f'<a href="mailto:{email}?subject=RE: {subject}">{email}</a>' # Makes a clickable link in the email
     return day_of_week, date, email_link

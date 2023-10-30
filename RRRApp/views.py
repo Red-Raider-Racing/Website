@@ -28,7 +28,7 @@ def index(request):
         email = request.POST.get('email')
 
         subject = request.POST.get('subject')
-        if subject != None:
+        if subject:
             message = request.POST.get('message')
 
             try:
