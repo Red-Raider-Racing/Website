@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from .functions.email import emailMessage
 from .functions.merch import merchMessageFormat
+from .functions.carShowReg import insertRow
 from django.views.decorators.csrf import csrf_exempt
 from django.views.decorators.cache import cache_page
 from RRRWebsite.settings import CACHE_TIMEOUT
@@ -93,11 +94,12 @@ def carshow(request):
 
         try:
             # Perform any backend processing (e.g., saving to the database)
-            '''emailMessage(name, email, subject, message) I will come back to change up the processes'''
+            insertRow(firstName, lastName, email, section)
 
             # Set success message
             success = 1
         except Exception as e:
+            print(e)
             # Set error message
             success = 0
 

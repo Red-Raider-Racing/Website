@@ -171,8 +171,14 @@ document.addEventListener("DOMContentLoaded", function() {
             message = '#fail';
         }
         if(!merchItemNum){
-            const area = document.querySelector('.contactUs')
-            showSent(area,message);
+            const contact = document.querySelector('.contactUs');
+            const carShow = document.querySelector('.carShowReg');
+            if(contact == null){
+                showSent(carShow,message);
+            }
+            else{
+                showSent(contact,message);
+            }
         }
         else{
             const items = document.querySelectorAll('.item');

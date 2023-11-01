@@ -25,9 +25,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 DEBUG = True
 
 if DEBUG:
-    from .secret import SECRET_KEY
+    from .secrets.secret import SECRET_KEY
 else:
-    from .secret import SECRET_KEY
+    from .secrets.secret import SECRET_KEY
     # SECRET_KEY = os.environ["SECRET_KEY"]
 
 ALLOWED_HOSTS = ["127.0.0.1", "*"]
@@ -157,7 +157,7 @@ EMAIL_USE_TLS = True  # Use TLS encryption if supported
 EMAIL_HOST_USER = 'redraiderracingcode@outlook.com'  # Your email address
 
 if DEBUG:
-    from .secret import EMAIL_HOST_PASSWORD
+    from .secrets.secret import EMAIL_HOST_PASSWORD
 else:
     # EMAIL_HOST_PASSWORD = os.environ["EMAIL_HOST_PASSWORD"]
-    from .secret import EMAIL_HOST_PASSWORD
+    from .secrets.secret import EMAIL_HOST_PASSWORD
