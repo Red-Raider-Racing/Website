@@ -99,7 +99,6 @@ def carshow(request):
             # Set success message
             success = 1
         except Exception as e:
-            print(e)
             # Set error message
             success = 0
 
