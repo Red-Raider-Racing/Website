@@ -342,13 +342,13 @@ function updateMainPadding() {
     }
 }
 
-// Function to constantly update the padding just incase the orientation changes
-function constantUpdate() {
-    updateMainPadding();
-    updateLoaderTurns();
-    // updateSVG();
-}
-setInterval(constantUpdate, 50); // Run function ever .05 seconds
+// // Function to constantly update the padding just incase the orientation changes
+// function constantUpdate() {
+//     // updateMainPadding();
+//     updateLoaderTurns();
+//     // updateSVG();
+// }
+// setInterval(constantUpdate, 50); // Run function ever .05 seconds
 
 // Update padding on window resize
 window.addEventListener("resize", ()=>{
