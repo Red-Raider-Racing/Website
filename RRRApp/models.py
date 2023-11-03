@@ -3,7 +3,7 @@ from django.core.validators import MaxValueValidator, MinValueValidator
 
 # Create your models here.
 class MerchItem(models.Model):
-    image = models.FileField(upload_to='merchItems/', help_text="Upload the image of the merch item.")
+    image = models.FileField(upload_to='merchItems/', help_text="Upload the image of the merch item. Preferably a .png file with no background.")
     item_name = models.CharField(max_length=200, help_text="Enter the item's name. Do not include an underscore ('_') in the name.")
     price = models.DecimalField(
             max_digits=6, decimal_places=2,
@@ -15,7 +15,7 @@ class MerchItem(models.Model):
     def __str__(self) -> str:
         return self.item_name
 
-class AdminMember(models.Model):
+class AdminTeamMember(models.Model):
     headshot = models.FileField(upload_to='adminMembers/', help_text="Upload a headshot image of the member in a 1x1 format.")
     member_name = models.CharField(max_length=200, help_text="Enter the member's name.")
     title = models.CharField(max_length=200, help_text="Enter the member's title.")
@@ -25,7 +25,7 @@ class AdminMember(models.Model):
     def __str__(self) -> str:
         return self.member_name
     
-class TechincalMember(models.Model):
+class TechincalTeamMember(models.Model):
     headshot = models.FileField(upload_to='technicalMembers/', help_text="Upload a headshot image of the member in a 1x1 format." )
     member_name = models.CharField(max_length=200, help_text="Enter the member's name.")
     title = models.CharField(max_length=200, help_text="Enter the member's title.")

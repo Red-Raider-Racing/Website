@@ -3,6 +3,6 @@ from .models import *
 
 # Register your models here.
 admin.site.register(MerchItem)
-admin.site.register(AdminMember)
-admin.site.register(TechincalMember)
+admin.site.register(AdminTeamMember)
+admin.site.register(TechincalTeamMember)
 admin.site.register(Car)
