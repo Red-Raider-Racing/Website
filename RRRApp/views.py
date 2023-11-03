@@ -5,6 +5,7 @@ from .functions.carShowReg import insertRow
 from django.views.decorators.csrf import csrf_exempt
 from django.views.decorators.cache import cache_page
 from RRRWebsite.settings import CACHE_TIMEOUT
+from .models import *
 
 TEMPLATE_DIRS = (
     'os.path.join(BASE_DIR, "templates"),'
@@ -22,7 +23,8 @@ def load(request):
 @csrf_exempt
 def index(request):
     if request.method == 'GET':
-        return render(request, "index.html")
+        merch_items = MerchItem.objects.all()
+        return render(request, "index.html", {"merch": merch_items})
     else:
         # Handle the form data here
         name = request.POST.get('name')
@@ -65,7 +67,14 @@ def index(request):
 
 @cache_page(CACHE_TIMEOUT)
 def team(request):
-    return render(request, "team.html",)
+    adminMembers = AdminMember.objects.all()
+    technicalMembers = TechincalMember.objects.all()
+
+    main_data = {
+        "adminMembers":adminMembers,
+        "technicalMembers":technicalMembers
+    }
+    return render(request, "team.html", main_data)
 
 @cache_page(CACHE_TIMEOUT)
 def cars(request):

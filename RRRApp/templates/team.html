@@ -23,297 +23,58 @@
             <h1 class="sectionTitle">Administrative Team</h1>
             <hr class="underline">
             <div class="members">
+                {% for member in adminMembers %}
                 <div class="member">
                     <div class="memberIMG">
-                        <img src="../static/images/RRR 2023-24 Officer Headshots/Colton Sanford.JPG" alt="Colton Sanford" loading="lazy">
+                        <img src="{{ member.headshot.url }}" alt="{{ member.member_name }}" loading="lazy">
                     </div>
-                    <h2 class="memberName">Colton Sanford</h2>
-                    <h3 class="memberTitle">President</h3>
+                    <h2 class="memberName">{{ member.member_name }}</h2>
+                    <h3 class="memberTitle">{{ member.title }}</h3>
                     <div class="memberSocials">
-                        <a href="mailto:colton.sanford@ttu.edu" target="_blank">
+                        <a href="mailto:{{ member.school_email }}" target="_blank">
                             <button class="social-button" aria-label="Email">
                                 <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 122.88 85.57"><path d="M3.8,0,62.48,47.85,118.65,0ZM0,80.52,41.8,38.61,0,4.53v76ZM46.41,42.37,3.31,85.57h115.9L78,42.37,64.44,53.94h0a3,3,0,0,1-3.78.05L46.41,42.37Zm36.12-3.84,40.35,42.33V4.16L82.53,38.53Z"/></svg>
                             </button>
                         </a>
-                        <a href="https://www.linkedin.com/in/colton-sanford/" target="_blank">
-                            <button class="social-button" aria-label="LinkedIn">
-                                <svg xmlns="http://www.w3.org/2000/svg" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" image-rendering="optimizeQuality" fill-rule="evenodd" clip-rule="evenodd" viewBox="0 0 640 640"><path d="M228.582 205.715h126.462v64.832h1.83c17.611-31.595 60.675-64.832 124.892-64.832C615.303 205.715 640 288.818 640 396.926v220.219H508.116V421.93c0-46.536-.969-106.442-68.576-106.442-68.67 0-79.194 50.658-79.194 103.052v198.605H228.581v-411.43zM137.152 91.43c0 37.855-30.721 68.576-68.576 68.576-37.855 0-68.587-30.721-68.587-68.576 0-37.855 30.732-68.576 68.587-68.576 37.855 0 68.576 30.721 68.576 68.576zM-.011 205.715h137.163v411.43H-.011v-411.43z"/></svg>
-                            </button>
-                        </a>
+                        {% if member.linkedIn %}
+                            <a href="{{ member.linkedIn }}" target="_blank">
+                                <button class="social-button" aria-label="LinkedIn">
+                                    <svg xmlns="http://www.w3.org/2000/svg" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" image-rendering="optimizeQuality" fill-rule="evenodd" clip-rule="evenodd" viewBox="0 0 640 640"><path d="M228.582 205.715h126.462v64.832h1.83c17.611-31.595 60.675-64.832 124.892-64.832C615.303 205.715 640 288.818 640 396.926v220.219H508.116V421.93c0-46.536-.969-106.442-68.576-106.442-68.67 0-79.194 50.658-79.194 103.052v198.605H228.581v-411.43zM137.152 91.43c0 37.855-30.721 68.576-68.576 68.576-37.855 0-68.587-30.721-68.587-68.576 0-37.855 30.732-68.576 68.587-68.576 37.855 0 68.576 30.721 68.576 68.576zM-.011 205.715h137.163v411.43H-.011v-411.43z"/></svg>
+                                </button>
+                            </a>
+                        {% endif %}
                     </div>
                 </div>
-                <div class="member">
-                    <div class="memberIMG">
-                        <img src="../static/images/RRR 2023-24 Officer Headshots/Avery Han.JPG" alt="Seoyeon 'Avery' Han" loading="lazy">
-                    </div>
-                    <h2 class="memberName">Seoyeon 'Avery' Han</h2>
-                    <h3 class="memberTitle">External Relations<br>Director of Marketing</h3>
-                    <div class="memberSocials">
-                        <a href="mailto:avery.han@ttu.edu" target="_blank">
-                            <button class="social-button" aria-label="Email">
-                                <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 122.88 85.57"><path d="M3.8,0,62.48,47.85,118.65,0ZM0,80.52,41.8,38.61,0,4.53v76ZM46.41,42.37,3.31,85.57h115.9L78,42.37,64.44,53.94h0a3,3,0,0,1-3.78.05L46.41,42.37Zm36.12-3.84,40.35,42.33V4.16L82.53,38.53Z"/></svg>
-                            </button>
-                        </a>
-                        <a href="https://www.linkedin.com/in/avery-seo-yeon-han-8a3754253/" target="_blank">
-                            <button class="social-button" aria-label="LinkedIn">
-                                <svg xmlns="http://www.w3.org/2000/svg" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" image-rendering="optimizeQuality" fill-rule="evenodd" clip-rule="evenodd" viewBox="0 0 640 640"><path d="M228.582 205.715h126.462v64.832h1.83c17.611-31.595 60.675-64.832 124.892-64.832C615.303 205.715 640 288.818 640 396.926v220.219H508.116V421.93c0-46.536-.969-106.442-68.576-106.442-68.67 0-79.194 50.658-79.194 103.052v198.605H228.581v-411.43zM137.152 91.43c0 37.855-30.721 68.576-68.576 68.576-37.855 0-68.587-30.721-68.587-68.576 0-37.855 30.732-68.576 68.587-68.576 37.855 0 68.576 30.721 68.576 68.576zM-.011 205.715h137.163v411.43H-.011v-411.43z"/></svg>
-                            </button>
-                        </a>
-                    </div>
-                </div>
-                <div class="member">
-                    <div class="memberIMG">
-                        <img src="../static/images/RRR 2023-24 Officer Headshots/" alt="Keaton Holloway" loading="lazy">
-                    </div>
-                    <h2 class="memberName">Keaton Holloway</h2>
-                    <h3 class="memberTitle">Treasurer</h3>
-                    <div class="memberSocials">
-                        <a href="mailto:keaton.holloway@ttu.edu" target="_blank">
-                            <button class="social-button" aria-label="Email">
-                                <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 122.88 85.57"><path d="M3.8,0,62.48,47.85,118.65,0ZM0,80.52,41.8,38.61,0,4.53v76ZM46.41,42.37,3.31,85.57h115.9L78,42.37,64.44,53.94h0a3,3,0,0,1-3.78.05L46.41,42.37Zm36.12-3.84,40.35,42.33V4.16L82.53,38.53Z"/></svg>
-                            </button>
-                        </a>
-                        <a href="https://www.linkedin.com/in/keaton-holloway-51a087205/" target="_blank">
-                            <button class="social-button" aria-label="LinkedIn">
-                                <svg xmlns="http://www.w3.org/2000/svg" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" image-rendering="optimizeQuality" fill-rule="evenodd" clip-rule="evenodd" viewBox="0 0 640 640"><path d="M228.582 205.715h126.462v64.832h1.83c17.611-31.595 60.675-64.832 124.892-64.832C615.303 205.715 640 288.818 640 396.926v220.219H508.116V421.93c0-46.536-.969-106.442-68.576-106.442-68.67 0-79.194 50.658-79.194 103.052v198.605H228.581v-411.43zM137.152 91.43c0 37.855-30.721 68.576-68.576 68.576-37.855 0-68.587-30.721-68.587-68.576 0-37.855 30.732-68.576 68.587-68.576 37.855 0 68.576 30.721 68.576 68.576zM-.011 205.715h137.163v411.43H-.011v-411.43z"/></svg>
-                            </button>
-                        </a>
-                    </div>
-                </div>
-                <div class="member">
-                    <div class="memberIMG">
-                        <img src="../static/images/RRR 2023-24 Officer Headshots/Carson Spaniel.JPG" alt="Carson Spaniel" loading="lazy">
-                    </div>
-                    <h2 class="memberName">Carson Spaniel</h2>
-                    <h3 class="memberTitle">Software Engineer</h3>
-                    <div class="memberSocials">
-                        <a href="mailto:cspaniel@ttu.edu" target="_blank">
-                            <button class="social-button" aria-label="Email">
-                                <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 122.88 85.57"><path d="M3.8,0,62.48,47.85,118.65,0ZM0,80.52,41.8,38.61,0,4.53v76ZM46.41,42.37,3.31,85.57h115.9L78,42.37,64.44,53.94h0a3,3,0,0,1-3.78.05L46.41,42.37Zm36.12-3.84,40.35,42.33V4.16L82.53,38.53Z"/></svg>
-                            </button>
-                        </a>
-                        <a href="https://www.linkedin.com/in/carson-spaniel/" target="_blank">
-                            <button class="social-button" aria-label="LinkedIn">
-                                <svg xmlns="http://www.w3.org/2000/svg" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" image-rendering="optimizeQuality" fill-rule="evenodd" clip-rule="evenodd" viewBox="0 0 640 640"><path d="M228.582 205.715h126.462v64.832h1.83c17.611-31.595 60.675-64.832 124.892-64.832C615.303 205.715 640 288.818 640 396.926v220.219H508.116V421.93c0-46.536-.969-106.442-68.576-106.442-68.67 0-79.194 50.658-79.194 103.052v198.605H228.581v-411.43zM137.152 91.43c0 37.855-30.721 68.576-68.576 68.576-37.855 0-68.587-30.721-68.587-68.576 0-37.855 30.732-68.576 68.587-68.576 37.855 0 68.576 30.721 68.576 68.576zM-.011 205.715h137.163v411.43H-.011v-411.43z"/></svg>
-                            </button>
-                        </a>
-                    </div>
-                </div>
+                {% endfor %}
             </div>
         </div>
         <div class="officers">
             <h1 class="sectionTitle">Technical Team</h1>
             <hr class="underline">
             <div class="members">
+                {% for member in technicalMembers %}
                 <div class="member">
                     <div class="memberIMG">
-                        <img src="../static/images/RRR 2023-24 Officer Headshots/Brandon Richard.JPG" alt="Brandon Richard" loading="lazy">
+                        <img src="{{ member.headshot.url }}" alt="{{ member.member_name }}" loading="lazy">
                     </div>
-                    <h2 class="memberName">Brandon Richard</h2>
-                    <h3 class="memberTitle">Chief Engineer</h3>
+                    <h2 class="memberName">{{ member.member_name }}</h2>
+                    <h3 class="memberTitle">{{ member.title }}</h3>
                     <div class="memberSocials">
-                        <a href="mailto:ric63860@ttu.edu" target="_blank">
+                        <a href="mailto:{{ member.school_email }}" target="_blank">
                             <button class="social-button" aria-label="Email">
                                 <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 122.88 85.57"><path d="M3.8,0,62.48,47.85,118.65,0ZM0,80.52,41.8,38.61,0,4.53v76ZM46.41,42.37,3.31,85.57h115.9L78,42.37,64.44,53.94h0a3,3,0,0,1-3.78.05L46.41,42.37Zm36.12-3.84,40.35,42.33V4.16L82.53,38.53Z"/></svg>
                             </button>
                         </a>
-                        <a href="https://www.linkedin.com/in/brandon-richard-b03931255/" target="_blank">
-                            <button class="social-button" aria-label="LinkedIn">
-                                <svg xmlns="http://www.w3.org/2000/svg" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" image-rendering="optimizeQuality" fill-rule="evenodd" clip-rule="evenodd" viewBox="0 0 640 640"><path d="M228.582 205.715h126.462v64.832h1.83c17.611-31.595 60.675-64.832 124.892-64.832C615.303 205.715 640 288.818 640 396.926v220.219H508.116V421.93c0-46.536-.969-106.442-68.576-106.442-68.67 0-79.194 50.658-79.194 103.052v198.605H228.581v-411.43zM137.152 91.43c0 37.855-30.721 68.576-68.576 68.576-37.855 0-68.587-30.721-68.587-68.576 0-37.855 30.732-68.576 68.587-68.576 37.855 0 68.576 30.721 68.576 68.576zM-.011 205.715h137.163v411.43H-.011v-411.43z"/></svg>
-                            </button>
-                        </a>
+                        {% if member.linkedIn %}
+                            <a href="{{ member.linkedIn }}" target="_blank">
+                                <button class="social-button" aria-label="LinkedIn">
+                                    <svg xmlns="http://www.w3.org/2000/svg" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" image-rendering="optimizeQuality" fill-rule="evenodd" clip-rule="evenodd" viewBox="0 0 640 640"><path d="M228.582 205.715h126.462v64.832h1.83c17.611-31.595 60.675-64.832 124.892-64.832C615.303 205.715 640 288.818 640 396.926v220.219H508.116V421.93c0-46.536-.969-106.442-68.576-106.442-68.67 0-79.194 50.658-79.194 103.052v198.605H228.581v-411.43zM137.152 91.43c0 37.855-30.721 68.576-68.576 68.576-37.855 0-68.587-30.721-68.587-68.576 0-37.855 30.732-68.576 68.587-68.576 37.855 0 68.576 30.721 68.576 68.576zM-.011 205.715h137.163v411.43H-.011v-411.43z"/></svg>
+                                </button>
+                            </a>
+                        {% endif %}
                     </div>
                 </div>
-                <div class="member">
-                    <div class="memberIMG">
-                        <img src="../static/images/RRR 2023-24 Officer Headshots/David Castillo.JPG" alt="David Castillo" loading="lazy">
-                    </div>
-                    <h2 class="memberName">David Castillo</h2>
-                    <h3 class="memberTitle">Junior Aerodynamics Lead</h3>
-                    <div class="memberSocials">
-                        <a href="mailto:cas36488@ttu.edu " target="_blank">
-                            <button class="social-button" aria-label="Email">
-                                <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 122.88 85.57"><path d="M3.8,0,62.48,47.85,118.65,0ZM0,80.52,41.8,38.61,0,4.53v76ZM46.41,42.37,3.31,85.57h115.9L78,42.37,64.44,53.94h0a3,3,0,0,1-3.78.05L46.41,42.37Zm36.12-3.84,40.35,42.33V4.16L82.53,38.53Z"/></svg>
-                            </button>
-                        </a>
-                        <a href="https://www.linkedin.com/in/davidcastillok/" target="_blank">
-                            <button class="social-button" aria-label="LinkedIn">
-                                <svg xmlns="http://www.w3.org/2000/svg" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" image-rendering="optimizeQuality" fill-rule="evenodd" clip-rule="evenodd" viewBox="0 0 640 640"><path d="M228.582 205.715h126.462v64.832h1.83c17.611-31.595 60.675-64.832 124.892-64.832C615.303 205.715 640 288.818 640 396.926v220.219H508.116V421.93c0-46.536-.969-106.442-68.576-106.442-68.67 0-79.194 50.658-79.194 103.052v198.605H228.581v-411.43zM137.152 91.43c0 37.855-30.721 68.576-68.576 68.576-37.855 0-68.587-30.721-68.587-68.576 0-37.855 30.732-68.576 68.587-68.576 37.855 0 68.576 30.721 68.576 68.576zM-.011 205.715h137.163v411.43H-.011v-411.43z"/></svg>
-                            </button>
-                        </a>
-                    </div>
-                </div>
-                <div class="member">
-                    <div class="memberIMG">
-                        <img src="../static/images/RRR 2023-24 Officer Headshots/Braedyn Deaver.JPG" alt="Braedyn Deaver" loading="lazy">
-                    </div>
-                    <h2 class="memberName">Braedyn Deaver</h2>
-                    <h3 class="memberTitle">Senior Aerodynamics Lead</h3>
-                    <div class="memberSocials">
-                        <a href="mailto:bradeave@ttu.edu" target="_blank">
-                            <button class="social-button" aria-label="Email">
-                                <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 122.88 85.57"><path d="M3.8,0,62.48,47.85,118.65,0ZM0,80.52,41.8,38.61,0,4.53v76ZM46.41,42.37,3.31,85.57h115.9L78,42.37,64.44,53.94h0a3,3,0,0,1-3.78.05L46.41,42.37Zm36.12-3.84,40.35,42.33V4.16L82.53,38.53Z"/></svg>
-                            </button>
-                        </a>
-                        <a href="https://www.linkedin.com/in/braedyn-deaver" target="_blank">
-                            <button class="social-button" aria-label="LinkedIn">
-                                <svg xmlns="http://www.w3.org/2000/svg" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" image-rendering="optimizeQuality" fill-rule="evenodd" clip-rule="evenodd" viewBox="0 0 640 640"><path d="M228.582 205.715h126.462v64.832h1.83c17.611-31.595 60.675-64.832 124.892-64.832C615.303 205.715 640 288.818 640 396.926v220.219H508.116V421.93c0-46.536-.969-106.442-68.576-106.442-68.67 0-79.194 50.658-79.194 103.052v198.605H228.581v-411.43zM137.152 91.43c0 37.855-30.721 68.576-68.576 68.576-37.855 0-68.587-30.721-68.587-68.576 0-37.855 30.732-68.576 68.587-68.576 37.855 0 68.576 30.721 68.576 68.576zM-.011 205.715h137.163v411.43H-.011v-411.43z"/></svg>
-                            </button>
-                        </a>
-                    </div>
-                </div>
-                <div class="member">
-                    <div class="memberIMG">
-                        <img src="../static/images/RRR 2023-24 Officer Headshots/Parker Rapley.JPG" alt="Parker Rapley" loading="lazy">
-                    </div>
-                    <h2 class="memberName">Parker Rapley</h2>
-                    <h3 class="memberTitle">Composites Lead</h3>
-                    <div class="memberSocials">
-                        <a href="mailto:prapley@ttu.edu " target="_blank">
-                            <button class="social-button" aria-label="Email">
-                                <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 122.88 85.57"><path d="M3.8,0,62.48,47.85,118.65,0ZM0,80.52,41.8,38.61,0,4.53v76ZM46.41,42.37,3.31,85.57h115.9L78,42.37,64.44,53.94h0a3,3,0,0,1-3.78.05L46.41,42.37Zm36.12-3.84,40.35,42.33V4.16L82.53,38.53Z"/></svg>
-                            </button>
-                        </a>
-                        <a href="https://www.linkedin.com/in/parker-rapley-200b11277/" target="_blank">
-                            <button class="social-button" aria-label="LinkedIn">
-                                <svg xmlns="http://www.w3.org/2000/svg" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" image-rendering="optimizeQuality" fill-rule="evenodd" clip-rule="evenodd" viewBox="0 0 640 640"><path d="M228.582 205.715h126.462v64.832h1.83c17.611-31.595 60.675-64.832 124.892-64.832C615.303 205.715 640 288.818 640 396.926v220.219H508.116V421.93c0-46.536-.969-106.442-68.576-106.442-68.67 0-79.194 50.658-79.194 103.052v198.605H228.581v-411.43zM137.152 91.43c0 37.855-30.721 68.576-68.576 68.576-37.855 0-68.587-30.721-68.587-68.576 0-37.855 30.732-68.576 68.587-68.576 37.855 0 68.576 30.721 68.576 68.576zM-.011 205.715h137.163v411.43H-.011v-411.43z"/></svg>
-                            </button>
-                        </a>
-                    </div>
-                </div>
-                <div class="member">
-                    <div class="memberIMG">
-                        <img src="../static/images/RRR 2023-24 Officer Headshots/Sahil Shamdasani.JPG" alt="Sahil Shamdasani" loading="lazy">
-                    </div>
-                    <h2 class="memberName">Sahil Shamdasani</h2>
-                    <h3 class="memberTitle">Eletrical & Telemetry Lead</h3>
-                    <div class="memberSocials">
-                        <a href="mailto:sshamdas@ttu.edu" target="_blank">
-                            <button class="social-button" aria-label="Email">
-                                <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 122.88 85.57"><path d="M3.8,0,62.48,47.85,118.65,0ZM0,80.52,41.8,38.61,0,4.53v76ZM46.41,42.37,3.31,85.57h115.9L78,42.37,64.44,53.94h0a3,3,0,0,1-3.78.05L46.41,42.37Zm36.12-3.84,40.35,42.33V4.16L82.53,38.53Z"/></svg>
-                            </button>
-                        </a>
-                        <a href="https://www.linkedin.com/in/sahil-shamdasani/" target="_blank">
-                            <button class="social-button" aria-label="LinkedIn">
-                                <svg xmlns="http://www.w3.org/2000/svg" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" image-rendering="optimizeQuality" fill-rule="evenodd" clip-rule="evenodd" viewBox="0 0 640 640"><path d="M228.582 205.715h126.462v64.832h1.83c17.611-31.595 60.675-64.832 124.892-64.832C615.303 205.715 640 288.818 640 396.926v220.219H508.116V421.93c0-46.536-.969-106.442-68.576-106.442-68.67 0-79.194 50.658-79.194 103.052v198.605H228.581v-411.43zM137.152 91.43c0 37.855-30.721 68.576-68.576 68.576-37.855 0-68.587-30.721-68.587-68.576 0-37.855 30.732-68.576 68.587-68.576 37.855 0 68.576 30.721 68.576 68.576zM-.011 205.715h137.163v411.43H-.011v-411.43z"/></svg>
-                            </button>
-                        </a>
-                    </div>
-                </div>
-                <div class="member">
-                    <div class="memberIMG">
-                        <img src="../static/images/RRR 2023-24 Officer Headshots/" alt="Thomson Himes" loading="lazy">
-                    </div>
-                    <h2 class="memberName">Thomson Himes</h2>
-                    <h3 class="memberTitle">Chassis Lead<br>Cockpit & Safety Lead</h3>
-                    <div class="memberSocials">
-                        <a href="mailto:thimes@ttu.edu" target="_blank">
-                            <button class="social-button" aria-label="Email">
-                                <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 122.88 85.57"><path d="M3.8,0,62.48,47.85,118.65,0ZM0,80.52,41.8,38.61,0,4.53v76ZM46.41,42.37,3.31,85.57h115.9L78,42.37,64.44,53.94h0a3,3,0,0,1-3.78.05L46.41,42.37Zm36.12-3.84,40.35,42.33V4.16L82.53,38.53Z"/></svg>
-                            </button>
-                        </a>
-                        <a href="https://www.linkedin.com/in/thomson-himes-b21660227" target="_blank">
-                            <button class="social-button" aria-label="LinkedIn">
-                                <svg xmlns="http://www.w3.org/2000/svg" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" image-rendering="optimizeQuality" fill-rule="evenodd" clip-rule="evenodd" viewBox="0 0 640 640"><path d="M228.582 205.715h126.462v64.832h1.83c17.611-31.595 60.675-64.832 124.892-64.832C615.303 205.715 640 288.818 640 396.926v220.219H508.116V421.93c0-46.536-.969-106.442-68.576-106.442-68.67 0-79.194 50.658-79.194 103.052v198.605H228.581v-411.43zM137.152 91.43c0 37.855-30.721 68.576-68.576 68.576-37.855 0-68.587-30.721-68.587-68.576 0-37.855 30.732-68.576 68.587-68.576 37.855 0 68.576 30.721 68.576 68.576zM-.011 205.715h137.163v411.43H-.011v-411.43z"/></svg>
-                            </button>
-                        </a>
-                    </div>
-                </div>
-                <div class="member">
-                    <div class="memberIMG">
-                        <img src="../static/images/RRR 2023-24 Officer Headshots/Guillermo Martinez.JPG" alt="Guillermo Martinez" loading="lazy">
-                    </div>
-                    <h2 class="memberName">Guillermo Martinez</h2>
-                    <h3 class="memberTitle">Chassis Lead<br>Cockpit & Safety Lead</h3>
-                    <div class="memberSocials">
-                        <a href="mailto:Guillermo.J.Martinez@ttu.edu" target="_blank">
-                            <button class="social-button" aria-label="Email">
-                                <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 122.88 85.57"><path d="M3.8,0,62.48,47.85,118.65,0ZM0,80.52,41.8,38.61,0,4.53v76ZM46.41,42.37,3.31,85.57h115.9L78,42.37,64.44,53.94h0a3,3,0,0,1-3.78.05L46.41,42.37Zm36.12-3.84,40.35,42.33V4.16L82.53,38.53Z"/></svg>
-                            </button>
-                        </a>
-                        <a href="https://www.linkedin.com/in/guillermo-mart%C3%ADnez-rivera-3568a5197/ " target="_blank">
-                            <button class="social-button" aria-label="LinkedIn">
-                                <svg xmlns="http://www.w3.org/2000/svg" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" image-rendering="optimizeQuality" fill-rule="evenodd" clip-rule="evenodd" viewBox="0 0 640 640"><path d="M228.582 205.715h126.462v64.832h1.83c17.611-31.595 60.675-64.832 124.892-64.832C615.303 205.715 640 288.818 640 396.926v220.219H508.116V421.93c0-46.536-.969-106.442-68.576-106.442-68.67 0-79.194 50.658-79.194 103.052v198.605H228.581v-411.43zM137.152 91.43c0 37.855-30.721 68.576-68.576 68.576-37.855 0-68.587-30.721-68.587-68.576 0-37.855 30.732-68.576 68.587-68.576 37.855 0 68.576 30.721 68.576 68.576zM-.011 205.715h137.163v411.43H-.011v-411.43z"/></svg>
-                            </button>
-                        </a>
-                    </div>
-                </div>
-                <div class="member">
-                    <div class="memberIMG">
-                        <img src="../static/images/RRR 2023-24 Officer Headshots/Tyler Pellicore.JPG" alt="Tyler Pellicore" loading="lazy">
-                    </div>
-                    <h2 class="memberName">Tyler Pellicore</h2>
-                    <h3 class="memberTitle">Powertrain Lead</h3>
-                    <div class="memberSocials">
-                        <a href="mailto:tpellico@ttu.edu " target="_blank">
-                            <button class="social-button" aria-label="Email">
-                                <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 122.88 85.57"><path d="M3.8,0,62.48,47.85,118.65,0ZM0,80.52,41.8,38.61,0,4.53v76ZM46.41,42.37,3.31,85.57h115.9L78,42.37,64.44,53.94h0a3,3,0,0,1-3.78.05L46.41,42.37Zm36.12-3.84,40.35,42.33V4.16L82.53,38.53Z"/></svg>
-                            </button>
-                        </a>
-                        <!-- <a href="" target="_blank">
-                            <button class="social-button" aria-label="LinkedIn">
-                                <svg xmlns="http://www.w3.org/2000/svg" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" image-rendering="optimizeQuality" fill-rule="evenodd" clip-rule="evenodd" viewBox="0 0 640 640"><path d="M228.582 205.715h126.462v64.832h1.83c17.611-31.595 60.675-64.832 124.892-64.832C615.303 205.715 640 288.818 640 396.926v220.219H508.116V421.93c0-46.536-.969-106.442-68.576-106.442-68.67 0-79.194 50.658-79.194 103.052v198.605H228.581v-411.43zM137.152 91.43c0 37.855-30.721 68.576-68.576 68.576-37.855 0-68.587-30.721-68.587-68.576 0-37.855 30.732-68.576 68.587-68.576 37.855 0 68.576 30.721 68.576 68.576zM-.011 205.715h137.163v411.43H-.011v-411.43z"/></svg>
-                            </button>
-                        </a> -->
-                    </div>
-                </div>
-                <div class="member">
-                    <div class="memberIMG">
-                        <img src="../static/images/RRR 2023-24 Officer Headshots/Jose Simbeck.JPG" alt="Jose Simbeck" loading="lazy">
-                    </div>
-                    <h2 class="memberName">Jose Simbeck</h2>
-                    <h3 class="memberTitle">Powertrain Lead</h3>
-                    <div class="memberSocials">
-                        <a href="mailto:jsimbeck@ttu.edu " target="_blank">
-                            <button class="social-button" aria-label="Email">
-                                <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 122.88 85.57"><path d="M3.8,0,62.48,47.85,118.65,0ZM0,80.52,41.8,38.61,0,4.53v76ZM46.41,42.37,3.31,85.57h115.9L78,42.37,64.44,53.94h0a3,3,0,0,1-3.78.05L46.41,42.37Zm36.12-3.84,40.35,42.33V4.16L82.53,38.53Z"/></svg>
-                            </button>
-                        </a>
-                        <!-- <a href="" target="_blank">
-                            <button class="social-button" aria-label="LinkedIn">
-                                <svg xmlns="http://www.w3.org/2000/svg" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" image-rendering="optimizeQuality" fill-rule="evenodd" clip-rule="evenodd" viewBox="0 0 640 640"><path d="M228.582 205.715h126.462v64.832h1.83c17.611-31.595 60.675-64.832 124.892-64.832C615.303 205.715 640 288.818 640 396.926v220.219H508.116V421.93c0-46.536-.969-106.442-68.576-106.442-68.67 0-79.194 50.658-79.194 103.052v198.605H228.581v-411.43zM137.152 91.43c0 37.855-30.721 68.576-68.576 68.576-37.855 0-68.587-30.721-68.587-68.576 0-37.855 30.732-68.576 68.587-68.576 37.855 0 68.576 30.721 68.576 68.576zM-.011 205.715h137.163v411.43H-.011v-411.43z"/></svg>
-                            </button>
-                        </a> -->
-                    </div>
-                </div>
-                <div class="member">
-                    <div class="memberIMG">
-                        <img src="../static/images/RRR 2023-24 Officer Headshots/Jacob Forbes.JPG" alt="Jacob Forbes" loading="lazy">
-                    </div>
-                    <h2 class="memberName">Jacob Forbes</h2>
-                    <h3 class="memberTitle">Steering Lead</h3>
-                    <div class="memberSocials">
-                        <a href="mailto:jacforbe@ttu.edu " target="_blank">
-                            <button class="social-button" aria-label="Email">
-                                <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 122.88 85.57"><path d="M3.8,0,62.48,47.85,118.65,0ZM0,80.52,41.8,38.61,0,4.53v76ZM46.41,42.37,3.31,85.57h115.9L78,42.37,64.44,53.94h0a3,3,0,0,1-3.78.05L46.41,42.37Zm36.12-3.84,40.35,42.33V4.16L82.53,38.53Z"/></svg>
-                            </button>
-                        </a>
-                        <a href="https://www.linkedin.com/in/jacob-forbes-21ba4b24a/" target="_blank">
-                            <button class="social-button" aria-label="LinkedIn">
-                                <svg xmlns="http://www.w3.org/2000/svg" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" image-rendering="optimizeQuality" fill-rule="evenodd" clip-rule="evenodd" viewBox="0 0 640 640"><path d="M228.582 205.715h126.462v64.832h1.83c17.611-31.595 60.675-64.832 124.892-64.832C615.303 205.715 640 288.818 640 396.926v220.219H508.116V421.93c0-46.536-.969-106.442-68.576-106.442-68.67 0-79.194 50.658-79.194 103.052v198.605H228.581v-411.43zM137.152 91.43c0 37.855-30.721 68.576-68.576 68.576-37.855 0-68.587-30.721-68.587-68.576 0-37.855 30.732-68.576 68.587-68.576 37.855 0 68.576 30.721 68.576 68.576zM-.011 205.715h137.163v411.43H-.011v-411.43z"/></svg>
-                            </button>
-                        </a>
-                    </div>
-                </div>
-                <div class="member">
-                    <div class="memberIMG">
-                        <img src="../static/images/RRR 2023-24 Officer Headshots/Chris Paulson.JPG" alt="Chris Paulson" loading="lazy">
-                    </div>
-                    <h2 class="memberName">Chris Paulson</h2>
-                    <h3 class="memberTitle">Suspension Lead</h3>
-                    <div class="memberSocials">
-                        <a href="mailto:chrispau@ttu.edu" target="_blank">
-                            <button class="social-button" aria-label="Email">
-                                <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 122.88 85.57"><path d="M3.8,0,62.48,47.85,118.65,0ZM0,80.52,41.8,38.61,0,4.53v76ZM46.41,42.37,3.31,85.57h115.9L78,42.37,64.44,53.94h0a3,3,0,0,1-3.78.05L46.41,42.37Zm36.12-3.84,40.35,42.33V4.16L82.53,38.53Z"/></svg>
-                            </button>
-                        </a>
-                        <a href="https://www.linkedin.com/in/christopher-paulson-20588416a/" target="_blank">
-                            <button class="social-button" aria-label="LinkedIn">
-                                <svg xmlns="http://www.w3.org/2000/svg" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" image-rendering="optimizeQuality" fill-rule="evenodd" clip-rule="evenodd" viewBox="0 0 640 640"><path d="M228.582 205.715h126.462v64.832h1.83c17.611-31.595 60.675-64.832 124.892-64.832C615.303 205.715 640 288.818 640 396.926v220.219H508.116V421.93c0-46.536-.969-106.442-68.576-106.442-68.67 0-79.194 50.658-79.194 103.052v198.605H228.581v-411.43zM137.152 91.43c0 37.855-30.721 68.576-68.576 68.576-37.855 0-68.587-30.721-68.587-68.576 0-37.855 30.732-68.576 68.587-68.576 37.855 0 68.576 30.721 68.576 68.576zM-.011 205.715h137.163v411.43H-.011v-411.43z"/></svg>
-                            </button>
-                        </a>
-                    </div>
-                </div>
+                {% endfor %}                
             </div>
         </div>
     </div>

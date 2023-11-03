@@ -161,3 +161,6 @@ if DEBUG:
 else:
     # EMAIL_HOST_PASSWORD = os.environ["EMAIL_HOST_PASSWORD"]
     from .secrets.secret import EMAIL_HOST_PASSWORD
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
