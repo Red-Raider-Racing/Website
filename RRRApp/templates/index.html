@@ -104,35 +104,37 @@
                                 <div class="radioSection">
                                     <p>Select your T-Shirt Size:</p>
                                     <label>
-                                        <input type="radio" name="item" value="xs_0" required>
+                                        <input type="radio" name="item" value="xs_{{item.item_name}}" required>
                                         XS
                                     </label>
                                 
                                     <label>
-                                        <input type="radio" name="item" value="s_0">
+                                        <input type="radio" name="item" value="s_{{item.item_name}}">
                                         S
                                     </label>
                                 
                                     <label>
-                                        <input type="radio" name="item" value="m_0">
+                                        <input type="radio" name="item" value="m_{{item.item_name}}">
                                         M
                                     </label>
         
                                     <label>
-                                        <input type="radio" name="item" value="l_0">
+                                        <input type="radio" name="item" value="l_{{item.item_name}}">
                                         L
                                     </label>
 
                                     <label>
-                                        <input type="radio" name="item" value="xl_0">
+                                        <input type="radio" name="item" value="xl_{{item.item_name}}">
                                         XL
                                     </label>
 
                                     <label>
-                                        <input type="radio" name="item" value="xxl_0">
+                                        <input type="radio" name="item" value="xxl_{{item.item_name}}">
                                         XXL
                                     </label>
-                                </div>      
+                                </div>
+                            {% else %}
+                                <input type="hidden" name="item" value="{{ item.item_name }}">
                             {% endif %}
                         </div>
 

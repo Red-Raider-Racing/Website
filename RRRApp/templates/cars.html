@@ -24,385 +24,62 @@
             <p>Formula SAE's International Competition in Michigan is designed to assess our engineering and business abilities. Formula SAE organizations are to simulate a small engineering consulting firm. With this, the competition consists of technical inspections, static and dynamic events, and business events. The business events include a cost event and a situational proposal. The competition is designed to evaluate the teams and their cars in categories such as; handling, performance, reliability, manufacturability, serviceability, design, marketing, and cost.</p>
         </div>
         <div class="cars">
+            {% for car in cars%}
             <div class="car">
-                <h1 class="carTitle">RRR-2023</h1>
+                <h1 class="carTitle">{{car.car_name}}</h1>
                 <div class="carIMG car2023">
-                    <img src="../static/images/cars/2023.webp" alt="RRR-2023" height="100%" loading="lazy"/> 
+                    <img src="{{car.image.url}}" alt="{{car.car_name}}" height="100%" loading="lazy"/> 
                 </div>
                 <div class="specs">
                     <hr>
                     <div class="spec">
                         <h2 class="specTitle">Chassis:</h2>
-                        <p>Chromoly 4130 Steel Space-Frame</p>
+                        {% if car.chassis %}
+                            <p>{{car.chassis}}</p>
+                        {% else %}
+                            <p>Unknown</p>
+                        {% endif %}
                     </div>
                     <hr>
                     <div class="spec">
                         <h2 class="specTitle">Power Unit:</h2>
-                        <p>Yamaha YFZ 450r</p>
+                        {% if car.power_unit %}
+                            <p>{{car.power_unit}}</p>
+                        {% else %}
+                            <p>Unknown</p>
+                        {% endif %}
                     </div>
                     <hr>
                     <div class="spec">
                         <h2 class="specTitle">Weight:</h2>
-                        <p>400 lbs</p>
+                        {% if car.weight %}
+                            <p>{{car.weight}} lbs</p>
+                        {% else %}
+                            <p>Unknown</p>
+                        {% endif %}
                     </div>
                     <hr>
                     <div class="spec">
                         <h2 class="specTitle">Main Achievement:</h2>
-                        <p>Participation in all dynamic events</p>
+                        {% if car.main_achievement %}
+                            <p>{{car.main_achievement}}</p>
+                        {% else %}
+                            <p>Unknown</p>
+                        {% endif %}
                     </div>
                     <hr>
                     <div class="spec">
                         <h2 class="specTitle">Competition Placement:</h2>
-                        <p>94/120</p>
+                        {% if car.competition_placement %}
+                            <p>{{car.competition_placement}}</p>
+                        {% else %}
+                            <p>Unknown</p>
+                        {% endif %}
                     </div>
                     <hr>
                 </div>
             </div>
-            <div class="car">
-                <h1 class="carTitle">RRR-2022</h1>
-                <div class="carIMG car2022">
-                    <img src="../static/images/cars/2022.webp" alt="RRR-2022" height="100%" loading="lazy"/>
-                </div>
-                <div class="specs">
-                    <hr>
-                    <div class="spec">
-                        <h2 class="specTitle">Chassis:</h2>
-                        <p>Chromoly 4130 Steel Space-Frame</p>
-                    </div>
-                    <hr>
-                    <div class="spec">
-                        <h2 class="specTitle">Power Unit:</h2>
-                        <p>Yamaha YFZ 450r</p>
-                    </div>
-                    <hr>
-                    <div class="spec">
-                        <h2 class="specTitle">Weight:</h2>
-                        <p>407 lbs</p>
-                    </div>
-                    <hr>
-                    <div class="spec">
-                        <h2 class="specTitle">Main Achievement:</h2>
-                        <p>Successful comeback after the difficult COVID-19 Pandemic.</p>
-                    </div>
-                    <hr>
-                    <div class="spec">
-                        <h2 class="specTitle">Competition Placement:</h2>
-                        <p>81/89 (Points awarded for Static Event, no participation in dynamic events)</p>
-                    </div>
-                    <hr>
-                </div>
-            </div>
-            <div class="car">
-                <h1 class="carTitle">RRR-2019</h1>
-                <div class="carIMG car2019">
-                    <img src="../static/images/cars/2019.webp" alt="RRR-2019" height="100%" loading="lazy"/> 
-                </div>
-                <div class="specs">
-                    <hr>
-                    <div class="spec">
-                        <h2 class="specTitle">Chassis:</h2>
-                        <p>Chromoly 4130 Steel Space-Frame</p>
-                    </div>
-                    <hr>
-                    <div class="spec">
-                        <h2 class="specTitle">Power Unit:</h2>
-                        <p>Yamaha YFZ 450r</p>
-                    </div>
-                    <hr>
-                    <div class="spec">
-                        <h2 class="specTitle">Weight:</h2>
-                        <p>375 lbs</p>
-                    </div>
-                    <hr>
-                    <div class="spec">
-                        <h2 class="specTitle">Main Achievement:</h2>
-                        <p>Unknown</p>
-                    </div>
-                    <hr>
-                    <div class="spec">
-                        <h2 class="specTitle">Competition Placement:</h2>
-                        <p>96/108</p>
-                    </div>
-                    <hr>
-                </div>
-            </div>
-            <div class="car">
-                <h1 class="carTitle">RRR-2018</h1>
-                <div class="carIMG car2018">
-                    <img src="../static/images/cars/2018.webp" alt="RRR-2018" height="100%" loading="lazy"/>
-                </div>
-                <div class="specs">
-                    <hr>
-                    <div class="spec">
-                        <h2 class="specTitle">Chassis:</h2>
-                        <p>Chromoly 4130 Steel Space-Frame</p>
-                    </div>
-                    <hr>
-                    <div class="spec">
-                        <h2 class="specTitle">Power Unit:</h2>
-                        <p>KTM 690 Gen III</p>
-                    </div>
-                    <hr>
-                    <div class="spec">
-                        <h2 class="specTitle">Weight:</h2>
-                        <p>Unknown</p>
-                    </div>
-                    <hr>
-                    <div class="spec">
-                        <h2 class="specTitle">Main Achievement:</h2>
-                        <p>Unknown</p>
-                    </div>
-                    <hr>
-                    <div class="spec">
-                        <h2 class="specTitle">Competition Placement:</h2>
-                        <p>99/114</p>
-                    </div>
-                    <hr>
-                </div>
-            </div>
-            <div class="car">
-                <h1 class="carTitle">RRR-2017</h1>
-                <div class="carIMG car2017">
-                    <img src="../static/images/cars/2017.webp" alt="RRR-2017" height="100%" loading="lazy"/>
-                </div>
-                <div class="specs">
-                    <hr>
-                    <div class="spec">
-                        <h2 class="specTitle">Chassis:</h2>
-                        <p>Chromoly 4130 Steel Space-Frame</p>
-                    </div>
-                    <hr>
-                    <div class="spec">
-                        <h2 class="specTitle">Power Unit:</h2>
-                        <p>KTM 690 Gen III</p>
-                    </div>
-                    <hr>
-                    <div class="spec">
-                        <h2 class="specTitle">Weight:</h2>
-                        <p>Unknown</p>
-                    </div>
-                    <hr>
-                    <div class="spec">
-                        <h2 class="specTitle">Main Achievement:</h2>
-                        <p>Unknown</p>
-                    </div>
-                    <hr>
-                    <div class="spec">
-                        <h2 class="specTitle">Competition Placement:</h2>
-                        <p>104/109</p>
-                    </div>
-                    <hr>
-                </div>
-            </div>
-            <div class="car">
-                <h1 class="carTitle">RRR-2016</h1>
-                <div class="carIMG car2016">
-                    <img src="../static/images/cars/2016.webp" alt="RRR-2016" height="100%" loading="lazy"/>
-                </div>
-                <div class="specs">
-                    <hr>
-                    <div class="spec">
-                        <h2 class="specTitle">Chassis:</h2>
-                        <p>Chromoly 4130 Steel Space-Frame</p>
-                    </div>
-                    <hr>
-                    <div class="spec">
-                        <h2 class="specTitle">Power Unit:</h2>
-                        <p>Unknown</p>
-                    </div>
-                    <hr>
-                    <div class="spec">
-                        <h2 class="specTitle">Weight:</h2>
-                        <p>Unknown</p>
-                    </div>
-                    <hr>
-                    <div class="spec">
-                        <h2 class="specTitle">Main Achievement:</h2>
-                        <p>Team's highest ever placement at competition</p>
-                    </div>
-                    <hr>
-                    <div class="spec">
-                        <h2 class="specTitle">Competition Placement:</h2>
-                        <p>38/115</p>
-                    </div>
-                    <hr>
-                </div>
-            </div>
-            <div class="car">
-                <h1 class="carTitle">RRR-2015</h1>
-                <div class="carIMG car2015">
-                    <img src="../static/images/cars/2015.webp" alt="RRR-2015" height="100%" loading="lazy"/>
-                </div>
-                <div class="specs">
-                    <hr>
-                    <div class="spec">
-                        <h2 class="specTitle">Chassis:</h2>
-                        <p>Chromoly 4130 Steel Space-Frame</p>
-                    </div>
-                    <hr>
-                    <div class="spec">
-                        <h2 class="specTitle">Power Unit:</h2>
-                        <p>Unknown</p>
-                    </div>
-                    <hr>
-                    <div class="spec">
-                        <h2 class="specTitle">Weight:</h2>
-                        <p>Unknown</p>
-                    </div>
-                    <hr>
-                    <div class="spec">
-                        <h2 class="specTitle">Main Achievement:</h2>
-                        <p>Unknown</p>
-                    </div>
-                    <hr>
-                    <div class="spec">
-                        <h2 class="specTitle">Competition Placement:</h2>
-                        <p>76/109</p>
-                    </div>
-                    <hr>
-                </div>
-            </div>
-            <div class="car">
-                <h1 class="carTitle">RRR-2014</h1>
-                <div class="carIMG car2014">
-                    <img src="../static/images/cars/2014.webp" alt="RRR-2014" height="100%" loading="lazy"/>
-                </div>
-                <div class="specs">
-                    <hr>
-                    <div class="spec">
-                        <h2 class="specTitle">Chassis:</h2>
-                        <p>Chromoly 4130 Steel Space-Frame</p>
-                    </div>
-                    <hr>
-                    <div class="spec">
-                        <h2 class="specTitle">Power Unit:</h2>
-                        <p>Kawasaki KFX 450r</p>
-                    </div>
-                    <hr>
-                    <div class="spec">
-                        <h2 class="specTitle">Weight:</h2>
-                        <p>387 lbs</p>
-                    </div>
-                    <hr>
-                    <div class="spec">
-                        <h2 class="specTitle">Main Achievement:</h2>
-                        <p>Unknown</p>
-                    </div>
-                    <hr>
-                    <div class="spec">
-                        <h2 class="specTitle">Competition Placement:</h2>
-                        <p>63/110</p>
-                    </div>
-                    <hr>
-                    <div class="spec">
-                        <h2 class="specTitle">Other Specifications:</h2>
-                        <p>10 in Wheels</p>
-                    </div>
-                    <hr>
-                </div>
-            </div>
-            <div class="car">
-                <h1 class="carTitle">RRR-2013</h1>
-                <div class="carIMG car2013">
-                        <img src="../static/images/cars/2013.webp" alt="RRR-2013" height="100%" loading="lazy"/>
-                </div>
-                <div class="specs">
-                    <hr>
-                    <div class="spec">
-                        <h2 class="specTitle">Chassis:</h2>
-                        <p>Chromoly 4130 Steel Space-Frame</p>
-                    </div>
-                    <hr>
-                    <div class="spec">
-                        <h2 class="specTitle">Power Unit:</h2>
-                        <p>Fuel Injected, Kawasaki KFX 450r</p>
-                    </div>
-                    <hr>
-                    <div class="spec">
-                        <h2 class="specTitle">Weight:</h2>
-                        <p>405 lbs</p>
-                    </div>
-                    <hr>
-                    <div class="spec">
-                        <h2 class="specTitle">Main Achievement:</h2>
-                        <p>Unknown</p>
-                    </div>
-                    <hr>
-                    <div class="spec">
-                        <h2 class="specTitle">Competition Placement:</h2>
-                        <p>68/108</p>
-                    </div>
-                    <hr>
-                </div>
-            </div>
-            <div class="car">
-                <h1 class="carTitle">RRR-2012</h1>
-                <div class="carIMG car2012">
-                    <img src="../static/images/cars/2012.webp" alt="RRR-2012" height="100%" loading="lazy"/>
-                </div>
-                <div class="specs">
-                    <hr>
-                    <div class="spec">
-                        <h2 class="specTitle">Chassis:</h2>
-                        <p>Chromoly 4130 Steel Space-Frame</p>
-                    </div>
-                    <hr>
-                    <div class="spec">
-                        <h2 class="specTitle">Power Unit:</h2>
-                        <p>Carburated, Kawasaki 450</p>
-                    </div>
-                    <hr>
-                    <div class="spec">
-                        <h2 class="specTitle">Weight:</h2>
-                        <p>424 lbs</p>
-                    </div>
-                    <hr>
-                    <div class="spec">
-                        <h2 class="specTitle">Main Achievement:</h2>
-                        <p>Unknown</p>
-                    </div>
-                    <hr>
-                    <div class="spec">
-                        <h2 class="specTitle">Competition Placement:</h2>
-                        <p>93/109</p>
-                    </div>
-                    <hr>
-                </div>
-            </div>
-            <div class="car">
-                <h1 class="carTitle">RRR-2011</h1>
-                <div class="carIMG car2011">
-                    <img src="../static/images/cars/2011.webp" alt="RRR-2011" height="100%" loading="lazy"/>
-                </div>
-                <div class="specs">
-                    <hr>
-                    <div class="spec">
-                        <h2 class="specTitle">Chassis:</h2>
-                        <p>Chromoly 4130 Steel Space-Frame</p>
-                    </div>
-                    <hr>
-                    <div class="spec">
-                        <h2 class="specTitle">Power Unit:</h2>
-                        <p>Honda CBR F4i</p>
-                    </div>
-                    <hr>
-                    <div class="spec">
-                        <h2 class="specTitle">Weight:</h2>
-                        <p>550+ lbs</p>
-                    </div>
-                    <hr>
-                    <div class="spec">
-                        <h2 class="specTitle">Main Achievement:</h2>
-                        <p>Unknown</p>
-                    </div>
-                    <hr>
-                    <div class="spec">
-                        <h2 class="specTitle">Competition Placement:</h2>
-                        <p>98/105</p>
-                    </div>
-                    <hr>
-                </div>
-            </div>
+            {% endfor %}
         </div>
     </div>
 </body>

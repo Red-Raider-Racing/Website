@@ -22,8 +22,8 @@ def load(request):
 @cache_page(CACHE_TIMEOUT)
 @csrf_exempt
 def index(request):
+    merch_items = MerchItem.objects.all()
     if request.method == 'GET':
-        merch_items = MerchItem.objects.all()
         return render(request, "index.html", {"merch": merch_items})
     else:
         # Handle the form data here
@@ -48,13 +48,18 @@ def index(request):
             return redirect(f"/home/?success={success}")
         else:
             sizeItem = request.POST.get('item')
-            size = sizeItem.split('_')[0]
-            item = int(sizeItem.split('_')[1])
-
+            if '_' not in sizeItem:
+                size = None
+                item = sizeItem
+            else:
+                size = sizeItem.split('_')[0]
+                item = sizeItem.split('_')[1]
+            merch_item = merch_items.get(item_name=item)
+            item_num = merch_item.id - 1
             try:
                 # Perform any backend processing (e.g., saving to the database)
-                message, itemFull = merchMessageFormat(name, item, size)
-                emailMessage('Website Merch Manager', email, f'{itemFull} Availability', message)
+                message = merchMessageFormat(name, item, size)
+                emailMessage('Website Merch Manager', email, f'{item} Availability', message)
 
                 # Set success message
                 success = 1
@@ -63,7 +68,7 @@ def index(request):
                 success = 0
 
             # Render the template with the success or error message
-            return redirect(f'/home/?success={success}&item={item}')
+            return redirect(f'/home/?success={success}&item={item_num}')
 
 @cache_page(CACHE_TIMEOUT)
 def team(request):
@@ -78,6 +83,9 @@ def team(request):
 
 @cache_page(CACHE_TIMEOUT)
 def cars(request):
+    car_items = Car.objects.all()
+    if request.method == 'GET':
+        return render(request, "cars.html", {"cars": car_items})
     return render(request, "cars.html",)
 
 @cache_page(CACHE_TIMEOUT)
