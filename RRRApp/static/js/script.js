@@ -189,21 +189,26 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     }
 
-    const merchIMGs = document.querySelectorAll('.item .merchIMG');
+    const merchIMGs = document.querySelectorAll('.item>img');
     merchIMGs.forEach(img  => {
-        const nextElement = img.nextElementSibling;
-        img.addEventListener('mouseenter', () =>{
-            if (nextElement) {
-                img.classList.add('hide');
-                nextElement.classList.add('show');
-            }
-        });
-        img.addEventListener('mouseleave', () =>{
-            if (nextElement) {
-                img.classList.remove('hide');
-                nextElement.classList.remove('show');
-            }
-        });
+        const nextElement = img.previousElementSibling;
+        const buttonDiv = img.nextElementSibling;
+        const buttons = buttonDiv.querySelectorAll('button');
+
+        if(nextElement){
+            buttons[1].addEventListener('click', () =>{
+                nextElement.classList.add('hide');
+                img.classList.add('show');
+                buttons[0].classList.add('show');
+                buttons[1].classList.remove('show');
+            });
+            buttons[0].addEventListener('click', () =>{
+                nextElement.classList.remove('hide');
+                img.classList.remove('show');
+                buttons[0].classList.remove('show');
+                buttons[1].classList.add('show');
+            });
+        }
     });
 
     const logoCon = document.querySelector(".logo");

@@ -1265,16 +1265,42 @@ div#consent-popup a:hover, .acceptA#accept:hover{
     max-width: 400px;
     max-height: 50%;
     height: auto;
+    z-index: 80;
 }
 
 .merchIMG.secondaryIMG,.merchIMG.hide{
     opacity: 0;
     position: absolute;
+    pointer-events: none;
 }
 
 .merchIMG.secondaryIMG.show{
     opacity: 1;
     position: relative;
+}
+
+.merchButtons{
+    display: flex;
+    flex-direction: row;
+    margin-top: 10px;
+}
+
+.prevButton, .nextButton{
+    opacity: 0;
+    position: relative;
+    background-color: var(--secondary-color);
+    color: var(--font-color);
+    border-radius: 50%;
+    display: inline;
+    width: 20px;
+    height: 20px;
+    margin: 0 20px;
+    padding: 0;
+    transition: opacity .2s ease;
+}
+
+.prevButton.show, .nextButton.show{
+    opacity: 1;
 }
 
 .merchText{
@@ -1593,6 +1619,27 @@ div#consent-popup a:hover, .acceptA#accept:hover{
 
     .emailReg .regInputs:focus{
         margin: -4px;
+    }
+}
+
+/* Styles for screens greater than 850px wide */
+@media (min-width: 850px) {
+    .item.zoom .prevButton, .item.zoom .nextButton{
+        width: 40px;
+        height: 40px;
+        font-size: 20px;
+    }
+    
+    .item.zoom .prevButton{
+        position: absolute;
+        left: 15%;
+        top: 20%;
+    }
+    
+    .item.zoom .nextButton{
+        position: absolute;
+        right: 15%;
+        top: 20%;
     }
 }
 
