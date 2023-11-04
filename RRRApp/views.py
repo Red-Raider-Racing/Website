@@ -72,8 +72,8 @@ def index(request):
 
 @cache_page(CACHE_TIMEOUT)
 def team(request):
-    adminMembers = AdminMember.objects.all()
-    technicalMembers = TechincalMember.objects.all()
+    adminMembers = AdminTeamMember.objects.all()
+    technicalMembers = TechincalTeamMember.objects.all()
 
     main_data = {
         "adminMembers":adminMembers,
@@ -84,9 +84,7 @@ def team(request):
 @cache_page(CACHE_TIMEOUT)
 def cars(request):
     car_items = Car.objects.all()
-    if request.method == 'GET':
-        return render(request, "cars.html", {"cars": car_items})
-    return render(request, "cars.html",)
+    return render(request, "cars.html", {"cars": car_items})
 
 @cache_page(CACHE_TIMEOUT)
 def sponsor(request):
@@ -96,7 +94,8 @@ def sponsor(request):
 @csrf_exempt
 def carshow(request):
     if request.method == 'GET':
-        return render(request, "carshow.html",)
+        carShowLoc = CarShowLocation.objects.last()
+        return render(request, "carshow.html", {"location": carShowLoc})
     else:
         # Handle the form data here
         firstName = request.POST.get('first_name')

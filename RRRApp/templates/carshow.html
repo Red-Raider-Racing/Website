@@ -21,10 +21,18 @@
                 <h1>About <br>the Car Show</h1>
                 <hr class="underline">
                 <p>The Red Raider Racing Annual Car Show is a collaborative social event where the Texas Tech and Lubbock communities come together to celebrate and share their enthusiasm for car culture. It is also a wonderful fundraising opportunity that helps us fund the following year’s car and competition. Our car, made possible by our sponsors and Texas Tech University, will be on display, showing the results of our dedication and efforts towards fostering leaders in engineering and business.</p>
+                {% if location.date %}
+                    <h1>{{location.date}}
+                        {% if location.start_time and location.end_time %}
+                            <br>from {{location.start_time}} to {{location.end_time}}
+                        {% endif %}</h1>
+                {% endif %}
             </div>
+            {% if location %}
             <div class="map">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d13309.266909665284!2d-101.8471117!3d33.4931358!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x86fe6e7f789c8511%3A0xbbd67681ff2d290!2sCooks%20Garage!5e0!3m2!1sen!2sus!4v1698369768727!5m2!1sen!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="2023-24 Car Show Location"></iframe>
+                {{location.location|safe}}
             </div>
+            {% endif %}
         </div>
         <div class="carShowReg" id="Register">
             <h1 class="sectionTitle">Register</h1>

@@ -1215,6 +1215,7 @@ div#consent-popup a:hover, .acceptA#accept:hover{
     position: relative; /* Add this line for positioning */
     z-index: 50;
     overflow: visible;
+    height: 400px;
 }
   
 .item::before {
@@ -1232,7 +1233,7 @@ div#consent-popup a:hover, .acceptA#accept:hover{
 
 .item{
     opacity: 0;
-    transition: opacity .5s ease-out, width 1s ease, position .5s ease-out;
+    transition: opacity .5s ease-out, width 1s ease, height 1s ease, position .5s ease-out;
 }
 
 .item a{
@@ -1251,19 +1252,25 @@ div#consent-popup a:hover, .acceptA#accept:hover{
 .item.zoom{
     z-index: 100;
     width: 90vw;
+    height: auto;
+}
+
+.item.zoom img{
+    height: auto;
 }
 
 .item .merchIMG{
     width: 90%;
     border-radius: 20px;
-    background-color: rgb(196, 196, 196);
     margin-top: 10px;
     max-width: 400px;
+    height: auto;
 }
 
 .merchText{
     display: block;
     text-align: center;
+    overflow: visible;
 }
 
 .merchText *{
@@ -1292,6 +1299,8 @@ div#consent-popup a:hover, .acceptA#accept:hover{
     margin-top: min(20px, 20vw);
     font-size: min(8vw, 18px);
     transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+    position: absolute;
+    bottom: 25px;
 }
 
 .buyNow:hover{
@@ -1311,6 +1320,7 @@ div#consent-popup a:hover, .acceptA#accept:hover{
     max-width: 800px;
     width: 100%;
     overflow: hidden;
+    margin-bottom: 80px;
 }
 
 .merchHiddenText a{
@@ -1527,11 +1537,6 @@ div#consent-popup a:hover, .acceptA#accept:hover{
     .item{
         flex-wrap: wrap;
         width: 90vw;
-    }
-
-
-    .pageTitle{
-        transition: padding-top 1s ease-in;
     }
 
     .nameReg{
