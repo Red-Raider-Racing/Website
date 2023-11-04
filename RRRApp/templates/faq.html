@@ -34,13 +34,15 @@
                 <p>After that, pay dues to our <button onclick="window.open('https://www.powr.io/checkout_screen?unique_label=597fd84e_1660084303', 'PopUpWindow', 'width=400,height=650,scrollbars=yes');">Paypal</button>. In a few days, you will be added to our Microsoft Teams where you can see all the inner workings of the team.</p>
             </div>
         </div>
+        {% for question in questions %}
         <hr>
         <div class="question">
-            <h3 class="faq">Where can I attend meetings?</h3>
+            <h3 class="faq">{{question.question}}</h3>
             <div class="answer">
-                <p>Our general meetings are hosted in person in the Mechanical Engineering North Building in room 132 (or else specified) and members will have opportunity to interact with admin and design announcements.<br><br>Apply and become a perspective member on our Tech Connect profile to receive access to these meetings and weekly updates.</p>
+                <p>{{question.answer}}</p>
             </div>
         </div>
+        {% endfor %}
         <hr>
         <div class="question">
             <h3 class="faq">I have no experience, can I still join?</h3>
@@ -67,13 +69,6 @@
             <h3 class="faq" id="fsae-question">What is Formula SAE?</h3>
             <div class="answer" id="fsae-answer">
                 <p>The SAE International Formula program is an engineering design and business evaluation competition for undergraduate and graduate students. The competition provides participants with the opportunity to enhance their engineering design and project management skills by applying learned classroom theories in a challenging competition. The engineering design goal for teams is to develop and construct a single-seat race car for the non-profession weekend autocross racer with the best overall package of design, construction, performance, and cost. To learn more about FSAE, visit the <a href="https://www.fsaeonline.com/page.aspx?pageid=c4c5195a-60c0-46aa-acbf-2958ef545b72" target="_blank">SAE International website</a>.</p>
-            </div>
-        </div>
-        <hr>
-        <div class="question">
-            <h3 class="faq">What is Red Raider Racing's sight at Formula SAE 2023-2024?</h3>
-            <div class="answer">
-                <p>After the difficult COVID-19 pandemic, the team came back to the 2022 Formula SAE competition and received beneficial feedback on some of our design decisions, business, and team structure to apply to future years. This season we will strive to apply as many pointers that the judges gave us for a more performant car and better ranking at the Competition. We will continually work with sponsors this year to receive the most support possible. We have many projects in sight for this year, so if you are interested in joining the team and want to help us improve, please join on Tech Connect or reach out to us.</p>
             </div>
         </div>
         <hr>

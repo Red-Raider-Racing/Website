@@ -123,7 +123,8 @@ def carshow(request):
 
 @cache_page(CACHE_TIMEOUT)
 def faq(request):
-    return render(request, "faq.html",)
+    questions = FAQQuestion.objects.all()
+    return render(request, "faq.html", {"questions": questions})
 
 @cache_page(CACHE_TIMEOUT)
 def privacy(request):

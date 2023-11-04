@@ -52,8 +52,15 @@ class CarShowLocation(models.Model):
     date = models.DateField(help_text="Enter the date the car show will take place.", default=None, null=True, blank=True)
     start_time = models.CharField(max_length=8,help_text="Enter the time the car show will start. Format: TT:TT AM. Ex: 9:00 AM", default=None, null=True, blank=True)
     end_time = models.CharField(max_length=8,help_text="Enter the time the car show will end. Format: TT:TT PM. Ex: 9:00 PM", default=None, null=True, blank=True)
-    location = models.TextField(max_length=2000, help_text='Enter the the location of the car show in the format of an embedded HTML Google Map location. Tutorial on how to do this: <a href="https://support.google.com/maps/answer/144361?hl=en&co=GENIE.Platform%3DDesktop" target="_blank">Google Map</a>.')
+    location = models.TextField(max_length=2000, help_text='Enter the location of the car show in the format of an embedded HTML Google Map location. Tutorial on how to do this: <a href="https://support.google.com/maps/answer/144361?hl=en&co=GENIE.Platform%3DDesktop" target="_blank">Google Map</a>.')
 
     def __str__(self) -> str:
         return str(self.year)
+    
+class FAQQuestion(models.Model):
+    question = models.CharField(max_length=200,help_text="Enter the frequently asked question.")
+    answer = models.TextField(max_length=2000, help_text='Enter the answer to the FAQ.')
+
+    def __str__(self) -> str:
+        return self.question
 
