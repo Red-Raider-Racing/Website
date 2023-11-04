@@ -24,7 +24,7 @@
                 {% if location.date %}
                     <h1>{{location.date}}
                         {% if location.start_time and location.end_time %}
-                            <br>from {{location.start_time}} to {{location.end_time}}
+                            <br>{{location.start_time}} - {{location.end_time}}
                         {% endif %}</h1>
                 {% endif %}
             </div>

@@ -1264,6 +1264,7 @@ div#consent-popup a:hover, .acceptA#accept:hover{
     border-radius: 20px;
     margin-top: 10px;
     max-width: 400px;
+    max-height: 50%;
     height: auto;
 }
 
