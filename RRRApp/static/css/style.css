@@ -497,15 +497,14 @@ footer a{
     z-index: 10; /* Place the pseudo-element behind the item's content */
 }
 
-.memberIMG img{
-    width: 100%;
-    scale: 1.15;
+.memberIMG img {
+    max-width: 100%;
+    height: auto;
+    transform: scale(1.15);
     z-index: 0;
     position: relative;
     border-radius: 50%;
     top: 2px;
-    max-width: 100%;
-    height: auto;
 }
 
 .memberName{
