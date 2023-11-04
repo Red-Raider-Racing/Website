@@ -1267,6 +1267,16 @@ div#consent-popup a:hover, .acceptA#accept:hover{
     height: auto;
 }
 
+.merchIMG.secondaryIMG,.merchIMG.hide{
+    opacity: 0;
+    position: absolute;
+}
+
+.merchIMG.secondaryIMG.show{
+    opacity: 1;
+    position: relative;
+}
+
 .merchText{
     display: block;
     text-align: center;

@@ -189,6 +189,23 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     }
 
+    const merchIMGs = document.querySelectorAll('.item .merchIMG');
+    merchIMGs.forEach(img  => {
+        const nextElement = img.nextElementSibling;
+        img.addEventListener('mouseenter', () =>{
+            if (nextElement) {
+                img.classList.add('hide');
+                nextElement.classList.add('show');
+            }
+        });
+        img.addEventListener('mouseleave', () =>{
+            if (nextElement) {
+                img.classList.remove('hide');
+                nextElement.classList.remove('show');
+            }
+        });
+    });
+
     const logoCon = document.querySelector(".logo");
     logoCon.style.display = "flex";
 });

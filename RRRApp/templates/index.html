@@ -82,7 +82,10 @@
         <div class="items">
             {% for item in merch %}
             <div class="item" aria-label="{{ item.item_name }}">
-                <img src="{{ item.image.url }}" width="100%" height="100%" alt="{{ item.item_name }}" class="merchIMG">
+                <img src="{{ item.image.url }}" width="100%" height="100%" alt="{{ item.item_name }}" class="merchIMG" data-identifier="image">
+                {% if item.secondary_image %}
+                    <img src="{{ item.secondary_image.url }}" width="100%" height="100%" alt="{{ item.item_name }}" class="merchIMG secondaryIMG" data-identifier="secondary-image">
+                {% endif %}
                 <div class="merchText">
                     <p class="merchTitle">{{ item.item_name }}</p>
                     <p class="merchPrice">${{ item.price }}</p>
