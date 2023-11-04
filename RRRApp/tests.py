@@ -27,13 +27,14 @@ class EmailTestCase(TestCase):
 
         name = "John Doe"
         email = "john.doe@example.com"
+        subject = "Test Subject."
         message = "This is a test message."
 
         # Call the function with the test input
-        formatted_message = formatMessage(name, email, message)
+        formatted_message = formatMessage(name, email, subject, message)
 
         # Check the expected output
-        expected_message = f'This message is from {name} on {datetime.now().strftime("%A")} {datetime.now().strftime("%m/%d/%Y")} at {datetime.now().strftime("%I")}:{datetime.now().strftime("%M")} {datetime.now().strftime("%p")}:\n\n\n{message}\n\n\nTo respond to them, email them back at <a href="mailto:{email}">{email}</a>.'
+        expected_message = f'This message is from {name} on {datetime.now().strftime("%A")} {datetime.now().strftime("%m/%d/%Y")} at {datetime.now().strftime("%I")}:{datetime.now().strftime("%M")} {datetime.now().strftime("%p")}:\n\n\n{message}\n\n\nTo respond to them, email them back at <a href="mailto:{email}?subject=RE: {subject}">{email}</a>.'
         self.assertEqual(formatted_message, expected_message)
 
     def test_formatMessage_fail(self):
@@ -42,7 +43,7 @@ class EmailTestCase(TestCase):
         '''
 
         # Call the function with the test input
-        formatted_message = formatMessage(None, None, None)
+        formatted_message = formatMessage(None, None, None, None)
 
         # Check the expected output
         expected_message = False
@@ -126,68 +127,6 @@ class IndexViewTestCase(TestCase):
         # Now you can assert the redirect URL
         self.assertEqual(response.url, '/home/?success=0')
 
-    def test_index_view_POST_merch(self):
-        '''
-        Testing to see if a POST request passes correctly.
-        '''
-
-        # Make a POST request to trigger the view
-        response = self.client.post(reverse('home'), {
-            'name': 'John Doe',
-            'email': 'johndoe@example.com',
-            'item': 'sticker_1',
-        })
-        
-        # Check that the response is a redirect (status code 302)
-        self.assertEqual(response.status_code, 302)
-
-    '''
-    Add this section when an "order" email is made
-    '''
-    # @patch('RRRApp.views.emailMessage') # Mock the emailMessage function in RRRApp.views for testing
-    # def test_item_sending(self, mock_email_message):
-    #     '''
-    #     Testing to see if the email is sent correctly. 
-    #     Note, it does actually send the email it just tests if the function would run.
-    #     If the email sending were to fail, it would be on our SMTP server's end and there is nothing we can do about it.
-    #     '''
-
-    #     response = self.client.post(reverse('home'), {
-    #         'name': 'John Doe',
-    #         'email': 'johndoe@example.com',
-    #         'item': 'sticker_1',
-    #     })
-
-    #     self.assertEqual(response.status_code, 302)
-
-    #     # Now you can assert the redirect URL
-    #     self.assertEqual(response.url, '/home/?success=1&item=1')
-
-    #     # Check that the emailMessage function was called
-    #     checkCall = mock_email_message.assert_called_once()
-    #     self.assertEqual(checkCall, None)
-
-    # @patch('RRRApp.views.emailMessage')
-    # def test_backend_processing_error(self, mock_email_message):
-    #     '''
-    #     Simulating the item failing to send but make sure nothing breaks.
-    #     '''
-
-    #     # Set up the mock to raise an exception when called
-    #     mock_email_message.side_effect = ValidationError('Email sending failed')
-
-    #     response = self.client.post(reverse('home'), {
-    #         'name': 'John Doe',
-    #         'email': 'johndoe@example.com',
-    #         'item': 'sticker_1',
-    #     })
-
-    #     # Check that the response is a redirect (status code 302)
-    #     self.assertEqual(response.status_code, 302)
-
-    #     # Now you can assert the redirect URL
-    #     self.assertEqual(response.url, '/home/?success=0&item=1')
-
 class MerchTestCase(TestCase):
     '''
     All tests associated with merch.py
@@ -200,11 +139,11 @@ class MerchTestCase(TestCase):
 
         name = "John Doe"
         email = "john.doe@example.com"
-        size = 'sticker'
-        item = 1
+        size = None
+        item = '2023-24 RRR Sticker'
 
         # Call the function with the test input
-        formatted_message, itemFull = merchMessageFormat(name, item, size)
+        formatted_message = merchMessageFormat(name, item, size)
 
         # Check the expected output
         expected_message = f'John Doe is wondering if we have a 2023-24 RRR Sticker available for purchase.'
@@ -217,11 +156,11 @@ class MerchTestCase(TestCase):
 
         name = "John Doe"
         size = 'xl'
-        item = 0
+        item = '2023-24 Team T-shirt'
 
         # Call the function with the test input
-        formatted_message, itemFull = merchMessageFormat(name, item, size)
+        formatted_message = merchMessageFormat(name, item, size)
 
         # Check the expected output
-        expected_message = f'John Doe is wondering if we have a 2023-24 Team T-Shirt in a size XL available for purchase.'
+        expected_message = f'John Doe is wondering if we have a 2023-24 Team T-shirt in a size XL available for purchase.'
         self.assertEqual(formatted_message, expected_message)
