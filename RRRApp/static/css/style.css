@@ -1215,6 +1215,7 @@ div#consent-popup a:hover, .acceptA#accept:hover{
     z-index: 50;
     overflow: visible;
     height: 400px;
+    width: min(200px, 95vw);
 }
   
 .item::before {
@@ -1578,7 +1579,6 @@ div#consent-popup a:hover, .acceptA#accept:hover{
 
     .item{
         flex-wrap: wrap;
-        width: 90vw;
     }
 
     .nameReg{
@@ -1616,7 +1616,6 @@ div#consent-popup a:hover, .acceptA#accept:hover{
 
     .item{
         flex-wrap: nowrap;
-        width: 200px;
     }
 
     .emailReg{
