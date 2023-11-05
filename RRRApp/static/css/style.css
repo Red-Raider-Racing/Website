@@ -1419,6 +1419,12 @@ div#consent-popup a:hover, .acceptA#accept:hover{
     font-size: max(12px, min(7vw, 36px));
 }
 
+.aboutCarShow h2{
+    margin: 40px 0px;
+    font-size: max(12px, min(7vw, 20px));
+    color: var(--secondary-color);
+}
+
 .aboutCarShow p{
     font-family: var(--font);
 }

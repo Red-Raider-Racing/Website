@@ -3,8 +3,8 @@ from django.core.validators import MaxValueValidator, MinValueValidator
 
 # Create your models here.
 class MerchItem(models.Model):
-    image = models.FileField(upload_to='merchItems/', help_text="Upload the image of the merch item. Preferably a .png file with no background.")
-    secondary_image = models.FileField(upload_to='merchItems/', help_text="Upload the secondary image of the merch item. This could be the back of the shirt. Preferably a .png file with no background. (Optional)", blank=True, null=True)
+    image = models.ImageField(upload_to='merchItems/', help_text="Upload the image of the merch item. Preferably a .png file with no background.")
+    secondary_image = models.ImageField(upload_to='merchItems/', help_text="Upload the secondary image of the merch item. This could be the back of the shirt. Preferably a .png file with no background. (Optional)", blank=True, null=True)
     item_name = models.CharField(max_length=200, help_text="Enter the item's name. Do not include an underscore ('_') in the name.")
     price = models.DecimalField(
             max_digits=6, decimal_places=2,
@@ -17,7 +17,7 @@ class MerchItem(models.Model):
         return self.item_name
 
 class AdminTeamMember(models.Model):
-    headshot = models.FileField(upload_to='adminMembers/', help_text="Upload a headshot image of the member in a 1x1 format.")
+    headshot = models.ImageField(upload_to='adminMembers/', help_text="Upload a headshot image of the member in a 1x1 format.")
     member_name = models.CharField(max_length=200, help_text="Enter the member's name.")
     title = models.CharField(max_length=200, help_text="Enter the member's title.")
     school_email = models.EmailField(max_length=200, help_text="Enter the member's school email address. Ex: raiderred@ttu.edu.")
@@ -27,7 +27,7 @@ class AdminTeamMember(models.Model):
         return self.member_name
     
 class TechincalTeamMember(models.Model):
-    headshot = models.FileField(upload_to='technicalMembers/', help_text="Upload a headshot image of the member in a 1x1 format." )
+    headshot = models.ImageField(upload_to='technicalMembers/', help_text="Upload a headshot image of the member in a 1x1 format." )
     member_name = models.CharField(max_length=200, help_text="Enter the member's name.")
     title = models.CharField(max_length=200, help_text="Enter the member's title.")
     school_email = models.EmailField(max_length=200, help_text="Enter the member's school email address. Ex: raiderred@ttu.edu.")
@@ -38,7 +38,7 @@ class TechincalTeamMember(models.Model):
 
 class Car(models.Model):
     car_name = models.CharField(max_length=50, help_text="Enter the name of the car in the format: RRR-YYYY. Ex: RRR-2023.")
-    image = models.FileField(upload_to='cars/', help_text="Upload an image of the car.")
+    image = models.ImageField(upload_to='cars/', help_text="Upload an image of the car.")
     chassis = models.CharField(max_length=200, help_text="Enter the chassis details of the car. (Optional)", blank=True, null=True)
     power_unit = models.CharField(max_length=200, help_text="Enter the power unit details of the car. (Optional)", blank=True, null=True)
     weight = models.IntegerField(help_text="Enter the weight of the car. (Optional)",blank=True,null=True)

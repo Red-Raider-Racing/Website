@@ -22,10 +22,10 @@
                 <hr class="underline">
                 <p>The Red Raider Racing Annual Car Show is a collaborative social event where the Texas Tech and Lubbock communities come together to celebrate and share their enthusiasm for car culture. It is also a wonderful fundraising opportunity that helps us fund the following year’s car and competition. Our car, made possible by our sponsors and Texas Tech University, will be on display, showing the results of our dedication and efforts towards fostering leaders in engineering and business.</p>
                 {% if location.date %}
-                    <h1>{{location.date}}
+                    <h2>{{location.date}}
                         {% if location.start_time and location.end_time %}
                             <br>{{location.start_time}} - {{location.end_time}}
-                        {% endif %}</h1>
+                        {% endif %}</h2>
                 {% endif %}
             </div>
             {% if location %}

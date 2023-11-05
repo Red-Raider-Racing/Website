@@ -83,7 +83,7 @@ def team(request):
 
 @cache_page(CACHE_TIMEOUT)
 def cars(request):
-    car_items = Car.objects.all()
+    car_items = Car.objects.all().order_by('-id')
     return render(request, "cars.html", {"cars": car_items})
 
 @cache_page(CACHE_TIMEOUT)
