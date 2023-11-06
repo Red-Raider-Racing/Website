@@ -1456,6 +1456,10 @@ div#consent-popup a:hover, .acceptA#accept:hover{
     font-family: var(--font);
 }
 
+.aboutCarShow p~h2{
+    margin-bottom: 0;
+}
+
 .map{
     position: relative; /* Add this line for positioning */
     overflow: visible;
@@ -1562,6 +1566,8 @@ div#consent-popup a:hover, .acceptA#accept:hover{
     align-items: center;
     flex-wrap: wrap;
     flex-direction: column;
+    width: 100%;
+    overflow: hidden;
 }
 
 .radioSection{

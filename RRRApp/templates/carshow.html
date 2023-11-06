@@ -21,6 +21,7 @@
                 <h1>About <br>the Car Show</h1>
                 <hr class="underline">
                 <p>The Red Raider Racing Annual Car Show is a collaborative social event where the Texas Tech and Lubbock communities come together to celebrate and share their enthusiasm for car culture. It is also a wonderful fundraising opportunity that helps us fund the following year’s car and competition. Our car, made possible by our sponsors and Texas Tech University, will be on display, showing the results of our dedication and efforts towards fostering leaders in engineering and business.</p>
+                <h2>{{location.location_name}}</h2><br>
                 {% if location.date %}
                     <h2>{{location.date}}
                         {% if location.start_time and location.end_time %}
@@ -30,7 +31,7 @@
             </div>
             {% if location %}
             <div class="map">
-                {{location.location|safe}}
+                {{location.location_HTML|safe}}
             </div>
             {% endif %}
         </div>
@@ -38,7 +39,7 @@
             <h1 class="sectionTitle">Register</h1>
             <hr class="underline">
     
-            <form action="{% url 'carshow' %}" method="post" onsubmit="showLoading()" autocomplete="on">
+            <form action="{% url 'carshow' %}" method="post" onsubmit="showLoading(this)" autocomplete="on">
                 {% csrf_token %} 
                 <div class="formCon">
                     <div class="nameReg">
@@ -99,7 +100,7 @@
                                     <h4>Uh-oh! We hit a speed bump. Try again later.</h4>
                                 </div>
                             </div>                
-                            <div id="loading">
+                            <div id="loading" class="merchLoader">
                                 <img src="../static/loaders/wheel.webp" alt="Loading" class="loader"/>
                             </div>   
                         </div>

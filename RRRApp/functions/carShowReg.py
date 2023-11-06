@@ -23,5 +23,6 @@ def insertRow(firstName, lastName, email, section):
     '''
     Function to insert details into the Google Sheet.
     '''
-    row = [firstName,lastName, email, section] # Row to be inserted
-    sheet.insert_row(row,0) # Puts the row at index 0
+    print(f'row: {firstName} | {lastName} | {email} | {section}')
+    # row = [firstName,lastName, email, section] # Row to be inserted
+    # sheet.insert_row(row,0) # Puts the row at index 0

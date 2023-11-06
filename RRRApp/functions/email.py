@@ -6,20 +6,19 @@ date: 9/9/23
 from django.core.mail import send_mail
 from datetime import datetime
 
-def emailMessage(name, email, subject, message):
+def emailMessage(subject, message, fromEmail, toEmail):
     '''
     Used to take the inputs and send an email to our email.
         - currently using 'redraiderracingcode@outlook.com' for testing.\n
     Returns None.
     '''
-    message = formatMessage(name,email,subject,message)
     if message:
         send_mail(
             subject,
             message,
-            'redraiderracing@website.admin', # Send email from
-            ['redraiderracingcode@outlook.com'], # Send email to
-            fail_silently=False, # We don't want it to fail silently that way it raises an error
+            fromEmail, # Send email from
+            [toEmail], # Send email to
+            # fail_silently=False, # We don't want it to fail silently that way it raises an error
         )
     else:
         raise Exception
@@ -50,3 +49,17 @@ def emailDate(email, subject):
 
     email_link = f'<a href="mailto:{email}?subject=RE: {subject}">{email}</a>' # Makes a clickable link in the email
     return day_of_week, date, email_link
+    
+def carShowEmailFormat(firstName, lastName, email, section, carShowLoc, mainEmail):
+    print(carShowLoc.year)
+    if firstName and lastName and email and section:
+        message = (
+            f'{firstName},\n'
+            f'<strong>Thank you for registering for the {carShowLoc.year} Red Raider Racing Car Show!</strong>\n\n'
+            f'The car show will take place at <strong>{carShowLoc.location_name}</strong> on <strong>{carShowLoc.date}</strong>.'
+            f'<strong>You must pay to enter the car show</strong>. You can pay now for a discounted price, or you can pay at the gate.\n\n'
+            f'<a href="{carShowLoc.email_preregister_payment_link}"><strong>Preregister link</strong></a>\n\n'
+            f'Currently you are registered under "{firstName} {lastName}" for the {section} section.'
+            f' If anything looks wrong or you are having trouble paying, please <a href="mailto:{email}">Contact Us</a> and we can happily assist you!'
+        )
+        return message

@@ -1,11 +1,13 @@
 from django.shortcuts import render, redirect
-from .functions.email import emailMessage
+from .functions.email import emailMessage, formatMessage, carShowEmailFormat
 from .functions.merch import merchMessageFormat
 from .functions.carShowReg import insertRow
 from django.views.decorators.csrf import csrf_exempt
 from django.views.decorators.cache import cache_page
 from RRRWebsite.settings import CACHE_TIMEOUT
 from .models import *
+
+mainEmail = 'redraiderracingcode@outlook.com' # change this to our email when ready
 
 TEMPLATE_DIRS = (
     'os.path.join(BASE_DIR, "templates"),'
@@ -36,7 +38,8 @@ def index(request):
 
             try:
                 # Perform any backend processing (e.g., saving to the database)
-                emailMessage(name, email, subject, message)
+                message = formatMessage(name,email,subject,message)
+                emailMessage(subject, message, 'redraiderracing@website.admin', mainEmail)
 
                 # Set success message
                 success = 1
@@ -59,7 +62,8 @@ def index(request):
             try:
                 # Perform any backend processing (e.g., saving to the database)
                 message = merchMessageFormat(name, item, size)
-                emailMessage('Website Merch Manager', email, f'{item} Availability', message)
+                message = formatMessage('Website Merch Manager', email, subject, message)
+                emailMessage(f'{item} Availability', message, 'redraiderracing@website.admin', mainEmail)
 
                 # Set success message
                 success = 1
@@ -93,8 +97,8 @@ def sponsor(request):
 @cache_page(CACHE_TIMEOUT)
 @csrf_exempt
 def carshow(request):
+    carShowLoc = CarShow.objects.last()
     if request.method == 'GET':
-        carShowLoc = CarShowLocation.objects.last()
         return render(request, "carshow.html", {"location": carShowLoc})
     else:
         # Handle the form data here
@@ -103,14 +107,11 @@ def carshow(request):
         email = request.POST.get('email')
         section = request.POST.get('car_type')
 
-        print(f"{firstName =}")
-        print(f"{lastName =}")
-        print(f"{email =}")
-        print(f"{section =}")
-
         try:
             # Perform any backend processing (e.g., saving to the database)
             insertRow(firstName, lastName, email, section)
+            message = carShowEmailFormat(firstName, lastName, email, section, carShowLoc, mainEmail)
+            emailMessage(f"{carShowLoc.year} Red Raider Racing Car Show Registration", message, mainEmail, email)
 
             # Set success message
             success = 1
