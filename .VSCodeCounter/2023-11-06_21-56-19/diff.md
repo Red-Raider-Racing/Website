@@ -1,8 +1,8 @@
 # Diff Summary
 
-Date : 2023-11-06 17:05:07
+Date : 2023-11-06 21:56:19
 
-Directory c:\\Users\\carso\\GitHub\\Website\\RRRWebsite
+Directory c:\\Users\\carso\\Github\\Red Raider Racing\\Website\\RRRApp
 
 Total : 0 files,  0 codes, 0 comments, 0 blanks, all 0 lines
 
