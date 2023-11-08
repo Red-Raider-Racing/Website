@@ -7,7 +7,7 @@ from django.views.decorators.cache import cache_page
 from RRRWebsite.settings import CACHE_TIMEOUT
 from .models import *
 
-mainEmail = 'redraiderracingcode@outlook.com' # change this to our email when ready
+mainEmail = 'redraiderracingcode@outlook.com' # When testing
 
 TEMPLATE_DIRS = (
     'os.path.join(BASE_DIR, "templates"),'
