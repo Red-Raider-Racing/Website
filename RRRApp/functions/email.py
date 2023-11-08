@@ -57,32 +57,22 @@ def carShowEmailFormat(firstName, lastName, email, section, carShowLoc, mainEmai
     message = f'''
         <!DOCTYPE html>
         <html>
-        <head>
-        </head>
-        <body>
-            <table class="container" width="100%" border="0" cellspacing="0" cellpadding="20" align="center" style="max-width: 1200px; margin: 0 auto; padding: 20px; background-color: #f4f4f4; font-family: Arial, sans-serif;  width: 100%;">
-                <tr>
-                    <td class="header" style="text-align: center; margin: 0 auto; display: block; width: 100%;">
-                        <h1 style="color: #333; font-size: 24px;">Thank you for registering for the {carShowLoc.year} Red Raider Racing Car Show!</h1>
-                        <h2 style="color: #333; font-size: 20px; text-align: center; max-width: 600px; margin: 0 auto;">{formatted_date}</h2>
-                    </td>
-                </tr>
-                <tr>
-                    <td style="margin: 0 auto; display: block; width: 100%;">
-                        <p style="color: #555; font-size: 16px; max-width: 600px; margin: 0 auto;">You are currently registered under <strong>{firstName.capitalize()} {lastName.capitalize()}</strong> for the <strong>{section.capitalize()}</strong> section.</p>
-                        <p style="color: #555; font-size: 16px; max-width: 600px; margin: 0 auto;">You must pay to enter the car show. Pay now for a discounted price, or you can pay at the entrance.</p>
-                        <a href="{carShowLoc.email_preregister_payment_link}" style="display: block; background-color: #b70102; color: #fff; padding: 10px 20px; text-align: center; margin: 20px auto; border-radius: 5px; text-decoration: none; max-width: 600px;">
-                            <h2 class="payNow" style="color: #ffffff; margin: 10px auto;">Pay Now</h2>
-                        </a>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="footer" style="background-color: #ddd; padding: 20px; text-align: center; margin: 0 auto; display: block; width: 100%;">
-                        <h2 style="color: #333; font-size: 20px;">Red Raider Racing</h2>
-                        <p style="color: #555; font-size: 16px;">If anything looks wrong or you are having trouble paying, please <a href="mailto:{mainEmail}" style="text-decoration: none; color: #b70102;">Contact Us</a> and we can happily assist you!</p>
-                    </td>
-                </tr>
-            </table>
+        <body style="max-width: 1200px; margin: 0 auto; padding: 20px; background-color: #f4f4f4; font-family: Arial, sans-serif;  width: 100%;">
+            <span class="header" style="text-align: center; margin: 0 auto; display: block; width: 100%;">
+                <h1 style="color: #333; font-size: 24px;">Thank you for registering for the {carShowLoc.year} Red Raider Racing Car Show!</h1>
+                <h2 style="color: #333; font-size: 20px; text-align: center; max-width: 600px; margin: 0 auto;">{formatted_date}</h2>
+            </span>
+            <span style="margin: 0 auto; display: block; width: 100%;">
+                <p style="color: #555; font-size: 16px; max-width: 600px; margin: 0 auto;">You are currently registered under <strong>{firstName.capitalize()} {lastName.capitalize()}</strong> for the <strong>{section.capitalize()}</strong> section.</p>
+                <p style="color: #555; font-size: 16px; max-width: 600px; margin: 0 auto;">You must pay to enter the car show. Pay now for a discounted price, or you can pay at the entrance.</p>
+                <a href="{carShowLoc.email_preregister_payment_link}" style="display: block; background-color: #b70102; color: #fff; padding: 10px 20px; text-align: center; margin: 20px auto; border-radius: 5px; text-decoration: none; max-width: 600px;">
+                    <h2 class="payNow" style="color: #ffffff; margin: 10px auto;">Pay Now</h2>
+                </a>
+            </span>
+            <span class="footer" style="background-color: #ddd; text-align: center; margin: 0 auto; display: block; width: 100%;">
+                <h2 style="color: #333; font-size: 20px;">Red Raider Racing</h2>
+                <p style="color: #555; font-size: 16px;">If anything looks wrong or you are having trouble paying, please <a href="mailto:{mainEmail}" style="text-decoration: none; color: #b70102;">Contact Us</a> and we can happily assist you!</p>
+            </span>
         </body>
         </html>
         '''
