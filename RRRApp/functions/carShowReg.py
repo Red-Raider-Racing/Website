@@ -36,5 +36,3 @@ def insertRow(firstName, lastName, email, section):
     else:
         print(f"Request failed with status code {response.status_code}")
         raise Exception
-    # row = [firstName,lastName, email, section] # Row to be inserted
-    # sheet.insert_row(row,0) # Puts the row at index 0
