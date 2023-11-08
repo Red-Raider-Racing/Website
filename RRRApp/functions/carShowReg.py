@@ -2,27 +2,39 @@
 author: Carson Spaniel
 date: 10/27/23
 '''
-import gspread
-from oauth2client.service_account import ServiceAccountCredentials
+import requests
+import json
 
-#Authorize the API
-scope = [
-    'https://www.googleapis.com/auth/drive',
-    'https://www.googleapis.com/auth/drive.file'
-    ]
-file_name = 'client_key.json'
-# creds = ServiceAccountCredentials.from_json_keyfile_name(file_name,scope)
-# client = gspread.authorize(creds)
+url = 'https://sheetdb.io/api/v1/p6no685tantkk'
 
-#Fetch the sheet
-# sheet = client.open('Car Show Registration').sheet1
-sheet = None
+headers = {
+    'Accept': 'application/json',
+    'Content-Type': 'application/json'
+}
 
 #Insert Row
 def insertRow(firstName, lastName, email, section):
     '''
     Function to insert details into the Google Sheet.
     '''
-    print(f'row: {firstName} | {lastName} | {email} | {section}')
+    data = {
+        'data': [
+            {
+                'First Name': firstName.capitalize(),
+                'Last Name': lastName.capitalize(),
+                'Email': email,
+                'Section': section.capitalize(),
+            }
+        ]
+    }
+
+    response = requests.post(url, data=json.dumps(data), headers=headers)
+
+    if response.status_code == 201:
+        response_data = response.json()
+        print(response_data)
+    else:
+        print(f"Request failed with status code {response.status_code}")
+        raise Exception
     # row = [firstName,lastName, email, section] # Row to be inserted
     # sheet.insert_row(row,0) # Puts the row at index 0
