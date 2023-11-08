@@ -60,7 +60,7 @@ def carShowEmailFormat(firstName, lastName, email, section, carShowLoc, mainEmai
         <body style="max-width: 1200px; margin: 0 auto; padding: 20px; background-color: #f4f4f4; font-family: Arial, sans-serif;  width: 100%;">
             <span class="header" style="text-align: center; margin: 0 auto; display: block; width: 100%;">
                 <h1 style="color: #333; font-size: 24px;">Thank you for registering for the {carShowLoc.year} Red Raider Racing Car Show!</h1>
-                <h2 style="color: #333; font-size: 20px; text-align: center; max-width: 600px; margin: 0 auto;">{formatted_date}</h2>
+                <h2 style="color: #333; font-size: 20px; text-align: center; max-width: 600px; margin: 0 auto;">{formatted_date} at {carShowLoc.location_name}</h2>
             </span>
             <span style="margin: 0 auto; display: block; width: 100%;">
                 <p style="color: #555; font-size: 16px; max-width: 600px; margin: 0 auto;">You are currently registered under <strong>{firstName.capitalize()} {lastName.capitalize()}</strong> for the <strong>{section.capitalize()}</strong> section.</p>
