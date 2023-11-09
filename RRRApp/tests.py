@@ -34,7 +34,7 @@ class EmailTestCase(TestCase):
         formatted_message = formatMessage(name, email, subject, message)
 
         # Check the expected output
-        expected_message = f'This message is from {name} on {datetime.now().strftime("%A")} {datetime.now().strftime("%m/%d/%Y")} at {datetime.now().strftime("%I")}:{datetime.now().strftime("%M")} {datetime.now().strftime("%p")}:\n\n\n{message}\n\n\nTo respond to them, email them back at <a href="mailto:{email}?subject=RE: {subject}">{email}</a>.'
+        expected_message = f'This message is from {name} on {datetime.now().strftime("%A")}, {datetime.now().strftime("%m/%d/%Y")} at {datetime.now().strftime("%I")}:{datetime.now().strftime("%M")} {datetime.now().strftime("%p")}:\n\n\n{message}\n\n\nTo respond to them, email them back at <a href="mailto:{email}?subject=RE: {subject}">{email}</a>.'
         self.assertEqual(formatted_message, expected_message)
 
     def test_formatMessage_fail(self):
