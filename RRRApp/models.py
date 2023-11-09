@@ -21,7 +21,7 @@ class AdminTeamMember(models.Model):
     member_name = models.CharField(max_length=200, help_text="Enter the member's name.")
     title = models.CharField(max_length=200, help_text="Enter the member's title.")
     school_email = models.EmailField(max_length=200, help_text="Enter the member's school email address. Ex: raiderred@ttu.edu.")
-    linkedIn = models.URLField(max_length=200, help_text="Enter the member's LinkedIn profile URL. (Optional)", blank=True, null=True)
+    linkedIn = models.URLField(max_length=500, help_text="Enter the member's LinkedIn profile URL. (Optional)", blank=True, null=True)
 
     def __str__(self) -> str:
         return self.member_name
@@ -31,7 +31,7 @@ class TechincalTeamMember(models.Model):
     member_name = models.CharField(max_length=200, help_text="Enter the member's name.")
     title = models.CharField(max_length=200, help_text="Enter the member's title.")
     school_email = models.EmailField(max_length=200, help_text="Enter the member's school email address. Ex: raiderred@ttu.edu.")
-    linkedIn = models.URLField(max_length=200, help_text="Enter the member's LinkedIn profile URL. (Optional)", blank=True, null=True)
+    linkedIn = models.URLField(max_length=500, help_text="Enter the member's LinkedIn profile URL. (Optional)", blank=True, null=True)
 
     def __str__(self) -> str:
         return self.member_name
@@ -56,6 +56,16 @@ class CarShow(models.Model):
     location_name = models.CharField(max_length=200, help_text='Enter the name of the location. This will be used when sending emails to people who register. Ex: Commuter North Parking Lot.', default='Unknown')
     location_HTML = models.TextField(max_length=2000, help_text='Enter the location of the car show in the format of an embedded HTML Google Map location. Tutorial on how to do this: <a href="https://support.google.com/maps/answer/144361?hl=en&co=GENIE.Platform%3DDesktop" target="_blank">Google Map</a>.')
     email_preregister_payment_link = models.URLField(max_length=500, help_text='Enter the url to that will direct the user to the preregister payment.', default=None)
+    preregister_cost = models.DecimalField(
+            max_digits=5, decimal_places=2,
+            validators=[MinValueValidator(0.00), MaxValueValidator(999.99)],
+            help_text="Enter the cost of registering a car early.", default=None
+        )  # Maximum cost set to 999 with 2 decimal places
+    register_cost = models.DecimalField(
+            max_digits=5, decimal_places=2,
+            validators=[MinValueValidator(0.00), MaxValueValidator(999.99)],
+            help_text="Enter the cost of registering a car at the entrance.", default=None
+        )  # Maximum cost set to 999 with 2 decimal places
 
     def __str__(self) -> str:
         return str(self.year)

@@ -1496,6 +1496,10 @@ div#consent-popup a:hover, .acceptA#accept:hover{
     overflow: visible;
 }
 
+.carShowReg h1~p{
+    font-family: var(--font);
+}
+
 .nameReg{
     width: 100%;
     display: flex;

@@ -38,6 +38,7 @@
         <div class="carShowReg" id="Register">
             <h1 class="sectionTitle">Register</h1>
             <hr class="underline">
+            <p>Register your car here. After you register you will recieve an email with a link to pay. Paying early gives you a discounted price. Paying at the entrance costs ${{location.register_cost}}, where as paying early only costs ${{location.preregister_cost}}.</p>
     
             <form action="{% url 'carshow' %}" method="post" onsubmit="showLoading(this)" autocomplete="on">
                 {% csrf_token %} 
