@@ -172,8 +172,8 @@ EMAIL_HOST_USER = 'redraiderracingcode@outlook.com'  # Your email address
 if DEBUG:
     from .secrets.secret import EMAIL_HOST_PASSWORD
 else:
-    # EMAIL_HOST_PASSWORD = os.environ["EMAIL_HOST_PASSWORD"]
-    from .secrets.secret import EMAIL_HOST_PASSWORD
+    EMAIL_HOST_PASSWORD = os.environ["EMAIL_HOST_PASSWORD"]
+    # from .secrets.secret import EMAIL_HOST_PASSWORD
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
