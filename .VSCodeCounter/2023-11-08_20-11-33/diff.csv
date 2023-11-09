@@ -1,0 +1,12 @@
+"filename", "language", "Python", "HTML", "CSS", "comment", "blank", "total"
+"c:\Users\carso\Github\Red Raider Racing\Website\RRRApp\admin.py", "Python", 1, 0, 0, 0, 0, 1
+"c:\Users\carso\Github\Red Raider Racing\Website\RRRApp\functions\carShowReg.py", "Python", 13, 0, 0, -8, 2, 7
+"c:\Users\carso\Github\Red Raider Racing\Website\RRRApp\functions\email.py", "Python", 14, 0, 0, 1, 2, 17
+"c:\Users\carso\Github\Red Raider Racing\Website\RRRApp\migrations\0032_carshowattendee.py", "Python", 18, 0, 0, 1, 6, 25
+"c:\Users\carso\Github\Red Raider Racing\Website\RRRApp\migrations\0033_alter_carshowattendee_paid.py", "Python", 12, 0, 0, 1, 6, 19
+"c:\Users\carso\Github\Red Raider Racing\Website\RRRApp\models.py", "Python", 8, 0, 0, 0, 3, 11
+"c:\Users\carso\Github\Red Raider Racing\Website\RRRApp\static\css\style.css", "CSS", 0, 0, 3, 0, 1, 4
+"c:\Users\carso\Github\Red Raider Racing\Website\RRRApp\templates\carshow.html", "HTML", 0, 1, 0, 0, 0, 1
+"c:\Users\carso\Github\Red Raider Racing\Website\RRRApp\templates\carshowemail.html", "HTML", 0, 20, 0, 0, 0, 20
+"c:\Users\carso\Github\Red Raider Racing\Website\RRRApp\views.py", "Python", 3, 0, 0, 0, 0, 3
+"Total", "-", 69, 21, 3, -5, 20, 108
