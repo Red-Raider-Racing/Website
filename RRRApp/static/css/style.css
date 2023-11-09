@@ -1464,6 +1464,21 @@ div#consent-popup a:hover, .acceptA#accept:hover{
     margin-bottom: 0;
 }
 
+.aboutCarShow svg{
+    width: 40px;
+    margin: 0px 30px;
+}
+
+.aboutCarShow svg path{
+    fill: var(--secondary-color);
+}
+
+.carShowLoc, .carShowDate{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .map{
     position: relative; /* Add this line for positioning */
     overflow: visible;
@@ -1494,6 +1509,8 @@ div#consent-popup a:hover, .acceptA#accept:hover{
     text-align: center;
     margin-top: 50px;
     overflow: visible;
+    padding: 20px;
+    padding-top: 0;
 }
 
 .carShowReg h1~p{

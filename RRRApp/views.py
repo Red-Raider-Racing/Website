@@ -92,7 +92,8 @@ def cars(request):
 
 @cache_page(CACHE_TIMEOUT)
 def sponsor(request):
-    return render(request, "sponsor.html",)
+    sponsors = Sponsor.objects.all().order_by('sponsor_name')
+    return render(request, "sponsor.html", {"sponsors": sponsors})
 
 @cache_page(CACHE_TIMEOUT)
 @csrf_exempt

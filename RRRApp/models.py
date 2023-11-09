@@ -87,4 +87,10 @@ class CarShowAttendee(models.Model):
     def __str__(self) -> str:
         return self.first_name +' '+ self.last_name
 
+class Sponsor(models.Model):
+    sponsor_name = models.CharField(max_length=200,help_text="Enter the sponsor's name.")
+    sponsor_logo = models.ImageField(upload_to='sponsors/', help_text="Upload an image of the sponsors logo. Make sure the background is either transparent or white. ")
+    sponsor_link = models.URLField(max_length=500, help_text="Enter the URL to the sponsor's website. This is so that people can easily click on the image and go straight to the sponsor's page. (Optional only if they do not have one)", blank=True, null=True)
 
+    def __str__(self) -> str:
+        return self.sponsor_name
