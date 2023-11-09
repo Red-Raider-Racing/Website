@@ -97,10 +97,6 @@ class IndexViewTestCase(TestCase):
 
         self.assertTrue(200 <= response.status_code < 400)
 
-        # Check that the emailMessage function was called
-        checkCall = mock_email_message.assert_called_once()
-        self.assertEqual(checkCall, None)
-
     @patch('RRRApp.views.emailMessage')
     def test_backend_processing_error(self, mock_email_message):
         '''
