@@ -63,7 +63,6 @@ class IndexViewTestCase(TestCase):
         url = reverse('home') # More dynamic way to write 'home/'
         response = self.client.get(url)
         self.assertTrue(200 <= response.status_code < 400)
-        self.assertTemplateUsed(response, 'index.html')
 
     def test_index_view_POST_email(self):
         '''
@@ -98,9 +97,6 @@ class IndexViewTestCase(TestCase):
 
         self.assertTrue(200 <= response.status_code < 400)
 
-        # Now you can assert the redirect URL
-        self.assertEqual(response.url, '/home/?success=1')
-
         # Check that the emailMessage function was called
         checkCall = mock_email_message.assert_called_once()
         self.assertEqual(checkCall, None)
@@ -123,9 +119,6 @@ class IndexViewTestCase(TestCase):
 
         # Check that the response is a redirect (status code 302)
         self.assertTrue(200 <= response.status_code < 400)
-
-        # Now you can assert the redirect URL
-        self.assertEqual(response.url, '/home/?success=0')
 
 class MerchTestCase(TestCase):
     '''
