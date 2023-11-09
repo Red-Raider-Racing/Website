@@ -902,6 +902,10 @@ textarea.inputs {
     font-size: max(12px, min(4vw, 16px));
 }
 
+.message a{
+    color: var(--secondary-color);
+}
+
 @keyframes traverse {
     0% {
       transform: translateX(-20vw);

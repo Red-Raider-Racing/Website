@@ -66,4 +66,15 @@ class FAQQuestion(models.Model):
 
     def __str__(self) -> str:
         return self.question
+    
+class CarShowAttendee(models.Model):
+    first_name = models.CharField(max_length=200,help_text="Enter the attendee's first name.")
+    last_name = models.CharField(max_length=200,help_text="Enter the attendee's last name.")
+    email = models.CharField(max_length=200,help_text="Enter the attendee's email.")
+    section = models.CharField(max_length=200,help_text="Enter the attendee's section.")
+    paid = models.BooleanField(help_text='Check if the attendee has paid.',default=False)
+
+    def __str__(self) -> str:
+        return self.first_name +' '+ self.last_name
+
 

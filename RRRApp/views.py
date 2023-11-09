@@ -109,6 +109,8 @@ def carshow(request):
 
         try:
             # Perform any backend processing (e.g., saving to the database)
+            attendee = CarShowAttendee(first_name=firstName.capitalize(),last_name=lastName.capitalize(),email=email,section=section.capitalize())
+            attendee.save()
             insertRow(firstName, lastName, email, section)
             message = carShowEmailFormat(firstName, lastName, email, section, carShowLoc, mainEmail)
             emailMessage(f"{carShowLoc.year} Red Raider Racing Car Show Registration", message, mainEmail, email)
@@ -116,6 +118,7 @@ def carshow(request):
             # Set success message
             success = 1
         except Exception as e:
+            print(e)
             # Set error message
             success = 0
 
