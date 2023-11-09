@@ -4,6 +4,7 @@ date: 10/27/23
 '''
 import requests
 import json
+from ..appSecrets import username, password
 
 url = 'https://sheetdb.io/api/v1/0v2vn3ko7qafp'
 
@@ -28,11 +29,8 @@ def insertRow(firstName, lastName, email, section):
         ]
     }
 
-    response = requests.post(url, data=json.dumps(data), headers=headers)
+    response = requests.post(url, data=json.dumps(data), headers=headers, auth=(username, password))
 
-    if response.status_code == 201:
-        response_data = response.json()
-        print(response_data)
-    else:
+    if response.status_code != 201:
         print(f"Request failed with status code {response.status_code}")
         raise Exception
