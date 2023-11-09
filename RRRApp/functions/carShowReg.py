@@ -4,7 +4,13 @@ date: 10/27/23
 '''
 import requests
 import json
-from ..appSecrets import username, password
+import os
+
+try:
+    from ..appSecrets import username, password
+except Exception as e:
+    username = os.environ["SHEETS_USERNAME"]
+    password = os.environ["SHEETS_PASSWORD"]
 
 url = 'https://sheetdb.io/api/v1/0v2vn3ko7qafp' #API endpoint
 
