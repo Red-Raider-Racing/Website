@@ -5,3 +5,4 @@ Pillow==10.1.0 #Upload images
 django-cleanup==8.0.0 #File upload cleanup
 
 gunicorn==21.2.0
+requests==2.31.0
