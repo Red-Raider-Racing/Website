@@ -22,11 +22,11 @@ urlpatterns = [
 
     #----------------Error Pages----------------
     path('404/',views.custom_404, name='404'),
-    path('500/',views.custom_404, name='500'),  # possibly change this back to path('500/',views.custom_500, name='500')
+    path('500/',views.custom_500, name='500'),  # possibly change this back to path('500/',views.custom_500, name='500')
     
     #----------------Cache----------------
     path('static/<path:path>', custom_serve),
 
     #----------------Robots----------------
-    path('robots.txt/', views.robots, name='robots.txt'), # this makes is so crawlers can use our website (SEO)
+    path('robots.txt/', views.robots, name='robots'), # this makes is so crawlers can use our website (SEO)
 ]
