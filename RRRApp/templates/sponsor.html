@@ -47,10 +47,10 @@
                 <div class="sponsorLogo">
                         {% if sponsor.sponsor_link %}
                             <a href="https://www.wilwood.com/" target="_blank">
-                                <img src="{{sponsor.sponsor_logo.url}}" alt="{{sponsor.sponsor_name}}" loading="lazy">
+                                <img src="/static/{{sponsor.sponsor_logo.url}}" alt="{{sponsor.sponsor_name}}" loading="lazy">
                             </a>
                         {% else %}
-                            <img src="{{sponsor.sponsor_logo.url}}" alt="{{sponsor.sponsor_name}}" loading="lazy">
+                            <img src="/static/{{sponsor.sponsor_logo.url}}" alt="{{sponsor.sponsor_name}}" loading="lazy">
                         {% endif %}
                 </div>
             </div>
