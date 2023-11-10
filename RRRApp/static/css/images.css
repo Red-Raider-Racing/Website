@@ -16,14 +16,14 @@
 /* Styles for screens greater than 500px wide */
 @media (min-width: 501px) {
     .welcomeIMG{
-        background-image: url('../images/archive/RRR-2023-Cover-min\(1\).JPG');
+        background-image: url('../images/archive/RRR-2023-Cover-min.JPG');
     }
     
     .teamIMG{
-        background-image: url('../images/archive/RRR-2023-Team-min\(1\).JPG');
+        background-image: url('../images/archive/RRR-2023-Team-min.JPG');
     }
     
     .carsIMG{
-        background-image: url('../images/archive/RRR-2023-Cars-min\(1\).JPG');
+        background-image: url('../images/archive/RRR-2023-Cars-min.JPG');
     }
 }
