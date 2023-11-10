@@ -902,12 +902,25 @@ textarea.inputs {
     font-size: max(12px, min(4vw, 16px));
 }
 
+.message a{
+    color: var(--secondary-color);
+}
+
 @keyframes traverse {
     0% {
       transform: translateX(-20vw);
     }
     100% {
       transform: translateX(20vw);
+    }
+}
+
+@keyframes traverseMerch {
+    0% {
+      transform: translateX(calc(-1 * (min(10vw,800px))));
+    }
+    100% {
+      transform: translateX(min(10vw, 800px));
     }
 }
 
@@ -922,6 +935,10 @@ textarea.inputs {
     animation: traverse 2s alternate infinite ease-in-out;
 }
 
+.loadMerch{
+    animation: traverseMerch 2s alternate infinite ease-in-out;
+}
+
 @keyframes roll {
     0% {
       transform: rotate(0deg);
@@ -931,10 +948,23 @@ textarea.inputs {
     }
 }
 
+@keyframes rollMerch {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(calc((var(--number-of-turns) * .5) * 360deg));
+    }
+}
+
 #loading img{
     height: 64px;
     animation: roll 2s alternate infinite ease-in-out;
     border-radius: 100%;
+}
+
+#loading.merchLoader img{
+    animation: rollMerch 2s alternate infinite ease-in-out;
 }
 
 .submitArea{
@@ -1430,6 +1460,25 @@ div#consent-popup a:hover, .acceptA#accept:hover{
     font-family: var(--font);
 }
 
+.aboutCarShow p~h2{
+    margin-bottom: 0;
+}
+
+.aboutCarShow svg{
+    width: 40px;
+    margin: 0px 30px;
+}
+
+.aboutCarShow svg path{
+    fill: var(--secondary-color);
+}
+
+.carShowLoc, .carShowDate{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .map{
     position: relative; /* Add this line for positioning */
     overflow: visible;
@@ -1460,6 +1509,12 @@ div#consent-popup a:hover, .acceptA#accept:hover{
     text-align: center;
     margin-top: 50px;
     overflow: visible;
+    padding: 20px;
+    padding-top: 0;
+}
+
+.carShowReg h1~p{
+    font-family: var(--font);
 }
 
 .nameReg{
@@ -1536,6 +1591,8 @@ div#consent-popup a:hover, .acceptA#accept:hover{
     align-items: center;
     flex-wrap: wrap;
     flex-direction: column;
+    width: 100%;
+    overflow: hidden;
 }
 
 .radioSection{

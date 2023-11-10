@@ -566,7 +566,12 @@ function showLoading(form) {
     const submitArea = form.querySelector('.submitArea');
     const loader = submitArea.querySelector('#loading');
     
-    loader.classList.add('load');
+    if(loader.classList.contains('merchLoader')){
+        loader.classList.add('loadMerch');
+    }
+    else{
+        loader.classList.add('load');
+    }
     loader.style.display = 'block';
 }
 
