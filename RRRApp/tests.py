@@ -7,13 +7,16 @@ To run the tests:
     py manage.py test RRRApp.tests
 '''
 
-from django.test import TestCase
+from django.test import TestCase, Client
 from django.urls import reverse
 from django.core.exceptions import ValidationError
 from unittest.mock import patch
 
+from django.core import mail
 from RRRApp.functions.email import *
 from RRRApp.functions.merch import merchMessageFormat
+from .models import *
+from .functions.carShowReg import insertRow
 
 class EmailTestCase(TestCase):
     '''
@@ -153,3 +156,93 @@ class MerchTestCase(TestCase):
         # Check the expected output
         expected_message = f'John Doe is wondering if we have a 2023-24 Team T-shirt in a size XL available for purchase.'
         self.assertEqual(formatted_message, expected_message)
+
+
+class YourViewsTests(TestCase):
+    '''
+    Test cases for views.py.
+    '''
+
+    def setUp(self):
+        '''
+        Set up the testing environment, including creating a client for making requests.
+        '''
+        self.client = Client()
+        # Other setup code as needed
+
+    def test_index_view(self):
+        '''
+        Test the index view to ensure a successful response (status code between 200 and 400).
+        '''
+        response = self.client.get(reverse('home'))
+        self.assertTrue(200 <= response.status_code < 400)
+
+    def test_team_view(self):
+        '''
+        Test the team view to ensure a successful response (status code between 200 and 400).
+        '''
+        response = self.client.get(reverse('team'))
+        self.assertTrue(200 <= response.status_code < 400)
+
+    def test_cars_view(self):
+        '''
+        Test the cars view to ensure a successful response (status code between 200 and 400).
+        '''
+        response = self.client.get(reverse('cars'))
+        self.assertTrue(200 <= response.status_code < 400)
+
+    def test_sponsor_view(self):
+        '''
+        Test the sponsor view to ensure a successful response (status code between 200 and 400).
+        '''
+        response = self.client.get(reverse('sponsor'))
+        self.assertTrue(200 <= response.status_code < 400)
+
+    def test_carshow_view_GET(self):
+        '''
+        Test the carshow view for a GET request to ensure a successful response (status code between 200 and 400).
+        '''
+        response = self.client.get(reverse('carshow'))
+        self.assertTrue(200 <= response.status_code < 400)
+
+    def test_faq_view(self):
+        '''
+        Test the FAQ view to ensure a successful response (status code between 200 and 400).
+        '''
+        response = self.client.get(reverse('faq'))
+        self.assertTrue(200 <= response.status_code < 400)
+
+    def test_privacy_view(self):
+        '''
+        Test the privacy view to ensure a successful response (status code between 200 and 400).
+        '''
+        response = self.client.get(reverse('privacy'))
+        self.assertTrue(200 <= response.status_code < 400)
+
+    def test_terms_view(self):
+        '''
+        Test the terms view to ensure a successful response (status code between 200 and 400).
+        '''
+        response = self.client.get(reverse('terms'))
+        self.assertTrue(200 <= response.status_code < 400)
+
+    def test_404_view(self):
+        '''
+        Test a nonexistent page to ensure a 404 status code.
+        '''
+        response = self.client.get('/nonexistent-page/')
+        self.assertEqual(response.status_code, 404)
+
+    def test_500_view(self):
+        '''
+        Test a specific 500 page to ensure a 500 status code.
+        '''
+        response = self.client.get('/500/')
+        self.assertEqual(response.status_code, 500)
+
+    def test_robots_view(self):
+        '''
+        Test the robots view to ensure a successful response (status code between 200 and 400).
+        '''
+        response = self.client.get(reverse('robots'))
+        self.assertTrue(200 <= response.status_code < 400)
