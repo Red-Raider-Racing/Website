@@ -1,9 +1,7 @@
 Django==4.2.3 #Framework
 whitenoise==6.5.0 #Cache
 
-#Needed for google sheets
-oauth2client==4.1.3
-gspread==5.12.0
-
 Pillow==10.1.0 #Upload images
 django-cleanup==8.0.0 #File upload cleanup
+
+gunicorn==21.2.0
