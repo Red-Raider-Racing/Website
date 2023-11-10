@@ -139,7 +139,7 @@ else:
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
 
 # Cache timeout for static files (in seconds)
 STATIC_CACHE_TTL = 2592000  # 30 days (30 * 24 * 60 * 60 seconds)
