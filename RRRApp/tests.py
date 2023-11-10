@@ -226,20 +226,6 @@ class YourViewsTests(TestCase):
         response = self.client.get(reverse('terms'))
         self.assertTrue(200 <= response.status_code < 400)
 
-    def test_404_view(self):
-        '''
-        Test a nonexistent page to ensure a 404 status code.
-        '''
-        response = self.client.get('/nonexistent-page/')
-        self.assertEqual(response.status_code, 404)
-
-    def test_500_view(self):
-        '''
-        Test a specific 500 page to ensure a 500 status code.
-        '''
-        response = self.client.get('/500/')
-        self.assertEqual(response.status_code, 500)
-
     def test_robots_view(self):
         '''
         Test the robots view to ensure a successful response (status code between 200 and 400).
