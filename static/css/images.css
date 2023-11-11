@@ -1,3 +1,7 @@
+.carShowIMG{
+    background-image: url('../images/carshow.jpg');
+}
+
 /* Styles for screens less than 500px wide */
 @media (max-width: 500px) {
     .welcomeIMG{
