@@ -843,6 +843,7 @@ a:hover svg path{
     justify-content: center;
     align-items: start;
     overflow-x: visible;
+    color: var(--secondary-color);
 }
 
 .formCon label{
@@ -1523,6 +1524,7 @@ div#consent-popup a:hover, .acceptA#accept:hover{
     justify-content: center;
     align-content: center;
     flex-wrap: wrap;
+    color: var(--secondary-color);
 }
 
 .regNameCon{
@@ -1543,6 +1545,7 @@ div#consent-popup a:hover, .acceptA#accept:hover{
     align-content: center;
     flex-wrap: wrap;
     padding: 10px;
+    color: var(--secondary-color);
 }
 
 .regNameCon .regInputs{
@@ -1598,7 +1601,7 @@ div#consent-popup a:hover, .acceptA#accept:hover{
 .radioSection{
     display: flex;
     justify-content: center;
-    align-items: start;
+    align-items: center;
     flex-wrap: wrap;
     flex-direction: column;
     text-align: center;
@@ -1606,11 +1609,12 @@ div#consent-popup a:hover, .acceptA#accept:hover{
 
 .radioSection p{
     margin-bottom: 5px;
+    font-size: max(10px, min(8vw, 20px));
+    color: var(--secondary-color);
 }
 
 .radioSection label{
     margin: 5px;
-    margin-left: calc(25% + 5px);
     cursor: pointer;
     border-radius: 5px;
 }
