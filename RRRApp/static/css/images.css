@@ -11,6 +11,10 @@
     .carsIMG{
         background-image: url('../images/mobile/RRR-2023-Cars-min.JPG');
     }
+
+    .carShowIMG{
+        background-image: url('../images/CarShowIMG.jpg');
+    }
 }
 
 /* Styles for screens greater than 500px wide */
@@ -25,5 +29,9 @@
     
     .carsIMG{
         background-image: url('../images/archive/RRR-2023-Cars-min.JPG');
+    }
+
+    .carShowIMG{
+        background-image: url('../images/CarShowIMG.jpg');
     }
 }
