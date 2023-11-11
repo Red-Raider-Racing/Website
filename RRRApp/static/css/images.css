@@ -1,3 +1,7 @@
+.carShowIMG{
+    background-image: url('../images/carshow.jpg');
+}
+
 /* Styles for screens less than 500px wide */
 @media (max-width: 500px) {
     .welcomeIMG{
@@ -10,10 +14,6 @@
     
     .carsIMG{
         background-image: url('../images/mobile/RRR-2023-Cars-min.JPG');
-    }
-
-    .carShowIMG{
-        background-image: url('../images/CarShowIMG.jpg');
     }
 }
 
@@ -29,9 +29,5 @@
     
     .carsIMG{
         background-image: url('../images/archive/RRR-2023-Cars-min.JPG');
-    }
-
-    .carShowIMG{
-        background-image: url('../images/CarShowIMG.jpg');
     }
 }
