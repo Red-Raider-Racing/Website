@@ -1,2 +1,3 @@
 RRRWebsite/secrets/*
 RRRApp/appSecrets.py
+data.json
