@@ -71,7 +71,7 @@ def carShowEmailFormat(firstName, lastName, email, section, carShowLoc, mainEmai
             </span>
             <span class="footer" style="background-color: #ddd; text-align: center; margin: 0 auto; display: block; width: 100%;">
                 <h2 style="color: #333; font-size: 20px; margin-bottom: 0px;">Red Raider Racing</h2>
-                <h3 style="color: #333; font-size: 20px; margin-bottom: 0px;>Innovate, Fabricate, Accelerate.</h3>
+                <h3 style="color: #333; font-size: 20px; margin-bottom: 0px;">Innovate, Fabricate, Accelerate.</h3>
                 <p style="color: #555; font-size: 16px;">If anything looks wrong or you are having trouble paying, please <a href="mailto:{mainEmail}" style="text-decoration: none; color: #b70102;">Contact Us</a> and we can happily assist you!</p>
             </span>
         </body>

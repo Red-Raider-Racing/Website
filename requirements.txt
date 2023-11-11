@@ -1,10 +1,8 @@
-Django==4.2.3 #Framework
-whitenoise==6.5.0 #Cache
-
-Pillow==10.1.0 #Upload images
-django-cleanup==8.0.0 #File upload cleanup
-django-storages==1.14.2
-boto3==1.28.84
-
-gunicorn==21.2.0
-requests==2.31.0
+Django==4.2.3 # Framework
+whitenoise==6.5.0 # Needed for caching
+Pillow==10.1.0 # To be able to upload images
+django-cleanup==8.0.0 # Deletes/updates files
+django-storages==1.14.2 # Needed for cloud storage
+boto3==1.28.84 # Needed for cloud storage
+gunicorn==21.2.0 # Needed for deployment
+requests==2.31.0 # Needed for APIs
