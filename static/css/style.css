@@ -1606,7 +1606,6 @@ div#consent-popup a:hover, .acceptA#accept:hover{
 .radioSection p{
     margin-bottom: 5px;
     font-size: max(10px, min(8vw, 20px));
-    color: var(--secondary-color);
 }
 
 .radioSection label{
