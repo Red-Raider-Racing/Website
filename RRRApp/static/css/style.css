@@ -444,7 +444,6 @@ footer a{
 }
 
 .underline{
-    display: none;
     max-width: 600px;
     width: 80%;
 }
@@ -843,7 +842,6 @@ a:hover svg path{
     justify-content: center;
     align-items: start;
     overflow-x: visible;
-    color: var(--secondary-color);
 }
 
 .formCon label{
@@ -1524,7 +1522,6 @@ div#consent-popup a:hover, .acceptA#accept:hover{
     justify-content: center;
     align-content: center;
     flex-wrap: wrap;
-    color: var(--secondary-color);
 }
 
 .regNameCon{
@@ -1545,7 +1542,6 @@ div#consent-popup a:hover, .acceptA#accept:hover{
     align-content: center;
     flex-wrap: wrap;
     padding: 10px;
-    color: var(--secondary-color);
 }
 
 .regNameCon .regInputs{

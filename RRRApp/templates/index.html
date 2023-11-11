@@ -28,6 +28,7 @@
     <div class="body">
         <div class="about">
             <h1 class="sectionTitle">About Us</h1>
+            <hr class="underline">
             <p>
                 Red Raider Racing is a student-led organization that gives Texas Tech 
                 University students the opportunity to get hands-on experience by 
@@ -78,6 +79,7 @@
 
     <div class="merch">
         <h1 class="sectionTitle">Red Raider Racing Merch</h1>
+        <hr class="underline">
         <p>Unfortanatly, we do not ship. If you are interested in buying something, please feel free to <a href="#contact-us">Contact Us</a> to set up a time to come by our office to purchase it. You can always catch us at an event and purchase from us then.</p>
         <div class="items">
             {% for item in merch %}
@@ -174,6 +176,7 @@
 
     <div class="contactUs" id="contact-us">
         <h1 class="sectionTitle">Contact Us</h1>
+        <hr class="underline">
 
         <form action="{% url 'home' %}" method="post" onsubmit="showLoading(this)" id="contact" autocomplete="on">
             <!-- CSRF token needed to protect agained cross site attacks -->
