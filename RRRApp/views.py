@@ -6,6 +6,8 @@ from django.views.decorators.csrf import csrf_exempt
 from django.views.decorators.cache import cache_page
 from RRRWebsite.settings import CACHE_TIMEOUT
 from .models import *
+import logging
+logging.basicConfig(level=logging.INFO)
 
 mainEmail = 'redraiderracingcode@outlook.com' # When testing
 
@@ -44,6 +46,7 @@ def index(request):
                 # Set success message
                 success = 1
             except Exception as e:
+                logging.error("An error occurred: %s", e)
                 # Set error message
                 success = 0
 
@@ -68,6 +71,7 @@ def index(request):
                 # Set success message
                 success = 1
             except Exception as e:
+                logging.error("An error occurred: %s", e)
                 # Set error message
                 success = 0
 
@@ -119,6 +123,7 @@ def carshow(request):
             # Set success message
             success = 1
         except Exception as e:
+            logging.error("An error occurred: %s", e)
             # Set error message
             success = 0
 
