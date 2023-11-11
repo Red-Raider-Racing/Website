@@ -26,7 +26,7 @@
                 {% for member in adminMembers %}
                 <div class="member">
                     <div class="memberIMG">
-                        <img src="/static{{ member.headshot.url }}" alt="{{ member.member_name }}" loading="lazy" width="230" height="230">
+                        <img src="{{ member.headshot.url }}" alt="{{ member.member_name }}" loading="lazy" width="230" height="230">
                     </div>
                     <h2 class="memberName">{{ member.member_name }}</h2>
                     <h3 class="memberTitle">{{ member.title }}</h3>
@@ -55,7 +55,7 @@
                 {% for member in technicalMembers %}
                 <div class="member">
                     <div class="memberIMG">
-                        <img src="/static{{ member.headshot.url }}" alt="{{ member.member_name }}" loading="lazy">
+                        <img src="{{ member.headshot.url }}" alt="{{ member.member_name }}" loading="lazy">
                     </div>
                     <h2 class="memberName">{{ member.member_name }}</h2>
                     <h3 class="memberTitle">{{ member.title }}</h3>
