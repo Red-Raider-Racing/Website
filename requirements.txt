@@ -3,6 +3,7 @@ whitenoise==6.5.0 #Cache
 
 Pillow==10.1.0 #Upload images
 django-cleanup==8.0.0 #File upload cleanup
+django-storages==1.14.2
 
 gunicorn==21.2.0
 requests==2.31.0
