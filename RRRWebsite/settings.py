@@ -174,9 +174,9 @@ if DEBUG:
 else:
     EMAIL_HOST_PASSWORD = os.environ["EMAIL_HOST_PASSWORD"]
 
-USE_S3 = os.getenv('USE_S3') == 'TRUE'
+# USE_S3 = os.getenv('USE_S3') == 'TRUE'
 
-if USE_S3:
+if not DEBUG:
     # aws settings
     AWS_ACCESS_KEY_ID = os.getenv('AWS_ACCESS_KEY_ID')
     AWS_SECRET_ACCESS_KEY = os.getenv('AWS_SECRET_ACCESS_KEY')
