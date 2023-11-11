@@ -356,12 +356,12 @@ function updateMainPadding() {
         // menuButton.style.marginLeft = "";
     }
 
-    const mainElement = document.querySelector(".pageTitle");
-    if (mainElement){
-        if(header.clientHeight < viewportHeight){
-            mainElement.style.paddingTop = `${header.clientHeight+80}px`;
-        }
-    }
+    // const mainElement = document.querySelector(".pageTitle");
+    // if (mainElement){
+    //     if(header.clientHeight < viewportHeight && header.clientHeight == 90){
+    //         mainElement.style.paddingTop = `${header.clientHeight+80}px`;
+    //     }
+    // }
 }
 
 // // Function to constantly update the padding just incase the orientation changes
