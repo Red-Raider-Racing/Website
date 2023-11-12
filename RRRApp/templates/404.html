@@ -23,7 +23,7 @@
         <h1 class="sectionTitle">Contact Us</h1>
         <p>If the problem persists, feel free to contact us and let us know!</p>
 
-        <form action="{% url 'home' %}" method="post" onsubmit="showLoading()" id="contact" autocomplete="on">
+        <form action="{% url '404' %}" method="post" onsubmit="showLoading(this)" id="contact" autocomplete="on">
             {% csrf_token %}
             <div class="formCon">
                 <div class="nameEmail">
@@ -39,7 +39,7 @@
                 <div class="emailMessage">          
                     <label for="message">Message:</label>
                     <textarea id="message" name="message" rows="8" maxlength="1500" required class="inputs" oninput="sanitizeInput(this); updateCharacterCount();"></textarea>
-                    <div id="character-count">Characters remaining: 1500</div>
+                    <div id="character-count">Characters remaining: <br> 1500</div>
                 </div>
             </div>
             <div class="submitArea">

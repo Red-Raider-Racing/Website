@@ -10,6 +10,7 @@ import logging
 logging.basicConfig(level=logging.INFO)
 
 mainEmail = 'redraiderracingcode@outlook.com' # When testing
+websiteEmail = 'redraiderracing@website.admin'
 
 TEMPLATE_DIRS = (
     'os.path.join(BASE_DIR, "templates"),'
@@ -41,7 +42,7 @@ def index(request):
             try:
                 # Perform any backend processing (e.g., saving to the database)
                 message = formatMessage(name,email,subject,message)
-                emailMessage(subject, message, 'redraiderracing@website.admin', mainEmail)
+                emailMessage(subject, message, websiteEmail, mainEmail)
 
                 # Set success message
                 success = 1
@@ -66,7 +67,7 @@ def index(request):
                 # Perform any backend processing (e.g., saving to the database)
                 message = merchMessageFormat(name, item, size)
                 message = formatMessage('Website Merch Manager', email, subject, message)
-                emailMessage(f'{item} Availability', message, 'redraiderracing@website.admin', mainEmail)
+                emailMessage(f'{item} Availability', message, websiteEmail, mainEmail)
 
                 # Set success message
                 success = 1
@@ -145,11 +146,40 @@ def terms(request):
 
 @cache_page(CACHE_TIMEOUT)
 def custom_404(request):
-    return render(request, '404.html', status=404)
+    if request.method == 'GET':
+        return render(request, '404.html', status=404)
+    else:
+        # Handle the form data here
+        name = request.POST.get('name')
+        email = request.POST.get('email')
+
+        subject = request.POST.get('subject')
+        message = request.POST.get('message')
+
+        try:
+            # Perform any backend processing (e.g., saving to the database)
+            message = formatMessage(name,email,subject,message)
+            emailMessage(f'Sent From 404 Page: {subject}', message, websiteEmail, mainEmail)
+
+            # Set success message
+            success = 1
+        except Exception as e:
+            logging.error("An error occurred: %s", e)
+            # Set error message
+            success = 0
+
+        # Render the template with the success or error message
+        return redirect(f"/404/?success={success}")
+    
 
 @cache_page(CACHE_TIMEOUT)
 def custom_500(request):
-    return render(request, '404.html', status=500)
+    try:
+        emailMessage('Major Website Error','An internal server error happened on the website. Please look into this error.', websiteEmail, mainEmail)
+    except Exception as e:
+        print(e)
+        logging.error("An error occurred when sending the error email: %s", e)
+    return render(request, '500.html', status=500)
 
 
 #----------------Robots----------------
