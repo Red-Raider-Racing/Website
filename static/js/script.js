@@ -10,6 +10,7 @@ document.addEventListener("DOMContentLoaded", function() {
     checkDate();
     parallaxEvent(window.scrollY);
     transparentHeader(window.scrollY);
+    updateCharacterCount();
     
     const questions = document.querySelectorAll(".faq");
     
@@ -594,11 +595,13 @@ function runOnSubmit(form) {
 // Function to show character count for the email message
 function updateCharacterCount() {
     const textarea = document.getElementById('message');
-    const characterCount = textarea.value.length;
-    const maxCharacters = parseInt(textarea.getAttribute('maxlength'));
-    const remainingCharacters = maxCharacters - characterCount;
-    const characterCountDisplay = document.getElementById('character-count');
-    characterCountDisplay.textContent = `Characters remaining: ${remainingCharacters}`;
+    if(textarea){
+        const characterCount = textarea.value.length;
+        const maxCharacters = parseInt(textarea.getAttribute('maxlength'));
+        const remainingCharacters = maxCharacters - characterCount;
+        const characterCountDisplay = document.getElementById('character-count');
+        characterCountDisplay.innerHTML = `Characters remaining: <br> ${remainingCharacters}`;
+    }
 }
 
 // Function to clean the input to protect against code injection

@@ -870,6 +870,7 @@ a:hover svg path{
 
 textarea.inputs {
     resize: none;
+    margin: 0 20px;
 }
 
 .submit{
@@ -977,7 +978,7 @@ textarea.inputs {
 }
 
 #character-count{
-    margin: 5px;
+    margin: 0 auto;
     font-size: max(12px, min(7vw, 20px));
 }
 
@@ -1581,7 +1582,7 @@ div#consent-popup a:hover, .acceptA#accept:hover{
 }
 
 .emailMessage .inputs:focus{
-    margin: -4px auto;
+    margin: -4px 16px;
 }
 
 .radioSubmit{
