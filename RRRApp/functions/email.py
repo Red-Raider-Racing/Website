@@ -4,7 +4,7 @@ date: 9/9/23
 '''
 
 from django.core.mail import send_mail
-from datetime import datetime
+from datetime import datetime, timedelta
 
 def emailMessage(subject, message, fromEmail, toEmail):
     '''
@@ -44,8 +44,15 @@ def formatMessage(name, email, subject, message):
         return False
     
 def emailDate(email, subject):
-    day_of_week = datetime.now().strftime('%A') # Full day name (e.g., "Monday")
-    date = datetime.now().strftime('%m/%d/%Y') # In the format MM/DD/YYYY
+    # Get the current date and time
+    current_datetime = datetime.now()
+
+    # Subtract 6 hours from the current date and time
+    adjusted_datetime = current_datetime - timedelta(hours=6)
+
+    # Format the adjusted date and time
+    day_of_week = adjusted_datetime.strftime('%A')  # Full day name (e.g., "Monday")
+    date = adjusted_datetime.strftime('%m/%d/%Y')  # In the format MM/DD/YYYY
 
     email_link = f'<a href="mailto:{email}?subject=RE: {subject}">{email}</a>' # Makes a clickable link in the email
     return day_of_week, date, email_link
