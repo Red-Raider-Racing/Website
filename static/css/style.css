@@ -299,6 +299,8 @@ h2{
     margin-bottom: 40px;
     padding: 10px;
     font-family: 'ethnocentric_it';
+    color: var(--secondary-color);
+    font-size: max(16px, min(10vw, 58px));
 }
 
 .join{
@@ -407,15 +409,12 @@ footer a{
 
 .benefitTitle {
     transform: rotateY(0deg); /* Initially visible side */
+    color: var(--font-color);
+    font-size: min(7vw, 30px);
 }
 
 .benefitTitle.benefitAnimate {
     transform: rotateY(30deg);
-}
-
-.benefitTitle h1{
-    color: var(--font-color);
-    font-size: min(7vw, 30px);
 }
 
 .benefitDes p{
@@ -441,6 +440,7 @@ footer a{
     margin: 10px auto;
     text-align: center;
     font-size: max(12px, min(7vw, 36px));
+    color: var(--secondary-color);
 }
 
 .underline{
@@ -691,6 +691,7 @@ a:hover svg path{
 
 .FAQCover .pageTitle, .FAQCover h1,.sponsorCover h1, .errorCover h1, .generalCover h1{
     color: var(--font-color);
+    font-size: max(16px, min(10vw, 58px));
 }
 
 .errorCover{
@@ -798,7 +799,8 @@ a:hover svg path{
     margin-bottom: 75px;
 }
 
-.thankyou h1, .competition h1, .carTitle{
+.thankyou h2, .competition h2, .carTitle{
+    color: var(--secondary-color);
     font-size: max(12px, min(7vw, 36px));
     margin: 10px auto;
 }
@@ -1445,12 +1447,13 @@ div#consent-popup a:hover, .acceptA#accept:hover{
     text-align: center;
 }
 
-.aboutCarShow h1{
+.aboutCarShow h2{
+    color: var(--secondary-color);
     margin: 0px;
     font-size: max(12px, min(7vw, 36px));
 }
 
-.aboutCarShow h2{
+.aboutCarShow h3{
     margin: 40px 0px;
     font-size: max(12px, min(7vw, 20px));
     color: var(--secondary-color);
@@ -1460,7 +1463,7 @@ div#consent-popup a:hover, .acceptA#accept:hover{
     font-family: var(--font);
 }
 
-.aboutCarShow p~h2{
+.aboutCarShow p~h3{
     margin-bottom: 0;
 }
 
@@ -1513,7 +1516,7 @@ div#consent-popup a:hover, .acceptA#accept:hover{
     padding-top: 0;
 }
 
-.carShowReg h1~p{
+.carShowReg h2~p{
     font-family: var(--font);
 }
 

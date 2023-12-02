@@ -134,11 +134,8 @@ AUTH_PASSWORD_VALIDATORS = [
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
 
 LANGUAGE_CODE = 'en-us'
-
-TIME_ZONE = 'UTC'
-
+TIME_ZONE = 'America/Chicago'
 USE_I18N = True
-
 USE_TZ = True
 
 # Security settings for HTTPS
@@ -184,7 +181,7 @@ if 'test' in sys.argv:
     EMAIL_BACKEND = 'django.core.mail.backends.locmem.EmailBackend'
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp-relay.brevo.com'  # Replace with the actual SMTP server address
+EMAIL_HOST = 'smtp-relay.brevo.com'
 EMAIL_PORT = 587  # Use the appropriate port number
 EMAIL_USE_TLS = True  # Use TLS encryption if supported
 EMAIL_HOST_USER = 'redraiderracingcode@outlook.com'  # Your email address
