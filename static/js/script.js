@@ -261,9 +261,11 @@ function checkDate(){
 
     const ad = document.querySelector(".ad");
 
-    if(monthNow >= 12 || monthNow <= 4){
-        ad.style.display = "flex";
-        disableScrolling();
+    if(ad){
+        if(monthNow >= 12 || monthNow <= 4){
+            ad.style.display = "flex";
+            disableScrolling();
+        }
     }
 }
 
