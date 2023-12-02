@@ -16,6 +16,7 @@
     --number-of-turns: 6;
     --font: 'Tahoma';
     --secondary-font: 'ethnocentric';
+    --text-shadow: 2px 2px black;
 }
 
 @font-face {
@@ -145,6 +146,7 @@ nav a{
 .navMain a button{
     font-size: 25px;
     font-weight: 900;
+    text-shadow: var(--text-shadow);
 }
 
 .navMain a:hover button{
@@ -211,6 +213,7 @@ nav a{
     font-size: min(10vw, 36px);
     font-weight: 900;
     z-index: 100;
+    text-shadow: var(--text-shadow);
 }
 
 button {
@@ -256,6 +259,7 @@ button {
     position: relative;
     color: var(--secondary-color);
     padding-top: 170px;
+    text-shadow: var(--text-shadow);
 }
 
 .FAQCover .pageTitle p{
@@ -301,16 +305,19 @@ h2{
     font-family: 'ethnocentric_it';
     color: var(--secondary-color);
     font-size: max(16px, min(10vw, 58px));
+    text-shadow: var(--text-shadow);
 }
 
 .join{
     margin: 5px auto 0px auto;
     font-size: min(10vw, 30px);
+    text-shadow: var(--text-shadow);
 }
 
 .subtext{
     margin: 0 auto;
     font-size: min(8vw, 20px);
+    text-shadow: var(--text-shadow);
 }
 
 .footerText{
@@ -355,6 +362,7 @@ footer a{
     flex-wrap: wrap;
     z-index: 50;
     overflow-x: visible;
+    text-shadow: var(--text-shadow);
 }
 
 .benefit{
