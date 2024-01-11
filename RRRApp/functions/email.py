@@ -4,7 +4,7 @@ date: 9/9/23
 '''
 
 from django.core.mail import send_mail
-from datetime import datetime
+from datetime import datetime, timedelta
 
 def emailMessage(subject, message, fromEmail, toEmail):
     '''
@@ -33,7 +33,7 @@ def formatMessage(name, email, subject, message):
         
         fullMessage = (
             f'This message is from {name} on {day_of_week}, {date} at '  # Date and time information
-            f'{datetime.now().strftime("%I")}:{datetime.now().strftime("%M")} '  # Hour and minute
+            f'{(datetime.now()).strftime("%I")}:{datetime.now().strftime("%M")} '  # Hour and minute
             f'{datetime.now().strftime("%p")}:\n\n\n{message}\n\n\nTo respond to them, '  # AM or PM and message
             f'email them back at {email_link}.'  # Email link
         )

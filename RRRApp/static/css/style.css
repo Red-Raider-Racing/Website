@@ -804,7 +804,7 @@ a:hover svg path{
     text-align: center;
     padding: 10px;
     max-width: 1200px;
-    margin-bottom: 75px;
+    /* margin-bottom: 75px; */
 }
 
 .thankyou h2, .competition h2, .carTitle{
@@ -813,8 +813,49 @@ a:hover svg path{
     margin: 10px auto;
 }
 
-.thankyou p, .howSponsor p, .competition p{
+.thankyou p, .howSponsor p, .competition p, .howSponsor li, .howSponsor a, .howSponsor label{
     font-family: var(--font);
+}
+
+.howSponsor ul{
+    text-align: left;
+    width: min(90vw, 650px);
+    margin: 0 auto;
+    padding: 0;
+}
+
+.howSponsor li{
+    font-size: max(10px, min(8vw, 18px));
+    margin: 10px 0;
+}
+
+.howSponsor li::before {
+    content: "• ";
+    color: var(--font-color); /* or whatever color you prefer */
+}
+
+.howSponsor .check p{
+    padding: 20px;
+    padding-top: 5px;
+    margin: 0 auto;
+}
+
+.howSponsor .check label{
+    font-size: max(10px, min(8vw, 18px));
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    width: max(20vw, 300px);
+    margin: 0 auto;
+}
+
+.howSponsor a{
+    text-decoration: none;
+    color: var(--secondary-color);
+}
+
+.howSponsor a:hover{
+    color: var(--font-color);
 }
 
 .thankyou strong{
@@ -1070,8 +1111,13 @@ svg.waveTop path{
     padding: 0 20px;
 }
 
-.generalSection p a{
+.generalSection a{
+    text-decoration: none;
     color: var(--secondary-color);
+}
+
+.generalSection a:hover{
+    color: var(--font-color);
 }
 
 .rights *{
