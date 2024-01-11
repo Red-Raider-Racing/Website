@@ -845,7 +845,7 @@ a:hover svg path{
     display: flex;
     justify-content: start;
     align-items: center;
-    width: max(20vw, 300px);
+    width: 300px;
     margin: 0 auto;
 }
 
