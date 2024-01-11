@@ -83,39 +83,43 @@ WSGI_APPLICATION = 'RRRWebsite.wsgi.application' # synchronous web requests
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
+DEPLOYED = os.getenv('DEPLOYED')
 
-if DEBUG:
-    from .secrets.secret import DB_NAME, DB_USER, DB_PASSWORD, DB_HOST, DB_PORT
-else:
-    DB_NAME = os.getenv('DB_NAME')
-    DB_USER = os.getenv('DB_USER')
-    DB_PASSWORD = os.getenv('DB_PASSWORD')
-    DB_HOST = os.getenv('DB_HOST')
-    DB_PORT = os.getenv('DB_PORT')
+if DEPLOYED:
+    if DEBUG:
+        from .secrets.secret import DB_NAME, DB_USER, DB_PASSWORD, DB_HOST, DB_PORT
+    else:
+        DB_NAME = os.getenv('DB_NAME')
+        DB_USER = os.getenv('DB_USER')
+        DB_PASSWORD = os.getenv('DB_PASSWORD')
+        DB_HOST = os.getenv('DB_HOST')
+        DB_PORT = os.getenv('DB_PORT')
 
-# Add checks for None values and set defaults if needed
-DB_NAME = DB_NAME or 'default_db_name'
-DB_USER = DB_USER or 'default_db_user'
-DB_PASSWORD = DB_PASSWORD or 'default_db_password'
-DB_HOST = DB_HOST or 'localhost'
-DB_PORT = DB_PORT or '5432'
+    # Add checks for None values and set defaults if needed
+    DB_NAME = DB_NAME or 'default_db_name'
+    DB_USER = DB_USER or 'default_db_user'
+    DB_PASSWORD = DB_PASSWORD or 'default_db_password'
+    DB_HOST = DB_HOST or 'localhost'
+    DB_PORT = DB_PORT or '5432'
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': DB_NAME,
-        'USER': DB_USER,
-        'PASSWORD': DB_PASSWORD,
-        'HOST': DB_HOST,
-        'PORT': DB_PORT,
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql_psycopg2',
+            'NAME': DB_NAME,
+            'USER': DB_USER,
+            'PASSWORD': DB_PASSWORD,
+            'HOST': DB_HOST,
+            'PORT': DB_PORT,
+        }
     }
-}
+else:
+    # This is to pass tests in Github
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': BASE_DIR / 'db.sqlite3',
+        }
+    }
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
