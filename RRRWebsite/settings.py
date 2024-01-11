@@ -99,6 +99,13 @@ else:
     DB_HOST = os.getenv('DB_HOST')
     DB_PORT = os.getenv('DB_PORT')
 
+# Add checks for None values and set defaults if needed
+DB_NAME = DB_NAME or 'default_db_name'
+DB_USER = DB_USER or 'default_db_user'
+DB_PASSWORD = DB_PASSWORD or 'default_db_password'
+DB_HOST = DB_HOST or 'localhost'
+DB_PORT = DB_PORT or '5432'
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
