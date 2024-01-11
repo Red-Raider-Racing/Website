@@ -362,6 +362,9 @@ footer a{
     flex-wrap: wrap;
     z-index: 50;
     overflow-x: visible;
+}
+
+.benefits h3{
     text-shadow: var(--text-shadow);
 }
 
