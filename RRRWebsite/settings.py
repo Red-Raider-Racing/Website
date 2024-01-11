@@ -83,7 +83,10 @@ WSGI_APPLICATION = 'RRRWebsite.wsgi.application' # synchronous web requests
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-DEPLOYED = os.getenv('DEPLOYED')
+if DEBUG:
+    from .secrets.secret import DEPLOYED
+else:
+    DEPLOYED = os.getenv('DEPLOYED')
 
 if DEPLOYED:
     if DEBUG:
@@ -94,13 +97,6 @@ if DEPLOYED:
         DB_PASSWORD = os.getenv('DB_PASSWORD')
         DB_HOST = os.getenv('DB_HOST')
         DB_PORT = os.getenv('DB_PORT')
-
-    # Add checks for None values and set defaults if needed
-    DB_NAME = DB_NAME or 'default_db_name'
-    DB_USER = DB_USER or 'default_db_user'
-    DB_PASSWORD = DB_PASSWORD or 'default_db_password'
-    DB_HOST = DB_HOST or 'localhost'
-    DB_PORT = DB_PORT or '5432'
 
     DATABASES = {
         'default': {
