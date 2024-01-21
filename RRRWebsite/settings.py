@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 from pathlib import Path
 import os
 import sys
+import dj_database_url
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -90,23 +91,12 @@ else:
 
 if DEPLOYED:
     if DEBUG:
-        from .secrets.secret import DB_NAME, DB_USER, DB_PASSWORD, DB_HOST, DB_PORT
+        from .secrets.secret import DATABASE_URL
     else:
-        DB_NAME = os.getenv('DB_NAME')
-        DB_USER = os.getenv('DB_USER')
-        DB_PASSWORD = os.getenv('DB_PASSWORD')
-        DB_HOST = os.getenv('DB_HOST')
-        DB_PORT = os.getenv('DB_PORT')
+        DATABASE_URL = os.getenv('DATABASE_URL')
 
     DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.postgresql_psycopg2',
-            'NAME': DB_NAME,
-            'USER': DB_USER,
-            'PASSWORD': DB_PASSWORD,
-            'HOST': DB_HOST,
-            'PORT': DB_PORT,
-        }
+        'default': dj_database_url.config(default=DATABASE_URL, conn_max_age=600, ssl_require=True),
     }
 else:
     # This is to pass tests in Github
