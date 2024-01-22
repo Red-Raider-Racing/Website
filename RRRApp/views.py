@@ -9,7 +9,7 @@ from .models import *
 import logging
 logging.basicConfig(level=logging.INFO)
 
-mainEmail = 'redraiderracingcode@outlook.com' # When testing
+mainEmail = 'formulasaettu@gmail.com'
 websiteEmail = 'redraiderracing@website.admin'
 
 TEMPLATE_DIRS = (
