@@ -6,6 +6,7 @@ from django.views.decorators.csrf import csrf_exempt
 from django.views.decorators.cache import cache_page
 from RRRWebsite.settings import CACHE_TIMEOUT
 from .models import *
+from itertools import chain
 import logging
 logging.basicConfig(level=logging.INFO)
 
@@ -81,8 +82,13 @@ def index(request):
 
 @cache_page(CACHE_TIMEOUT)
 def team(request):
-    adminMembers = AdminTeamMember.objects.all()
-    technicalMembers = TechincalTeamMember.objects.all()
+    adminFirst = AdminTeamMember.objects.filter(first=True).order_by('sub_section', 'member_name')
+    adminOther = AdminTeamMember.objects.filter(first=False).order_by('sub_section', 'member_name')
+    adminMembers = list(chain(adminFirst, adminOther))
+
+    techFirst = TechincalTeamMember.objects.filter(first=True).order_by('sub_section', 'member_name')
+    techOther = TechincalTeamMember.objects.filter(first=False).order_by('sub_section', 'member_name')
+    technicalMembers = list(chain(techFirst, techOther))
 
     main_data = {
         "adminMembers":adminMembers,
