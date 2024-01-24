@@ -28,7 +28,7 @@ def load(request):
 @cache_page(CACHE_TIMEOUT)
 @csrf_exempt
 def index(request):
-    merch_items = MerchItem.objects.all()
+    merch_items = MerchItem.objects.all().order_by('item_name')
     if request.method == 'GET':
         return render(request, "index.html", {"merch": merch_items})
     else:
@@ -139,7 +139,10 @@ def carshow(request):
 
 @cache_page(CACHE_TIMEOUT)
 def faq(request):
-    questions = FAQQuestion.objects.all()
+    firstQuestions = FAQQuestion.objects.filter(first=True).order_by('id')
+    otherQuestions = FAQQuestion.objects.filter(first=False).order_by('id')
+    questions = list(chain(firstQuestions, otherQuestions))
+
     return render(request, "faq.html", {"questions": questions})
 
 @cache_page(CACHE_TIMEOUT)

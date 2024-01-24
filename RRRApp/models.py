@@ -20,8 +20,8 @@ class AdminTeamMember(models.Model):
     headshot = models.ImageField(upload_to='adminMembers/', help_text="Upload a headshot image of the member in a 1x1 format.")
     member_name = models.CharField(max_length=200, help_text="Enter the member's name.")
     title = models.CharField(max_length=200, help_text="Enter the member's title.")
-    sub_section = models.CharField(max_length=200, help_text="Enter the member's sub_section. Ex. Aero, Powertrain, Electrical, etc. This is used for ordering the team page.", blank=True, null=True)
-    first = models.BooleanField(help_text="Toggle on if the member should be first. Ex: President. This is used for ordering the team page.", blank=True, null=True, default=False)
+    sub_section = models.CharField(max_length=200, help_text="Enter the member's sub_section. Ex. Aero, Powertrain, Electrical, etc. This is used for ordering the team page.", default=None)
+    first = models.BooleanField(help_text="Toggle on if the member should be first. Ex: President. This is used for ordering the team page.", default=False)
     school_email = models.EmailField(max_length=200, help_text="Enter the member's school email address. Ex: raiderred@ttu.edu.")
     linkedIn = models.URLField(max_length=500, help_text="Enter the member's LinkedIn profile URL. (Optional)", blank=True, null=True)
 
@@ -32,8 +32,8 @@ class TechincalTeamMember(models.Model):
     headshot = models.ImageField(upload_to='technicalMembers/', help_text="Upload a headshot image of the member in a 1x1 format." )
     member_name = models.CharField(max_length=200, help_text="Enter the member's name.")
     title = models.CharField(max_length=200, help_text="Enter the member's title.")
-    sub_section = models.CharField(max_length=200, help_text="Enter the member's sub_section. Ex. Aero, Powertrain, Electrical, etc. This is used for ordering the team page.", blank=True, null=True)
-    first = models.BooleanField(help_text="Toggle on if the member should be first. Ex: President. This is used for ordering the team page.", blank=True, null=True, default=False)
+    sub_section = models.CharField(max_length=200, help_text="Enter the member's sub_section. Ex. Aero, Powertrain, Electrical, etc. This is used for ordering the team page.", default=None)
+    first = models.BooleanField(help_text="Toggle on if the member should be first. Ex: President. This is used for ordering the team page.", default=False)
     school_email = models.EmailField(max_length=200, help_text="Enter the member's school email address. Ex: raiderred@ttu.edu.")
     linkedIn = models.URLField(max_length=500, help_text="Enter the member's LinkedIn profile URL. (Optional)", blank=True, null=True)
 
@@ -77,6 +77,7 @@ class CarShow(models.Model):
 class FAQQuestion(models.Model):
     question = models.CharField(max_length=200,help_text="Enter the frequently asked question.")
     answer = models.TextField(max_length=2000, help_text='Enter the answer to the FAQ.')
+    first = models.BooleanField(help_text="Toggle on if the question should be first after how to join. Ex: General body meetings. This is used for ordering the FAQ page.", default=False)
 
     def __str__(self) -> str:
         return self.question
