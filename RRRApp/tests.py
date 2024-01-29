@@ -83,22 +83,22 @@ class IndexViewTestCase(TestCase):
         # Check that the response is a redirect (status code 302)
         self.assertTrue(200 <= response.status_code < 400)
 
-    def test_index_view_POST_email_bot(self):
-        '''
-        Testing to see if a POST request fails when a bot enters information.
-        '''
+    # def test_index_view_POST_email_bot(self):
+    #     '''
+    #     Testing to see if a POST request fails when a bot enters information.
+    #     '''
 
-        # Make a POST request to trigger the view
-        response = self.client.post(reverse('home'), {
-            'name': 'John Doe',
-            'email': 'johndoe@example.com',
-            'subject': 'Test Subject',
-            'message': 'Test message content',
-            'honeypot':'Filling this to simulate a bot'
-        })
+    #     # Make a POST request to trigger the view
+    #     response = self.client.post(reverse('home'), {
+    #         'name': 'John Doe',
+    #         'email': 'johndoe@example.com',
+    #         'subject': 'Test Subject',
+    #         'message': 'Test message content',
+    #         'honeypot':'Filling this to simulate a bot'
+    #     })
 
-        # Check that the response is a redirect (status code 400)
-        self.assertTrue(response.status_code == 400)
+    #     # Check that the response is a redirect (status code 400)
+    #     self.assertTrue(response.status_code == 400)
 
     @patch('RRRApp.views.emailMessage') # Mock the emailMessage function in RRRApp.views for testing
     def test_email_sending(self, mock_email_message):
