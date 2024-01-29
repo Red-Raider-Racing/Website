@@ -37,7 +37,7 @@ def index(request):
         name = request.POST.get('name')
         email = request.POST.get('email')
         subject = request.POST.get('subject')
-        honeypot = request.POST.get('honeypot')
+        honeypot = request.POST.get('human_verification')
 
         if honeypot:
             logging.error("Bot filled out form")
@@ -127,7 +127,7 @@ def carshow(request):
         lastName = request.POST.get('last_name')
         email = request.POST.get('email')
         section = request.POST.get('car_type')
-        honeypot = request.POST.get('honeypot')
+        honeypot = request.POST.get('human_verification')
 
         if honeypot:
             logging.error("Bot filled out form")
@@ -180,7 +180,7 @@ def custom_404(request):
 
         subject = request.POST.get('subject')
         message = request.POST.get('message')
-        honeypot = request.POST.get('honeypot')
+        honeypot = request.POST.get('human_verification')
 
         if honeypot:
             logging.error("Bot filled out form")

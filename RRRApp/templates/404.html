@@ -26,7 +26,7 @@
 
         <form action="{% url '404' %}" method="post" onsubmit="showLoading(this)" id="contact" autocomplete="on">
             {% csrf_token %}
-            <input type="text" maxlength="10" style="display: none;" name="honeypot">
+            <input type="text" maxlength="10" style="display: none;" name="human_verification">
             <div class="formCon">
                 <div class="nameEmail">
                     <label for="name">Name:</label>
