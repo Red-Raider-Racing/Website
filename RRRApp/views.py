@@ -32,7 +32,7 @@ def index(request):
     merch_items = MerchItem.objects.all().order_by('item_name')
     if request.method == 'GET':
         return render(request, "index.html", {"merch": merch_items})
-    else:
+    elif request.method == 'POST':
         # Handle the form data here
         name = request.POST.get('name')
         email = request.POST.get('email')
@@ -120,7 +120,7 @@ def carshow(request):
     carShowLoc = CarShow.objects.last()
     if request.method == 'GET':
         return render(request, "carshow.html", {"location": carShowLoc})
-    else:
+    elif request.method == 'POST':
         logging.info("Received form data: %s", request.POST)
         # Handle the form data here
         firstName = request.POST.get('first_name')
@@ -173,7 +173,7 @@ def terms(request):
 def custom_404(request):
     if request.method == 'GET':
         return render(request, '404.html', status=404)
-    else:
+    elif request.method == 'POST':
         # Handle the form data here
         name = request.POST.get('name')
         email = request.POST.get('email')
