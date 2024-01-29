@@ -1658,7 +1658,7 @@ div#consent-popup a:hover, .acceptA#accept:hover{
 .radioSection{
     display: flex;
     justify-content: center;
-    align-items: start;
+    align-items: center;
     flex-wrap: wrap;
     flex-direction: column;
     text-align: center;
