@@ -7,6 +7,7 @@ from django.views.decorators.cache import cache_page
 from RRRWebsite.settings import CACHE_TIMEOUT
 from .models import *
 from itertools import chain
+from django.http import HttpResponse
 import logging
 logging.basicConfig(level=logging.INFO)
 
@@ -35,8 +36,15 @@ def index(request):
         # Handle the form data here
         name = request.POST.get('name')
         email = request.POST.get('email')
-
         subject = request.POST.get('subject')
+        honeypot = request.POST.get('honeypot')
+
+        if honeypot:
+            logging.info("Bot filled out form")
+            response = HttpResponse("Bot Detected", status=400)
+            response['Location'] = '/home/'
+            return response
+
         if subject:
             message = request.POST.get('message')
 
@@ -119,6 +127,13 @@ def carshow(request):
         lastName = request.POST.get('last_name')
         email = request.POST.get('email')
         section = request.POST.get('car_type')
+        honeypot = request.POST.get('honeypot')
+
+        if honeypot:
+            logging.info("Bot filled out form")
+            response = HttpResponse("Bot Detected", status=400)
+            response['Location'] = '/car-show/?success=0#message-container'
+            return response
 
         try:
             # Perform any backend processing (e.g., saving to the database)
@@ -165,6 +180,13 @@ def custom_404(request):
 
         subject = request.POST.get('subject')
         message = request.POST.get('message')
+        honeypot = request.POST.get('honeypot')
+
+        if honeypot:
+            logging.info("Bot filled out form")
+            response = HttpResponse("Bot Detected", status=400)
+            response['Location'] = '/404/?success=0'
+            return response
 
         try:
             # Perform any backend processing (e.g., saving to the database)

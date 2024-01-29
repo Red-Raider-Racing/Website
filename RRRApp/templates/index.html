@@ -106,7 +106,8 @@
                     <p>Please complete the form and we'll inform you of the item's availability.</p>
                     <form action="{% url 'home' %}" method="post" onsubmit="showLoading(this)" id="contact" autocomplete="on">
                         <!-- CSRF token needed to protect against cross site attacks -->
-                        {% csrf_token %} 
+                        {% csrf_token %}
+                        <input type="text" maxlength="10" style="display: none;" name="honeypot">
                         <div class="formCon">
                             <div class="nameEmail">
                                 <label for="name">Name:</label>
@@ -181,7 +182,8 @@
 
         <form action="{% url 'home' %}" method="post" onsubmit="showLoading(this)" id="contact" autocomplete="on">
             <!-- CSRF token needed to protect against cross site attacks -->
-            {% csrf_token %} 
+            {% csrf_token %}
+            <input type="text" maxlength="10" style="display: none;" name="honeypot">
             <div class="formCon">
                 <div class="nameEmail">
                     <label for="name">Name:</label>
