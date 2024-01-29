@@ -113,6 +113,7 @@ def carshow(request):
     if request.method == 'GET':
         return render(request, "carshow.html", {"location": carShowLoc})
     else:
+        logging.info("Received form data: %s", request.POST)
         # Handle the form data here
         firstName = request.POST.get('first_name')
         lastName = request.POST.get('last_name')
