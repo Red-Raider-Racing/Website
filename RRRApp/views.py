@@ -87,6 +87,8 @@ def index(request):
 
             # Render the template with the success or error message
             return redirect(f'/home/?success={success}&item={item_num}')
+    else:
+        return HttpResponse('Method not allowed')
 
 @cache_page(CACHE_TIMEOUT)
 def team(request):
@@ -152,6 +154,8 @@ def carshow(request):
 
         # Render the template with the success or error message
         return redirect(f"/car-show/?success={success}#message-container")
+    else:
+        return HttpResponse('Method not allowed')
 
 @cache_page(CACHE_TIMEOUT)
 def faq(request):
@@ -202,6 +206,8 @@ def custom_404(request):
 
         # Render the template with the success or error message
         return redirect(f"/404/?success={success}")
+    else:
+        return HttpResponse('Method not allowed')
     
 
 @cache_page(CACHE_TIMEOUT)
