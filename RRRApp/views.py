@@ -165,6 +165,9 @@ def faq(request):
 
     return render(request, "faq.html", {"questions": questions})
 
+def registration(request):
+    return redirect('/faq/?join=1#join')
+
 @cache_page(CACHE_TIMEOUT)
 def privacy(request):
     return render(request, "privacy.html",)

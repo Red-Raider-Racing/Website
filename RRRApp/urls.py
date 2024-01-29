@@ -17,6 +17,7 @@ urlpatterns = [
     path('sponsors/',views.sponsor, name='sponsor'),
     path('car-show/',views.carshow, name='carshow'),
     path('faq/',views.faq, name='faq'),
+    path('registration/',views.registration, name='registration'),
     path('privacy-policy/',views.privacy, name='privacy'),
     path('terms-of-service/',views.terms, name='terms'),
 
