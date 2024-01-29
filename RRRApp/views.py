@@ -29,7 +29,7 @@ def load(request):
 @cache_page(CACHE_TIMEOUT)
 @csrf_exempt
 def index(request):
-    merch_items = MerchItem.objects.all().order_by('item_name')
+    merch_items = MerchItem.objects.all().order_by('-item_name')
     if request.method == 'GET':
         return render(request, "index.html", {"merch": merch_items})
     elif request.method == 'POST':
