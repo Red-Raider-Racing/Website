@@ -97,7 +97,7 @@ class IndexViewTestCase(TestCase):
             'honeypot':'Filling this to simulate a bot'
         })
 
-        # Check that the response is a redirect (status code 302)
+        # Check that the response is a redirect (status code 400)
         self.assertTrue(response.status_code == 400)
 
     @patch('RRRApp.views.emailMessage') # Mock the emailMessage function in RRRApp.views for testing
@@ -160,7 +160,7 @@ class MerchTestCase(TestCase):
 
     def test_merchMessageFormat_size(self):
         '''
-        Tests merch with a size attatched.
+        Tests merch with a size attached.
         '''
 
         name = "John Doe"

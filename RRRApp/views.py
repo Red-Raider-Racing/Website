@@ -40,7 +40,7 @@ def index(request):
         honeypot = request.POST.get('honeypot')
 
         if honeypot:
-            logging.info("Bot filled out form")
+            logging.error("Bot filled out form")
             response = HttpResponse("Bot Detected", status=400)
             response['Location'] = '/home/'
             return response
@@ -130,7 +130,7 @@ def carshow(request):
         honeypot = request.POST.get('honeypot')
 
         if honeypot:
-            logging.info("Bot filled out form")
+            logging.error("Bot filled out form")
             response = HttpResponse("Bot Detected", status=400)
             response['Location'] = '/car-show/?success=0#message-container'
             return response
@@ -183,7 +183,7 @@ def custom_404(request):
         honeypot = request.POST.get('honeypot')
 
         if honeypot:
-            logging.info("Bot filled out form")
+            logging.error("Bot filled out form")
             response = HttpResponse("Bot Detected", status=400)
             response['Location'] = '/404/?success=0'
             return response

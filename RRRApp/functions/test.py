@@ -16,4 +16,4 @@ def test_carshow_capitalize():
     except Exception as e:
         print(f'Error:{e}')
 
-test_carshow_capitalize()
+# test_carshow_capitalize()
