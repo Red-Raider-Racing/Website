@@ -1,7 +1,7 @@
 from django.urls import path
 from . import views
 from django.views.static import serve
-from django.http import HttpResponse
+from django.views.generic.base import RedirectView
 
 def custom_serve(request, path, document_root=None, show_indexes=False):
     response = serve(request, path, document_root, show_indexes)
@@ -9,6 +9,9 @@ def custom_serve(request, path, document_root=None, show_indexes=False):
     return response
 
 urlpatterns = [
+    #----------------Old Google Pages----------------
+    path('registration/',views.registration, name='registration'),
+
     #----------------Pages----------------
     path('',views.load, name='home'),
     path('home/',views.index, name='home'),
@@ -17,7 +20,6 @@ urlpatterns = [
     path('sponsors/',views.sponsor, name='sponsor'),
     path('car-show/',views.carshow, name='carshow'),
     path('faq/',views.faq, name='faq'),
-    path('registration/',views.registration, name='registration'),
     path('privacy-policy/',views.privacy, name='privacy'),
     path('terms-of-service/',views.terms, name='terms'),
 
@@ -30,4 +32,7 @@ urlpatterns = [
 
     #----------------Robots----------------
     path('robots.txt/', views.robots, name='robots'), # this makes is so crawlers can use our website (SEO)
+
+    #----------------Favicon----------------
+    path('favicon.ico', RedirectView.as_view(url='/static/logos/favicon.ico')),
 ]
