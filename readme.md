@@ -22,7 +22,7 @@ In August 2023, I offered to create a new website for Red Raider Racing. I met w
 - CSS
 - JavaScript
 - PostgreSQL
-- AWS
+- AWS S3
 - Heroku
 - Google APIs
 
