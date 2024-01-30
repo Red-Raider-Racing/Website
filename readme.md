@@ -24,5 +24,6 @@ In August 2023, I offered to create a new website for Red Raider Racing. I met w
 - PostgreSQL
 - AWS
 - Heroku
+- Google APIs
 
 ## Total working time of the project: 6 Months
