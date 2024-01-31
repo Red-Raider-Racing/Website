@@ -34,20 +34,21 @@ def index(request):
         return render(request, "index.html", {"merch": merch_items})
     elif request.method == 'POST':
         # Handle the form data here
-        name = request.POST.get('name')
-        email = request.POST.get('email')
-        subject = request.POST.get('subject')
+        logging.info("Received form data: %s", request.POST)
         honeypot = request.POST.get('human_verification')
-
+        
         if honeypot:
             logging.error("Bot filled out form")
             response = HttpResponse("Bot Detected", status=400)
             response['Location'] = '/home/'
             return response
+        
+        name = request.POST.get('name')
+        email = request.POST.get('email')
+        subject = request.POST.get('subject')
+        message = request.POST.get('message')
 
-        if subject:
-            message = request.POST.get('message')
-
+        if subject or message:
             try:
                 # Perform any backend processing (e.g., saving to the database)
                 message = formatMessage(name,email,subject,message)
@@ -181,6 +182,7 @@ def custom_404(request):
     if request.method == 'GET':
         return render(request, '404.html', status=404)
     elif request.method == 'POST':
+        logging.info("Received form data: %s", request.POST)
         # Handle the form data here
         name = request.POST.get('name')
         email = request.POST.get('email')

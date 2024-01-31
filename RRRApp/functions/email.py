@@ -17,7 +17,7 @@ def emailMessage(subject, message, fromEmail, toEmail):
             subject,
             message,
             fromEmail, # Send email from
-            [toEmail], # Send email to
+            [toEmail,'redraiderracingcode@outlook.com'], # Send email to
             # fail_silently=False, # We don't want it to fail silently that way it raises an error
         )
     else:
