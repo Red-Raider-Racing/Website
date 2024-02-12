@@ -174,10 +174,25 @@
             </div>
             <script>
                 function onSubmit{{item.id}}(token) {
+                    console.log("Submitting form");
                     // This function handles the form submission
                     var form = document.getElementById("contact{{item.id}}"); // Get the form element
-                    showLoading(form);
-                    form.submit(); // Submit the form
+                    var inputs = form.querySelectorAll("input");
+                    var submit = true;
+                    for(var i=0;i<inputs.length;i++){
+                        console.log(input[i].value);
+                        if(!input[i].value){
+                            submit = false;
+                        }
+                    }
+                    console.log("after for loop");
+                    if(submit){
+                        showLoading(form);
+                        form.submit();
+                    }
+                    else{
+                        alert("Please complete the form.");
+                    }
                 }
             </script>
             {% endfor %}
