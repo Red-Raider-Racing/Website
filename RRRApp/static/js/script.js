@@ -716,3 +716,18 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     }
 });
+
+function validateForm() {
+    var response = grecaptcha.getResponse();
+    if (response.length == 0) {
+        // Captcha not completed
+        alert("Please complete the captcha.");
+        return false;
+    }
+    // Captcha completed, continue with form submission
+    return true;
+}
+
+function onCaptchaCompleted() {
+    document.getElementById("contact").submit();
+}
