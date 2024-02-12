@@ -716,3 +716,10 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     }
 });
+
+function onSubmit(token) {
+    // This function handles the form submission
+    var form = document.getElementById("formId"); // Get the form element
+    showLoading(form);
+    form.submit(); // Submit the form
+}

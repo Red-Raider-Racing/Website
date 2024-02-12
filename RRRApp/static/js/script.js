@@ -717,17 +717,9 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 });
 
-function validateForm() {
-    var response = grecaptcha.getResponse();
-    if (response.length == 0) {
-        // Captcha not completed
-        alert("Please complete the captcha.");
-        return false;
-    }
-    // Captcha completed, continue with form submission
-    return true;
-}
-
-function onCaptchaCompleted() {
-    document.getElementById("contact").submit();
+function onSubmit(token) {
+    // This function handles the form submission
+    var form = document.getElementById("formId"); // Get the form element
+    showLoading(form);
+    form.submit(); // Submit the form
 }
