@@ -174,18 +174,28 @@
             </div>
             <script>
                 function onSubmit{{item.id}}(token) {
-                    console.log("Submitting form");
-                    // This function handles the form submission
-                    var form = document.getElementById("contact{{item.id}}"); // Get the form element
+                    var form = document.getElementById("contact{{item.id}}");
                     var inputs = form.querySelectorAll("input");
                     var submit = true;
+                    var checked = false;
+                    var radio = false;
                     for(var i=0;i<inputs.length;i++){
-                        console.log(input[i].value);
-                        if(!input[i].value){
-                            submit = false;
+                        var input = inputs[i];
+                        if(input.type==="radio"){
+                            radio = true;
+                            if(input.checked){
+                                checked = true;
+                            }
+                        }
+                        if(input.required){
+                            if(!input.value){
+                                submit = false;
+                            }
                         }
                     }
-                    console.log("after for loop");
+                    if(submit && radio && !checked){
+                        submit = false;
+                    }
                     if(submit){
                         showLoading(form);
                         form.submit();

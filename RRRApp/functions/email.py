@@ -21,7 +21,7 @@ def emailMessage(subject, message, fromEmail, toEmail):
             # fail_silently=False, # We don't want it to fail silently that way it raises an error
         )
     else:
-        raise Exception
+        raise Exception("Empty message")
 
 def formatMessage(name, email, subject, message):
     '''
