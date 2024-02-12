@@ -10,8 +10,13 @@ from itertools import chain
 from django.http import HttpResponse
 import logging
 logging.basicConfig(level=logging.INFO)
+from django.conf import settings
 
-mainEmail = 'formulasaettu@gmail.com'
+if settings.DEBUG:
+    mainEmail = 'redraiderracingcode@outlook.com'
+else:
+    mainEmail = 'formulasaettu@gmail.com'
+    
 websiteEmail = 'redraiderracing@website.admin'
 
 TEMPLATE_DIRS = (

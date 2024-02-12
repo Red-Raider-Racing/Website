@@ -107,7 +107,7 @@
                     <p>Please complete the form and we'll inform you of the item's availability.</p>
                     <form action="{% url 'home' %}" method="post" onsubmit="showLoading(this)" id="contact" autocomplete="on">
                         <!-- CSRF token needed to protect against cross site attacks -->
-                        {% csrf_token %}
+                        {% csrf_token %}                        
                         <input type="text" maxlength="10" style="display: none;" name="human_verification">
                         <div class="formCon">
                             <div class="nameEmail">
@@ -154,9 +154,8 @@
                                 <input type="hidden" name="item" value="{{ item.item_name }}">
                             {% endif %}
                         </div>
-
                         <div class="submitArea">
-                            <input type="submit" value="Submit" class="submit">
+                            <input type="submit" value="Submit" class="submit g-recaptcha" data-sitekey="6Lfie3ApAAAAAEnKEGJAr7wX8cGJuFVSoNFkXBmA" data-callback='onSubmit' data-action='submit'>
                             <div id="message-container">
                                 <div class="message" id="sent">
                                     <h4>We will be in touch with you within 24-48 hours.</h4>
@@ -220,6 +219,7 @@
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/2.3.1/purify.min.js" defer></script>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </body>
 
 {% endblock %}
