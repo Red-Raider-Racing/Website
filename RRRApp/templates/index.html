@@ -188,7 +188,7 @@
         <h2 class="sectionTitle">Contact Us</h2>
         <hr class="underline">
 
-        <form action="{% url 'home' %}" method="post" onsubmit="showLoading(this)" id="contact" autocomplete="on">
+        <form action="{% url 'home' %}" method="post" onsubmit="showLoading(this)" id="formId" autocomplete="on">
             <!-- CSRF token needed to protect against cross site attacks -->
             {% csrf_token %}
             <input type="text" maxlength="10" style="display: none;" name="human_verification">
@@ -225,15 +225,6 @@
             </div>
         </form>
     </div>
-
-    <script>
-        function onSubmit(token) {
-            // This function handles the form submission
-            var form = document.getElementById("contact"); // Get the form element
-            showLoading(form);
-            form.submit(); // Submit the form
-        }
-    </script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/2.3.1/purify.min.js" defer></script>
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>

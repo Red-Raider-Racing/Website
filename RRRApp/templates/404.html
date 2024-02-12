@@ -24,7 +24,7 @@
         <h1 class="sectionTitle">Contact Us</h1>
         <p>If the problem persists, feel free to contact us and let us know!</p>
 
-        <form action="{% url '404' %}" method="post" onsubmit="showLoading(this)" id="contact" autocomplete="on">
+        <form action="{% url '404' %}" method="post" onsubmit="showLoading(this)" id="formId" autocomplete="on">
             {% csrf_token %}
             <input type="text" maxlength="10" style="display: none;" name="human_verification">
             <div class="formCon">
@@ -45,7 +45,7 @@
                 </div>
             </div>
             <div class="submitArea">
-                <input type="submit" value="Submit" class="submit">
+                <input type="submit" value="Submit" class="submit g-recaptcha" data-sitekey="6Lfie3ApAAAAAEnKEGJAr7wX8cGJuFVSoNFkXBmA" data-callback='onSubmit' data-action='submit'>
                 <div id="message-container">
                     <div class="message" id="sent">
                         <h4>Thanks for letting us know!</h4>
@@ -62,6 +62,7 @@
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/2.3.1/purify.min.js" defer></script>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </body>
 
 {% endblock %}

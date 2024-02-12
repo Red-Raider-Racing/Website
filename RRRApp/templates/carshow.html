@@ -57,7 +57,7 @@
             <hr class="underline">
             <p>Register your vehicle here. After you register you will receive an email with a link to pay. Paying early gives you a discounted price. Paying at the entrance costs ${{location.register_cost}}, where as paying early only costs ${{location.preregister_cost}}.</p>
     
-            <form action="{% url 'carshow' %}" method="post" onsubmit="showLoading(this)" autocomplete="on">
+            <form action="{% url 'carshow' %}" method="post" onsubmit="showLoading(this)" autocomplete="on" id="formId">
                 {% csrf_token %}
                 <input type="text" maxlength="10" style="display: none;" name="human_verification">
                 <div class="formCon">
@@ -101,7 +101,7 @@
                         <br>
                     
                         <div class="submitArea">
-                            <button type="submit" class="submit">Submit</button>
+                            <input type="submit" value="Submit" class="submit g-recaptcha" data-sitekey="6Lfie3ApAAAAAEnKEGJAr7wX8cGJuFVSoNFkXBmA" data-callback='onSubmit' data-action='submit'>
                             <div id="message-container">
                                 <div class="message" id="sent">
                                     <h3>You're not done yet!</h3>
@@ -121,6 +121,7 @@
         </div>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/2.3.1/purify.min.js" defer></script>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </body>
 
 {% endblock %}
