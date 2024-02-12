@@ -718,8 +718,37 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 function onSubmit(token) {
-    // This function handles the form submission
-    var form = document.getElementById("formId"); // Get the form element
-    showLoading(form);
-    form.submit(); // Submit the form
+    var form = document.getElementById("formId");
+    var inputs = form.querySelectorAll("input");
+    var message = form.querySelector("textarea");
+    var submit = true;
+    var checked = false;
+    var radio = false;
+    for(var i=0;i<inputs.length;i++){
+        var input = inputs[i];
+        if(input.type==="radio"){
+            radio = true;
+            if(input.checked){
+                checked = true;
+            }
+        }
+        if(input.required){
+            if(!input.value){
+                submit = false;
+            }
+        }
+    }
+    if(!message.value){
+        submit = false;
+    }
+    if(submit && radio && !checked){
+        submit = false;
+    }
+    if(submit){
+        showLoading(form);
+        form.submit();
+    }
+    else{
+        alert("Please complete the form.");
+    }
 }
