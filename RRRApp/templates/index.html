@@ -105,7 +105,7 @@
                 {% endif %}
                 <div class="merchHiddenText">
                     <p>Please complete the form and we'll inform you of the item's availability.</p>
-                    <form action="{% url 'home' %}" method="post" onsubmit="showLoading(this)" id="contact" autocomplete="on">
+                    <form action="{% url 'home' %}" method="post" onsubmit="showLoading(this)" id="contact{{item.id}}" autocomplete="on" style="overflow: hidden;">
                         <!-- CSRF token needed to protect against cross site attacks -->
                         {% csrf_token %}                        
                         <input type="text" maxlength="10" style="display: none;" name="human_verification">
@@ -155,7 +155,7 @@
                             {% endif %}
                         </div>
                         <div class="submitArea">
-                            <input type="submit" value="Submit" class="submit g-recaptcha" data-sitekey="6Lfie3ApAAAAAEnKEGJAr7wX8cGJuFVSoNFkXBmA" data-callback='onSubmit' data-action='submit'>
+                            <input type="submit" value="Submit" class="submit g-recaptcha" data-sitekey="6Lfie3ApAAAAAEnKEGJAr7wX8cGJuFVSoNFkXBmA" data-callback='onSubmit{{item.id}}' data-action='submit'>
                             <div id="message-container">
                                 <div class="message" id="sent">
                                     <h4>We will be in touch with you within 24-48 hours.</h4>
@@ -172,6 +172,14 @@
                 </div>
                 <button class="buyNow" onclick="showItem(this)">View</button>
             </div>
+            <script>
+                function onSubmit{{item.id}}(token) {
+                    // This function handles the form submission
+                    var form = document.getElementById("contact{{item.id}}"); // Get the form element
+                    showLoading(form);
+                    form.submit(); // Submit the form
+                }
+            </script>
             {% endfor %}
         </div>
     </div>
@@ -202,7 +210,7 @@
                 </div>
             </div>
             <div class="submitArea">
-                <input type="submit" value="Submit" class="submit">
+                <input type="submit" value="Submit" class="submit g-recaptcha" data-sitekey="6Lfie3ApAAAAAEnKEGJAr7wX8cGJuFVSoNFkXBmA" data-callback='onSubmit' data-action='submit'>
                 <div id="message-container">
                     <div class="message" id="sent">
                         <h4>We will be in touch with you within 24-48 hours.</h4>
@@ -217,6 +225,15 @@
             </div>
         </form>
     </div>
+
+    <script>
+        function onSubmit(token) {
+            // This function handles the form submission
+            var form = document.getElementById("contact"); // Get the form element
+            showLoading(form);
+            form.submit(); // Submit the form
+        }
+    </script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/2.3.1/purify.min.js" defer></script>
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
