@@ -735,6 +735,7 @@ function onSubmit(token) {
         if(input.required){
             if(!input.value){
                 submit = false;
+                break
             }
         }
     }
