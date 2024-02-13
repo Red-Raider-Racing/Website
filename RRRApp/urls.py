@@ -35,4 +35,7 @@ urlpatterns = [
 
     #----------------Favicon----------------
     path('favicon.ico', RedirectView.as_view(url='/static/logos/favicon.ico')),
+
+    #----------------Site Map----------------
+    path('sitemap.xml', RedirectView.as_view(url='/static/redraiderracing_com_home.xml')),
 ]
