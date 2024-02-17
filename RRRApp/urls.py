@@ -10,6 +10,7 @@ def custom_serve(request, path, document_root=None, show_indexes=False):
 
 urlpatterns = [
     #----------------Old Google Pages----------------
+    # This is just used for google to redirect to the correct page
     path('registration/',views.registration, name='registration'),
 
     #----------------Pages----------------
