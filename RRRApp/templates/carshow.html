@@ -11,7 +11,7 @@
     active.classList.add("active");
     active1.classList.add("active");
 </script>
-<body>
+<body onload="createCaptcha()">
     <div class="coverIMG carShowIMG">
         <div class="pageTitle">
             <h1 class="teamTitle">Annual Car Show</h1>
@@ -97,9 +97,20 @@
                                 Bike
                             </label>
                         </div>                        
-    
+                        
+                        <div class="captcha">
+                            <p>Please enter the letters you see.</p>
+                            <div class="captchaArea">
+                                <div id="captchaLetters">
+            
+                                </div>
+                                <br>
+                                <input type="text" required placeholder="Captcha" id="captchaInput" class="inputs">
+                            </div>
+                        </div>
+
                         <br>
-                    
+                        
                         <div class="submitArea">
                             <input type="submit" value="Submit" class="submit g-recaptcha" data-sitekey="6Lfie3ApAAAAAEnKEGJAr7wX8cGJuFVSoNFkXBmA" data-callback='onSubmit' data-action='submit'>
                             <div id="message-container">

@@ -16,7 +16,7 @@
     active.classList.add("active");
     active1.classList.add("active");
 </script>
-<body>
+<body onload="createCaptcha()">
     <div class="coverIMG welcomeIMG">
         <div class="pageTitle welcome">
             <p class="welcomeTitle">Welcome!</p>
@@ -154,6 +154,16 @@
                                 <input type="hidden" name="item" value="{{ item.item_name }}">
                             {% endif %}
                         </div>
+                        <div class="captcha">
+                            <p>Please enter the letters you see.</p>
+                            <div class="captchaArea">
+                                <div id="captchaLetters">
+            
+                                </div>
+                                <br>
+                                <input type="text" required placeholder="Captcha" id="captchaInput" class="inputs">
+                            </div>
+                        </div>
                         <div class="submitArea">
                             <input type="submit" value="Submit" class="submit g-recaptcha" data-sitekey="6Lfie3ApAAAAAEnKEGJAr7wX8cGJuFVSoNFkXBmA" data-callback='onSubmit{{item.id}}' data-action='submit'>
                             <div id="message-container">
@@ -174,34 +184,37 @@
             </div>
             <script>
                 function onSubmit{{item.id}}(token) {
-                    var form = document.getElementById("contact{{item.id}}");
-                    var inputs = form.querySelectorAll("input");
                     var submit = true;
-                    var checked = false;
-                    var radio = false;
-                    for(var i=0;i<inputs.length;i++){
-                        var input = inputs[i];
-                        if(input.type==="radio"){
-                            radio = true;
-                            if(input.checked){
-                                checked = true;
-                            }
-                        }
-                        if(input.required){
-                            if(!input.value){
-                                submit = false;
-                            }
-                        }
-                    }
-                    if(submit && radio && !checked){
-                        submit = false;
-                    }
+                    submit = validateCaptcha();
                     if(submit){
-                        showLoading(form);
-                        form.submit();
-                    }
-                    else{
-                        alert("Please complete the form.");
+                        var form = document.getElementById("contact{{item.id}}");
+                        var inputs = form.querySelectorAll("input");
+                        var checked = false;
+                        var radio = false;
+                        for(var i=0;i<inputs.length;i++){
+                            var input = inputs[i];
+                            if(input.type==="radio"){
+                                radio = true;
+                                if(input.checked){
+                                    checked = true;
+                                }
+                            }
+                            if(input.required){
+                                if(!input.value){
+                                    submit = false;
+                                }
+                            }
+                        }
+                        if(submit && radio && !checked){
+                            submit = false;
+                        }
+                        if(submit){
+                            showLoading(form);
+                            form.submit();
+                        }
+                        else{
+                            alert("Please complete the form.");
+                        }
                     }
                 }
             </script>
@@ -232,6 +245,16 @@
                     <label for="message">Message:</label>
                     <textarea id="message" name="message" rows="8" maxlength="1500" required class="inputs" oninput="sanitizeInput(this); updateCharacterCount();"></textarea>
                     <div id="character-count">Characters remaining: <br> 1500</div>
+                </div>
+            </div>
+            <div class="captcha">
+                <p>Please enter the letters you see.</p>
+                <div class="captchaArea">
+                    <div id="captchaLetters">
+
+                    </div>
+                    <br>
+                    <input type="text" required placeholder="Captcha" id="captchaInput" class="inputs">
                 </div>
             </div>
             <div class="submitArea">

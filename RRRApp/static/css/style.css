@@ -1683,6 +1683,27 @@ div#consent-popup a:hover, .acceptA#accept:hover{
     margin: 0;
 }
 
+.captcha{
+    margin: 5px;
+}
+
+.captchaArea>div{
+    border-radius: 5px;
+    background-color: var(--font-color);
+    display: inline-block;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.captchaArea{
+    overflow: visible;
+    margin: 10px;
+}
+
+form{
+    overflow: visible;
+}
+
 /* Styles for screens less than 500px wide */
 @media (max-width: 500px) {
     .inputs {

@@ -11,6 +11,7 @@ document.addEventListener("DOMContentLoaded", function() {
     parallaxEvent(window.scrollY);
     transparentHeader(window.scrollY);
     updateCharacterCount();
+    createCaptcha();
     
     const questions = document.querySelectorAll(".faq");
     
@@ -718,38 +719,92 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 function onSubmit(token) {
-    var form = document.getElementById("formId");
-    var inputs = form.querySelectorAll("input");
-    var message = form.querySelector("textarea");
     var submit = true;
-    var checked = false;
-    var radio = false;
-    for(var i=0;i<inputs.length;i++){
-        var input = inputs[i];
-        if(input.type==="radio"){
-            radio = true;
-            if(input.checked){
-                checked = true;
-            }
-        }
-        if(input.required){
-            if(!input.value){
-                submit = false;
-                break
-            }
-        }
-    }
-    if(!message.value){
-        submit = false;
-    }
-    if(submit && radio && !checked){
-        submit = false;
-    }
+    submit = validateCaptcha();
     if(submit){
-        showLoading(form);
-        form.submit();
+        var checked = false;
+        var radio = false;
+        var form = document.getElementById("formId");
+        var inputs = form.querySelectorAll("input");
+        var message = form.querySelector("textarea");
+        for(var i=0;i<inputs.length;i++){
+            var input = inputs[i];
+            if(input.type==="radio"){
+                radio = true;
+                if(input.checked){
+                    checked = true;
+                }
+            }
+            if(input.required){
+                if(!input.value){
+                    submit = false;
+                    break
+                }
+            }
+        }
+        if(!message.value){
+            submit = false;
+        }
+        if(submit && radio && !checked){
+            submit = false;
+        }
+        if(submit){
+            showLoading(form);
+            form.submit();
+        }
+        else{
+            alert("Please complete the form.");
+        }
     }
-    else{
-        alert("Please complete the form.");
+}
+
+var code;
+
+function createCaptcha() {
+    const captchaDivs = document.querySelectorAll('#captchaLetters');
+    if(captchaDivs){
+        for(var i=0;i<captchaDivs.length;i++){
+            captchaDivs[i].innerHTML="";
+        }
+        var charsArray ="23456789abcdefghjkmnpqrstuvwxyzABCDEFGHJKMNPQRSTUVWXYZ@!#$%^&*";
+        var lengthOtp = 6;
+        var captcha = [];
+        for (var i = 0; i < lengthOtp; i++) {
+            //below code will not allow Repetition of Characters
+            var index = Math.floor(Math.random() * charsArray.length); //get the next character from the array
+            if (captcha.indexOf(charsArray[index]) == -1)
+                captcha.push(charsArray[index]);
+            else i--;
+        }
+        //storing captcha so that can validate you can save it somewhere else according to your specific requirements
+        code = captcha.join("");
+        for(var j=0;j<captchaDivs.length;j++){
+            var canv = document.createElement("canvas");
+            canv.id = "captcha";
+            canv.width = 150;
+            canv.height = 40;
+            var ctx = canv.getContext("2d");
+            ctx.font = "25px Georgia";
+            ctx.textAlign = "left";
+            ctx.strokeText(captcha.join(""), 0, 30);
+            captchaDivs[j].appendChild(canv);
+        }
+    }
+}
+
+function validateCaptcha() {
+    const captchaInputs = document.querySelectorAll('#captchaInput');
+    var accept = false;
+    for(var i=0;i<captchaInputs.length;i++){
+        if(captchaInputs[i].value == code){
+            accept = true;
+        }
+    }
+    if (accept) {
+        return true;
+    }else{
+        alert("Invalid Captcha. Try Again");
+        createCaptcha();
+        return false;
     }
 }

@@ -6,7 +6,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/2.3.1/purify.min.js"></script>
     <link rel="canonical" href="https://www.redraiderracing.com/"/>
 </head>
-<body>
+<body onload="createCaptcha()">
     <div class="headerBackground"></div>
     <div class="errorCover">
         <div id="loading" class="errorWheel">
@@ -42,6 +42,16 @@
                     <label for="message">Message:</label>
                     <textarea id="message" name="message" rows="8" maxlength="1500" required class="inputs" oninput="sanitizeInput(this); updateCharacterCount();"></textarea>
                     <div id="character-count">Characters remaining: <br> 1500</div>
+                </div>
+            </div>
+            <div class="captcha">
+                <p>Please enter the letters you see.</p>
+                <div class="captchaArea">
+                    <div id="captchaLetters">
+
+                    </div>
+                    <br>
+                    <input type="text" required placeholder="Captcha" id="captchaInput" class="inputs">
                 </div>
             </div>
             <div class="submitArea">
