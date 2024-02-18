@@ -41,8 +41,9 @@ def index(request):
         # Handle the form data here
         logging.info("Received form data: %s", request.POST)
         honeypot = request.POST.get('human_verification')
+        captcha = request.POST.get('g-recaptcha-response')
         
-        if honeypot:
+        if honeypot or not captcha:
             logging.warning("Bot filled out form")
             response = HttpResponse("Bot Detected", status=400)
             response['Location'] = '/home/'
@@ -136,8 +137,9 @@ def carshow(request):
         email = request.POST.get('email')
         section = request.POST.get('car_type')
         honeypot = request.POST.get('human_verification')
-
-        if honeypot:
+        captcha = request.POST.get('g-recaptcha-response')
+        
+        if honeypot or not captcha:
             logging.warning("Bot filled out form")
             response = HttpResponse("Bot Detected", status=400)
             response['Location'] = '/car-show/?success=0#message-container'
@@ -194,8 +196,9 @@ def custom_404(request):
         subject = request.POST.get('subject')
         message = request.POST.get('message')
         honeypot = request.POST.get('human_verification')
-
-        if honeypot:
+        captcha = request.POST.get('g-recaptcha-response')
+        
+        if honeypot or not captcha:
             logging.warning("Bot filled out form")
             response = HttpResponse("Bot Detected", status=400)
             response['Location'] = '/404/?success=0'
