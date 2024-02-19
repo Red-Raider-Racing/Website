@@ -1685,6 +1685,7 @@ div#consent-popup a:hover, .acceptA#accept:hover{
 
 .captcha{
     margin: 5px;
+    overflow: visible;
 }
 
 .captchaArea>div{
@@ -1697,7 +1698,6 @@ div#consent-popup a:hover, .acceptA#accept:hover{
 
 .captchaArea{
     overflow: visible;
-    margin: 10px;
 }
 
 form{
