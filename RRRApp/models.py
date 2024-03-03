@@ -70,6 +70,7 @@ class CarShow(models.Model):
             validators=[MinValueValidator(0.00), MaxValueValidator(999.99)],
             help_text="Enter the cost of registering a car at the entrance.", default=None
         )  # Maximum cost set to 999 with 2 decimal places
+    show_registration = models.BooleanField(help_text="Toggle off if you want to hide the registration. Ex: After the car show you won't want people still registering.", default=True, null=True, blank=True)
 
     def __str__(self) -> str:
         return str(self.year)

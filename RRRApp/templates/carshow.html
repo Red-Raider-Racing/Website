@@ -52,6 +52,7 @@
             {% endif %}
 
         </div>
+        {% if location.show_registration %}
         <div class="carShowReg" id="Register">
             <h2 class="sectionTitle">Register</h2>
             <hr class="underline">
@@ -130,6 +131,7 @@
                 </div>
             </form>
         </div>
+        {% endif %}
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/2.3.1/purify.min.js" defer></script>
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
