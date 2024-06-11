@@ -4,7 +4,7 @@ Pillow==10.1.0 # To be able to upload images
 django-cleanup==8.0.0 # Deletes/updates files
 django-storages==1.14.2 # Needed for cloud storage
 boto3==1.28.84 # Needed for cloud storage
-gunicorn==21.2.0 # Needed for deployment
+gunicorn==22.0.0 # Needed for deployment
 requests==2.31.0 # Needed for APIs
 psycopg2==2.9.9 # Needed for the database
 dj-database-url==2.1.0 # Needed for database connection
